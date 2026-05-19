@@ -417,9 +417,140 @@
 
 @media (max-width: 768px) {
   .float-nav-desktop { display: none; }
+  .float-nav-desktop { display: none; }
   .float-nav-mobile  { display: block; }
   .scroll-top-btn    { display: flex; }
   body { padding-bottom: 72px; }
+}
+
+/* ── TOUREN-DATENBANK ── */
+.tour-filter-select {
+  appearance: none;
+  background: #243029;
+  color: #c0b9ae;
+  border: 1px solid rgba(74,140,63,0.25);
+  border-radius: 8px;
+  padding: 8px 32px 8px 12px;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237bbf6a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: border-color 0.2s;
+}
+.tour-filter-select:focus { outline: none; border-color: #4a8c3f; }
+
+.tour-card {
+  background: #243029;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tour-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+
+.tour-card-placeholder {
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(135deg, #1a3317 0%, #243029 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.tour-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.tour-badge-leicht { background: rgba(74,140,63,0.2); color: #7bbf6a; }
+.tour-badge-mittel { background: rgba(245,158,11,0.2); color: #f59e0b; }
+.tour-badge-schwer { background: rgba(239,68,68,0.2); color: #f87171; }
+
+.tour-detail-box {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.tour-detail-box.open { max-height: 600px; }
+
+.tour-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+}
+.tour-btn-primary { background: rgba(74,140,63,0.15); color: #7bbf6a; border: 1px solid rgba(74,140,63,0.3); }
+.tour-btn-primary:hover { background: rgba(74,140,63,0.28); }
+.tour-btn-ghost { background: rgba(255,255,255,0.05); color: #a89d8f; border: 1px solid rgba(255,255,255,0.08); }
+.tour-btn-ghost:hover { background: rgba(255,255,255,0.1); color: #d9d4cc; }
+.tour-btn-disabled { background: rgba(255,255,255,0.03); color: #4a5568; border: 1px solid rgba(255,255,255,0.04); cursor: not-allowed; opacity: 0.45; }
+
+.tour-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #243029;
+  border: 1px solid rgba(74,140,63,0.25);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  color: #c0b9ae;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+.tour-checkbox-label:hover { border-color: #4a8c3f; }
+.tour-checkbox-label:has(input:checked) { border-color: #4a8c3f; background: rgba(74,140,63,0.15); color: #7bbf6a; }
+.tour-checkbox { accent-color: #4a8c3f; width: 15px; height: 15px; cursor: pointer; }
+
+/* ── REGIONSKARTE ── */
+.map-district {
+  stroke: rgba(255,255,255,0.10);
+  stroke-width: 0.8;
+  transition: filter 0.18s ease;
+  cursor: default;
+}
+.map-district:hover { filter: brightness(1.5); }
+.map-pin { cursor: pointer; }
+.map-label {
+  font-size: 9px;
+  fill: rgba(200,216,184,0.55);
+  font-family: 'Inter', sans-serif;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.03em;
+}
+.map-tooltip {
+  position: absolute;
+  background: rgba(13,21,16,0.96);
+  border: 1px solid rgba(139,190,100,0.35);
+  color: #c8d8b8;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  display: none;
+  font-family: 'Inter', sans-serif;
 }
   </style>
 </head>
@@ -436,6 +567,10 @@
   <a href="#videos" class="fn-link" data-section="videos">
     <span class="nav-icon">🎬</span>
     <span>Videos</span>
+  </a>
+  <a href="#touren" class="fn-link" data-section="touren">
+    <span class="nav-icon">🥾</span>
+    <span>Touren</span>
   </a>
   <a href="#ueber" class="fn-link" data-section="ueber">
     <span class="nav-icon">🌿</span>
@@ -1425,6 +1560,142 @@
 
 
   <!-- ════════════════════════════════════════════
+       TOUREN-DATENBANK
+  ════════════════════════════════════════════ -->
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <section id="touren" class="bg-slate-900 py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+
+      <div class="text-center mb-10">
+        <span class="inline-block bg-forest-900 text-forest-400 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">Alle Routen</span>
+        <h2 class="text-3xl md:text-4xl font-black text-stone-50 mb-4">Touren-Datenbank</h2>
+        <p class="text-stone-400 max-w-xl mx-auto text-base">Alle bisher erkundeten Routen auf einen Blick – mit Filtern, Ausflugstipps und GPX-Download.</p>
+      </div>
+
+      <!-- Filter -->
+      <div class="flex flex-wrap gap-3 mb-8">
+        <select id="filterSchwierigkeit" class="tour-filter-select">
+          <option value="">Alle Schwierigkeiten</option>
+          <option value="leicht">Leicht</option>
+          <option value="mittel">Mittel</option>
+          <option value="schwer">Schwer</option>
+        </select>
+        <select id="filterDauer" class="tour-filter-select">
+          <option value="">Alle Dauern</option>
+          <option value="kurz">Unter 2 Std.</option>
+          <option value="mittel">2–4 Std.</option>
+          <option value="lang">Über 4 Std.</option>
+        </select>
+        <select id="filterRegion" class="tour-filter-select">
+          <option value="">Alle Regionen</option>
+        </select>
+        <select id="filterVerpflegung" class="tour-filter-select">
+          <option value="">Alle Verpflegung</option>
+          <option value="gastronomie">Mit Gastronomie</option>
+          <option value="keine">Nur Selbstversorgung</option>
+        </select>
+        <label class="tour-checkbox-label">
+          <input type="checkbox" id="filterFamilie" class="tour-checkbox">
+          <span>👨‍👩‍👧 Familienfreundlich</span>
+        </label>
+        <label class="tour-checkbox-label">
+          <input type="checkbox" id="filterHund" class="tour-checkbox">
+          <span>🐕 Hundefreundlich</span>
+        </label>
+      </div>
+
+      <!-- Grid -->
+      <div id="tourenGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+      <div id="tourenLeer" class="hidden text-center py-16 text-stone-500">
+        <p class="text-4xl mb-3">🗺️</p>
+        <p>Keine Touren gefunden.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       REGIONSKARTE
+  ════════════════════════════════════════════ -->
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <section class="bg-slate-800 py-12 md:py-16">
+    <div class="max-w-5xl mx-auto px-4">
+
+      <div class="text-center mb-8">
+        <span class="inline-block bg-forest-900 text-forest-400 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">Bergisches Land</span>
+        <h2 class="text-2xl md:text-3xl font-black text-stone-50 mb-3">Touren-Karte</h2>
+        <p class="text-stone-400 max-w-xl mx-auto text-sm">Alle erkundeten Routen auf einen Blick – klick auf einen Marker, um direkt zur Tour zu springen.</p>
+      </div>
+
+      <div class="relative rounded-xl overflow-hidden border border-forest-900/60" style="background:#0d1510">
+        <div id="mapTooltip" class="map-tooltip"></div>
+        <svg id="regionMap" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg"
+             style="width:100%;height:auto;display:block;">
+          <rect width="600" height="480" fill="#0d1510"/>
+
+          <!-- Rheinisch-Bergischer Kreis -->
+          <path id="rbk" class="map-district" data-name="Rheinisch-Bergischer Kreis" fill="#2d5a27" d="M113.2,338.4 L120.0,346.0 L128.0,350.2 L129.3,359.9 L121.7,365.0 L128.9,371.1 L137.3,374.6 L146.2,374.3 L155.0,372.9 L152.4,382.4 L151.9,392.1 L151.8,401.9 L152.9,411.6 L159.0,419.0 L167.9,422.9 L176.6,420.1 L185.6,419.2 L190.7,411.2 L198.4,406.0 L205.6,400.1 L209.1,391.2 L215.8,384.7 L223.5,390.2 L231.2,394.9 L240.5,396.8 L249.4,397.8 L257.4,393.8 L266.2,394.6 L275.1,394.1 L282.0,387.9 L286.5,379.5 L295.4,380.7 L302.4,374.7 L299.3,365.6 L290.0,366.0 L281.6,369.3 L274.6,363.3 L266.2,360.2 L260.3,352.8 L251.4,354.2 L242.6,352.2 L234.0,354.4 L225.6,350.3 L227.9,340.9 L235.7,336.0 L236.2,326.3 L241.2,317.9 L250.1,320.8 L257.4,315.1 L263.6,308.2 L265.5,298.6 L259.8,291.2 L251.1,293.0 L243.0,289.1 L234.4,286.4 L239.1,278.1 L245.3,271.1 L236.8,267.9 L232.4,259.4 L230.3,249.9 L223.8,242.9 L218.1,235.4 L209.2,236.0 L200.5,234.0 L191.9,237.0 L183.1,238.0 L174.1,238.6 L166.3,243.1 L167.1,253.2 L161.7,261.0 L151.1,261.4 L142.4,259.3 L136.8,251.6 L128.4,248.4 L119.5,248.7 L114.1,256.5 L105.2,257.4 L97.2,252.9 L88.4,253.7 L79.8,256.8 L70.9,259.4 L64.7,267.2 L63.9,277.2 L71.1,283.1 L80.0,284.5 L88.0,280.4 L95.8,275.8 L104.7,275.9 L113.6,275.6 L108.7,283.9 L110.8,293.6 L119.8,294.7 L128.9,295.6 L137.9,297.0 L131.5,303.7 L128.8,313.1 L124.0,321.4 L115.3,323.9 L107.0,329.4 L114.2,336.0 L113.2,338.4 Z"/>
+
+          <!-- Oberbergischer Kreis -->
+          <path id="obk" class="map-district" data-name="Oberbergischer Kreis" fill="#1d4720" d="M229.3,243.4 L230.7,253.1 L231.7,262.9 L239.1,268.4 L239.0,278.1 L231.7,284.0 L239.9,287.7 L247.1,293.5 L254.3,287.8 L262.2,292.4 L261.2,302.3 L259.6,311.9 L253.6,319.1 L244.8,318.3 L236.0,320.2 L233.2,329.4 L231.5,338.9 L223.6,344.1 L228.1,352.4 L236.6,356.1 L245.6,352.4 L254.4,354.0 L263.2,352.5 L269.9,358.9 L275.0,367.0 L284.4,367.2 L293.3,366.2 L302.1,367.0 L310.1,372.1 L319.3,372.5 L329.0,372.6 L337.0,377.2 L343.2,384.3 L350.1,391.6 L347.8,401.0 L345.1,410.3 L351.4,417.1 L360.0,420.2 L366.4,427.1 L372.9,433.7 L380.8,439.0 L387.5,445.6 L396.8,445.2 L405.1,441.6 L413.3,445.4 L421.3,450.0 L430.3,446.3 L436.6,453.2 L444.7,448.9 L454.1,449.0 L461.9,454.0 L470.8,453.9 L479.8,451.4 L486.7,445.2 L495.2,439.2 L503.9,436.7 L514.6,438.5 L521.0,431.0 L514.1,425.0 L516.8,415.6 L517.7,402.5 L508.8,399.4 L503.2,391.8 L513.3,389.8 L522.0,386.0 L530.2,380.2 L531.6,370.6 L533.0,360.3 L530.0,351.1 L519.5,351.7 L507.0,349.4 L500.6,341.5 L496.7,331.8 L502.1,324.1 L501.0,314.2 L494.5,307.6 L487.6,301.5 L489.5,291.9 L481.8,286.5 L473.1,285.0 L464.4,287.2 L455.8,289.2 L446.8,290.5 L438.3,293.3 L430.6,288.5 L423.9,282.1 L420.9,272.5 L411.9,269.4 L403.1,270.3 L394.2,270.6 L385.3,271.9 L376.4,273.0 L366.6,271.5 L367.2,261.8 L359.8,256.3 L354.0,249.0 L346.7,243.5 L350.8,234.9 L341.9,234.7 L333.0,234.8 L329.0,225.8 L322.2,219.6 L317.4,211.3 L323.2,203.6 L323.6,193.8 L314.9,190.8 L306.1,192.6 L307.8,183.0 L300.0,178.4 L291.1,178.2 L282.4,180.3 L273.5,182.2 L266.9,175.7 L259.0,180.0 L251.7,185.6 L245.7,192.8 L247.1,202.5 L250.4,211.6 L250.2,221.5 L247.7,230.8 L245.3,240.2 L237.5,244.8 L229.3,243.4 Z"/>
+
+          <!-- Remscheid -->
+          <path id="rem" class="map-district" data-name="Remscheid" fill="#3a7232" d="M175.0,238.3 L183.8,238.4 L192.7,237.2 L201.1,234.4 L210.0,235.9 L218.9,235.8 L225.1,243.1 L234.4,244.7 L243.2,243.1 L243.4,233.4 L248.5,225.3 L252.0,216.1 L245.8,208.9 L238.9,202.5 L229.9,202.2 L222.6,196.7 L214.0,193.6 L205.1,192.7 L196.7,196.5 L188.6,200.7 L179.6,199.6 L170.7,200.3 L164.1,207.0 L157.8,213.8 L159.0,223.6 L151.3,228.8 L150.2,238.5 L156.2,245.9 L163.0,239.3 L171.8,239.5 L175.0,238.3 Z"/>
+
+          <!-- Wuppertal -->
+          <path id="wup" class="map-district" data-name="Wuppertal" fill="#4a8c3f" d="M146.5,225.7 L155.4,226.0 L155.2,216.3 L162.4,210.5 L167.2,202.2 L175.7,199.7 L185.1,198.3 L194.0,197.9 L202.2,194.0 L211.6,192.9 L221.0,195.8 L227.7,202.5 L236.6,202.6 L245.3,204.9 L244.2,195.1 L251.4,189.4 L248.5,180.0 L240.2,176.2 L233.0,170.6 L233.4,160.7 L227.4,153.5 L224.7,143.9 L225.7,134.1 L216.8,133.8 L208.1,138.2 L199.5,140.8 L190.9,143.5 L182.2,146.7 L173.4,144.6 L170.6,135.4 L161.4,137.3 L151.9,139.5 L143.1,142.4 L134.3,141.6 L127.1,147.7 L121.9,155.9 L114.7,161.7 L108.1,168.6 L98.1,171.9 L90.3,176.6 L81.4,176.8 L88.9,182.2 L94.5,190.6 L95.3,200.4 L104.5,201.9 L112.5,196.9 L121.4,195.6 L130.0,197.9 L134.0,206.9 L137.5,216.5 L143.1,224.5 L146.5,225.7 Z"/>
+
+          <!-- Solingen -->
+          <path id="sol" class="map-district" data-name="Solingen" fill="#2a6624" d="M95.8,205.7 L89.2,212.5 L81.5,217.5 L73.3,221.7 L64.9,225.3 L56.5,230.5 L47.5,231.6 L42.6,240.6 L51.3,242.2 L60.0,244.2 L68.4,247.2 L67.2,257.0 L76.1,258.0 L84.3,254.3 L93.1,252.7 L101.6,256.2 L110.8,256.2 L117.3,249.5 L126.1,251.7 L134.9,248.9 L140.2,257.1 L148.3,261.7 L157.7,263.5 L166.0,259.5 L166.8,249.8 L167.3,240.1 L159.0,243.7 L150.4,241.7 L152.2,232.2 L145.9,225.1 L138.4,219.0 L133.2,210.9 L133.9,201.1 L126.0,196.8 L117.0,196.3 L108.3,197.9 L100.2,202.2 L95.8,205.7 Z"/>
+
+          <!-- Ennepe-Ruhr-Kreis -->
+          <path id="enk" class="map-district" data-name="Ennepe-Ruhr-Kreis" fill="#356a2e" d="M276.0,35.4 L268.6,40.7 L258.5,41.4 L249.6,42.7 L239.7,43.4 L238.4,53.2 L231.7,59.5 L223.7,63.6 L217.5,70.8 L208.5,70.7 L199.1,69.7 L190.2,66.3 L181.2,66.2 L172.6,68.6 L163.2,69.0 L155.6,63.4 L146.8,69.1 L138.6,72.7 L140.3,82.4 L142.7,91.8 L151.7,91.8 L160.7,94.9 L163.0,104.4 L158.9,113.0 L161.5,122.4 L168.6,128.2 L172.8,136.9 L178.7,144.4 L187.6,146.8 L195.6,141.9 L204.1,138.0 L212.7,135.7 L221.4,132.6 L224.9,142.2 L221.2,151.3 L230.2,156.5 L229.1,166.6 L235.4,174.3 L244.5,175.9 L251.1,182.4 L259.7,179.9 L268.0,176.4 L275.7,182.1 L284.1,179.3 L293.0,179.7 L301.8,179.3 L303.1,189.1 L310.6,195.7 L318.1,190.4 L325.2,198.8 L331.2,191.5 L340.0,189.6 L348.5,187.4 L357.2,185.1 L365.2,180.7 L367.4,171.2 L375.9,166.3 L368.1,161.2 L359.2,159.5 L352.8,152.5 L360.9,148.0 L367.7,141.9 L364.2,132.8 L355.0,133.0 L346.0,132.6 L337.2,132.5 L328.7,135.4 L322.4,142.8 L314.3,147.4 L306.2,143.5 L314.1,136.5 L318.0,127.8 L309.1,123.2 L301.0,119.2 L292.5,116.3 L299.9,109.5 L301.1,99.7 L308.1,93.5 L307.2,83.0 L314.5,77.4 L322.9,81.0 L332.7,80.4 L337.1,71.8 L343.5,64.9 L342.2,55.0 L333.3,55.5 L324.3,56.0 L316.7,50.9 L311.0,43.4 L302.5,40.7 L299.5,31.4 L290.7,27.9 L282.0,25.5 L275.8,32.6 L276.0,35.4 Z"/>
+
+          <!-- District labels -->
+          <text class="map-label" x="141" y="335" text-anchor="middle">Rhein.-Berg.</text>
+          <text class="map-label" x="412" y="300" text-anchor="middle">Oberberg.</text>
+          <text class="map-label" x="196" y="232" text-anchor="middle">Remscheid</text>
+          <text class="map-label" x="165" y="186" text-anchor="middle">Wuppertal</text>
+          <text class="map-label" x="100" y="232" text-anchor="middle">Solingen</text>
+          <text class="map-label" x="240" y="115" text-anchor="middle">Ennepe-Ruhr</text>
+
+          <!-- Tour pins -->
+          <g class="map-pin" data-tour="huelsenbach-tal" transform="translate(289.1,147.5)">
+            <circle r="9" fill="rgba(245,158,11,0.25)" stroke="none"/>
+            <circle r="6" fill="#f59e0b" stroke="#0d1510" stroke-width="1.5"/>
+            <circle r="2.5" fill="#0d1510"/>
+            <title>Meiler-Murmel-Minigolf im Hülsenbecker Tal</title>
+          </g>
+          <g class="map-pin" data-tour="dhünn-dom" transform="translate(148.8,300.2)">
+            <circle r="9" fill="rgba(245,158,11,0.25)" stroke="none"/>
+            <circle r="6" fill="#f59e0b" stroke="#0d1510" stroke-width="1.5"/>
+            <circle r="2.5" fill="#0d1510"/>
+            <title>Dom-Hopping im Grünen: Von der Dhünn zum Dom</title>
+          </g>
+
+          <!-- Attribution -->
+          <text x="597" y="476" text-anchor="end" font-size="7.5" fill="rgba(200,216,184,0.3)" font-family="sans-serif">© OpenStreetMap-Mitwirkende, ODbL</text>
+        </svg>
+      </div>
+
+      <!-- Legend -->
+      <div class="flex flex-wrap items-center gap-6 mt-4 justify-center">
+        <div class="flex items-center gap-2 text-xs text-stone-500">
+          <div class="w-3 h-3 rounded-full" style="background:#f59e0b"></div>
+          <span>Tour (klickbar)</span>
+        </div>
+        <p class="text-stone-600 text-xs">
+          Kartendaten: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="hover:text-stone-400 transition-colors">© OpenStreetMap-Mitwirkende</a>,
+          <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener" class="hover:text-stone-400 transition-colors">ODbL</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
        ÜBER DEN KANAL
   ════════════════════════════════════════════ -->
   <div class="section-divider max-w-5xl mx-auto"></div>
@@ -2149,7 +2420,7 @@
 
 <script>
 (function () {
-  const sections = ['hero', 'videos', 'ueber'];
+  const sections = ['hero', 'videos', 'touren', 'ueber'];
   const links = document.querySelectorAll('.fn-link');
   const progressBar = document.getElementById('navProgress');
   const scrollBtn = document.getElementById('scrollTopBtn');
@@ -2188,6 +2459,229 @@
   }, { passive: true });
 
   updateProgress();
+})();
+</script>
+
+<script>
+/* ── TOUREN-DATENBANK ── */
+(function () {
+  const grid = document.getElementById('tourenGrid');
+  const leer = document.getElementById('tourenLeer');
+  const selS = document.getElementById('filterSchwierigkeit');
+  const selD = document.getElementById('filterDauer');
+  const selR = document.getElementById('filterRegion');
+  const chkF = document.getElementById('filterFamilie');
+  const selV = document.getElementById('filterVerpflegung');
+  const chkH = document.getElementById('filterHund');
+
+  let alle = [];
+
+  function dauerKat(dauer) {
+    const h = parseInt((dauer || '').match(/(\d+)/)?.[1] || '2');
+    return h < 2 ? 'kurz' : h <= 4 ? 'mittel' : 'lang';
+  }
+
+  function toggleDetail(btn) {
+    const box = btn.closest('article').querySelector('.tour-detail-box');
+    box.classList.toggle('open');
+    btn.textContent = box.classList.contains('open') ? '▲ Details' : '▼ Details';
+  }
+  window.toggleTourDetail = toggleDetail;
+
+  function renderTours(tours) {
+    grid.innerHTML = '';
+    leer.classList.toggle('hidden', tours.length > 0);
+    tours.forEach(t => {
+      const badgeClass = `tour-badge-${t.schwierigkeit}`;
+      const jahreszeiten = Array.isArray(t.beste_jahreszeit) ? t.beste_jahreszeit.join(' · ') : '';
+      const imgHtml = t.bild
+        ? `<img src="${t.bild}" alt="${t.name}" class="w-full h-36 object-cover">`
+        : `<div class="tour-card-placeholder">🥾</div>`;
+      const gpxBtn = t.gpx
+        ? `<a href="${t.gpx}" download class="tour-btn tour-btn-ghost">⬇ GPX</a>`
+        : `<span class="tour-btn tour-btn-disabled">⬇ GPX</span>`;
+      const ytBtn = t.youtube
+        ? `<a href="${t.youtube}" target="_blank" rel="noopener" class="tour-btn tour-btn-ghost">▶ YouTube</a>`
+        : '';
+      const komootBtn = t.komoot
+        ? `<a href="${t.komoot}" target="_blank" rel="noopener" class="tour-btn tour-btn-ghost">🗺 Komoot</a>`
+        : '';
+      const familieTag = t.familienfreundlich
+        ? `<span class="text-xs text-forest-400">👨‍👩‍👧 Familienfreundlich</span>`
+        : '';
+      const hundTag = t.hundefreundlich
+        ? `<span class="text-xs text-forest-400">🐕 Hundefreundlich</span>`
+        : '';
+      const hatGastronomie = Array.isArray(t.verpflegung) && t.verpflegung.length > 0;
+      const verpflegungTag = `<span class="text-xs text-stone-400">🍽 ${hatGastronomie ? t.verpflegung.join(', ') : 'Selbstversorgung'}</span>`;
+      const ausruestungChips = Array.isArray(t.ausruestung) && t.ausruestung.length
+        ? `<div><span class="text-stone-300 font-semibold">Ausrüstung:</span><div class="flex flex-wrap gap-1 mt-1">${t.ausruestung.map(a => `<span class="text-xs bg-slate-800 text-stone-300 px-2 py-0.5 rounded-full border border-white/10">${a}</span>`).join('')}</div></div>`
+        : '';
+
+      const card = document.createElement('article');
+      card.id = 'tour-' + t.id;
+      card.className = 'tour-card';
+      card.dataset.schwierigkeit = t.schwierigkeit;
+      card.dataset.dauer = dauerKat(t.dauer);
+      card.dataset.region = t.region;
+      card.dataset.familie = t.familienfreundlich ? 'ja' : 'nein';
+      card.innerHTML = `
+        ${imgHtml}
+        <div class="p-5">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <h3 class="text-stone-100 font-bold text-base leading-snug">${t.name}</h3>
+            <span class="tour-badge ${badgeClass}">${t.schwierigkeit}</span>
+          </div>
+          <div class="flex flex-wrap gap-3 text-stone-400 text-xs mb-3">
+            <span>📍 ${t.region}</span>
+            <span>📏 ${t.distanz} km</span>
+            <span>⏱ ${t.dauer}</span>
+            ${familieTag}${hundTag}${verpflegungTag}
+          </div>
+          <p class="text-stone-400 text-sm leading-relaxed mb-4">${t.beschreibung}</p>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="toggleTourDetail(this)" class="tour-btn tour-btn-primary">▼ Details</button>
+            ${gpxBtn}${ytBtn}${komootBtn}
+          </div>
+          <div class="tour-detail-box">
+            <div class="border-t border-white/5 pt-4 mt-4 space-y-2 text-sm text-stone-400">
+              ${t.oeffnungszeiten ? `<div><span class="text-stone-300 font-semibold">Öffnungszeiten:</span> ${t.oeffnungszeiten}</div>` : ''}
+              ${t.parkplatz ? `<div><span class="text-stone-300 font-semibold">Parkplatz:</span> ${t.parkplatz}</div>` : ''}
+              ${t.preise ? `<div><span class="text-stone-300 font-semibold">Preise:</span> ${t.preise}</div>` : ''}
+              ${jahreszeiten ? `<div><span class="text-stone-300 font-semibold">Beste Jahreszeit:</span> ${jahreszeiten}</div>` : ''}
+              ${t.familien_hinweis ? `<div><span class="text-stone-300 font-semibold">Familien-Tipp:</span> ${t.familien_hinweis}</div>` : ''}
+              ${t.verpflegung ? `<div><span class="text-stone-300 font-semibold">Verpflegung:</span> ${Array.isArray(t.verpflegung) ? t.verpflegung.join(', ') : t.verpflegung}</div>` : ''}
+              ${ausruestungChips}
+            </div>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+  }
+
+  function filter() {
+    const s = selS.value, d = selD.value, r = selR.value, v = selV.value;
+    renderTours(alle.filter(t =>
+      (!s || t.schwierigkeit === s) &&
+      (!d || dauerKat(t.dauer) === d) &&
+      (!r || t.region === r) &&
+      (!chkF.checked || t.familienfreundlich) &&
+      (!v || (v === 'gastronomie' ? (Array.isArray(t.verpflegung) && t.verpflegung.length > 0) : (!t.verpflegung || t.verpflegung.length === 0))) &&
+      (!chkH.checked || t.hundefreundlich)
+    ));
+  }
+
+  [selS, selD, selR, selV].forEach(el => el.addEventListener('change', filter));
+  [chkF, chkH].forEach(el => el.addEventListener('change', filter));
+
+  alle = [
+    {
+      id: "huelsenbach-tal",
+      name: "Meiler-Murmel-Minigolf im Hülsenbecker Tal",
+      region: "Ennepetal",
+      schwierigkeit: "leicht",
+      dauer: "2–3 Std.",
+      distanz: 5.2,
+      familienfreundlich: true,
+      beschreibung: "Eine abwechslungsreiche Runde durch das idyllische Hülsenbecker Tal in Ennepetal. Vorbei am historischen Meiler und dem beliebten Murmel-Minigolf – ideal für Familien mit Kindern.",
+      youtube: "https://youtu.be/X6EM-J9xXRQ",
+      gpx: null, komoot: null,
+      parkplatz: "Parkplatz Hülsenbecker Tal, Ennepetal",
+      beste_jahreszeit: ["Frühling", "Sommer", "Herbst"],
+      bild: null,
+      oeffnungszeiten: "Ganzjährig zugänglich",
+      preise: "Eintritt frei, Minigolf kostenpflichtig",
+      familien_hinweis: "Ideal für Kinder ab 3 Jahren. Kinderwagen-tauglich auf dem Hauptweg.",
+      verpflegung: ["Imbiss"],
+      hundefreundlich: true,
+      ausruestung: ["Festes Schuhwerk", "Sonnenschutz", "Wasser mitnehmen"]
+    },
+    {
+      id: "dhünn-dom",
+      name: "Dom-Hopping im Grünen: Von der Dhünn zum Dom",
+      region: "Odenthal",
+      schwierigkeit: "mittel",
+      dauer: "3–4 Std.",
+      distanz: 12.5,
+      familienfreundlich: true,
+      beschreibung: "Von der Dhünn-Talsperre zum Altenberger Dom – eine klassische Bergische Route mit wechselndem Terrain, Aussichten über das Bergische Land und einem beeindruckenden Ziel.",
+      youtube: "https://youtu.be/Wor2_Zau2sE",
+      gpx: null, komoot: null,
+      parkplatz: "Wanderparkplatz Altenberger Dom oder Dhünn-Talsperre",
+      beste_jahreszeit: ["Frühling", "Sommer", "Herbst"],
+      bild: null,
+      oeffnungszeiten: "Ganzjährig, Dom täglich 9–18 Uhr",
+      preise: "Kostenlos",
+      familien_hinweis: "Für Kinder ab 8 Jahren empfohlen. Einige Anstiege, feste Schuhe nötig.",
+      verpflegung: ["Gaststätte"],
+      hundefreundlich: true,
+      ausruestung: ["Festes Schuhwerk", "Sonnenschutz", "Regenjacke"]
+    },
+  ];
+  [...new Set(alle.map(t => t.region))].sort().forEach(r => {
+    const opt = document.createElement('option');
+    opt.value = r; opt.textContent = r;
+    selR.appendChild(opt);
+  });
+  renderTours(alle);
+})();
+</script>
+
+<script>
+/* ── REGIONSKARTE ── */
+(function () {
+  const svg = document.getElementById('regionMap');
+  const tooltip = document.getElementById('mapTooltip');
+  if (!svg || !tooltip) return;
+
+  const container = svg.parentElement;
+
+  function posTooltip(e) {
+    const rect = container.getBoundingClientRect();
+    let x = e.clientX - rect.left + 14;
+    let y = e.clientY - rect.top - 34;
+    if (x + 200 > rect.width) x = e.clientX - rect.left - tooltip.offsetWidth - 10;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top  = y + 'px';
+  }
+
+  svg.addEventListener('mousemove', posTooltip);
+
+  svg.querySelectorAll('.map-district').forEach(path => {
+    path.addEventListener('mouseenter', () => {
+      tooltip.textContent = path.dataset.name;
+      tooltip.style.display = 'block';
+    });
+    path.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+  });
+
+  svg.querySelectorAll('.map-pin').forEach(pin => {
+    const innerCircle = pin.querySelectorAll('circle')[1];
+
+    pin.addEventListener('mouseenter', e => {
+      tooltip.textContent = '📍 ' + (pin.querySelector('title')?.textContent || '');
+      tooltip.style.display = 'block';
+      if (innerCircle) innerCircle.setAttribute('r', '8');
+    });
+    pin.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+      if (innerCircle) innerCircle.setAttribute('r', '6');
+    });
+
+    pin.addEventListener('click', () => {
+      const tourId = pin.dataset.tour;
+      const card = document.getElementById('tour-' + tourId);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const orig = card.style.boxShadow;
+        card.style.transition = 'box-shadow 0.3s ease';
+        card.style.boxShadow = '0 0 0 2px #f59e0b, 0 8px 32px rgba(0,0,0,0.45)';
+        setTimeout(() => { card.style.boxShadow = orig; }, 1800);
+      } else {
+        document.getElementById('touren')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 })();
 </script>
 
