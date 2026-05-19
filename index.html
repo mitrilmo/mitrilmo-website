@@ -233,9 +233,244 @@
       width: 196px;
     }
   </style>
+
+  <style>
+/* ── FLOATING NAV ─────────────────────────────────────── */
+:root {
+  --nav-bg:       rgba(15, 26, 18, 0.92);
+  --nav-border:   rgba(139, 190, 100, 0.18);
+  --nav-accent:   #8bbe64;
+  --nav-text:     #c8d8b8;
+  --nav-active:   #8bbe64;
+  --nav-hover-bg: rgba(139, 190, 100, 0.12);
+  --nav-radius:   14px;
+  --nav-shadow:   0 4px 24px rgba(0,0,0,0.45);
+}
+
+.float-nav-desktop {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  border-radius: var(--nav-radius);
+  padding: 10px 8px;
+  box-shadow: var(--nav-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.float-nav-desktop a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--nav-text);
+  text-decoration: none;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  padding: 8px 10px;
+  border-radius: 9px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.float-nav-desktop a .nav-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.float-nav-desktop a:hover {
+  background: var(--nav-hover-bg);
+  color: var(--nav-active);
+}
+
+.float-nav-desktop a.active {
+  background: var(--nav-hover-bg);
+  color: var(--nav-active);
+  font-weight: 600;
+}
+
+.float-nav-desktop::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: rgba(139, 190, 100, 0.12);
+  border-radius: 3px;
+}
+
+.float-nav-progress {
+  position: absolute;
+  left: -12px;
+  top: 0;
+  width: 3px;
+  background: var(--nav-accent);
+  border-radius: 3px;
+  transition: height 0.2s ease;
+}
+
+.float-nav-divider {
+  height: 1px;
+  background: var(--nav-border);
+  margin: 2px 4px;
+}
+
+.float-nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 7px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  opacity: 0.6;
+}
+.float-nav-top:hover { background: var(--nav-hover-bg); color: var(--nav-active); opacity: 1; }
+
+.float-nav-mobile {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--nav-bg);
+  border-top: 1px solid var(--nav-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.float-nav-mobile-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0 8px;
+}
+
+.float-nav-mobile a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--nav-text);
+  text-decoration: none;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  padding: 4px 16px;
+  border-radius: 8px;
+  transition: color 0.2s;
+  opacity: 0.7;
+}
+
+.float-nav-mobile a .nav-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.float-nav-mobile a:hover,
+.float-nav-mobile a.active {
+  color: var(--nav-active);
+  opacity: 1;
+}
+
+.float-nav-mobile a.active .nav-icon {
+  filter: drop-shadow(0 0 6px rgba(139, 190, 100, 0.6));
+}
+
+.scroll-top-btn {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 80px;
+  z-index: 9998;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  color: var(--nav-text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--nav-shadow);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, opacity 0.3s;
+  opacity: 0;
+}
+.scroll-top-btn.visible { opacity: 1; }
+
+@media (max-width: 768px) {
+  .float-nav-desktop { display: none; }
+  .float-nav-mobile  { display: block; }
+  .scroll-top-btn    { display: flex; }
+  body { padding-bottom: 72px; }
+}
+  </style>
 </head>
 
 <body class="bg-slate-800 text-stone-200 font-sans antialiased">
+
+<!-- FLOATING NAV: Desktop Sidebar -->
+<nav class="float-nav-desktop" aria-label="Seitennavigation">
+  <div class="float-nav-progress" id="navProgress"></div>
+  <a href="#hero" class="fn-link active" data-section="hero">
+    <span class="nav-icon">🏔️</span>
+    <span>Start</span>
+  </a>
+  <a href="#videos" class="fn-link" data-section="videos">
+    <span class="nav-icon">🎬</span>
+    <span>Videos</span>
+  </a>
+  <a href="#ueber" class="fn-link" data-section="ueber">
+    <span class="nav-icon">🌿</span>
+    <span>Über den Kanal</span>
+  </a>
+  <div class="float-nav-divider"></div>
+  <a href="#hero" class="float-nav-top" title="Zurück nach oben">↑</a>
+</nav>
+
+<!-- FLOATING NAV: Mobile Bottom Bar -->
+<nav class="float-nav-mobile" aria-label="Mobile Navigation">
+  <div class="float-nav-mobile-inner">
+    <a href="#hero" class="fn-link active" data-section="hero">
+      <span class="nav-icon">🏔️</span>
+      <span>Start</span>
+    </a>
+    <a href="#videos" class="fn-link" data-section="videos">
+      <span class="nav-icon">🎬</span>
+      <span>Videos</span>
+    </a>
+    <a href="#ueber" class="fn-link" data-section="ueber">
+      <span class="nav-icon">🌿</span>
+      <span>Über mich</span>
+    </a>
+    <a href="https://www.youtube.com/@mitrilmo" target="_blank" rel="noopener">
+      <span class="nav-icon">▶️</span>
+      <span>YouTube</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Scroll-to-top (nur Mobile) -->
+<button class="scroll-top-btn" id="scrollTopBtn"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  aria-label="Nach oben">↑</button>
 
   <!-- ════════════════════════════════════════════
        NAVIGATION
@@ -1911,6 +2146,50 @@
       });
     });
   </script>
+
+<script>
+(function () {
+  const sections = ['hero', 'videos', 'ueber'];
+  const links = document.querySelectorAll('.fn-link');
+  const progressBar = document.getElementById('navProgress');
+  const scrollBtn = document.getElementById('scrollTopBtn');
+
+  function setActive(sectionId) {
+    links.forEach(l => {
+      l.classList.toggle('active', l.dataset.section === sectionId);
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  function updateProgress() {
+    if (!progressBar) return;
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    progressBar.style.height = (isNaN(pct) ? 0 : pct) + '%';
+  }
+
+  function updateScrollBtn() {
+    if (!scrollBtn) return;
+    scrollBtn.classList.toggle('visible', window.scrollY > 300);
+  }
+
+  window.addEventListener('scroll', () => {
+    updateProgress();
+    updateScrollBtn();
+  }, { passive: true });
+
+  updateProgress();
+})();
+</script>
 
 </body>
 </html>
