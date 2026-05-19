@@ -1,6 +1,29 @@
 {
   "touren": [
     {
+      "id": "trassentrecking-im-pott",
+      "name": "TRASSENTREKKING: Wandern auf alten Schienen durchs südliche Ruhrgebiet!",
+      "region": "Gevelsberg",
+      "schwierigkeit": "leicht",
+      "dauer": "3-4 Std.",
+      "distanz": 20,
+      "familienfreundlich": true,
+      "beschreibung": "Wir wandern von \"Neuamerika\" quer durch das südliche Ruhrgebiet bis nach Gevelsberg über stillgelegte Bahntrassen.",
+      "youtube": "https://youtu.be/g8KUCifX5ec",
+      "gpx": "gpx/trassentrecking-im-pott.gpx",
+      "komoot": "https://www.komoot.com/de-de/tour/2815016587?share_token=aHPYQyhCwzF2LssZbpG7VhsyOmazJKIhdNFizJTcodu2trbXI1&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
+      "parkplatz": "Parkplatz am Hauptbahnhof Gevelsberg",
+      "beste_jahreszeit": [],
+      "bild": "images/tours/trassentrecking-im-pott.jpg",
+      "oeffnungszeiten": "ganzjährig zugänglich",
+      "preise": "kostenlos",
+      "familien_hinweis": "für Kinder ab 6 Jahren geeignet",
+      "verpflegung": ["Imbiss", "Café"],
+      "hundefreundlich": true,
+      "ausruestung": ["Festes Schuhwerk", "Wasser mitnehmen", "Snacks"],
+      "koordinaten": { "lat": 51.32465, "lng": 7.340058 }
+    },
+    {
       "id": "huelsenbach-tal",
       "name": "Meiler-Murmel-Minigolf im Hülsenbecker Tal",
       "region": "Ennepetal",

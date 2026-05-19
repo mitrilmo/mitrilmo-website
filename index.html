@@ -1662,6 +1662,12 @@
           <text class="map-label" x="240" y="115" text-anchor="middle">Ennepe-Ruhr</text>
 
           <!-- Tour pins -->
+          <g class="map-pin" data-tour="trassentrecking-im-pott" transform="translate(270.6,127.5)">
+            <circle r="9" fill="rgba(245,158,11,0.25)" stroke="none"/>
+            <circle r="6" fill="#f59e0b" stroke="#0d1510" stroke-width="1.5"/>
+            <circle r="2.5" fill="#0d1510"/>
+            <title>TRASSENTREKKING: Wandern auf alten Schienen durchs südliche Ruhrgebiet!</title>
+          </g>
           <g class="map-pin" data-tour="huelsenbach-tal" transform="translate(289.1,147.5)">
             <circle r="9" fill="rgba(245,158,11,0.25)" stroke="none"/>
             <circle r="6" fill="#f59e0b" stroke="#0d1510" stroke-width="1.5"/>
@@ -2575,6 +2581,28 @@
   [chkF, chkH].forEach(el => el.addEventListener('change', filter));
 
   alle = [
+    {
+      id: "trassentrecking-im-pott",
+      name: "TRASSENTREKKING: Wandern auf alten Schienen durchs südliche Ruhrgebiet!",
+      region: "Gevelsberg",
+      schwierigkeit: "leicht",
+      dauer: "3-4 Std.",
+      distanz: 20,
+      familienfreundlich: true,
+      beschreibung: "Wir wandern von \"Neuamerika\" quer durch das südliche Ruhrgebiet bis nach Gevelsberg über stillgelegte Bahntrassen.",
+      youtube: "https://youtu.be/g8KUCifX5ec",
+      gpx: "gpx/trassentrecking-im-pott.gpx",
+      komoot: "https://www.komoot.com/de-de/tour/2815016587?share_token=aHPYQyhCwzF2LssZbpG7VhsyOmazJKIhdNFizJTcodu2trbXI1&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
+      parkplatz: "Parkplatz am Hauptbahnhof Gevelsberg",
+      beste_jahreszeit: [],
+      bild: "images/tours/trassentrecking-im-pott.jpg",
+      oeffnungszeiten: "ganzjährig zugänglich",
+      preise: "kostenlos",
+      familien_hinweis: "für Kinder ab 6 Jahren geeignet",
+      verpflegung: ["Imbiss","Café"],
+      hundefreundlich: true,
+      ausruestung: ["Festes Schuhwerk","Wasser mitnehmen","Snacks"]
+    },
     {
       id: "huelsenbach-tal",
       name: "Meiler-Murmel-Minigolf im Hülsenbecker Tal",
