@@ -232,6 +232,26 @@
       flex-shrink: 0;
       width: 196px;
     }
+
+    /* ── Wanderberichte ── */
+    .story-card {
+      background: #243029;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 1.25rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+    }
+    .story-card:hover {
+      border-color: rgba(74,140,63,0.5);
+      background: #2a3a2e;
+    }
+    .story-card-date { font-size: 0.72rem; color: #8f8275; font-weight: 600; }
+    .story-card-title { font-size: 0.95rem; font-weight: 700; color: #d9d4cc; line-height: 1.35; }
+    .story-card-arrow { font-size: 0.75rem; color: #4a8c3f; margin-top: auto; padding-top: 0.5rem; }
   </style>
 
   <style>
@@ -572,6 +592,10 @@
     <span class="nav-icon">🎬</span>
     <span>Videos</span>
   </a>
+  <a href="#wanderberichte" class="fn-link" data-section="wanderberichte">
+    <span class="nav-icon">📖</span>
+    <span>Wanderberichte</span>
+  </a>
   <a href="#ueber" class="fn-link" data-section="ueber">
     <span class="nav-icon">🌿</span>
     <span>Über den Kanal</span>
@@ -628,6 +652,7 @@
       <!-- Desktop Links -->
       <div class="hidden md:flex items-center gap-6 text-sm font-medium text-stone-300">
         <a href="#videos" class="hover:text-forest-400 transition-colors">Videos</a>
+        <a href="#wanderberichte" class="hover:text-forest-400 transition-colors">Wanderberichte</a>
         <a href="#ueber" class="hover:text-forest-400 transition-colors">Über den Kanal</a>
         <a
           href="https://www.youtube.com/@mitrilmo"
@@ -653,6 +678,7 @@
     <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-slate-900/95 backdrop-blur">
       <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 text-sm font-medium">
         <a href="#videos" class="py-2 text-stone-300 hover:text-forest-400 transition-colors" onclick="closeMobileMenu()">Videos</a>
+        <a href="#wanderberichte" class="py-2 text-stone-300 hover:text-forest-400 transition-colors" onclick="closeMobileMenu()">Wanderberichte</a>
         <a href="#ueber" class="py-2 text-stone-300 hover:text-forest-400 transition-colors" onclick="closeMobileMenu()">Über den Kanal</a>
         <a
           href="https://www.youtube.com/@mitrilmo"
@@ -1996,6 +2022,37 @@
   ════════════════════════════════════════════ -->
   <div class="section-divider max-w-5xl mx-auto"></div>
 
+  <!-- ════════════════════════════════════════════
+       WANDERBERICHTE
+  ════════════════════════════════════════════ -->
+  <section id="wanderberichte" class="bg-slate-900 py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-forest-800/40 border border-forest-700/30 px-3 py-1 rounded-full text-forest-300 text-xs font-semibold uppercase tracking-widest mb-3">
+            <span class="w-1.5 h-1.5 bg-forest-400 rounded-full"></span>
+            Wanderberichte
+          </div>
+          <h2 class="text-2xl md:text-3xl font-black text-white">Aus dem Tagebuch</h2>
+          <p class="text-stone-400 text-sm mt-1">Persönliche Geschichten von unterwegs – ausführlich, ehrlich, mit allem was dazugehört.</p>
+        </div>
+      </div>
+
+      <!-- Karten-Grid -->
+      <div id="storiesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+
+      <!-- Leer-Hinweis -->
+      <div id="storiesLeer" class="hidden text-center py-16 text-stone-500 text-sm">
+        Noch keine Wanderberichte vorhanden. Die ersten kommen bald!
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
   <section id="ueber" class="bg-slate-800 py-16 md:py-24">
     <div class="max-w-5xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -2251,6 +2308,7 @@
         <nav class="flex flex-wrap items-center gap-6 text-sm text-stone-500">
           <a href="#hero" class="hover:text-stone-300 transition-colors">Home</a>
           <a href="#videos" class="hover:text-stone-300 transition-colors">Videos</a>
+          <a href="#wanderberichte" class="hover:text-stone-300 transition-colors">Wanderberichte</a>
           <a href="#ueber" class="hover:text-stone-300 transition-colors">Über den Kanal</a>
           <a href="https://www.youtube.com/@mitrilmo" target="_blank" rel="noopener" class="hover:text-forest-400 transition-colors">YouTube ↗</a>
         </nav>
@@ -2527,7 +2585,7 @@
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                 </svg>
-                Story
+                Blog
               </span>
               <time class="text-xs text-stone-500 font-medium">${post.date}</time>
             </div>
@@ -3015,6 +3073,38 @@
     selR.appendChild(opt);
   });
   renderTours(alle);
+})();
+</script>
+
+<script>
+/* ── WANDERBERICHTE ── */
+(function () {
+  // ══════════════════════════════════════════
+  // WANDERBERICHTE – neuesten Bericht OBEN einfügen
+  // Format: { titel, datum, datumISO, datei }
+  // ══════════════════════════════════════════
+  const wanderberichte = [
+  ];
+
+  const grid = document.getElementById('storiesGrid');
+  const leer = document.getElementById('storiesLeer');
+  if (!grid) return;
+
+  if (wanderberichte.length === 0) {
+    leer.classList.remove('hidden');
+    return;
+  }
+
+  wanderberichte.forEach(s => {
+    const card = document.createElement('a');
+    card.href = s.datei;
+    card.className = 'story-card';
+    card.innerHTML = `
+      <span class="story-card-date">📅 ${s.datum}</span>
+      <span class="story-card-title">${s.titel}</span>
+      <span class="story-card-arrow">Lesen →</span>`;
+    grid.appendChild(card);
+  });
 })();
 </script>
 
