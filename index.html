@@ -2955,7 +2955,7 @@
               ${t.preise ? `<div><span class="text-stone-300 font-semibold">Preise:</span> ${t.preise}</div>` : ''}
               ${jahreszeiten ? `<div><span class="text-stone-300 font-semibold">Beste Jahreszeit:</span> ${jahreszeiten}</div>` : ''}
               ${t.familien_hinweis ? `<div><span class="text-stone-300 font-semibold">Familien-Tipp:</span> ${t.familien_hinweis}</div>` : ''}
-              ${t.verpflegung ? `<div><span class="text-stone-300 font-semibold">Verpflegung:</span> ${Array.isArray(t.verpflegung) ? t.verpflegung.join(', ') : t.verpflegung}</div>` : ''}
+              ${Array.isArray(t.verpflegung) && t.verpflegung.length > 0 ? `<div><span class="text-stone-300 font-semibold">Verpflegung:</span> ${t.verpflegung.join(', ')}</div>` : ''}
               ${ausruestungChips}
             </div>
           </div>
