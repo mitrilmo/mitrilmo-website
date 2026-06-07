@@ -70,6 +70,32 @@
       "koordinaten": { "lat": 51.05856836930352, "lng": 7.132956664713836 }
     },
     {
+      "id": "heilenbecke-talsperre",
+      "name": "Rund um die Heilenbecke Talsperre",
+      "region": "Ennepetal",
+      "schwierigkeit": "leicht",
+      "dauer": "30-60 Minuten",
+      "distanz": 2.6,
+      "familienfreundlich": true,
+      "beschreibung": "Rundweg Heilenbecke Talsperre: Wenn die Enten den Weg besser kennen als wir. Natur pur und verdammt viel frische Luft! 🌲✨",
+      "youtube": null,
+      "gpx": "gpx/heilenbecke-talsperre.gpx",
+      "komoot": "https://www.komoot.com/de-de/tour/3020374601?share_token=agK7jyl5sOLxD0gz5cAa67op8JAl2sv8rlH2CFcVYlOWB7nFZx&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
+      "parkplatz": "Wanderparkplatz an der Heilenbecke Talsperre",
+      "beste_jahreszeit": ["Frühling","Sommer","Herbst","Winter"],
+      "bild": "images/tours/heilenbecke-talsperre.jpg",
+      "oeffnungszeiten": "ganzjährig zugänglich",
+      "preise": "1,00 Euro",
+      "familien_hinweis": "für Kinder ab 6 Jahren geeignet",
+      "verpflegung": [],
+      "hundefreundlich": true,
+      "ausruestung": ["Festes Schuhwerk"],
+      "koordinaten": {
+        "lat": 51.256694694481396,
+        "lng": 7.371141160149752
+      }
+    },
+    {
       "id": "neyetalsperre-rundweg",
       "name": "Rund um die Neye-Talsperre",
       "region": "Wipperfürth",
