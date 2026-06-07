@@ -69,5 +69,28 @@
       "ausruestung": ["Festes Schuhwerk", "Sonnenschutz", "Regenjacke"],
       "koordinaten": { "lat": 51.05856836930352, "lng": 7.132956664713836 }
     },
+    {
+      "id": "neyetalsperre-rundweg",
+      "name": "Rund um die Neye-Talsperre",
+      "region": "Wipperfürth",
+      "schwierigkeit": "leicht",
+      "dauer": "2-3 Std.",
+      "distanz": 12,
+      "familienfreundlich": true,
+      "beschreibung": "Auf satten 12 Kilometern gibt es reinstes Karibik-Feeling – inklusive schattiger Urwald-Pfade und genialem Blick aufs glitzernde Neye-Meer.",
+      "youtube": "https://youtu.be/cZt9hn0tH3E",
+      "gpx": "gpx/neyetalsperre-rundweg.gpx",
+      "komoot": "https://www.komoot.com/de-de/tour/2976055967?share_token=aQykfHTeMEklGUrtte4q2PGp64y0d4EK1dEWsw3xO188VRrvW3&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
+      "parkplatz": "Wanderparkplatz Schwarzer Weg, Hückeswagen",
+      "beste_jahreszeit": ["Frühling", "Sommer", "Herbst", "Winter"],
+      "bild": "images/tours/neyetalsperre-rundweg.jpg",
+      "oeffnungszeiten": "ganzjährig zugänglich",
+      "preise": "Kostenlos",
+      "familien_hinweis": "Für Kinder ab 6 Jahren geeignet",
+      "verpflegung": ["Gaststätte"],
+      "hundefreundlich": true,
+      "ausruestung": ["Festes Schuhwerk", "Wasser mitnehmen"],
+      "koordinaten": { "lat": 51.13733, "lng": 7.39282 }
+    }
   ]
 }
