@@ -600,6 +600,10 @@
     <span class="nav-icon">🌿</span>
     <span>Über den Kanal</span>
   </a>
+  <a href="pfadwerk.html" class="fn-link">
+    <span class="nav-icon">📱</span>
+    <span>Pfadwerk-App</span>
+  </a>
   <div class="float-nav-divider"></div>
   <a href="#hero" class="float-nav-top" title="Zurück nach oben">↑</a>
 </nav>
@@ -654,6 +658,7 @@
         <a href="#videos" class="hover:text-forest-400 transition-colors">Videos</a>
         <a href="#wanderberichte" class="hover:text-forest-400 transition-colors">Wanderberichte</a>
         <a href="#ueber" class="hover:text-forest-400 transition-colors">Über den Kanal</a>
+        <a href="pfadwerk.html" class="hover:text-forest-400 transition-colors">📱 Pfadwerk-App</a>
         <a
           href="https://www.youtube.com/@mitrilmo"
           target="_blank"
@@ -680,6 +685,7 @@
         <a href="#videos" class="py-2 text-stone-300 hover:text-forest-400 transition-colors" onclick="closeMobileMenu()">Videos</a>
         <a href="#wanderberichte" class="py-2 text-stone-300 hover:text-forest-400 transition-colors" onclick="closeMobileMenu()">Wanderberichte</a>
         <a href="#ueber" class="py-2 text-stone-300 hover:text-forest-400 transition-colors" onclick="closeMobileMenu()">Über den Kanal</a>
+        <a href="pfadwerk.html" class="py-2 text-stone-300 hover:text-forest-400 transition-colors" onclick="closeMobileMenu()">📱 Pfadwerk-App</a>
         <a
           href="https://www.youtube.com/@mitrilmo"
           target="_blank"
@@ -822,7 +828,7 @@
           <div>
             <p class="text-forest-400 text-xs font-semibold uppercase tracking-widest leading-none mb-1">Wander-Challenge 2026</p>
             <!-- ⚙️ UPDATE: Zahl anpassen -->
-            <p class="text-white font-black text-2xl leading-none">308 <span class="text-stone-400 font-normal text-sm">/ 500 km</span></p>
+            <p class="text-white font-black text-2xl leading-none">329 <span class="text-stone-400 font-normal text-sm">/ 500 km</span></p>
           </div>
         </div>
 
@@ -831,14 +837,14 @@
           <div class="flex justify-between items-center text-xs text-stone-500 mb-2">
             <span>Jahresfortschritt</span>
             <!-- ⚙️ UPDATE: Prozent anpassen (DONE/GOAL × 100) -->
-            <span class="text-forest-400 font-semibold">61,6 %</span>
+            <span class="text-forest-400 font-semibold">65,8 %</span>
           </div>
           <div class="h-3 bg-slate-700 rounded-full overflow-hidden">
             <!-- ⚙️ UPDATE: width anpassen -->
-            <div class="h-full rounded-full bg-gradient-to-r from-forest-700 to-forest-400 transition-all duration-700" style="width: 61.6%"></div>
+            <div class="h-full rounded-full bg-gradient-to-r from-forest-700 to-forest-400 transition-all duration-700" style="width: 65.8%"></div>
           </div>
           <!-- ⚙️ UPDATE: km-Rest und Datum anpassen -->
-          <p class="text-stone-500 text-xs mt-2">192 km bis zum Ziel · Stand: Juni 2026 · <a href="https://my.raceresult.com/375951/info" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-400 transition-colors">zur Veranstaltung ↗</a></p>
+          <p class="text-stone-500 text-xs mt-2">171 km bis zum Ziel · Stand: Juni 2026 · <a href="https://my.raceresult.com/375951/info" target="_blank" rel="noopener" class="text-forest-600 hover:text-forest-400 transition-colors">zur Veranstaltung ↗</a></p>
         </div>
 
       </div>
@@ -1831,6 +1837,12 @@
           <svg class="w-4 h-4 text-stone-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </button>
         <div id="shortsTrack" class="shorts-track">
+
+          <a href="https://youtube.com/shorts/nDMiHsYzSsg" target="_blank" rel="noopener"
+             class="short-card bg-slate-700\60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <p class="text-stone-300 text-xs font-semibold leading-snug group-hover:text-white transition-colors line-clamp-3">Natur pur & dicke Mauern: 12km Elbschetal-Kulturschock! 🥾🧱</p>
+            <p class="text-stone-600 text-xs mt-auto">14. Jun. 2026</p>
+          </a>
 
           <a href="https://youtube.com/shorts/g53o-YH5k3w" target="_blank" rel="noopener"
              class="short-card bg-slate-700\60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
@@ -2987,6 +2999,33 @@
 
   alle = [
     {
+      id: "elbschetal-rundweg",
+      name: "Elbschetal Rundweg",
+      region: "Ruhrgebiet",
+      schwierigkeit: "mittel",
+      dauer: "3h 30min",
+      distanz: 12,
+      familienfreundlich: false,
+      beschreibung: "Eine mittele Wanderung über 12.0 km und 3h 30min über befestigte Wege, Schotterwege und Waldwege. Besondere Momente: Alter Bahnhof Albringhausen und Panorama über das Elbschetal. 💡 Hunde erlaubt (Leinenpflicht im NSG)",
+      youtube: "https://youtube.com/shorts/nDMiHsYzSsg",
+      gpx: "gpx/elbschetal-rundweg.gpx",
+      komoot: "https://www.komoot.com/de-de/tour/3037439612?share_token=ajpq8RFc2CFaRnYqjIIlkB4DUGXC0f8hjtdJVFXdsz6IGEd8dn&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
+      anreise: {
+            "auto": {
+                  "parkplatz": "Parkplatz beim Hotel Henriette Davidis",
+                  "kosten": "Kostenlos",
+                  "hinweis": "Hinweisschilder beachten"
+            },
+            "fussweg": "5 Minuten Fußweg zum Start im Tal"
+      },
+      beste_jahreszeit: ["Frühling","Sommer","Herbst"],
+      bild: "images/tours/elbschetal-rundweg.jpg",
+      tipps: "Hunde erlaubt (Leinenpflicht im NSG)",
+      verpflegung: ["Gaststätte","Restaurant"],
+      hundefreundlich: true,
+      ausruestung: ["Festes Schuhwerk","Regenjacke","Wasser mitnehmen"]
+    },
+    {
       id: "trassentrecking-im-pott",
       name: "TRASSENTREKKING: Wandern auf alten Schienen durchs südliche Ruhrgebiet!",
       region: "Gevelsberg",
@@ -3112,6 +3151,7 @@
   // Format: { titel, datum, datumISO, datei }
   // ══════════════════════════════════════════
   const wanderberichte = [
+    { titel: "Elbschetal Rundweg", datum: "14.06.2026", datumISO: "2026-06-14", datei: "stories/elbschetal-rundweg-2026-06-14.html" },
     { titel: "Einmal um die Heilenbecke Talsperre", datum: "07.06.2026", datumISO: "2026-06-07", datei: "stories/einmal-um-die-heilenbecke-talsperre-2026-06-07.html" },
   ];
 
