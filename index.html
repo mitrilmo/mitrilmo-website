@@ -1634,10 +1634,10 @@
                   <div class="stat-row">
                     <span class="stat-label">Kinderwagen</span>
                     <span class="stat-value flex items-center gap-1.5">
-                      <svg class="w-4 h-4 text-stone-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      <svg class="w-4 h-4 text-forest-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                       </svg>
-                      Im Video prüfen
+                      Geeignet
                     </span>
                   </div>
                   <div class="stat-row">
@@ -1912,6 +1912,114 @@
                     </svg>
                     Route auf komoot ansehen ↗
                   </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ─── KARTE 7: Rucksackhaken (Gadget-Karte) ─── -->
+        <article
+          class="video-card bg-slate-700 rounded-2xl overflow-hidden border border-white/5 flex flex-col"
+          data-category="gadget"
+        >
+          <a href="https://youtu.be/0lX1btjYfzY" target="_blank" rel="noopener" class="block">
+            <div class="thumb-wrap bg-slate-900">
+              <img
+                src="images/0lX1btjYfzY.jpg"
+                alt="Rucksackhaken"
+                loading="lazy"
+                onerror="this.src='https://img.youtube.com/vi/0lX1btjYfzY/maxresdefault.jpg'; this.onerror=null;"
+              />
+              <div class="play-btn">
+                <div class="play-icon">
+                  <svg class="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Content -->
+          <div class="flex flex-col flex-1 p-5">
+            <!-- Category badge -->
+            <div class="mb-2">
+              <span class="badge bg-amber-900/60 text-amber-400 border border-amber-500/50">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Gadget-Test
+              </span>
+            </div>
+            <h3 class="text-white font-bold text-base leading-snug mb-2">
+              <a href="https://youtu.be/0lX1btjYfzY" target="_blank" rel="noopener" class="hover:text-forest-300 transition-colors">
+                Rucksackhaken
+              </a>
+            </h3>
+            <p class="text-stone-400 text-sm leading-relaxed mb-4 flex-1">
+              Wenn der Boden mal wieder Lava (oder einfach nur Matsch) ist... 🥾 Mein neuer Rucksackhaken rettet den Tag und hält die Ausrüstung sauber!
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-slate-800 text-stone-400 border border-white/10">3D-Druck</span>
+              <span class="badge bg-slate-800 text-stone-400 border border-white/10">Wandern</span>
+              <span class="badge bg-slate-800 text-stone-400 border border-white/10">Günstig</span>
+            </div>
+
+            <!-- ── Gadget-Check ── -->
+            <div class="bg-slate-800/70 border border-white/8 rounded-xl overflow-hidden">
+              <button
+                class="w-full flex items-center justify-between px-4 py-3 text-left group"
+                onclick="toggleInfoBox(this)"
+                aria-expanded="false"
+              >
+                <div class="flex items-center gap-2.5">
+                  <div class="w-7 h-7 bg-amber-900/60 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                    </svg>
+                  </div>
+                  <span class="text-sm font-bold text-amber-300">Gadget-Check</span>
+                </div>
+                <svg class="w-4 h-4 text-stone-500 group-hover:text-stone-300 transition-all duration-200 chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="info-box-body">
+                <div class="px-4 pb-4 pt-1">
+                  <div class="stat-row">
+                    <span class="stat-label">Einsatzzweck</span>
+                    <span class="stat-value">Outdoor · Wandern</span>
+                  </div>
+                  <div class="stat-row">
+                    <span class="stat-label">Gewicht / Größe</span>
+                    <span class="stat-value">Sehr leicht</span>
+                  </div>
+                  <div class="stat-row">
+                    <span class="stat-label">Highlight-Feature</span>
+                    <span class="stat-value text-amber-300">→ Eigenbau per 3D-Druck</span>
+                  </div>
+                  <div class="stat-row">
+                    <span class="stat-label">Kosten</span>
+                    <span class="stat-value">Günstig (Materialkosten)</span>
+                  </div>
+                  <!-- Hinweise -->
+                  <div class="mt-4 pt-3 border-t border-white/6 space-y-1.5">
+                    <p class="flex items-start gap-1.5 text-xs text-stone-500">
+                      <svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-stone-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      Kein Sponsoring, keine Werbung – selbst gedruckt und getestet.
+                    </p>
+                    <p class="flex items-start gap-1.5 text-xs text-stone-500">
+                      <svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-stone-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                      </svg>
+                      Angaben ohne Gewähr – alle Informationen spiegeln meine persönliche Erfahrung wider.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2752,9 +2860,24 @@
     // ══════════════════════════════════════════
     const blogPosts = [
       {
+        date: '4. Juli 2026',
+        title: 'Megamarsch Düsseldorf 25+',
+        img: 'images/blog/Megamarsch-Duesseldorf.jpg',
+        imgFallback: 'images/blog/Megamarsch-Duesseldorf.jpg',
+        imgAlt: 'Megamarsch Düsseldorf 25+',
+        paragraphs: [
+          'Schon mal bei 30 °C im Schatten gedacht: „Mensch, 25 Kilometer wandern klingt nach purem Spa-Urlaub"? 🥵',
+          'Genau das dachten sich 5.000 andere Verrückte und ich beim Megamarsch Düsseldorf! Als Local Guide und Filmemacher hatte ich natürlich die Kamera im Anschlag, während wir uns von der historischen Pracht von Schloss Benrath über den Botanischen Garten bis hin zum Unterbacher See gequält… äh, geschlendert sind. Zwischen idyllischer Natur am Elbsee und den knackigen Steigungen des Neandertalsteigs schwankte meine Stimmung stündlich zwischen „Wow, wie schön!" und „Wer hat diese Route geplant?!".',
+          'Urbane Ecken, geschichtsträchtige Pfade und jede Menge Schweiß – dieser Marsch hatte wirklich alles zu bieten. Wie das Ganze durch meine Linse aussah und ob meine Füße überlebt haben?'
+        ],
+        tags: '#Megamarsch #Düsseldorf #Wandern #Filmmaker #LocalGuide',
+        link: 'https://www.youtube.com/post/Ugkxt8qAAS9wonIm-09qLOuVQcEUqTo5b27Q?si=WZWVDyJLGaSf0mjW'
+      },
+      {
         date: '6. Juni 2026',
         title: 'Halde Hoheward und das Horizontobservatorium',
-        img: 'https://yt3.ggpht.com/o5TpHs8i0rEdJ9aGY361VSrpxJKT39rU96QRL__w62tJGxIz0k1xv8EBxVC8pw7pW7jN6H-MZb-SaBY=s512-c-fcrop64=1,000018e3ffffe71c-nd-v1',
+        img: 'images/blog/halde-hoheward.jpg',
+        imgFallback: 'https://yt3.ggpht.com/o5TpHs8i0rEdJ9aGY361VSrpxJKT39rU96QRL__w62tJGxIz0k1xv8EBxVC8pw7pW7jN6H-MZb-SaBY=s512-c-fcrop64=1,000018e3ffffe71c-nd-v1',
         imgAlt: 'Halde Hoheward und das Horizontobservatorium',
         paragraphs: [
           'Schon mal ein gestrandetes UFO im Ruhrpott gesehen? 🛸 Auf der Halde Hoheward thront das Horizontobservatorium genau wie eines!',
@@ -2767,7 +2890,8 @@
       {
         date: '17. Mai 2026',
         title: 'Ennepetal auf Rollen und Rädern',
-        img: 'https://yt3.ggpht.com/l8hBpV0EOqW6aVg10SZy3rOnVOyTGv3bQEg8zh0ZqV59J4Jz1cvtbkL73Xa_MDmby93MriVtkZ3XcgE=s512-c-fcrop64=1,000018e3ffffe70f-nd-v1',
+        img: 'images/blog/ennepetal-rollen-raeder.jpg',
+        imgFallback: 'https://yt3.ggpht.com/l8hBpV0EOqW6aVg10SZy3rOnVOyTGv3bQEg8zh0ZqV59J4Jz1cvtbkL73Xa_MDmby93MriVtkZ3XcgE=s512-c-fcrop64=1,000018e3ffffe70f-nd-v1',
         imgAlt: 'Ennepetal auf Rollen und Rädern',
         paragraphs: [
           'Wer braucht schon die Autobahn, wenn man die L699 für sich allein hat? 🚴‍♂️💨 Am 17. Mai gehört das Tal uns – ganz ohne Motorenlärm (außer meinem E-Bike vielleicht 😉).',
@@ -2780,7 +2904,8 @@
       {
         date: '16. Mai 2026',
         title: 'Tag der offenen Tür im Trainingsbergwerk Recklinghausen',
-        img: 'https://yt3.ggpht.com/g19Lv15Svwek8qOn6XWLWuEHqjWcjtHaaEqTFiTCIJx4vhfT7iIE-3NDd1iEezqRT7DW2CoCX3AreM0=s512-c-fcrop64=1,000018e3ffffe71c-nd-v1',
+        img: 'images/blog/trainingsbergwerk-recklinghausen.jpg',
+        imgFallback: 'https://yt3.ggpht.com/g19Lv15Svwek8qOn6XWLWuEHqjWcjtHaaEqTFiTCIJx4vhfT7iIE-3NDd1iEezqRT7DW2CoCX3AreM0=s512-c-fcrop64=1,000018e3ffffe71c-nd-v1',
         imgAlt: 'Tag der offenen Tür im Trainingsbergwerk Recklinghausen',
         paragraphs: [
           'Habt ihr euch schon mal gefragt, wie es sich anfühlt, ein echter Kumpel zu sein? ⚒️ Björn alias Mo hier! Ich entführe euch zum Trainingsbergbau Recklinghausen.',
@@ -2793,7 +2918,8 @@
       {
         date: '9. Mai 2026',
         title: 'Meilerwoche im Hülsenbecker Tal',
-        img: 'https://yt3.ggpht.com/bcNwi-9nFrEjyQp4juZg-0sNB-lQfo9JdU_QRU6OtFUxYqtCkl13czlvnnGLXTfMinL8sfpRKCF0=s512-c-fcrop64=1,000019a3ffffe65c-nd-v1',
+        img: 'images/blog/meilerwoche-huelsenbecker-tal.jpg',
+        imgFallback: 'https://yt3.ggpht.com/bcNwi-9nFrEjyQp4juZg-0sNB-lQfo9JdU_QRU6OtFUxYqtCkl13czlvnnGLXTfMinL8sfpRKCF0=s512-c-fcrop64=1,000019a3ffffe65c-nd-v1',
         imgAlt: 'Meilerwoche im Hülsenbecker Tal',
         paragraphs: [
           'Wer braucht Hollywood, wenn in Ennepetal der Meiler brennt? 🔥 Mo hier! Ich bin bei Kaiserwetter durch Postkarten-Landschaften von Rüggeberg ins Hülsenbecker Tal getigert.',
@@ -2822,7 +2948,8 @@
             <div style="padding-bottom:100%;position:relative;">
               <img src="${post.img}" alt="${post.imgAlt}"
                    class="absolute inset-0 w-full h-full object-contain"
-                   loading="lazy"/>
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='${post.imgFallback}';"/>
             </div>
             <div class="absolute inset-0 hidden md:block pointer-events-none"
                  style="background:linear-gradient(to right,transparent 60%,rgba(30,42,32,0.6))"></div>
@@ -3165,6 +3292,29 @@
         ? `<div><span class="text-stone-300 font-semibold">Ausrüstung:</span><div class="flex flex-wrap gap-1 mt-1">${t.ausruestung.map(a => `<span class="text-xs bg-slate-800 text-stone-300 px-2 py-0.5 rounded-full border border-white/10">${a}</span>`).join('')}</div></div>`
         : '';
 
+      // Anreise: neues anreise-Objekt (auto.parkplatz/kosten/hinweis, fussweg) hat Vorrang,
+      // Fallback auf altes flaches parkplatz-Feld (Rückwärtskompatibilität).
+      let anreiseText = '';
+      if (t.anreise && t.anreise.auto && t.anreise.auto.parkplatz) {
+        anreiseText = t.anreise.auto.parkplatz;
+        if (t.anreise.auto.kosten) anreiseText += ` · ${t.anreise.auto.kosten}`;
+        if (t.anreise.auto.hinweis) anreiseText += ` (${t.anreise.auto.hinweis})`;
+        if (t.anreise.fussweg) anreiseText += ` · ${t.anreise.fussweg}`;
+      } else if (t.parkplatz) {
+        anreiseText = t.parkplatz;
+      }
+      const parkplatzHtml = anreiseText
+        ? `<div><span class="text-stone-300 font-semibold">Parkplatz:</span> ${anreiseText}</div>`
+        : '';
+
+      // Tipp: neues tipps-Feld (allgemeiner Hinweis) hat Vorrang, sonst altes familien_hinweis-Feld.
+      // Label passt sich an, da tipps nicht zwingend familienbezogen ist.
+      const tippsHtml = t.tipps
+        ? `<div><span class="text-stone-300 font-semibold">Tipp:</span> ${t.tipps}</div>`
+        : (t.familien_hinweis
+          ? `<div><span class="text-stone-300 font-semibold">Familien-Tipp:</span> ${t.familien_hinweis}</div>`
+          : '');
+
       const card = document.createElement('article');
       card.id = 'tour-' + t.id;
       card.className = 'tour-card';
@@ -3193,10 +3343,10 @@
           <div class="tour-detail-box">
             <div class="border-t border-white/5 pt-4 mt-4 space-y-2 text-sm text-stone-400">
               ${t.oeffnungszeiten ? `<div><span class="text-stone-300 font-semibold">Öffnungszeiten:</span> ${t.oeffnungszeiten}</div>` : ''}
-              ${t.parkplatz ? `<div><span class="text-stone-300 font-semibold">Parkplatz:</span> ${t.parkplatz}</div>` : ''}
+              ${parkplatzHtml}
               ${t.preise ? `<div><span class="text-stone-300 font-semibold">Preise:</span> ${t.preise}</div>` : ''}
               ${jahreszeiten ? `<div><span class="text-stone-300 font-semibold">Beste Jahreszeit:</span> ${jahreszeiten}</div>` : ''}
-              ${t.familien_hinweis ? `<div><span class="text-stone-300 font-semibold">Familien-Tipp:</span> ${t.familien_hinweis}</div>` : ''}
+              ${tippsHtml}
               ${Array.isArray(t.verpflegung) && t.verpflegung.length > 0 ? `<div><span class="text-stone-300 font-semibold">Verpflegung:</span> ${t.verpflegung.join(', ')}</div>` : ''}
               ${ausruestungChips}
             </div>
@@ -3268,15 +3418,16 @@
       youtube: "https://youtu.be/g8KUCifX5ec",
       gpx: "gpx/trassentrecking-im-pott.gpx",
       komoot: "https://www.komoot.com/de-de/tour/2815016587?share_token=aHPYQyhCwzF2LssZbpG7VhsyOmazJKIhdNFizJTcodu2trbXI1&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
-      parkplatz: "Parkplatz am Hauptbahnhof Gevelsberg",
+      anreise: { auto: { parkplatz: "Parkplatz am Hauptbahnhof Gevelsberg" } },
       beste_jahreszeit: [],
       bild: "images/tours/trassentrecking-im-pott.jpg",
       oeffnungszeiten: "ganzjährig zugänglich",
       preise: "kostenlos",
-      familien_hinweis: "für Kinder ab 6 Jahren geeignet",
+      tipps: "für Kinder ab 6 Jahren geeignet",
       verpflegung: ["Imbiss","Café"],
       hundefreundlich: true,
-      ausruestung: ["Festes Schuhwerk","Wasser mitnehmen","Snacks"]
+      ausruestung: ["Festes Schuhwerk","Wasser mitnehmen","Snacks"],
+      koordinaten: { lat: 51.32053951038612, lng: 7.223955004436365 }
     },
     {
       id: "huelsenbach-tal",
@@ -3289,15 +3440,16 @@
       beschreibung: "Eine abwechslungsreiche Runde durch das idyllische Hülsenbecker Tal in Ennepetal. Vorbei am historischen Meiler und dem beliebten Murmel-Minigolf – ideal für Familien mit Kindern.",
       youtube: "https://youtu.be/X6EM-J9xXRQ",
       gpx: "gpx/huelsenbecker-tal.gpx", komoot: "https://www.komoot.com/de-de/tour/2943323344?share_token=a2lSx3gTbnZ8P7iVbcfY1hMKsdGJBtzuzXN1A0iXhX4rbIsVxa&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
-      parkplatz: "Parkplatz Hülsenbecker Tal, Ennepetal",
+      anreise: { auto: { parkplatz: "Parkplatz Hülsenbecker Tal, Ennepetal" } },
       beste_jahreszeit: ["Frühling", "Sommer", "Herbst"],
       bild: "images/tours/huelsenbecker-tal.jpg",
       oeffnungszeiten: "Ganzjährig zugänglich",
       preise: "Eintritt frei, Minigolf kostenpflichtig",
-      familien_hinweis: "Ideal für Kinder ab 3 Jahren. Kinderwagen-tauglich auf dem Hauptweg.",
+      tipps: "Ideal für Kinder ab 3 Jahren. Kinderwagen-tauglich auf dem Hauptweg.",
       verpflegung: ["Imbiss"],
       hundefreundlich: true,
-      ausruestung: ["Festes Schuhwerk", "Sonnenschutz", "Wasser mitnehmen"]
+      ausruestung: ["Festes Schuhwerk", "Sonnenschutz", "Wasser mitnehmen"],
+      koordinaten: { lat: 51.29243213026569, lng: 7.369233796182252 }
     },
     {
       id: "heilenbecke-talsperre",
@@ -3311,12 +3463,12 @@
       youtube: null,
       gpx: "gpx/heilenbecke-talsperre.gpx",
       komoot: "https://www.komoot.com/de-de/tour/3020374601?share_token=agK7jyl5sOLxD0gz5cAa67op8JAl2sv8rlH2CFcVYlOWB7nFZx&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
-      parkplatz: "Wanderparkplatz an der Heilenbecke Talsperre",
+      anreise: { auto: { parkplatz: "Wanderparkplatz an der Heilenbecke Talsperre" } },
       beste_jahreszeit: ["Frühling","Sommer","Herbst","Winter"],
       bild: "images/tours/heilenbecke-talsperre.jpg",
       oeffnungszeiten: "ganzjährig zugänglich",
       preise: "1,00 Euro",
-      familien_hinweis: "für Kinder ab 6 Jahren geeignet",
+      tipps: "für Kinder ab 6 Jahren geeignet",
       verpflegung: [],
       hundefreundlich: true,
       ausruestung: ["Festes Schuhwerk"]
@@ -3333,12 +3485,12 @@
       youtube: "https://youtu.be/cZt9hn0tH3E",
       gpx: "gpx/neyetalsperre-rundweg.gpx",
       komoot: "https://www.komoot.com/de-de/tour/2976055967?share_token=aQykfHTeMEklGUrtte4q2PGp64y0d4EK1dEWsw3xO188VRrvW3&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
-      parkplatz: "Wanderparkplatz Schwarzer Weg, Hückeswagen",
+      anreise: { auto: { parkplatz: "Wanderparkplatz Schwarzer Weg, Hückeswagen" } },
       beste_jahreszeit: ["Frühling", "Sommer", "Herbst", "Winter"],
       bild: "images/tours/neyetalsperre-rundweg.jpg",
       oeffnungszeiten: "ganzjährig zugänglich",
       preise: "Kostenlos",
-      familien_hinweis: "Für Kinder ab 6 Jahren geeignet",
+      tipps: "Für Kinder ab 6 Jahren geeignet",
       verpflegung: ["Gaststätte"],
       hundefreundlich: true,
       ausruestung: ["Festes Schuhwerk", "Wasser mitnehmen"]
@@ -3354,15 +3506,16 @@
       beschreibung: "Von der Dhünn-Talsperre zum Altenberger Dom – eine klassische Bergische Route mit wechselndem Terrain, Aussichten über das Bergische Land und einem beeindruckenden Ziel.",
       youtube: "https://youtu.be/Wor2_Zau2sE",
       gpx: "gpx/altenberger-dom.gpx", komoot: "https://www.komoot.com/de-de/tour/2911001429?share_token=aPsed5MHvdtWIYrP1j5AAZSbHy7v2zDCWhS9Ix86t7KLk2u7yM&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
-      parkplatz: "Wanderparkplatz Altenberger Dom oder Dhünn-Talsperre",
+      anreise: { auto: { parkplatz: "Wanderparkplatz Altenberger Dom oder Dhünn-Talsperre" } },
       beste_jahreszeit: ["Frühling", "Sommer", "Herbst"],
       bild: "images/tours/altenberger-dom.jpg",
       oeffnungszeiten: "Ganzjährig, Dom täglich 9–18 Uhr",
       preise: "Kostenlos",
-      familien_hinweis: "Für Kinder ab 8 Jahren empfohlen. Einige Anstiege, feste Schuhe nötig.",
+      tipps: "Für Kinder ab 8 Jahren empfohlen. Einige Anstiege, feste Schuhe nötig.",
       verpflegung: ["Gaststätte"],
       hundefreundlich: true,
-      ausruestung: ["Festes Schuhwerk", "Sonnenschutz", "Regenjacke"]
+      ausruestung: ["Festes Schuhwerk", "Sonnenschutz", "Regenjacke"],
+      koordinaten: { lat: 51.05517046297718, lng: 7.132748763590914 }
     },
   ];
   [...new Set(alle.map(t => t.region))].sort().forEach(r => {
