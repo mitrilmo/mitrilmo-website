@@ -251,6 +251,23 @@
       width: 196px;
     }
 
+    /* ── Weltumrundung 2017 ── */
+    .weltreise-track {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+    .weltreise-track::-webkit-scrollbar { display: none; }
+    .weltreise-card {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 240px;
+    }
+
     /* ── Wanderberichte ── */
     .story-card {
       background: #243029;
@@ -2500,6 +2517,282 @@
 
   <div class="section-divider max-w-5xl mx-auto"></div>
 
+  <!-- ════════════════════════════════════════════
+       WELTUMRUNDUNG 2017
+  ════════════════════════════════════════════ -->
+  <section id="weltreiseSection" class="bg-slate-900 py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-forest-800/40 border border-forest-700/30 px-3 py-1 rounded-full text-forest-300 text-xs font-semibold uppercase tracking-widest mb-3">
+            <span class="w-1.5 h-1.5 bg-forest-400 rounded-full"></span>
+            Weltumrundung 2017
+          </div>
+          <h2 class="text-2xl md:text-3xl font-black text-white">23 Tage, einmal um den Globus</h2>
+          <p class="text-stone-400 text-sm mt-1">Lange bevor es mitrilmo gab: Björn und Ursel umrunden 2017 in 23 Tagen die Welt — Dubai, Kuala Lumpur, Singapur, Sydney, Fidschi und Los Angeles. Tag für Tag zum Durchblättern.</p>
+        </div>
+      </div>
+
+      <!-- Karussell -->
+      <div class="relative">
+        <button onclick="scrollWeltreise(-1)" class="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-slate-700 hover:bg-slate-600 border border-white/10 rounded-full flex items-center justify-center transition-colors shadow-lg">
+          <svg class="w-4 h-4 text-stone-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button onclick="scrollWeltreise(1)" class="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-slate-700 hover:bg-slate-600 border border-white/10 rounded-full flex items-center justify-center transition-colors shadow-lg">
+          <svg class="w-4 h-4 text-stone-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <div id="weltreiseTrack" class="weltreise-track">
+
+          <a href="stories/weltumrundung-tag-0-2017-10-28.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 0</span>
+              <span class="text-stone-600 text-xs">28.10.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Vorbereitungen – Luna zieht ins Ferienlager</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Es ist so weit: Der Tag des Abschieds ist gekommen. Wir bringen unsere graue Fellnase Luna ins Ferienlager.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-1-2017-10-29.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 1</span>
+              <span class="text-stone-600 text-xs">29.10.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Abreise – Warum reserviert man eigentlich Sitzplätze?</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Der Tag beginnt trügerisch normal. Von der bevorstehenden Weltumrundung ist in der Wohnung nichts zu spüren. Wir frühstücken entspannt und räumen auf.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-2-2017-10-30.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 2</span>
+              <span class="text-stone-600 text-xs">30.10.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Dubai – Unter dem Brennglas des Orients</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Uhren umstellen bitte! Es ist knapp 6:00 Uhr morgens, als der riesige Emirates-Vogel in Dubai aufsetzt.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-3-2017-10-31.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 3</span>
+              <span class="text-stone-600 text-xs">31.10.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Dubai – Palmen, Prunk und Wasserspiele</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Bis 9:00 Uhr morgens liegen wir im kollektiven Tiefkoma.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-4-2017-11-01.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 4</span>
+              <span class="text-stone-600 text-xs">01.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Dubai nach Kuala Lumpur – Das Pack-System bewährt sich</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Um 8:30 Uhr stehen wir in der Lobby zum Frühstück. Scheinbar hat das halbe Hotel dieselbe Idee, denn es ist ein regelrechter Kampf um die Sitzplätze.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-5-2017-11-02.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 5</span>
+              <span class="text-stone-600 text-xs">02.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Kuala Lumpur – Willkommen in den Tropen!</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Nach einem nicht gerade erholsamen Flug landen wir um 8:30 Uhr Ortszeit in Malaysia.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-6-2017-11-03.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 6</span>
+              <span class="text-stone-600 text-xs">03.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Kuala Lumpur – Der "Mumbai Express" und die 272 Stufen der Batu Caves</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Um 7:30 Uhr wirft uns der Wecker aus dem Bett.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-7-2017-11-04.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 7</span>
+              <span class="text-stone-600 text-xs">04.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Von Kuala Lumpur nach Singapur – Upgrade ins Paradies</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Das Kofferpacken geht uns mittlerweile routiniert und superschnell von der Hand.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-8-2017-11-05.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 8</span>
+              <span class="text-stone-600 text-xs">05.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Singapur – Charles, Keith und die Hitchcock-Vögel im Botanischen Garten</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Nach einer traumhaften Nacht fahren wir zum Frühstücken auf das Upper Skydeck in der 57. Etage.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-9-2017-11-06.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 9</span>
+              <span class="text-stone-600 text-xs">06.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Von Singapur nach Sydney – Down Under und die hilfsbereiten Aussies</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Um 5:30 Uhr schlagen zwei Handywecker gleichzeitig Alarm, gefolgt vom schrillen Klingeln des bestellten Hotel-Weckrufs. Sind wir wach?</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-10-2017-11-07.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 10</span>
+              <span class="text-stone-600 text-xs">07.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Sydney – Pferderennen, die Oper und ein Abend unter Deutschen</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Es ist bereits 10:00 Uhr morgens, als wir endlich die Augen aufschlagen und uns langsam fertig machen.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-11-2017-11-08.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 11</span>
+              <span class="text-stone-600 text-xs">08.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Sydney – Das Opernhaus von innen und kulinarischer Schiffbruch in "The Rocks"</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Unser neues Low-Budget-Frühstück feiert Premiere: Es gibt schnöden Toast mit Erdbeermarmelade und dazu einen Instant-Kaffee von Nescafé.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-12-2017-11-09.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 12</span>
+              <span class="text-stone-600 text-xs">09.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Sydney – Ein Kakadu im Botanischen Garten und der chinesische Hausfrauenbund</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Nach dem mittlerweile traditionellen Marmeladentoast-Frühstück mit Nescafé-Imitat zieht es uns wieder zum Darling Harbour.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-13-2017-11-10.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 13</span>
+              <span class="text-stone-600 text-xs">10.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Sydney – Die Briefmarken-Verschwörung, UGG-Boots und Fish & Chips im Hafen</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Und täglich grüßt das Murmeltier: Zum Frühstück gibt es wieder Toast mit Erdbeermarmelade.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-14-2017-11-11.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 14</span>
+              <span class="text-stone-600 text-xs">11.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Von Sydney nach Fidschi – Ukulelen-Klänge und tropisches Gewitter</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Der Wecker bimmelt unbarmherzig früh, denn für 9:50 Uhr ist unser Flughafentransfer angekündigt.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-15-2017-11-12.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 15</span>
+              <span class="text-stone-600 text-xs">12.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Fidschi – Kamikaze-Vögel am Buffet und der Erdbeermarmeladen-Sonnenbrand</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Da es am Vorabend im Flieger die letzte feste Mahlzeit gab, wachen wir mit gigantischem Hunger auf.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-16-2017-11-13.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 16</span>
+              <span class="text-stone-600 text-xs">13.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Fidschi – Die rote Strumpfhose, Shopping-Glück und ein Gecko auf Jagd</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Der Wecker bimmelt um 7:00 Uhr und wir beginnen den Tag im absoluten Zeitlupen-Modus.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-17-2017-11-14.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 17</span>
+              <span class="text-stone-600 text-xs">14.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Fidschi – Ausflug nach Nadi Town und die Happy Hour im Hard Rock Café</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Nach dem Aufstehen zieht es uns wieder ins Koro-Restaurant für ein ausgiebiges Frühstück.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-18-2017-11-15.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 18</span>
+              <span class="text-stone-600 text-xs">15.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Von Fidschi nach Los Angeles – Abschied vom Paradies und der 11-Stunden-Ritt</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Koffer packen und Abschied nehmen – so beginnt der Tag im Paradies. Wir lassen uns mitsamt unserem Gepäck vom Bula Express zur Rezeption kutschieren.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-19-2017-11-15-b.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 19</span>
+              <span class="text-stone-600 text-xs">15.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Die Zeitreise nach L.A. – Downtown und die erste Pint Sapporo</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Wir überfliegen mitten in der Nacht die internationale Datumsgrenze.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-20-2017-11-16.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 20</span>
+              <span class="text-stone-600 text-xs">16.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Los Angeles – Hollywood, Katy Perry und eine schmuddelig-geniale Bar</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Gemeinsam mit dem Sonnenaufgang kurz nach 6:00 Uhr morgens entschlüpfen wir dem riesigen Kingsize-Bett und machen uns bereit für den Tag.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-21-2017-11-17.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 21</span>
+              <span class="text-stone-600 text-xs">17.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Los Angeles – Bodybuilder in Santa Monica und Kino im Chinese Theatre</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Wir stehen relativ früh auf und machen uns direkt auf den Weg. In der Hotel-Lobby ergattern wir einen schnellen Kaffee und ein paar Kekse.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-22-2017-11-18.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 22</span>
+              <span class="text-stone-600 text-xs">18.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Los Angeles – Luxus auf dem Rodeo Drive und Shopping-Rausch bei Tommy Hilfiger</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Kaffee und Kekse in der Lobby – so beginnt unser allerletzter kompletter Tag der großen Weltreise.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+          <a href="stories/weltumrundung-tag-23-2017-11-19.html" class="weltreise-card bg-slate-700/60 hover:bg-slate-700 border border-white/5 hover:border-forest-600/40 rounded-xl p-4 flex flex-col gap-2 transition-all duration-200 group">
+            <div class="flex items-center justify-between">
+              <span class="badge bg-forest-900/60 text-forest-300 border border-forest-700/40">Tag 23</span>
+              <span class="text-stone-600 text-xs">19.11.2017</span>
+            </div>
+            <p class="text-white text-sm font-bold leading-snug group-hover:text-forest-300 transition-colors line-clamp-2">Heimreise – Das Abschieds-Drama am Flughafen und der "A&O-Hotel-Trick"</p>
+            <p class="text-stone-500 text-xs leading-relaxed line-clamp-2 flex-1">Das allerletzte Kofferpacken der Reise geht uns nach drei Wochen Dauer-Training wie im Schlaf von der Hand. Wir checken offiziell aus.</p>
+            <span class="text-forest-500 text-xs group-hover:text-forest-400 transition-colors mt-auto">Weiterlesen →</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
   <section id="ueber" class="bg-slate-800 py-16 md:py-24">
     <div class="max-w-5xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -3147,6 +3440,11 @@
     function scrollShorts(dir) {
       const track = document.getElementById('shortsTrack');
       track.scrollBy({ left: dir * 220, behavior: 'smooth' });
+    }
+
+    function scrollWeltreise(dir) {
+      const track = document.getElementById('weltreiseTrack');
+      track.scrollBy({ left: dir * 260, behavior: 'smooth' });
     }
 
     // ── Filter system ──
