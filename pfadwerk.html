@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pfadwerk – Die App zum Wandertagebuch | mitrilmo</title>
+  <meta name="description" content="Pfadwerk ist eine Android-App zum Dokumentieren von Wanderungen und Spaziergängen. Touren, Logbuch, GPS, Wetter, Fotos und KI-Berichte – komplett offline."/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: {
+        'forest': { 300:'#a3d494', 400:'#7bbf6a', 500:'#5fa852', 600:'#4a8c3f', 700:'#3a6e31', 800:'#2d5a27', 900:'#1e3d1a' },
+        'slate':  { 700:'#243029', 800:'#1a2520', 900:'#131d18', 950:'#0d1510' },
+        'stone':  { 200:'#d9d4cc', 300:'#c0b9ae', 400:'#a89d8f', 500:'#8f8275' }
+      }}}
+    }
+  </script>
+  <style>
+    @font-face { font-family:'Inter'; src:url('fonts/inter-latin.woff2') format('woff2'); font-display:swap; }
+    body { font-family:'Inter',sans-serif; background:#1a2520; color:#d9d4cc; }
+
+    .prose p { margin-bottom:1.1rem; line-height:1.75; color:#c8c2b8; }
+    .prose h2 { color:#fff; font-weight:800; font-size:1.15rem; margin-top:2rem; margin-bottom:0.6rem; }
+    .prose ul { list-style:none; padding:0; margin-bottom:1.1rem; }
+    .prose ul li { padding:0.2rem 0 0.2rem 1.4rem; position:relative; color:#c8c2b8; line-height:1.7; }
+    .prose ul li::before { content:'→'; position:absolute; left:0; color:#4a8c3f; font-weight:700; }
+
+    .phone-frame {
+      background:#243029;
+      border:2px solid rgba(74,140,63,0.3);
+      border-radius:20px;
+      padding:8px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.5);
+    }
+    .phone-frame img { border-radius:14px; width:100%; display:block; }
+    .caption { font-size:0.75rem; color:#8f8275; font-style:italic; text-align:center; margin-top:0.5rem; }
+
+    .section-card {
+      background:#243029;
+      border:1px solid rgba(74,140,63,0.15);
+      border-radius:16px;
+      padding:1.5rem;
+      margin-bottom:1.5rem;
+    }
+
+    .toc-link { color:#a89d8f; transition:color 0.2s; font-size:0.875rem; }
+    .toc-link:hover { color:#7bbf6a; }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-slate-900/90 backdrop-blur">
+    <div class="max-w-4xl mx-auto px-4 h-14 flex items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2 text-stone-400 hover:text-forest-400 transition-colors text-sm font-medium">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Zurück
+      </a>
+      <span class="text-white/20">|</span>
+      <a href="index.html" class="font-black text-white text-base">mit<span class="text-forest-400">rilmo</span></a>
+      <span class="ml-auto text-xs text-stone-500 font-medium hidden sm:block">Pfadwerk-App Dokumentation</span>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 pt-24 pb-20">
+
+    <!-- Badge + Datum -->
+    <div class="flex items-center gap-3 mb-4">
+      <span class="inline-flex items-center gap-1.5 bg-forest-900/60 border border-forest-700/40 text-forest-300 text-xs font-semibold px-3 py-1 rounded-full">
+        📱 App-Projekt
+      </span>
+      <time class="text-xs text-stone-500 font-medium">Stand: Juni 2026</time>
+    </div>
+
+    <!-- Titel -->
+    <h1 class="text-3xl md:text-4xl font-black text-white leading-tight mb-3">Pfadwerk</h1>
+    <p class="text-lg text-stone-400 mb-2">Draußen sein. Aufschreiben. Nicht vergessen.</p>
+    <p class="text-sm text-stone-500 mb-10">Eine App. Ein Projekt. Eine kleine Liebesgeschichte mit der Natur. · Björn alias Mo, Vater von mitrilmo · 2026</p>
+
+    <!-- Splash-Bild -->
+    <div class="flex justify-center mb-12">
+      <div class="w-56">
+        <div class="phone-frame">
+          <img src="images/pfadwerk/Abb0.jpg" alt="Pfadwerk App – Startscreen" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inhaltsverzeichnis -->
+    <div class="section-card mb-10">
+      <p class="text-xs text-forest-400 font-semibold uppercase tracking-widest mb-3">Inhalt</p>
+      <nav class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+        <a href="#grundgedanke" class="toc-link">1. Der Grundgedanke</a>
+        <a href="#entstehung" class="toc-link">2. Wie es entstand</a>
+        <a href="#architektur" class="toc-link">3. Technische Architektur</a>
+        <a href="#funktionen" class="toc-link">4. Die Funktionen im Detail</a>
+        <a href="#berichte" class="toc-link">5. Berichte und Exporte</a>
+        <a href="#premium" class="toc-link">6. Premium-Funktionen</a>
+        <a href="#komfort" class="toc-link">7. Komfort-Funktionen</a>
+        <a href="#ausblick" class="toc-link">8. Ausblick</a>
+      </nav>
+    </div>
+
+    <!-- 1. Der Grundgedanke -->
+    <section id="grundgedanke" class="mb-14 scroll-mt-20">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2">
+        <span class="text-forest-400">01</span> Der Grundgedanke
+      </h2>
+      <div class="prose">
+        <p>Es beginnt, wie so viele gute Ideen, mit einem kleinen Ärgernis: Man kommt von einer wunderschönen Wanderung zurück, möchte kurz festhalten, wo man war, wie das Wetter war, welche Ausrüstung gefehlt hat — und stellt fest, dass die vorhandenen Apps entweder zu viel wollen (Strava zählt Kalorien, als ob das je jemanden interessiert), zu wenig können (Notizen-Apps kennen keine Touren) oder einfach nicht so funktionieren, wie man selbst denkt.</p>
+        <p>Pfadwerk ist die Antwort darauf. Eine App, die genau das macht, was ein Wandertagebuch machen würde — nur eben digital, immer dabei und ohne dass man am nächsten Morgen die eigene Handschrift entziffern muss.</p>
+        <p>Der Name ist Programm: "Pfad" für die Wege, die man geht. "Werk" für das Handwerk des Dokumentierens. Und vielleicht auch ein kleines Nicken in Richtung jener norddeutschen Tradition, Dinge nach dem zu benennen, was sie tun — sachlich, ehrlich, kein Schnickschnack.</p>
+
+        <h2>Was Pfadwerk kann — und was es bewusst nicht kann</h2>
+      </div>
+
+      <!-- 2-Spalten: Text + Screenshot -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mt-4">
+        <div class="prose">
+          <p>Pfadwerk ist kein Fitness-Tracker. Es interessiert sich nicht dafür, wie viele Kalorien man beim Aufstieg verbrannt hat. Es gibt keine sozialen Feeds, keine Ranglisten. Stattdessen:</p>
+          <ul>
+            <li>Touren dokumentieren — Wanderungen und Spaziergänge</li>
+            <li>GPS-Spur aufzeichnen, ohne dass der Akku sofort kapituliert</li>
+            <li>Unterwegs Logbuch-Einträge schreiben, Fotos schießen, Koordinaten speichern</li>
+            <li>Wetter festhalten — weil man das in drei Jahren vergessen hat</li>
+            <li>Ausrüstung und Gelände notieren</li>
+            <li>Berichte generieren — kurz, lang, für Social Media oder als Blog-Artikel</li>
+            <li>Touren exportieren: GPX, HTML, TXT, PDF</li>
+          </ul>
+          <p>Und das alles funktioniert komplett offline, ohne Cloud-Konto, ohne monatliche Gebühren.</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb1.jpg" alt="Pfadwerk Startbildschirm" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 1: Der Startbildschirm.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Entstehung -->
+    <section id="entstehung" class="mb-14 scroll-mt-20">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2">
+        <span class="text-forest-400">02</span> Wie es entstand — Eine ehrliche Geschichte
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb2.jpg" alt="Pfadwerk Anleitung Einstieg" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 2: Pfadwerks vier Hauptbereiche.</p>
+        </div>
+        <div class="prose">
+          <p>Pfadwerk ist ein Ein-Personen-Projekt, entstanden in Zusammenarbeit mit einer KI. Das klingt zunächst weniger romantisch als "ich habe das in einer Garage alleine gebaut" — ist aber die ehrlichste Beschreibung dessen, was hier passiert ist.</p>
+          <p>Die App wurde in mehreren Entwicklungs-Blöcken aufgebaut und anschließend in mehreren Feldtests auf echten Wanderungen erprobt. Die dabei gefundenen Fehler wurden akribisch protokolliert und behoben — was erklärt, warum die App in Version 4.9.53 angekommen ist, bevor sie überhaupt im Store erschienen ist.</p>
+        </div>
+      </div>
+
+      <div class="prose mt-6">
+        <h2>Die Entwicklungs-Blöcke</h2>
+        <p>Die App entstand in klar strukturierten Phasen:</p>
+        <ul>
+          <li><strong style="color:#d9d4cc">Block A:</strong> Grundgerüst — Touren anlegen, Logbuch, Datenspeicherung</li>
+          <li><strong style="color:#d9d4cc">Block B:</strong> Erweiterte Funktionen — GPS, Wetter, Fotos, Berichte, Exporte</li>
+          <li><strong style="color:#d9d4cc">Block C:</strong> Premium-Features und Code-System</li>
+          <li><strong style="color:#d9d4cc">Block D:</strong> Play Store Compliance und Veröffentlichungsvorbereitung</li>
+          <li><strong style="color:#d9d4cc">Block E+:</strong> Feldtest-Fixes — das, was man erst merkt, wenn man wirklich draußen ist</li>
+        </ul>
+        <p>Pfadwerk wurde in mehreren Runden ausgiebig im echten Einsatz getestet. Jede Runde brachte neue Erkenntnisse — und neue Commits.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mt-6">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb3.jpg" alt="Pfadwerk Die 3 Bereiche" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 3: Die untere Navigationsleiste.</p>
+        </div>
+        <div class="prose">
+          <h2>Datenspeicherung — Lokal und sicher</h2>
+          <p>Die Touren und alle zugehörigen Daten werden in einer lokalen Datenbank direkt auf dem Gerät gespeichert. Man braucht kein Nutzerkonto, keine Cloud, kein Internet. Die Daten gehören ausschließlich dem Nutzer — und bleiben auf dem Gerät.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Architektur -->
+    <section id="architektur" class="mb-14 scroll-mt-20">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2">
+        <span class="text-forest-400">03</span> Technische Architektur — Für Neugierige
+      </h2>
+      <div class="prose">
+        <p>Wer jetzt Schaubilder mit Microservices und Event-Driven-Architecture erwartet: Tut uns leid. Pfadwerk ist stolz auf seine Schlichtheit.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mt-4">
+        <div class="prose">
+          <h2>Eine Web-App im nativen Gewand</h2>
+          <p>Pfadwerk ist technisch gesehen eine Web-Applikation: HTML, CSS, JavaScript. Was sie zur echten Android-App macht, ist Capacitor — ein Werkzeug, das die Web-App in eine native Android-Hülle verpackt. Man bekommt damit Zugriff auf echte Smartphone-Funktionen: GPS, Kamera, Dateisystem, Benachrichtigungen.</p>
+          <p>Das Ergebnis: Eine App, die sich nativ anfühlt, schnell ist und keinen Server braucht. Alles läuft lokal auf dem Gerät.</p>
+        </div>
+        <div class="section-card">
+          <p class="text-xs text-forest-400 font-semibold uppercase tracking-widest mb-3">Tech-Stack</p>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between border-b border-white/5 pb-2">
+              <span class="text-stone-400">Framework</span>
+              <span class="text-stone-200 font-medium">Capacitor + Vanilla JS</span>
+            </div>
+            <div class="flex justify-between border-b border-white/5 pb-2">
+              <span class="text-stone-400">Plattform</span>
+              <span class="text-stone-200 font-medium">Android (nativ)</span>
+            </div>
+            <div class="flex justify-between border-b border-white/5 pb-2">
+              <span class="text-stone-400">Datenspeicherung</span>
+              <span class="text-stone-200 font-medium">Lokal / Offline</span>
+            </div>
+            <div class="flex justify-between border-b border-white/5 pb-2">
+              <span class="text-stone-400">GPS</span>
+              <span class="text-stone-200 font-medium">Hintergrund-Tracking</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-stone-400">Version</span>
+              <span class="text-forest-400 font-bold">v4.9.53</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Funktionen -->
+    <section id="funktionen" class="mb-14 scroll-mt-20">
+      <h2 class="text-xl font-black text-white mb-8 flex items-center gap-2">
+        <span class="text-forest-400">04</span> Die Funktionen im Detail
+      </h2>
+
+      <!-- 4.1 Tour anlegen -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
+        <div class="prose">
+          <h2>4.1 Eine Tour anlegen</h2>
+          <p>Am Anfang jeder Tour steht ein Tippen auf den „+"-Knopf. Ab da fragt Pfadwerk nur das Nötigste: Name, Datum, Tourentyp (Wanderung oder Spaziergang). Alles andere lässt sich unterwegs ergänzen — oder auch gar nicht.</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb4.jpg" alt="Neue Wanderung Formular" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 4: Das Tour-Formular.</p>
+        </div>
+      </div>
+
+      <!-- 4.2 GPS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb5.jpg" alt="Logbuch GPS" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 5: Logbuch mit GPS-Koordinaten.</p>
+        </div>
+        <div class="prose">
+          <h2>4.2 GPS-Aufzeichnung</h2>
+          <p>Pfadwerk zeichnet die Route als GPS-Spur auf. Die App läuft dabei im Hintergrund weiter — man muss das Telefon nicht dauerhaft aufgesperrt halten. Die GPS-Spur lässt sich später als GPX-Datei exportieren und in anderen Tools öffnen.</p>
+        </div>
+      </div>
+
+      <!-- 4.3 Logbuch -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
+        <div class="prose">
+          <h2>4.3 Logbuch-Einträge</h2>
+          <p>Das Herzstück von Pfadwerk ist das Logbuch. Unterwegs lassen sich Einträge in drei Kategorien schreiben: Highlights, Sichtungen und Aussichten. Jeder Eintrag bekommt automatisch die aktuelle GPS-Position und die Uhrzeit mitgegeben.</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb6.jpg" alt="Logbuch Eintrag Kategorien" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 6: Logbuch-Eintrag mit Kamera und Kategorie.</p>
+        </div>
+      </div>
+
+      <!-- 4.4 Wetter -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb7.jpg" alt="Wetterdaten" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 7: Wetterdaten.</p>
+        </div>
+        <div class="prose">
+          <h2>4.4 Wetter</h2>
+          <p>Das Wetter ist das große Thema jeder Outdoor-Aktivität — ob man will oder nicht. Pfadwerk lässt einen das Wetter schnell erfassen: Temperatur, Bedingungen (Sonnig, Bewölkt, Regen, etc.), Wind. Einfach antippen, fertig.</p>
+        </div>
+      </div>
+
+      <!-- 4.5 Ausrüstung -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
+        <div class="prose">
+          <h2>4.5 Ausrüstung und Gelände</h2>
+          <p>Was hatte man dabei? Was fehlte? Pfadwerk bietet Chip-Auswahlen für häufige Ausrüstungsgegenstände und Geländetypen. Schnelle Mehrfachauswahl per Tipp — kein Tippen erforderlich.</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb8.jpg" alt="Ausrüstung Chip-Auswahl" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 8: Chip-Auswahl für Ausrüstung und Terrain.</p>
+        </div>
+      </div>
+
+      <!-- 4.6 Anreise -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb9.jpg" alt="Anreise Optionen" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 9: Anreise (Auto / Bus / Bahn).</p>
+        </div>
+        <div class="prose">
+          <h2>4.6 Anreise und Verpflegung</h2>
+          <p>Wie ist man hingekommen? Auto, Bus, Bahn, oder zu Fuß gestartet? Pfadwerk dokumentiert die Anreise — inklusive nützlicher Details wie Parkplatz, Öffnungszeiten und Kosten. Auch die Verpflegung unterwegs lässt sich festhalten.</p>
+        </div>
+      </div>
+
+      <!-- 4.7 Fotos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-4">
+        <div class="prose">
+          <h2>4.7 Fotos</h2>
+          <p>Fotos lassen sich direkt aus der App heraus schießen oder aus der Galerie importieren. Optional fügt Pfadwerk ein dezentes Wasserzeichen mit Tour-Name, Datum und Koordinaten hinzu — so weiß man später noch, wo das Bild entstanden ist.</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb10.jpg" alt="Foto mit Pfadwerk-Wasserzeichen" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 10: Optionales Pfadwerk-Wasserzeichen auf Fotos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Berichte -->
+    <section id="berichte" class="mb-14 scroll-mt-20">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2">
+        <span class="text-forest-400">05</span> Berichte und Exporte
+      </h2>
+      <div class="prose mb-6">
+        <p>Am Ende einer Tour, wenn man wieder zuhause ist und die Wanderschuhe in der Ecke stehen, fängt der zweite Teil von Pfadwerk an: die Dokumentation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-8">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb11.jpg" alt="Berichte Tab" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 11: Berichte Tab (Template / KI).</p>
+        </div>
+        <div class="prose">
+          <h2>5.1 Automatisch generierte Berichte</h2>
+          <p>Pfadwerk erstellt aus den erfassten Daten automatisch Berichte in drei Varianten:</p>
+          <ul>
+            <li><strong style="color:#d9d4cc">Langer Bericht:</strong> Vollständige Dokumentation aller Daten</li>
+            <li><strong style="color:#d9d4cc">Kurzer Bericht:</strong> Kompakter Überblick, ideal zum Teilen</li>
+            <li><strong style="color:#d9d4cc">Social-Media-Post:</strong> Fertig formuliert für Instagram &amp; Co.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <div class="prose">
+          <h2>5.2 Exporte</h2>
+          <ul>
+            <li><strong style="color:#d9d4cc">HTML-Export:</strong> Vollständiger Blog-Beitrag als HTML-Datei — mit Fotos, GPS-Daten und formatiertem Text</li>
+            <li><strong style="color:#d9d4cc">GPX-Export:</strong> GPS-Spur im Standardformat für Navi-Apps und Komoot</li>
+            <li><strong style="color:#d9d4cc">TXT-Export:</strong> Alle Daten als einfache Textdatei</li>
+            <li><strong style="color:#d9d4cc">PDF-Export:</strong> Fertig formatierter Bericht zum Ausdrucken oder Weitergeben</li>
+          </ul>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb12.jpg" alt="Export Dialog" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 12: GPX-, HTML- und TXT-Export.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Premium -->
+    <section id="premium" class="mb-14 scroll-mt-20">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2">
+        <span class="text-forest-400">06</span> Premium-Funktionen
+      </h2>
+      <div class="prose mb-6">
+        <p>Pfadwerk hat einen kleinen, feinen Premiumbereich. Kein Abo-Modell, keine monatlichen Kosten, keine automatischen Verlängerungen. Wer möchte, schaltet einmalig mit einem Monatscode frei — und hat Ruhe.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-8">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb13.jpg" alt="Premium Einstellungen" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 13: Premium Features in den Einstellungen.</p>
+        </div>
+        <div class="prose">
+          <ul>
+            <li>Cover-Bild beim HTML-Export (erstes Foto der Tour)</li>
+            <li>ZIP-Export (alle Dateien gebündelt)</li>
+            <li>KI-Wanderbericht via Gemini</li>
+            <li>Erweiterte Export-Einstellungen</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <div class="prose">
+          <h2>KI-Reisebericht</h2>
+          <p>Die bemerkenswerteste Premium-Funktion: Pfadwerk kann aus den erfassten Daten mit Hilfe von Gemini einen vollständigen, lesbaren Wanderbericht generieren. Kein Copy-Paste, kein Nachbearbeiten — einfach tippen und lesen.</p>
+          <p>Der KI-Bericht landet direkt im HTML-Export und kann sofort auf einer Website veröffentlicht werden.</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb14.jpg" alt="KI Wanderbericht" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 14: Ein von Gemini erstellter Reisebericht.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Komfort -->
+    <section id="komfort" class="mb-14 scroll-mt-20">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2">
+        <span class="text-forest-400">07</span> Komfort-Funktionen
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <div class="prose">
+          <h2>7.1 Easy-Modus</h2>
+          <p>Für alle, die eine etwas größere Schrift bevorzugen: Pfadwerk bietet einen Easy-Modus, der alle Texte und Schaltflächen vergrößert — ohne das Layout zu zerstören.</p>
+          <h2>7.2 Tipps &amp; Tricks</h2>
+          <p>Eine eingebaute Hilfe-Sektion erklärt die wichtigsten Funktionen mit kurzen, praxisnahen Tipps. Direkt in der App, ohne externe Links.</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-44 phone-frame">
+            <img src="images/pfadwerk/Abb15.jpg" alt="Tipps und Tricks" loading="lazy"/>
+          </div>
+          <p class="caption">Abb. 15: Tipps &amp; Tricks in der App.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Ausblick -->
+    <section id="ausblick" class="mb-14 scroll-mt-20">
+      <h2 class="text-xl font-black text-white mb-6 flex items-center gap-2">
+        <span class="text-forest-400">08</span> Ausblick
+      </h2>
+      <div class="prose">
+        <p>Seit dem 22.07.2026 ist Pfadwerk im Google Play Store zu finden. Die App ist fertig — sie tut, was sie soll, stabil, zuverlässig, ohne böse Überraschungen. Was bis dahin an formalen Schritten nötig war — Compliance-Anforderungen von Google, Datenschutz-Nachweise, Release-Builds — ist erledigt.</p>
+        <p>Pfadwerk ist aktuell eine reine Android-App und läuft nicht auf iOS-Geräten (iPhone/iPad). Eine iOS-Version ist derzeit nicht geplant.</p>
+        <p>Parallel dazu reifen bereits weitere Ideen in der "Werk"-Familie. Vielleicht wird Pfadwerk dereinst Gesellschaft bekommen. Oder auch nicht. Manchmal ist ein gut gemachtes Ding für sich genug.</p>
+      </div>
+
+      <a
+        href="https://play.google.com/store/apps/details?id=com.mitrilmo.pfadwerk"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 mt-6 bg-forest-700 hover:bg-forest-600 text-white font-bold px-6 py-3 rounded-xl transition-colors"
+      >
+        Jetzt im Google Play Store ↗
+      </a>
+
+      <div class="section-card mt-6">
+        <p class="text-xs text-forest-400 font-semibold uppercase tracking-widest mb-3">Aktueller Stand</p>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between border-b border-white/5 pb-2">
+            <span class="text-stone-400">Version</span>
+            <span class="text-forest-400 font-bold">v4.9.53 — stabil, mehrfach feldgetestet</span>
+          </div>
+          <div class="flex justify-between border-b border-white/5 pb-2">
+            <span class="text-stone-400">Status</span>
+            <span class="text-stone-200 font-medium">Seit 22.07.2026 im Google Play Store</span>
+          </div>
+          <div class="flex justify-between border-b border-white/5 pb-2">
+            <span class="text-stone-400">Entstanden</span>
+            <span class="text-stone-200 font-medium">Als Ein-Personen-Projekt mit KI-Unterstützung</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-400">Plattform</span>
+            <span class="text-stone-200 font-medium">Android (kein iOS)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="text-center text-xs text-stone-500 italic mt-2">Alle Screenshots auf dieser Seite sind Beispiele aus dem Versionsverlauf und können sich in aktuellen Versionen leicht anders darstellen.</p>
+
+    <!-- Abschluss-Zitat -->
+    <div class="text-center py-10 border-t border-white/5">
+      <p class="text-stone-500 text-sm italic mb-1">„Der schönste Weg ist der, der einen zurückkommen lässt."</p>
+      <p class="text-forest-400 text-sm font-semibold">Pfadwerk merkt sich den Weg.</p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 bg-slate-950/50">
+    <div class="max-w-4xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+      <a href="index.html" class="font-black text-white text-sm">mit<span class="text-forest-400">rilmo</span></a>
+      <p>© 2026 Björn Weiß · <a href="index.html#impressum" class="hover:text-forest-400 transition-colors">Impressum</a> · <a href="index.html#datenschutz" class="hover:text-forest-400 transition-colors">Datenschutz</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
