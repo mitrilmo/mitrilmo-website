@@ -3403,6 +3403,21 @@
     // ══════════════════════════════════════════
     const blogPosts = [
       {
+        date: '22. Juli 2026',
+        title: 'Pfadwerk ist im Play Store!',
+        img: 'images/pfadwerk/Abb0.jpg',
+        imgFallback: 'images/pfadwerk/Abb0.jpg',
+        imgAlt: 'Pfadwerk App Startbildschirm',
+        paragraphs: [
+          'Nach Wochen voller Testläufe, Compliance-Papierkram und mehr Versionsnummern, als ich zählen mag: Seit dem 22. Juli 2026 steht Pfadwerk offiziell im Google Play Store. 📱',
+          'Pfadwerk ist mein digitales Wandertagebuch – GPS-Tracking, Logbuch, Wetter, Fotos, sogar ein KI-Reisebericht, alles komplett offline und ohne Cloud-Zwang. Entstanden als Ein-Personen-Projekt, mit einer KI als Co-Pilot.',
+          'War kein Sprint, eher eine zähe Bergtour mit ein paar Umwegen. Aber jetzt ist sie da – wer neugierig ist, findet alle Details (und ein paar Screenshots) auf unserer Pfadwerk-Seite.'
+        ],
+        tags: '#Pfadwerk #AndroidApp #PlayStore #Wandertagebuch #mitrilmo',
+        link: 'pfadwerk.html',
+        linkText: 'Mehr zu Pfadwerk'
+      },
+      {
         date: '4. Juli 2026',
         title: 'Megamarsch Düsseldorf 25+',
         img: 'images/blog/Megamarsch-Duesseldorf.jpg',
@@ -3513,9 +3528,9 @@
             </div>
             <div class="mt-6 pt-4 border-t border-white/8 flex items-end justify-between gap-4">
               <p class="text-stone-600 text-xs leading-relaxed">${post.tags}</p>
-              ${post.link ? `<a href="${post.link}" target="_blank" rel="noopener"
+              ${post.link ? `<a href="${post.link}" ${/^https?:\/\//.test(post.link) ? 'target="_blank" rel="noopener"' : ''}
                   class="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors">
-                  Auf YouTube lesen
+                  ${post.linkText || 'Auf YouTube lesen'}
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                   </svg>
