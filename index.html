@@ -1367,6 +1367,12 @@
           <text class="map-label" x="240" y="115" text-anchor="middle">Ennepe-Ruhr</text>
 
           <!-- Tour pins -->
+          <g class="map-pin" data-tour="der-talsperrenweg-hasper-talsperre" transform="translate(288.9,139.6)">
+            <circle r="9" fill="rgba(245,158,11,0.25)" stroke="none"/>
+            <circle r="6" fill="#f59e0b" stroke="#0d1510" stroke-width="1.5"/>
+            <circle r="2.5" fill="#0d1510"/>
+            <title>Der Talsperrenweg - Hasper Talsperre</title>
+          </g>
           <g class="map-pin" data-tour="trassentrecking-im-pott" transform="translate(270.6,127.5)">
             <circle r="9" fill="rgba(245,158,11,0.25)" stroke="none"/>
             <circle r="6" fill="#f59e0b" stroke="#0d1510" stroke-width="1.5"/>
@@ -3603,6 +3609,33 @@
   [chkF, chkH].forEach(el => el.addEventListener('change', filter));
 
   alle = [
+    {
+      id: "der-talsperrenweg-hasper-talsperre",
+      name: "Der Talsperrenweg - Hasper Talsperre",
+      region: "Südliches Ruhrgebiet",
+      schwierigkeit: "leicht",
+      dauer: "3h 12min",
+      distanz: 9.81,
+      familienfreundlich: true,
+      beschreibung: "Eine leichte Wanderung über 9.8 km und 3h 12min über befestigte Wege und Schotterweg. Besondere Momente: Viadukt Plessen (Kleinbahntrasse Haspe Voerde Breckerfeld) und Vorstaubecken.",
+      youtube: "https://youtu.be/iw7wg-KqpSU",
+      gpx: "gpx/der-talsperrenweg-hasper-talsperre.gpx",
+      komoot: "https://www.komoot.com/de-de/tour/3187444002?share_token=aokSrk3UOlwDtcvaec3VVYKpGUNnx12UMOUMvi3dIvk7LQ42jM&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
+      anreise: {
+            "auto": {
+                  "parkplatz": "Wanderparkplatz Ennepetal-Voerde (Aldi)",
+                  "kosten": "Kostenlos",
+                  "hinweis": "Parkdauer max. 8 Stunden"
+            }
+      },
+      beste_jahreszeit: ["Frühling","Sommer","Herbst","Winter"],
+      bild: null,
+      tipps: "",
+      verpflegung: [],
+      hundefreundlich: true,
+      ausruestung: ["Festes Schuhwerk","Sonnenschutz","Wasser mitnehmen","Snacks"],
+      koordinaten: { lat: 51.306417, lng: 7.389217 }
+    },
     {
       id: "elbschetal-rundweg",
       name: "Elbschetal Rundweg",
