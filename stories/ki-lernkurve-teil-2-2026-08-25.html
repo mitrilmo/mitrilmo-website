@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KI-Lernkurve, Teil 2: Vom Geistesblitz zur eigenen Website – mitrilmo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: {
+        'forest': { 400:'#7bbf6a', 500:'#5fa852', 600:'#4a8c3f', 700:'#3a6e31', 800:'#2d5a27', 900:'#1e3d1a' },
+        'slate':  { 800:'#1a2520', 900:'#0d1510' }
+      }}}
+    }
+  </script>
+  <style>
+    @font-face { font-family:'Inter'; src:url('../fonts/inter-latin.woff2') format('woff2'); font-display:swap; }
+    body { font-family:'Inter',sans-serif; background:#1a2520; color:#d9d4cc; }
+    .story-content p { margin-bottom: 1.1rem; line-height: 1.75; color: #c8c2b8; }
+    .story-content h2 { color:#fff; font-weight:800; font-size:1.15rem; margin-top:2rem; margin-bottom:0.6rem; }
+    .story-content strong { color:#fff; }
+    .story-content .next-part { font-size:0.85rem; color:#8f8275; font-style:italic; margin-top:1.5rem; padding-top:1rem; border-top:1px dashed rgba(255,255,255,0.08); }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-slate-900/90 backdrop-blur">
+    <div class="max-w-3xl mx-auto px-4 h-14 flex items-center gap-4">
+      <a href="../index.html" class="flex items-center gap-2 text-stone-400 hover:text-forest-400 transition-colors text-sm font-medium">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Zurück
+      </a>
+      <span class="text-white/20">|</span>
+      <a href="../index.html" class="font-black text-white text-base">mit<span class="text-forest-400">rilmo</span></a>
+    </div>
+  </nav>
+
+  <!-- INHALT -->
+  <main class="max-w-3xl mx-auto px-4 pt-24 pb-20">
+
+    <!-- Badge + Datum -->
+    <div class="flex items-center gap-3 mb-4">
+      <span class="inline-flex items-center gap-1.5 bg-forest-900/60 border border-forest-700/40 text-forest-300 text-xs font-semibold px-3 py-1 rounded-full">
+        💭 Randnotiz · KI-Lernkurve, Teil 2
+      </span>
+      <time class="text-xs text-stone-500 font-medium">25.08.2026</time>
+    </div>
+
+    <!-- Titel -->
+    <h1 class="text-2xl md:text-3xl font-black text-white leading-tight mb-8">KI-Lernkurve, Teil 2: Vom Geistesblitz zur eigenen Website</h1>
+
+    <!-- Inhalt -->
+    <div class="story-content">
+
+      <p>Ein einzelner guter Prompt fühlt sich toll an — aber er bringt dich nicht weiter, wenn er einmalig bleibt. Das hab ich in den Wochen nach meinem KI-Start gelernt, als aus losen Ideen langsam ein echtes System wurde.</p>
+
+      <h2>Der Redaktionsplan, der alles änderte</h2>
+      <p>Der erste große Schritt: ein kompletter 12-Folgen-Plan für meinen Podcast, durchgetaktet über Monate. Kurz danach die ersten Episoden live, ein fertiges YouTube-Skript für eine ganze Wandertour — inklusive Szenenliste, Titelvorschlägen und Hashtags. Nebenbei die Domain für meine Marke gesichert, mit einem Anbieter, der auch beim Datenschutz keine faulen Kompromisse macht.</p>
+
+      <h2>Die Website, die zweimal umzog</h2>
+      <p>Zwei Wochen später stand meine eigene Website — komplett mit KI-Unterstützung gebaut. Aber „stand" heißt nicht „blieb stehen": Der erste Hosting-Anbieter passte technisch nicht mehr, also zog die Seite um. Kein Beinbruch, eher wie ein Zeltplatzwechsel mitten in der Tour — einmal Datenschutztext anpassen, DNS umstellen, fertig. Seitdem läuft sie stabil beim neuen Anbieter, jede Änderung geht automatisch live, sobald ich sie freigebe.</p>
+
+      <h2>Warum das wichtig ist</h2>
+      <p>Der Unterschied zwischen „ich hab mal was Cooles gemacht" und „ich hab ein System, das läuft" ist keine Frage des Talents. Es ist die Frage, ob du nach dem ersten Erfolg weitermachst oder es dabei belässt.</p>
+      <p><strong>Die Erkenntnis:</strong> Nicht der einzelne KI-Trick zählt, sondern das Dranbleiben. Aus Einzelaktionen wird erst dann ein System, wenn du sie wiederholst — und selbst ein Umzug mittendrin ist kein Scheitern, nur ein Kurswechsel.</p>
+
+      <p class="next-part">Nächste Folge: Wie aus einer harmlosen Wander-App-Idee ein monatelanger Kampf gegen mein eigenes GPS-Signal wurde.</p>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-slate-900 py-8 mt-4">
+    <div class="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+      <a href="../index.html#randnotizenSection" class="hover:text-forest-400 transition-colors">← Alle Randnotizen</a>
+      <span>© 2026 mitrilmo · Bergisches Land, NRW</span>
+    </div>
+  </footer>
+
+</body>
+</html>
