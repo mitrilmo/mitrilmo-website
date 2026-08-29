@@ -1388,6 +1388,12 @@
           <text class="map-label" x="240" y="115" text-anchor="middle">Ennepe-Ruhr</text>
 
           <!-- Tour pins -->
+          <g class="map-pin" data-tour="3-turme-weg-hagen" transform="translate(289.4,114.0)">
+            <circle r="9" fill="rgba(245,158,11,0.25)" stroke="none"/>
+            <circle r="6" fill="#f59e0b" stroke="#0d1510" stroke-width="1.5"/>
+            <circle r="2.5" fill="#0d1510"/>
+            <title>3-Türme-Weg Hagen</title>
+          </g>
           <g class="map-pin" data-tour="der-talsperrenweg-hasper-talsperre" transform="translate(288.9,139.6)">
             <circle r="9" fill="rgba(245,158,11,0.25)" stroke="none"/>
             <circle r="6" fill="#f59e0b" stroke="#0d1510" stroke-width="1.5"/>
@@ -3783,6 +3789,33 @@
   [chkF, chkH].forEach(el => el.addEventListener('change', filter));
 
   alle = [
+    {
+      id: "3-turme-weg-hagen",
+      name: "3-Türme-Weg Hagen",
+      region: "Südliches Ruhrgebiet",
+      schwierigkeit: "mittel",
+      dauer: "4h 56min",
+      distanz: 10.8,
+      familienfreundlich: true,
+      beschreibung: "Eine mittlere Wanderung über 10.8 km und 4h 56min durch Schotterweg und Waldweg. Besondere Momente: Die Panoramaussicht vom Kaiser-Friedrich-Turm, die Hagener Sternwarte und die ruhigen Waldpassagen. 💡 Viele zusätzliche Infos findet man unter: https://3tuermeweg.de/die-tuerme/3-tuerme",
+      youtube: "https://youtu.be/k1JNFJuXz7o",
+      gpx: null,
+      komoot: "https://www.komoot.com/de-de/tour/3224222242?share_token=aS1tIfFEA0x4Jk0H2JQevDN1TEp0luBnLuL8lLeZwVuhI3kamk&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=848397235919",
+      anreise: {
+            "auto": {
+                  "parkplatz": "Stadtgarten Hagen",
+                  "kosten": "5 Stunden kostenlos",
+                  "hinweis": "Wander-Parkticket"
+            }
+      },
+      beste_jahreszeit: ["Sommer","Herbst"],
+      bild: "images/tours/3-turme-weg-hagen.jpg",
+      tipps: "Viele zusätzliche Infos findet man unter: https://3tuermeweg.de/die-tuerme/3-tuerme",
+      verpflegung: ["Ja, mit Hütte/Gasthaus"],
+      hundefreundlich: true,
+      ausruestung: ["Hundefreundlich","Familienfreundlich","Keine Besonderheiten"],
+      koordinaten: { lat: 51.3521184, lng: 7.4662851 }
+    },
     {
       id: "der-talsperrenweg-hasper-talsperre",
       name: "Der Talsperrenweg - Hasper Talsperre",
