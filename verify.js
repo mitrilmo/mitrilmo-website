@@ -128,6 +128,25 @@ if (!berichteMatch) {
   });
 }
 
+// 7. Region-Events: jede Karte braucht data-end="YYYY-MM-DD" (sonst wird sie nie automatisch ausgeblendet)
+console.log('\n7. Region-Events (data-end)');
+const eventTags = [...html.matchAll(/<a\b[^>]*class="[^"]*\bevent-card\b[^"]*"[^>]*>/g)].map(m => m[0]);
+if (eventTags.length === 0) {
+  warn('Keine Region-Event-Karten gefunden – Check übersprungen.');
+} else {
+  let bad = 0;
+  eventTags.forEach(tag => {
+    const end = (tag.match(/data-end="([^"]*)"/) || [])[1];
+    const valid = end && /^\d{4}-\d{2}-\d{2}$/.test(end) && !isNaN(new Date(end + 'T00:00:00'));
+    if (!valid) {
+      bad++;
+      const href = (tag.match(/href="([^"]*)"/) || [])[1] || '?';
+      fail(`Event-Karte ohne gültiges data-end="YYYY-MM-DD": ${href}`);
+    }
+  });
+  if (bad === 0) ok(`Alle ${eventTags.length} Event-Karten haben ein gültiges data-end`);
+}
+
 // Ergebnis
 console.log('\n──────────────────────────────');
 if (errors > 0) {
