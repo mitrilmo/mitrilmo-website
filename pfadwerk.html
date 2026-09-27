@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pfadwerk – Die App zum Wandertagebuch | mitrilmo</title>
-  <meta name="description" content="Pfadwerk ist eine Android-App zum Dokumentieren von Wanderungen und Spaziergängen. Touren, Logbuch, GPS, Wetter, Fotos und KI-Berichte – komplett offline."/>
+  <meta name="description" content="Pfadwerk ist eine Android-App zum Dokumentieren von Wanderungen, Spaziergängen und Radtouren. Touren, Logbuch, GPS, Wetter, Fotos, Statistik und Berichte – die Daten bleiben standardmäßig auf dem Gerät."/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -71,7 +71,7 @@
       <span class="inline-flex items-center gap-1.5 bg-forest-900/60 border border-forest-700/40 text-forest-300 text-xs font-semibold px-3 py-1 rounded-full">
         📱 App-Projekt
       </span>
-      <time class="text-xs text-stone-500 font-medium">Stand: Juni 2026</time>
+      <time class="text-xs text-stone-500 font-medium">Stand: September 2026</time>
     </div>
 
     <!-- Titel -->
@@ -121,15 +121,18 @@
         <div class="prose">
           <p>Pfadwerk ist kein Fitness-Tracker. Es interessiert sich nicht dafür, wie viele Kalorien man beim Aufstieg verbrannt hat. Es gibt keine sozialen Feeds, keine Ranglisten. Stattdessen:</p>
           <ul>
-            <li>Touren dokumentieren — Wanderungen und Spaziergänge</li>
+            <li>Touren dokumentieren — Wanderungen, Spaziergänge und Radtouren</li>
+            <li>Touren vorab planen und am Tourtag mit einem Tipp starten</li>
             <li>GPS-Spur aufzeichnen, ohne dass der Akku sofort kapituliert</li>
             <li>Unterwegs Logbuch-Einträge schreiben, Fotos schießen, Koordinaten speichern</li>
             <li>Wetter festhalten — weil man das in drei Jahren vergessen hat</li>
             <li>Ausrüstung und Gelände notieren</li>
             <li>Berichte generieren — kurz, lang, für Social Media oder als Blog-Artikel</li>
-            <li>Touren exportieren: GPX, HTML, TXT, PDF</li>
+            <li>Touren exportieren: GPX, TXT sowie HTML und PDF (Premium)</li>
+            <li>Eigene Statistik mit Jahreszielen</li>
+            <li>Touren und Fotos sichern — auf Wunsch monatsweise</li>
           </ul>
-          <p>Und das alles funktioniert komplett offline, ohne Cloud-Konto, ohne monatliche Gebühren.</p>
+          <p>Und das alles funktioniert offline, ohne Cloud-Konto, ohne monatliche Gebühren. Nur die optionale KI-Berichtsfunktion braucht eine Internetverbindung.</p>
         </div>
         <div class="flex flex-col items-center gap-2">
           <div class="w-44 phone-frame">
@@ -155,7 +158,8 @@
         </div>
         <div class="prose">
           <p>Pfadwerk ist ein Ein-Personen-Projekt, entstanden in Zusammenarbeit mit einer KI. Das klingt zunächst weniger romantisch als "ich habe das in einer Garage alleine gebaut" — ist aber die ehrlichste Beschreibung dessen, was hier passiert ist.</p>
-          <p>Die App wurde in mehreren Entwicklungs-Blöcken aufgebaut und anschließend in mehreren Feldtests auf echten Wanderungen erprobt. Die dabei gefundenen Fehler wurden akribisch protokolliert und behoben — was erklärt, warum die App in Version 4.9.53 angekommen ist, bevor sie überhaupt im Store erschienen ist.</p>
+          <p>Die App wurde in mehreren Entwicklungs-Blöcken aufgebaut und anschließend in mehreren Feldtests auf echten Wanderungen erprobt. Die dabei gefundenen Fehler wurden akribisch protokolliert und behoben — was erklärt, warum die App in Version 4.9.53 angekommen ist, bevor sie am 22.07.2026 im Store erschien.</p>
+          <p>Seitdem geht es weiter: Eigene Touren, Rückmeldungen und neue Ideen führen zu Korrekturen und neuen Funktionen. Aktuell ist die App bei Version 4.9.80.</p>
         </div>
       </div>
 
@@ -181,7 +185,7 @@
         </div>
         <div class="prose">
           <h2>Datenspeicherung — Lokal und sicher</h2>
-          <p>Die Touren und alle zugehörigen Daten werden in einer lokalen Datenbank direkt auf dem Gerät gespeichert. Man braucht kein Nutzerkonto, keine Cloud, kein Internet. Die Daten gehören ausschließlich dem Nutzer — und bleiben auf dem Gerät.</p>
+          <p>Die Touren und alle zugehörigen Daten werden in einer lokalen Datenbank direkt auf dem Gerät gespeichert. Man braucht kein Nutzerkonto, keine Cloud, kein Internet. Die Daten gehören ausschließlich dem Nutzer — und bleiben auf dem Gerät. Die einzige Ausnahme ist die optionale KI-Berichtsfunktion (Premium): Dabei gehen die Tourdaten und Logbuchtexte — ohne Fotos — zur Berichtserstellung an Google, mehr dazu in der <a href="index.html#datenschutz" class="text-forest-400 hover:text-forest-300 underline">Datenschutzerklärung</a>.</p>
         </div>
       </div>
     </section>
@@ -198,7 +202,7 @@
         <div class="prose">
           <h2>Eine Web-App im nativen Gewand</h2>
           <p>Pfadwerk ist technisch gesehen eine Web-Applikation: HTML, CSS, JavaScript. Was sie zur echten Android-App macht, ist Capacitor — ein Werkzeug, das die Web-App in eine native Android-Hülle verpackt. Man bekommt damit Zugriff auf echte Smartphone-Funktionen: GPS, Kamera, Dateisystem, Benachrichtigungen.</p>
-          <p>Das Ergebnis: Eine App, die sich nativ anfühlt, schnell ist und keinen Server braucht. Alles läuft lokal auf dem Gerät.</p>
+          <p>Das Ergebnis: Eine App, die sich nativ anfühlt, schnell ist und keinen Server braucht. Alles läuft lokal auf dem Gerät — bis auf die optionale KI-Berichtsfunktion.</p>
         </div>
         <div class="section-card">
           <p class="text-xs text-forest-400 font-semibold uppercase tracking-widest mb-3">Tech-Stack</p>
@@ -213,7 +217,7 @@
             </div>
             <div class="flex justify-between border-b border-white/5 pb-2">
               <span class="text-stone-400">Datenspeicherung</span>
-              <span class="text-stone-200 font-medium">Lokal / Offline</span>
+              <span class="text-stone-200 font-medium">Lokal, KI optional online</span>
             </div>
             <div class="flex justify-between border-b border-white/5 pb-2">
               <span class="text-stone-400">GPS</span>
@@ -221,7 +225,7 @@
             </div>
             <div class="flex justify-between">
               <span class="text-stone-400">Version</span>
-              <span class="text-forest-400 font-bold">v4.9.53</span>
+              <span class="text-forest-400 font-bold">v4.9.80</span>
             </div>
           </div>
         </div>
@@ -238,7 +242,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
         <div class="prose">
           <h2>4.1 Eine Tour anlegen</h2>
-          <p>Am Anfang jeder Tour steht ein Tippen auf den „+"-Knopf. Ab da fragt Pfadwerk nur das Nötigste: Name, Datum, Tourentyp (Wanderung oder Spaziergang). Alles andere lässt sich unterwegs ergänzen — oder auch gar nicht.</p>
+          <p>Am Anfang jeder Tour steht ein Tippen auf den „+"-Knopf. Ab da fragt Pfadwerk nur das Nötigste: Name, Datum, Tourentyp (Wanderung, Spaziergang oder Radtour). Alles andere lässt sich unterwegs ergänzen — oder auch gar nicht. Bei Radtouren passt Pfadwerk Berichtston und Ausrüstungsvorschläge an.</p>
         </div>
         <div class="flex flex-col items-center gap-2">
           <div class="w-44 phone-frame">
@@ -266,7 +270,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
         <div class="prose">
           <h2>4.3 Logbuch-Einträge</h2>
-          <p>Das Herzstück von Pfadwerk ist das Logbuch. Unterwegs lassen sich Einträge in drei Kategorien schreiben: Highlights, Sichtungen und Aussichten. Jeder Eintrag bekommt automatisch die aktuelle GPS-Position und die Uhrzeit mitgegeben.</p>
+          <p>Das Herzstück von Pfadwerk ist das Logbuch. Unterwegs lassen sich Einträge in vier Kategorien schreiben: Highlight, Aussichtspunkt, Sichtung und Gedanke. Jeder Eintrag bekommt automatisch die aktuelle GPS-Position und die Uhrzeit mitgegeben.</p>
         </div>
         <div class="flex flex-col items-center gap-2">
           <div class="w-44 phone-frame">
@@ -294,7 +298,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
         <div class="prose">
           <h2>4.5 Ausrüstung und Gelände</h2>
-          <p>Was hatte man dabei? Was fehlte? Pfadwerk bietet Chip-Auswahlen für häufige Ausrüstungsgegenstände und Geländetypen. Schnelle Mehrfachauswahl per Tipp — kein Tippen erforderlich.</p>
+          <p>Was hatte man dabei? Was fehlte? Pfadwerk bietet Chip-Auswahlen für häufige Ausrüstungsgegenstände und Geländetypen. Schnelle Mehrfachauswahl per Tipp — kein Tippen erforderlich. Passend zur Jahreszeit schlägt die App außerdem Ausrüstung vor; bei Radtouren gibt es eine eigene Liste (Flickzeug, Licht, Regenjacke) statt Gamaschen und Trekkingstöcken.</p>
         </div>
         <div class="flex flex-col items-center gap-2">
           <div class="w-44 phone-frame">
@@ -322,14 +326,27 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-4">
         <div class="prose">
           <h2>4.7 Fotos</h2>
-          <p>Fotos lassen sich direkt aus der App heraus schießen oder aus der Galerie importieren. Optional fügt Pfadwerk ein dezentes Wasserzeichen mit Tour-Name, Datum und Koordinaten hinzu — so weiß man später noch, wo das Bild entstanden ist.</p>
+          <p>Fotos lassen sich direkt aus der App heraus schießen oder aus der Galerie importieren. Beim Teilen setzt Pfadwerk sein Logo dezent unten rechts ins Foto — ohne Freischalt-Code immer, mit Code lässt es sich abschalten. Die Datensicherung sichert die Fotos dagegen ohne Logo, so wie sie in der App gespeichert sind.</p>
+          <p>Über „Mit Notiz teilen“ lässt sich eine kurze Notiz (bis 40 Zeichen) in einem weißen Rahmen unter dem Foto hinzufügen — praktisch, wenn man ein Bild direkt mit Freunden oder der Community teilt. Das Logo bleibt dabei auf dem Foto (sofern das Wasserzeichen nicht abgeschaltet ist), die Notiz wird nicht gespeichert.</p>
         </div>
         <div class="flex flex-col items-center gap-2">
           <div class="w-44 phone-frame">
             <img src="images/pfadwerk/Abb10.jpg" alt="Foto mit Pfadwerk-Wasserzeichen" loading="lazy"/>
           </div>
-          <p class="caption">Abb. 10: Optionales Pfadwerk-Wasserzeichen auf Fotos.</p>
+          <p class="caption">Abb. 10: Das Pfadwerk-Logo als Wasserzeichen auf Fotos.</p>
         </div>
+      </div>
+
+      <!-- 4.8 Geplante Touren -->
+      <div class="prose mt-10 mb-10">
+        <h2>4.8 Touren vorab planen</h2>
+        <p>Eine Route ist schon im Kopf oder in einer anderen App geplant? Dann lässt sich die Tour vorab erfassen — mit Name, Start und Ziel, Datum, Anreise, Ausrüstung und Tipps, ganz ohne GPS-Start. Die Übersicht zeigt alle geplanten Touren, sie lassen sich bearbeiten oder löschen. Am Tourtag genügt ein Tipp auf „Starten“: Die Angaben sind übernommen, und die GPS-Aufzeichnung beginnt.</p>
+      </div>
+
+      <!-- 4.9 Statistik und Jahresziele -->
+      <div class="prose mb-4">
+        <h2>4.9 Statistik und Jahresziele</h2>
+        <p>Das Statistik-Dashboard zeigt Gesamtkilometer, Anzahl der Touren, die häufigste Tourart, Rekord-Höhenmeter und eine Übersicht pro Jahr. Fürs laufende Jahr lassen sich eigene Kilometerziele setzen — getrennt für Zu-Fuß-Touren und Radtouren, denn 500 Wanderkilometer und 500 Radkilometer lassen sich schlecht vergleichen.</p>
       </div>
     </section>
 
@@ -364,10 +381,11 @@
         <div class="prose">
           <h2>5.2 Exporte</h2>
           <ul>
-            <li><strong style="color:#d9d4cc">HTML-Export:</strong> Vollständiger Blog-Beitrag als HTML-Datei — mit Fotos, GPS-Daten und formatiertem Text</li>
+            <li><strong style="color:#d9d4cc">HTML-Export (Premium):</strong> Vollständiger Blog-Beitrag als HTML-Datei — mit Fotos, GPS-Daten und formatiertem Text</li>
             <li><strong style="color:#d9d4cc">GPX-Export:</strong> GPS-Spur im Standardformat für Navi-Apps und Komoot</li>
             <li><strong style="color:#d9d4cc">TXT-Export:</strong> Alle Daten als einfache Textdatei</li>
-            <li><strong style="color:#d9d4cc">PDF-Export:</strong> Fertig formatierter Bericht zum Ausdrucken oder Weitergeben</li>
+            <li><strong style="color:#d9d4cc">PDF-Export (Premium):</strong> Fertig formatierter Bericht zum Ausdrucken oder Weitergeben — mit den Fotos neben dem Text in zwei Spalten</li>
+            <li><strong style="color:#d9d4cc">Sharepic (Premium):</strong> Bild mit Routen-Silhouette und den wichtigsten Zahlen einer Tour, zum Teilen</li>
           </ul>
         </div>
         <div class="flex flex-col items-center gap-2">
@@ -377,6 +395,14 @@
           <p class="caption">Abb. 12: GPX-, HTML- und TXT-Export.</p>
         </div>
       </div>
+
+      <!-- 5.3 Datensicherung -->
+      <div class="prose mt-8">
+        <h2>5.3 Datensicherung</h2>
+        <p>Weil alle Daten nur auf dem Gerät liegen, gibt es eine Datensicherung. Sie wird von Hand angestoßen — ein automatisches Backup oder eine Cloud gibt es nicht.</p>
+        <p>In den Einstellungen lassen sich alle Touren und Logbucheinträge als Datei sichern. Die Fotos werden getrennt gesichert, auf Wunsch monatsweise, damit die Dateien handlich bleiben. Sie enthalten kein Logo und sind so, wie sie in der App gespeichert sind — für alle Nutzer, auch ohne Premium.</p>
+        <p>Beim Zurückspielen ergänzt Pfadwerk vorhandene Touren, statt sie zu überschreiben oder doppelt anzulegen; die Fotos werden danach aus der Fotosicherung wiederhergestellt. Geplante Touren und Einstellungen sind nicht Teil der Sicherung.</p>
+      </div>
     </section>
 
     <!-- 6. Premium -->
@@ -385,7 +411,15 @@
         <span class="text-forest-400">06</span> Premium-Funktionen
       </h2>
       <div class="prose mb-6">
-        <p>Pfadwerk hat einen kleinen, feinen Premiumbereich. Kein Abo-Modell, keine monatlichen Kosten, keine automatischen Verlängerungen. Wer möchte, schaltet einmalig mit einem Monatscode frei — und hat Ruhe.</p>
+        <p>Pfadwerk ist kostenlos, und die Premium-Funktionen sind für alle offen: Der Freischalt-Code steht hier und wechselt jeden Monat. Kein Abo, kein Kauf im Store, keine Anmeldung, keine automatischen Verlängerungen — den Code einfach in der App eingeben.</p>
+      </div>
+
+      <!-- Freischalt-Code (monatlich). ⚙️ UPDATE: Tabelle PREMIUM_CODES im Script am Seitenende um neue Monate ergänzen (am 25., zusammen mit dem Event-Kalender). -->
+      <div class="section-card mb-8">
+        <p class="text-xs text-forest-400 font-semibold uppercase tracking-widest mb-3">Freischalt-Code für <span id="premium-code-month">diesen Monat</span></p>
+        <p id="premium-code" class="font-mono text-2xl md:text-3xl font-black text-white tracking-wider mb-3">–</p>
+        <noscript><p class="text-sm text-stone-400 mb-2">Zum Anzeigen des Codes wird JavaScript benötigt.</p></noscript>
+        <p class="text-sm text-stone-400 leading-relaxed">Eingeben in der App unter <strong style="color:#d9d4cc">Einstellungen → Premium → Freischalt-Code</strong>. Der Code gilt für den laufenden Monat (mit ein paar Tagen Kulanz), danach sperrt die App die Premium-Funktionen wieder — dann den neuen Code eingeben, der am Monatsersten hier steht. Groß- und Kleinschreibung sowie Bindestriche sind egal.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-8">
@@ -397,18 +431,22 @@
         </div>
         <div class="prose">
           <ul>
-            <li>Cover-Bild beim HTML-Export (erstes Foto der Tour)</li>
-            <li>ZIP-Export (alle Dateien gebündelt)</li>
-            <li>KI-Wanderbericht via Gemini</li>
-            <li>Erweiterte Export-Einstellungen</li>
+            <li>KI-Wanderbericht mit Gemini (eigener kostenloser Schlüssel, braucht Internet)</li>
+            <li>HTML-Blogbeitrag und PDF-Export</li>
+            <li>Monats-Recap: alle Touren eines Monats in einem Bericht</li>
+            <li>Titelbild für jede Tour frei wählbar</li>
+            <li>Fotos einer Tour als ZIP exportieren</li>
+            <li>Sharepic zu jeder Tour mit Routen-Silhouette</li>
+            <li>Wasserzeichen beim Teilen von Fotos abschaltbar</li>
           </ul>
+          <p>Ohne Code nutzbar sind unter anderem Statistik-Dashboard, Jahresziele, Datensicherung und „Mit Notiz teilen“.</p>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <div class="prose">
           <h2>KI-Reisebericht</h2>
-          <p>Die bemerkenswerteste Premium-Funktion: Pfadwerk kann aus den erfassten Daten mit Hilfe von Gemini einen vollständigen, lesbaren Wanderbericht generieren. Kein Copy-Paste, kein Nachbearbeiten — einfach tippen und lesen.</p>
+          <p>Die bemerkenswerteste Premium-Funktion: Pfadwerk kann aus den erfassten Daten mit Hilfe von Gemini einen vollständigen, lesbaren Wanderbericht generieren. Kein Copy-Paste, kein Nachbearbeiten — einfach tippen und lesen. Dafür braucht es einen eigenen, kostenlosen Google-Schlüssel (Google AI Studio) und eine Internetverbindung. Die Tourdaten und Logbuchtexte gehen dabei — ohne Fotos — an Google, mehr dazu in der <a href="index.html#datenschutz" class="text-forest-400 hover:text-forest-300 underline">Datenschutzerklärung</a>.</p>
           <p>Der KI-Bericht landet direkt im HTML-Export und kann sofort auf einer Website veröffentlicht werden.</p>
         </div>
         <div class="flex flex-col items-center gap-2">
@@ -431,6 +469,8 @@
           <p>Für alle, die eine etwas größere Schrift bevorzugen: Pfadwerk bietet einen Easy-Modus, der alle Texte und Schaltflächen vergrößert — ohne das Layout zu zerstören.</p>
           <h2>7.2 Tipps &amp; Tricks</h2>
           <p>Eine eingebaute Hilfe-Sektion erklärt die wichtigsten Funktionen mit kurzen, praxisnahen Tipps. Direkt in der App, ohne externe Links.</p>
+          <h2>7.3 Pfadwerk weiterempfehlen</h2>
+          <p>In den Einstellungen zeigt ein QR-Code den Store-Eintrag der App — praktisch, um Pfadwerk unterwegs direkt jemandem zu zeigen.</p>
         </div>
         <div class="flex flex-col items-center gap-2">
           <div class="w-44 phone-frame">
@@ -447,7 +487,8 @@
         <span class="text-forest-400">08</span> Ausblick
       </h2>
       <div class="prose">
-        <p>Seit dem 22.07.2026 ist Pfadwerk im Google Play Store zu finden. Die App ist fertig — sie tut, was sie soll, stabil, zuverlässig, ohne böse Überraschungen. Was bis dahin an formalen Schritten nötig war — Compliance-Anforderungen von Google, Datenschutz-Nachweise, Release-Builds — ist erledigt.</p>
+        <p>Seit dem 22.07.2026 ist Pfadwerk im Google Play Store zu finden. Was bis dahin an formalen Schritten nötig war — Compliance-Anforderungen von Google, Datenschutz-Nachweise, Release-Builds — ist erledigt.</p>
+        <p>Seitdem geht die Entwicklung weiter. Entstanden sind unter anderem geplante Touren, die Tourart Radtour, das Statistik-Dashboard mit Jahreszielen, die monatsweise Foto-Sicherung und „Mit Notiz teilen“. Die Grundlage ist stabil und mehrfach feldgetestet — fertig ist so eine App aber nie ganz.</p>
         <p>Pfadwerk ist aktuell eine reine Android-App und läuft nicht auf iOS-Geräten (iPhone/iPad). Eine iOS-Version ist derzeit nicht geplant.</p>
         <p>Parallel dazu reifen bereits weitere Ideen in der "Werk"-Familie. Vielleicht wird Pfadwerk dereinst Gesellschaft bekommen. Oder auch nicht. Manchmal ist ein gut gemachtes Ding für sich genug.</p>
       </div>
@@ -466,7 +507,7 @@
         <div class="space-y-2 text-sm">
           <div class="flex justify-between border-b border-white/5 pb-2">
             <span class="text-stone-400">Version</span>
-            <span class="text-forest-400 font-bold">v4.9.53 — stabil, mehrfach feldgetestet</span>
+            <span class="text-forest-400 font-bold">v4.9.80 — laufend weiterentwickelt, mehrfach feldgetestet</span>
           </div>
           <div class="flex justify-between border-b border-white/5 pb-2">
             <span class="text-stone-400">Status</span>
@@ -501,6 +542,33 @@
       <p>© 2026 Björn Weiß · <a href="index.html#impressum" class="hover:text-forest-400 transition-colors">Impressum</a> · <a href="index.html#datenschutz" class="hover:text-forest-400 transition-colors">Datenschutz</a></p>
     </div>
   </footer>
+
+  <script>
+    // ⚙️ UPDATE (monatlich am 25.): neue Monate ergänzen, alte Zeilen dürfen stehen bleiben.
+    // Nur Monatscodes eintragen. Die App akzeptiert nur den Code des laufenden Monats
+    // (und in den ersten 3 Tagen den des Vormonats) — deshalb wählt die Seite den Code nach dem Datum des Besuchers.
+    (function () {
+      var PREMIUM_CODES = {
+      '2026-09': 'PFAD-VWTU-RSPQ',
+      '2026-10': 'PFAD-8967-4523',
+      '2026-11': 'PFAD-8765-432Z',
+      '2026-12': 'PFAD-4567-YZ23'
+      };
+      var MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+      var codeEl = document.getElementById("premium-code");
+      var monthEl = document.getElementById("premium-code-month");
+      if (!codeEl || !monthEl) return;
+      var now = new Date();
+      var key = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0");
+      if (PREMIUM_CODES[key]) {
+        codeEl.textContent = PREMIUM_CODES[key];
+        monthEl.textContent = MONTHS[now.getMonth()] + " " + now.getFullYear();
+      } else {
+        codeEl.className = "text-base font-semibold text-stone-300 mb-3";
+        codeEl.textContent = "Für diesen Monat ist noch kein Code eingetragen.";
+      }
+    })();
+  </script>
 
 </body>
 </html>
