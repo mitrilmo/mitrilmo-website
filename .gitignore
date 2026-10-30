@@ -2,3 +2,9 @@ CLAUDE.md
 CHANGELOG.md
 index.backup-*.html
 tour-erfassung.html
+
+# Lokales und Rohmaterial
+.claude/
+*.orig.*
+images/game-realistic/
+images/game-pixelart/
