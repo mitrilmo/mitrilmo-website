@@ -10,8 +10,21 @@ import { published } from '../lib/news.js';
 import { upcoming, rangeDe } from '../lib/events.js';
 import { dateDe } from '../lib/date.js';
 import { difficultyLabel, kmDe } from '../lib/tours.js';
+import { kalenderTexte, spruchFuer } from '../lib/sprueche.js';
+import spruchSchluesselFn from '../lib/spruch-schluessel.js?raw';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Spruch am Wegesrand: Der Browser nimmt den Spruch des Tages nach dem Datum des Besuchers aus dem festen Kalender.
+// Ohne JavaScript bleibt der Spruch vom Tag des Seitenbaus stehen.
+const spruchHeute = spruchFuer(new Date());
+const spruchScript = `var SPRUECHE_TAG = ${JSON.stringify(kalenderTexte())};
+${spruchSchluesselFn}
+(function () {
+  var el = document.getElementById('spruch');
+  var t = SPRUECHE_TAG[spruchSchluessel(new Date())];
+  if (el && t) el.textContent = t;
+})();`;
 
 // Alte Anker (#touren usw.) leiten im Browser auf die neuen Seiten weiter, sobald es sie gibt.
 // #impressum und #datenschutz öffnen die Modals (LegalModals), kein Redirect.
@@ -74,7 +87,11 @@ const signs = [
         <h1 class="text-4xl md:text-5xl font-black text-stone-50 leading-tight">Raus.<br /><span class="text-accent">Entdecken.</span><br />Teilen.</h1>
         <span class="mt-5 block h-1 w-28 rounded-full bg-gradient-to-r from-accent to-transparent" aria-hidden="true"></span>
         <p class="mt-4 text-lg text-stone-100">Unterwegs im Bergischen Land, in NRW und darüber hinaus.</p>
-        <p class="mt-3 text-stone-200 max-w-md">Wanderungen und Ausflüge, die ich selbst gelaufen bin. Mit GPX-Download, Streckenverlauf und, wo ich sie habe, meiner ehrlichen Einschätzung.</p>
+        <figure class="mt-7 max-w-md min-h-[7rem] md:min-h-[5.25rem]">
+          <figcaption class="text-xs font-semibold uppercase tracking-widest text-accent">Spruch am Wegesrand</figcaption>
+          <blockquote id="spruch" class="mt-2 border-l-2 border-accent/60 pl-4 text-lg italic leading-snug text-stone-100">{spruchHeute}</blockquote>
+        </figure>
+        <script is:inline set:html={spruchScript}></script>
       </div>
       <nav aria-label="Einstieg" class="relative py-4">
         <div class="post absolute left-1/2 top-0 bottom-0 w-12 -translate-x-1/2" aria-hidden="true"></div>
