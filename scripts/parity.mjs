@@ -105,10 +105,9 @@ const allDec = safe(all);
 const urlMissing = urls.filter((u) => !all.includes(u) && !allDec.includes(safe(u)) && !all.includes(encodeURI(safe(u))) && !all.includes(u.replace(/^https?:\/\/(www\.)?/, '')));
 check('Externe Links der Startseite', urls.length, urls.length - urlMissing.length, urlMissing);
 
-// 8. Sprüche des Tages
-const spr = [...index.match(/const sprueche = \[([\s\S]*?)\];/)[1].matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]);
-const sprNew = readFileSync(join(root, 'src', 'data', 'sprueche.js'), 'utf8');
-check('Sprüche des Tages', spr.length, spr.filter((x) => sprNew.includes(JSON.stringify(x))).length, spr.filter((x) => !sprNew.includes(JSON.stringify(x))));
+// 8. Sprüche des Tages: seit 07.11.2026 durch die 365 Sprüche "Spruch am Wegesrand" ersetzt (Entscheidung Björn),
+// die 30 alten Sprüche der alten Seite werden nicht mehr verglichen.
+deviated.push('Sprüche des Tages: die 30 Sprüche der alten Seite sind durch die 365 Sprüche am Wegesrand ersetzt (07.11.2026)');
 
 // Ausgabe
 const w = (s, n) => String(s).padEnd(n);
