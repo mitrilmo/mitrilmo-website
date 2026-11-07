@@ -1,4 +1,8 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
 CLAUDE.md
 CHANGELOG.md
-index.backup-*.html
-tour-erfassung.html
+.claude/
+*.orig.*

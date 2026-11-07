@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* Schrift Inter: Die @font-face-Regeln stehen in src/lib/fonts.js und werden vom Layout mit dem
+   richtigen Basispfad eingebettet. Dateien und Lizenztext (SIL OFL) liegen in public/fonts/. */
+
+/* Farben wie in der bisherigen Tailwind-Konfiguration der Seite (CLAUDE.md, Design-Regeln) */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-slate-950: #0d1510;
+  --color-slate-900: #131d18;
+  --color-slate-800: #1a2520;
+  --color-slate-700: #243029;
+  --color-slate-600: #2e3d36;
+
+  --color-forest-900: #1a3317;
+  --color-forest-800: #2d5a27;
+  --color-forest-700: #3a7232;
+  --color-forest-600: #4a8c3f;
+  --color-forest-500: #5fa852;
+  --color-forest-400: #7bbf6a;
+  --color-forest-300: #a3d494;
+
+  --color-stone-50: #f7f5f2;
+  --color-stone-100: #edeae5;
+  --color-stone-200: #d9d4cc;
+  --color-stone-300: #c0b9ae;
+  --color-stone-400: #a89d8f;
+  --color-stone-500: #8f8275;
+
+  --color-amber-400: #f59e0b;
+  --color-amber-500: #d97706;
+}
+
+/* Jahreszeit: Akzentfarbe und Himmel. Gesetzt über html[data-season], Standard ohne JavaScript: Herbst */
+@theme inline {
+  --color-accent: var(--season-accent);
+  --color-accent-light: var(--season-accent-light);
+}
+
+html[data-season="fruehling"] {
+  --season-accent: #9bd67a; --season-accent-light: #b5e08f;
+  --sky-1: #10201a; --sky-2: #2d5a3a; --sky-3: #8cc76a;
+}
+html[data-season="sommer"] {
+  --season-accent: #f2cf6b; --season-accent-light: #f8e29a;
+  --sky-1: #0f2a3a; --sky-2: #2a6a8a; --sky-3: #9cc96a;
+}
+html[data-season="herbst"] {
+  --season-accent: #f0a85a; --season-accent-light: #f5c48a;
+  --sky-1: #1a1209; --sky-2: #4a2a12; --sky-3: #b5651d;
+}
+html[data-season="winter"] {
+  --season-accent: #a9d0ea; --season-accent-light: #cfe4f3;
+  --sky-1: #0d1318; --sky-2: #1c2a36; --sky-3: #5d7f9a;
+}
+
+/* Grundton der Seite je Jahreszeit (freigegeben 03.11.2026): Die Slate-Töne bekommen den Farbstich der Jahreszeit,
+   damit Himmel, Landschaft und Seite zusammenpassen. Frühling bleibt beim Grundton aus @theme. Alles bleibt dunkel. */
+html[data-season="sommer"] {
+  --color-slate-950: #0b1519; --color-slate-900: #101c21; --color-slate-800: #16252b;
+  --color-slate-700: #1f3138; --color-slate-600: #2a3f47;
+}
+html[data-season="herbst"] {
+  --color-slate-950: #14100b; --color-slate-900: #1c1610; --color-slate-800: #251d15;
+  --color-slate-700: #31271c; --color-slate-600: #3d3225;
+}
+html[data-season="winter"] {
+  --color-slate-950: #0c1217; --color-slate-900: #121a21; --color-slate-800: #19232c;
+  --color-slate-700: #222f3a; --color-slate-600: #2d3d4a;
+}
+
+.sky {
+  background: linear-gradient(135deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sky-3) 100%);
+  transition: background 0.6s;
+}
+
+/* Landschaft im Hero: Berge, Tannen, Schneekappen und Sonne bzw. Mond je Jahreszeit */
+html[data-season="fruehling"] { --mtn-far: #3f6b4c; --mtn-near: #2c5239; --tree: #173325; --snow: 0.0; --sun: 0.55; }
+html[data-season="sommer"]    { --mtn-far: #386a70; --mtn-near: #265246; --tree: #14332a; --snow: 0.0; --sun: 0.7; }
+html[data-season="herbst"]    { --mtn-far: #6b4524; --mtn-near: #46301a; --tree: #2a1d0f; --snow: 0.0; --sun: 0.5; }
+html[data-season="winter"]    { --mtn-far: #44596b; --mtn-near: #2f414f; --tree: #14212b; --snow: 0.95; --sun: 0.4; }
+
+/* Ohne Übergang bei fill: Safari (WebKit) blendete die Landschaft sonst beim Laden kurz von Schwarz ein */
+.scene-far { fill: var(--mtn-far); }
+.scene-near { fill: var(--mtn-near); }
+.scene-tree { fill: var(--tree); }
+.scene-snow { fill: #f3f7fa; opacity: var(--snow); }
+.scene-sun { fill: var(--season-accent); opacity: var(--sun); }
+
+/* Wegweiser: Holzschilder als Links. Pfeilform über clip-path, Fokusring nach innen, damit er nicht abgeschnitten wird. */
+.post {
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.16) 0 2px, transparent 2px 9px),
+    linear-gradient(90deg, #5a3a1c 0%, #9a6a38 45%, #6b4423 100%);
+  border-radius: 0.9rem 0.9rem 0.25rem 0.25rem;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18);
+}
+
+/* Der Schein folgt der Pfeilform, weil der Filter am umgebenden Eintrag sitzt und nicht am abgeschnittenen Schild */
+.sign-item { transition: filter 0.25s; }
+.sign-item:hover, .sign-item:focus-within { filter: drop-shadow(0 0 7px var(--season-accent)); }
+
+.sign {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.07) 0 2px, transparent 2px 8px),
+    linear-gradient(180deg, #9a6a38 0%, #6f4726 100%);
+  color: #f7f5f2;
+  padding: 1rem 2.8rem 1rem 1.2rem;
+  clip-path: polygon(0 0, calc(100% - 1.8rem) 0, 100% 50%, calc(100% - 1.8rem) 100%, 0 100%);
+  transition: transform 0.25s;
+}
+.sign.sign-left {
+  padding: 1rem 1.2rem 1rem 2.8rem;
+  clip-path: polygon(1.8rem 0, 100% 0, 100% 100%, 1.8rem 100%, 0 50%);
+}
+.sign:hover { transform: translateY(-2px) rotate(-0.6deg); }
+.sign:focus-visible { outline: 3px solid var(--season-accent-light); outline-offset: -7px; }
+
+/* Hängendes Schild mit dem Teaser unter dem Pfeil, an zwei Kettchen */
+.plaque {
+  position: relative;
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(180deg, #f3e2bd 0%, #e0c48c 100%);
+  color: #3a2810;
+  border-radius: 0.6rem;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+.plaque::before, .plaque::after {
+  content: '';
+  position: absolute;
+  top: -0.9rem;
+  width: 2px;
+  height: 0.9rem;
+  background: #8a8a85;
+}
+.plaque::before { left: 14%; }
+.plaque::after { right: 14%; }
+
+/* Das Teaser-Schild schwingt beim Darüberfahren, Antippen und bei Tastaturfokus kurz an den Kettchen aus.
+   Bei prefers-reduced-motion schaltet die allgemeine Regel unten die Animation ab. */
+.plaque { transform-origin: 50% -0.9rem; }
+.sign-item:hover .plaque,
+.sign-item:focus-within .plaque,
+.sign-item:active .plaque { animation: swing 1.4s ease-out; }
+@keyframes swing {
+  0% { transform: rotate(0); }
+  16% { transform: rotate(3.2deg); }
+  38% { transform: rotate(-2.4deg); }
+  58% { transform: rotate(1.5deg); }
+  78% { transform: rotate(-0.8deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Tastaturfokus: überall ein deutlicher Ring in der Akzentfarbe der Jahreszeit (Maus-Klicks lösen ihn nicht aus) */
+:focus-visible { outline: 2px solid var(--season-accent-light, #7bbf6a); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Nach dem Skip-Link bekommt <main> den Fokus, dort soll kein Ring stehen */
+main:focus-visible { outline: none; }
