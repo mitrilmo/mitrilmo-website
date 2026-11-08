@@ -1,6 +1,7 @@
 ---
 title: Landgasthof Filde
 date: 2026-10-23
+description: "Von Rüggeberg zum Landhaus Filde und zurück, bei zehn Grad und Wolken. Der Lohn am Wendepunkt: Schnitzel und Kroketten."
 cover: ../../assets/images/news/2026-10-23-landgasthof-filde/cover.avif
 coverAlt: Außenbereich des Landhauses Filde mit Holztischen, Klappstühlen und einer Schiefertafel mit dem Schriftzug Landhaus Filde
 mood: Begeistert
