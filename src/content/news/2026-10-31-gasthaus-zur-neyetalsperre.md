@@ -1,6 +1,7 @@
 ---
 title: Gasthaus zur Neyetalsperre
 date: 2026-10-31
+description: "Nach gut zehn Kilometern Waldweg bei Wipperfürth Einkehr im Gasthaus zur Neyetalsperre: Schnitzel, Espresso, zurück über die Staumauer. Fünf von fünf Sternen."
 cover: ../../assets/images/news/2026-10-31-gasthaus-zur-neyetalsperre/cover.avif
 coverAlt: "Titelbild: Gasthaus zur Neyetalsperre"
 mood: Begeistert

@@ -42,6 +42,7 @@ const seasonScript = seasonFn + `
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={ogImageUrl} />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="application/rss+xml" title="mitrilmo: Neuigkeiten und Geschichten" href={`${base}/feed.xml`} />
   {staging && <meta name="robots" content="noindex, nofollow" />}
   <link rel="icon" href={`${base}/favicon.ico`} sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon-32x32.png`} />
@@ -71,7 +72,7 @@ const seasonScript = seasonFn + `
     <div class="max-w-5xl mx-auto px-4 pt-8 pb-24 md:pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
       <p>© 2026 mitrilmo · Bergisches Land, NRW</p>
       <p>
-        <a href={`${base}/#impressum`} class="hover:text-accent transition-colors">Impressum</a><span class="mx-2" aria-hidden="true">·</span><a href={`${base}/#datenschutz`} class="hover:text-accent transition-colors">Datenschutz</a>
+        <a href={`${base}/#impressum`} class="hover:text-accent transition-colors">Impressum</a><span class="mx-2" aria-hidden="true">·</span><a href={`${base}/#datenschutz`} class="hover:text-accent transition-colors">Datenschutz</a><span class="mx-2" aria-hidden="true">·</span><a href={`${base}/rss.html`} class="hover:text-accent transition-colors" title="Neuigkeiten und Geschichten per RSS-Feed lesen">RSS</a>
       </p>
     </div>
   </footer>
