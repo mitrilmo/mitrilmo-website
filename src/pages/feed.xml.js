@@ -1,31 +1,18 @@
 import { getCollection } from 'astro:content';
-import { feedItems, feedXml } from '../lib/feed.js';
-import { teaser, published } from '../lib/news.js';
+import { feedEntries, feedXml } from '../lib/feed.js';
 
 // RSS-Feed mit den neuesten Neuigkeiten und Geschichten. Seitenadresse wie der Canonical: .html.
+// Für Besucher gibt es die lesbare Erklärung unter /rss.html (Footer-Link).
 export async function GET({ site }) {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const origin = site.origin;
-  const news = published(await getCollection('news')).map((p) => ({
-    title: p.data.title,
-    url: `${origin}${base}/neuigkeiten/${p.id}.html`,
-    date: p.data.date,
-    description: teaser(p),
-  }));
-  const stories = (await getCollection('stories'))
-    .filter((s) => !s.data.draft)
-    .map((s) => ({
-      title: s.data.title,
-      url: `${origin}${base}/stories/${s.id}.html`,
-      date: s.data.date,
-      description: s.data.description,
-    }));
+  const items = feedEntries(await getCollection('news'), await getCollection('stories')).map((e) => ({ ...e, url: `${origin}${base}${e.path}` }));
   const xml = feedXml({
     origin,
     base,
     title: 'mitrilmo',
     description: 'Neuigkeiten und Geschichten von mitrilmo: Wandern, Radfahren und Neugier im Bergischen Land.',
-    items: feedItems([...news, ...stories]),
+    items,
   });
   return new Response(xml, { headers: { 'Content-Type': 'application/rss+xml; charset=utf-8' } });
 }

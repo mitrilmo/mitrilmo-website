@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { feedItems, feedXml } from '../src/lib/feed.js';
+import { feedItems, feedXml, feedEntries } from '../src/lib/feed.js';
 import { checkFeed } from '../scripts/lib/checks.mjs';
 
 const ORIGIN = 'https://www.mitrilmo.com';
@@ -23,6 +23,21 @@ test('Feed: leere Liste ergibt trotzdem gültiges RSS', () => {
   const xml = feedXml({ origin: ORIGIN, title: 't', description: 'd', items: [] });
   assert.match(xml, /<channel>/);
   assert.doesNotMatch(xml, /<item>/);
+});
+
+test('feedEntries: Neuigkeiten und Geschichten gemischt, Entwürfe raus, Pfade mit .html, Neuigkeit ohne description nutzt den Teaser', () => {
+  const news = [
+    { id: 'n1', data: { title: 'N1', date: new Date('2026-10-01'), draft: false }, body: 'Erster Absatz.\n\nZweiter.' },
+    { id: 'n2', data: { title: 'Entwurf', date: new Date('2026-10-09'), draft: true }, body: 'x' },
+  ];
+  const stories = [
+    { id: 's1', data: { title: 'S1', date: new Date('2026-10-05'), description: 'Kurztext S1', draft: false } },
+    { id: 's2', data: { title: 'S2 Entwurf', date: new Date('2026-10-06'), description: 'x'.repeat(30), draft: true } },
+  ];
+  const out = feedEntries(news, stories);
+  assert.deepEqual(out.map((e) => e.path), ['/stories/s1.html', '/neuigkeiten/n1.html']);
+  assert.equal(out[1].description, 'Erster Absatz.');
+  assert.equal(feedEntries(news, stories, 1).length, 1);
 });
 
 const pages = ['neuigkeiten/b1.html'];

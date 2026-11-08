@@ -1,4 +1,6 @@
 // RSS-Feed (Neuigkeiten und Geschichten). Reine Funktionen, getestet in tests/feed.test.mjs.
+import { teaser, published } from './news.js';
+
 const escapeXml = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -6,6 +8,16 @@ const escapeXml = (s) =>
 // entries: [{ title, url, date: Date, description }]
 export function feedItems(entries, limit = 20) {
   return [...entries].sort((a, b) => b.date - a.date).slice(0, limit);
+}
+
+// Beiträge für Feed und Seite /rss.html: Neuigkeiten und Geschichten, ohne Entwürfe, neueste zuerst.
+// path ist relativ zum Site-Root (mit .html), den Basispfad und Host setzt der Aufrufer davor.
+export function feedEntries(news, stories, limit = 20) {
+  const n = published(news).map((p) => ({ title: p.data.title, path: `/neuigkeiten/${p.id}.html`, date: p.data.date, description: teaser(p) }));
+  const s = stories
+    .filter((x) => !x.data.draft)
+    .map((x) => ({ title: x.data.title, path: `/stories/${x.id}.html`, date: x.data.date, description: x.data.description }));
+  return feedItems([...n, ...s], limit);
 }
 
 // origin: z. B. https://www.mitrilmo.com, base: '' (live) oder '/mitrilmo-staging'
