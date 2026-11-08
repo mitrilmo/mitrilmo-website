@@ -135,6 +135,32 @@ html[data-season="winter"] .teilchen { background: #f3f7fa; border-radius: 50%; 
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18);
 }
 
+/* Tier auf dem Pfosten (WegweiserTier.astro): nur das der Jahreszeit ist sichtbar, Standard ohne JavaScript: Herbst.
+   Der Pfosten ist 3rem breit, das Tier sitzt mit den Füßen auf seiner Oberkante. */
+.tier {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: -2.5rem;
+  width: 3rem;
+  height: 2.5rem;
+  margin-left: -1.5rem;
+  pointer-events: none;
+  overflow: visible;
+}
+html[data-season="fruehling"] .tier-fruehling,
+html[data-season="sommer"] .tier-sommer,
+html[data-season="herbst"] .tier-herbst,
+html[data-season="winter"] .tier-winter { display: block; }
+
+.tier-kopf, .tier-fluegel, .tier-schwanz { transform-box: fill-box; }
+.tier-kopf { transform-origin: 80% 80%; animation: nicken 5s ease-in-out infinite; }
+.tier-fluegel { transform-origin: 50% 60%; animation: flattern 2.4s ease-in-out infinite; }
+.tier-schwanz { transform-origin: 20% 90%; animation: wedeln 4.5s ease-in-out infinite; }
+@keyframes nicken { 0%, 70%, 100% { transform: rotate(0); } 78% { transform: rotate(-9deg); } 86% { transform: rotate(4deg); } 94% { transform: rotate(-5deg); } }
+@keyframes flattern { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(0.55); } }
+@keyframes wedeln { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(7deg); } }
+
 /* Der Schein folgt der Pfeilform, weil der Filter am umgebenden Eintrag sitzt und nicht am abgeschnittenen Schild */
 .sign-item { transition: filter 0.25s; }
 .sign-item:hover, .sign-item:focus-within { filter: drop-shadow(0 0 7px var(--season-accent)); }

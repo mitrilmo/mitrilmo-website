@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { feedEntries } from '../lib/feed.js';
+import { dateDe } from '../lib/date.js';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const feedUrl = new URL(`${base}/feed.xml`, Astro.site).href;
+const items = feedEntries(await getCollection('news'), await getCollection('stories'), 10);
+---
+<Base title="RSS-Feed, mitrilmo" description="Neuigkeiten und Geschichten von mitrilmo als RSS-Feed: Adresse zum Kopieren in den eigenen Feed-Reader und die letzten Beiträge.">
+  <PageHero width="max-w-3xl">
+    <h1 class="text-3xl font-black text-stone-50">RSS-Feed</h1>
+    <p class="mt-2 text-stone-200">Neue Beiträge von mitrilmo im eigenen Feed-Reader lesen.</p>
+  </PageHero>
+
+  <div class="max-w-3xl mx-auto px-4 py-10 space-y-10">
+    <section aria-labelledby="wasist">
+      <h2 id="wasist" class="text-2xl font-extrabold text-stone-50">Was ist das?</h2>
+      <p class="mt-3 text-stone-300">Das ist der RSS-Feed von mitrilmo. Ein Feed-Reader holt neue Beiträge von selbst ab und zeigt sie dir an, ohne dass du jedes Mal die Seite öffnen musst. Du brauchst dafür kein Konto bei mir, und ich erfahre nicht, wer den Feed liest.</p>
+      <p class="mt-3 text-stone-300">Im Feed stehen die Neuigkeiten und die Geschichten. Pro Beitrag siehst du Titel, Datum und einen Kurztext, den ganzen Bericht mit Fotos liest du dann hier auf der Seite.</p>
+    </section>
+
+    <section aria-labelledby="abonnieren">
+      <h2 id="abonnieren" class="text-2xl font-extrabold text-stone-50">So abonnierst du</h2>
+      <p class="mt-3 text-stone-300">Kopiere diese Adresse in deinen Feed-Reader:</p>
+      <div class="mt-3 flex flex-col gap-3 sm:flex-row">
+        <code id="feed-adresse" class="flex-1 select-all break-all rounded-lg border border-white/10 bg-slate-700 px-3 py-2 text-sm text-stone-100">{feedUrl}</code>
+        <button id="feed-kopieren" type="button" hidden class="rounded-lg bg-slate-600 px-4 py-2 text-sm font-semibold text-stone-50 hover:text-accent transition-colors">Kopieren</button>
+      </div>
+      <p id="feed-status" class="mt-2 min-h-[1.25rem] text-sm text-stone-400" role="status"></p>
+      <p class="mt-1 text-sm text-stone-400">Du hast noch keinen Feed-Reader? Dann such nach „RSS Reader“. Es gibt kostenlose für Handy und Computer. Die Adresse fügst du dort als neuen Feed ein.</p>
+    </section>
+
+    <section aria-labelledby="letzte">
+      <h2 id="letzte" class="text-2xl font-extrabold text-stone-50">Die letzten Beiträge</h2>
+      <ul class="mt-4 space-y-5">
+        {items.map((e) => (
+          <li>
+            <p class="text-xs text-stone-400"><time datetime={e.date.toISOString().slice(0, 10)}>{dateDe(e.date)}</time></p>
+            <h3 class="mt-0.5 text-lg font-bold text-stone-50"><a href={`${base}${e.path}`} class="hover:text-accent transition-colors">{e.title}</a></h3>
+            <p class="mt-1 text-sm text-stone-300">{e.description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var knopf = document.getElementById('feed-kopieren');
+      var feld = document.getElementById('feed-adresse');
+      var status = document.getElementById('feed-status');
+      if (!knopf || !feld) return;
+      knopf.hidden = false;
+      knopf.addEventListener('click', function () {
+        var auswahl = window.getSelection();
+        var bereich = document.createRange();
+        bereich.selectNodeContents(feld);
+        auswahl.removeAllRanges();
+        auswahl.addRange(bereich);
+        var ok = function () { status.textContent = 'Adresse kopiert.'; };
+        var nein = function () { status.textContent = 'Die Adresse ist markiert. Kopiere sie mit Strg+C.'; };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(feld.textContent.trim()).then(ok, nein);
+        else nein();
+      });
+    })();
+  </script>
+</Base>

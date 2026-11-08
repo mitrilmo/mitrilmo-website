@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import LegalModals from '../components/LegalModals.astro';
 import HeroScene from '../components/HeroScene.astro';
 import HeroPartikel from '../components/HeroPartikel.astro';
+import WegweiserTier from '../components/WegweiserTier.astro';
 import ContentImage from '../components/ContentImage.astro';
 import anchorsFn from '../lib/anchors.js?raw';
 import { nav } from '../data/nav.js';
@@ -97,6 +98,7 @@ const signs = [
       </div>
       <nav aria-label="Einstieg" class="relative py-4">
         <div class="post absolute left-1/2 top-0 bottom-0 w-12 -translate-x-1/2" aria-hidden="true"></div>
+        <WegweiserTier />
         <ul class="relative flex flex-col gap-5">
           {signs.map((s) => (
             <li class={`sign-item w-[94%] ${s.left ? 'self-start' : 'self-end'}`}>

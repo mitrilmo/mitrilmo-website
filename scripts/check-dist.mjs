@@ -3,7 +3,7 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkHtml, checkLinks, checkLegal, checkDistImages, checkCss, checkRobots, checkSitemap } from './lib/checks.mjs';
+import { checkHtml, checkLinks, checkLegal, checkDistImages, checkCss, checkRobots, checkSitemap, checkFeed } from './lib/checks.mjs';
 
 // Seiten, auf die schon verlinkt wird, die aber erst migriert werden (Umsetzungsplan). Nur im Staging erlaubt,
 // beim Live-Build ist ein Link ohne Seite ein Fehler. Eintrag entfernen, sobald die Seite existiert.
@@ -44,6 +44,8 @@ problems.push(...checkLinks(pages, base, (rel) => {
 problems.push(...checkLegal(pages));
 problems.push(...checkDistImages(files.map((f) => ({ path: f, bytes: statSync(join(dist, f)).size }))));
 if (set.has('robots.txt')) problems.push(...checkRobots(readFileSync(join(dist, 'robots.txt'), 'utf8'), staging));
+problems.push(...checkFeed(set.has('feed.xml') ? readFileSync(join(dist, 'feed.xml'), 'utf8') : '', [...pages.keys()], staging ? 'https://mitrilmo.github.io' : 'https://www.mitrilmo.com', base));
+if (!pages.get('index.html')?.includes('rel="alternate" type="application/rss+xml"')) problems.push('index.html: Link auf den RSS-Feed fehlt im Head');
 if (live) {
   const read = (f) => (set.has(f) ? readFileSync(join(dist, f), 'utf8') : '');
   problems.push(...checkSitemap(read('sitemap.xml'), read('robots.txt'), [...pages.keys()], 'https://www.mitrilmo.com'));
