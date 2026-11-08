@@ -1,0 +1,17 @@
+---
+// Wenige, kleine Partikel im Hero, je nach Jahreszeit: Blütenblätter (Frühling), Glühwürmchen (Sommer), Blätter (Herbst),
+// Schnee (Winter). Gezeigt wird die Form der Jahreszeit (html[data-season], Standard ohne JavaScript: Herbst), Regeln in global.css.
+// Dekorativ (aria-hidden), nur CSS, keine Anfrage. Die Werte sind fest gesetzt, damit jeder Bau gleich aussieht.
+// x: Abstand von links in %, s: Größe in px, d: Dauer in s, t: Verzögerung in s, w: seitlicher Weg in px
+const teilchen = [
+  { x: 6, s: 7, d: 19, t: 2, w: 40 }, { x: 16, s: 5, d: 24, t: 11, w: -30 }, { x: 27, s: 8, d: 21, t: 6, w: 50 },
+  { x: 38, s: 5, d: 26, t: 16, w: -45 }, { x: 49, s: 7, d: 20, t: 0, w: 35 }, { x: 58, s: 6, d: 25, t: 9, w: -40 },
+  { x: 69, s: 8, d: 22, t: 14, w: 45 }, { x: 78, s: 5, d: 27, t: 4, w: -35 }, { x: 88, s: 7, d: 23, t: 18, w: 40 },
+  { x: 95, s: 6, d: 24, t: 8, w: -30 },
+];
+---
+<div class="partikel" aria-hidden="true">
+  {teilchen.map((p) => (
+    <span class="teilchen" style={`--x:${p.x}%;--s:${p.s}px;--d:${p.d}s;--t:${p.t}s;--w:${p.w}px`}></span>
+  ))}
+</div>
