@@ -88,6 +88,44 @@ html[data-season="winter"]    { --mtn-far: #44596b; --mtn-near: #2f414f; --tree:
 .scene-snow { fill: #f3f7fa; opacity: var(--snow); }
 .scene-sun { fill: var(--season-accent); opacity: var(--sun); }
 
+/* Partikel im Hero (HeroPartikel.astro): wenige, kleine, langsame Teilchen hinter dem Text. Die Fläche misst sich selbst
+   (container-type), damit der Weg nach unten zur Höhe des Hero passt. Auf kleinen Bildschirmen nur die ersten sechs. */
+.partikel { position: absolute; inset: 0; overflow: hidden; pointer-events: none; container-type: size; }
+.teilchen {
+  position: absolute; top: 0; left: var(--x);
+  width: calc(var(--s) * 1.5); height: calc(var(--s) * 1.5);
+  opacity: 0;
+  animation: fallen var(--d) linear var(--t) infinite;
+}
+@media (max-width: 639px) { .teilchen:nth-child(n+7) { display: none; } }
+/* Frühling: Blütenblätter */
+html[data-season="fruehling"] .teilchen { background: #f6dce4; border-radius: 80% 0 80% 0; }
+/* Sommer: Glühwürmchen steigen auf und glimmen */
+html[data-season="sommer"] .teilchen {
+  background: #f8e29a; border-radius: 50%; box-shadow: 0 0 6px 2px rgba(248, 226, 154, 0.6);
+  width: calc(var(--s) * 0.7); height: calc(var(--s) * 0.7); animation-name: steigen;
+}
+/* Herbst: Blätter */
+html[data-season="herbst"] .teilchen { background: #d9772b; border-radius: 0 90% 0 90%; }
+html[data-season="herbst"] .teilchen:nth-child(3n) { background: #b8431f; }
+html[data-season="herbst"] .teilchen:nth-child(3n+1) { background: #e0a43a; }
+/* Winter: Schnee */
+html[data-season="winter"] .teilchen { background: #f3f7fa; border-radius: 50%; width: var(--s); height: var(--s); }
+@keyframes fallen {
+  0% { opacity: 0; transform: translate3d(0, -10px, 0) rotate(0deg); }
+  8% { opacity: 0.75; }
+  50% { transform: translate3d(calc(var(--w) * 0.5), 50cqh, 0) rotate(160deg); }
+  92% { opacity: 0.75; }
+  100% { opacity: 0; transform: translate3d(var(--w), calc(100cqh + 10px), 0) rotate(320deg); }
+}
+@keyframes steigen {
+  0% { opacity: 0; transform: translate3d(0, 100cqh, 0); }
+  20% { opacity: 0.9; }
+  50% { opacity: 0.35; transform: translate3d(calc(var(--w) * 0.5), 50cqh, 0); }
+  80% { opacity: 0.9; }
+  100% { opacity: 0; transform: translate3d(var(--w), 5cqh, 0); }
+}
+
 /* Wegweiser: Holzschilder als Links. Pfeilform über clip-path, Fokusring nach innen, damit er nicht abgeschnitten wird. */
 .post {
   background:
@@ -164,6 +202,7 @@ html[data-season="winter"]    { --mtn-far: #44596b; --mtn-near: #2f414f; --tree:
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  .teilchen { display: none; }
 }
 
 /* Nach dem Skip-Link bekommt <main> den Fokus, dort soll kein Ring stehen */
