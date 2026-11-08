@@ -1,0 +1,10 @@
+---
+// Hinweis unter Empfehlungen von Restaurants, Märkten und Veranstaltungen: alles selbst bezahlt, keine Gegenleistung.
+// Die Aussage muss stimmen (Stand 08.11.2026: stimmt, laut Björn nie eine Gegenleistung). Gibt es einmal eine Einladung,
+// einen Rabatt oder ein Gratis-Produkt, den Beitrag deutlich als Werbung kennzeichnen und diesen Hinweis dort anpassen (siehe CLAUDE.md).
+const { class: extra = '' } = Astro.props;
+---
+<aside class={`rounded-xl border border-white/5 bg-slate-700/60 p-4 text-sm text-stone-300 ${extra}`} aria-label="Hinweis zu Empfehlungen">
+  <p class="font-semibold text-stone-100">Hinweis zu Empfehlungen</p>
+  <p class="mt-1">Alle Besuche, Mahlzeiten und Eintritte bezahlen wir selbst. Bisher gab es dafür keine Einladung, keinen Rabatt und keine andere Gegenleistung. Sollte sich das einmal ändern, steht es klar im jeweiligen Beitrag.</p>
+</aside>
