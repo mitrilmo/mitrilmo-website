@@ -237,6 +237,29 @@ export function checkSitemap(sitemap, robots, htmlFiles, site) {
   return problems;
 }
 
+// RSS-Feed: vorhanden, Einträge mit Titel, Datum und Adresse, jede Adresse zeigt auf eine gebaute Seite.
+// htmlFiles: Pfade relativ zu dist/, origin: z. B. https://www.mitrilmo.com, base: '' (live) oder '/mitrilmo-staging'
+export function checkFeed(xml, htmlFiles, origin, base = '') {
+  if (!xml) return ['feed.xml fehlt im Build'];
+  const problems = [];
+  if (!/<rss[\s>]/.test(xml) || !/<channel>/.test(xml)) return ['feed.xml ist kein RSS-Feed'];
+  const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1]);
+  if (items.length === 0) problems.push('feed.xml enthält keine Einträge');
+  const prefix = `${origin.replace(/\/$/, '')}${base}/`;
+  const pages = new Set(htmlFiles.map((f) => f.replace(/\\/g, '/')));
+  for (const it of items) {
+    const title = (it.match(/<title>([^<]*)<\/title>/) || [])[1];
+    const link = (it.match(/<link>([^<]*)<\/link>/) || [])[1];
+    if (!title) problems.push('feed.xml: Eintrag ohne Titel');
+    if (!/<pubDate>[^<]+<\/pubDate>/.test(it) || Number.isNaN(Date.parse((it.match(/<pubDate>([^<]+)<\/pubDate>/) || [])[1]))) {
+      problems.push(`feed.xml: Eintrag "${title}" ohne gültiges Datum`);
+    }
+    if (!link || !link.startsWith(prefix) || !link.endsWith('.html')) problems.push(`feed.xml: ungültige Adresse "${link}"`);
+    else if (!pages.has(link.slice(prefix.length))) problems.push(`feed.xml: Adresse ohne Seite: ${link}`);
+  }
+  return problems;
+}
+
 // files: [{ path, bytes }] des Builds. Jede ausgelieferte Bilddatei muss unter dem Budget bleiben.
 export function checkDistImages(files) {
   return files
