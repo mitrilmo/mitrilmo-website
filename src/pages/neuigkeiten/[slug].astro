@@ -4,6 +4,7 @@ import { getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import ContentImage from '../../components/ContentImage.astro';
 import PageHero from '../../components/PageHero.astro';
+import SelbstBezahlt from '../../components/SelbstBezahlt.astro';
 import { withBase } from '../../lib/url.js';
 import { teaser, published, isExternal } from '../../lib/news.js';
 import { dateDe } from '../../lib/date.js';
@@ -71,5 +72,7 @@ const og = await getImage({ src: data.cover, width: 1200, height: 630, fit: 'cov
     )}
 
     {data.tags.length > 0 && <p class="mt-8 text-xs text-stone-400">{data.tags.map((t) => `#${t}`).join(' ')}</p>}
+
+    <SelbstBezahlt class="mt-10" />
   </article>
 </Base>

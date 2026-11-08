@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import ContentImage from '../components/ContentImage.astro';
+import SelbstBezahlt from '../components/SelbstBezahlt.astro';
 import { teaser, published } from '../lib/news.js';
 import { dateDe } from '../lib/date.js';
 
@@ -33,5 +34,6 @@ const posts = published(await getCollection('news'));
         </li>
       ))}
     </ul>
+    <SelbstBezahlt class="mt-10" />
   </section>
 </Base>
