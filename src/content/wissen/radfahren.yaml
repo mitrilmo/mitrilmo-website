@@ -1,0 +1,337 @@
+titel: "Radfahren"
+emoji: "🚲"
+reihenfolge: 1
+szene: rad
+kurz: "Höhenmeter, Platten, Gewitter und der richtige Umgang mit Wanderern: 15 kurze Lektionen mit Quiz."
+beschreibung: "Radfahren im Bergischen Land: 15 kurze Lektionen mit Quiz zu Tourenplanung, Technik, Pannen, Regeln und Gewitter. Am Ende gibt es eine Urkunde von Mo."
+intro: "Morgens halb neun. Mo schiebt sein Rad aus dem Schuppen und prüft die Reifen und tritt probehalber ein Mal in die Pedale."
+
+module:
+  - id: rad-m1
+    emoji: "🗺️"
+    titel: "Planung und Einstellung"
+    szene: "Mittag. Mo schiebt sein Rad durch den Wald und weiß jetzt, dass Kilometer nicht alles sind."
+    lektionen:
+      - id: rad-01
+        emoji: "⛰️"
+        titel: "Kilometer sind nicht alles"
+        minuten: 3
+        lernziel: "Du schätzt eine Radtour nach Höhenmetern, Untergrund und Wind ein, nicht nur nach ihrer Länge."
+        text:
+          - "Vierzig Kilometer sind nicht vierzig Kilometer. Flach am Fluss und mit Rückenwind rollst du fast von allein. Mit vielen Höhenmetern, Schotter und Gegenwind brauchst du auf derselben Strecke leicht doppelt so viel Kraft und Zeit."
+          - "Darum gehört vor jede Tour ein Blick aufs Höhenprofil. Im Bergischen Land ist das keine Kür, denn hier geht es selten lange geradeaus."
+        tipp: "Rechne die Zeit lieber großzügig. Wer früher ankommt, hat mehr Pause."
+        quiz:
+          frage: "Warum solltest du bei der Tourenplanung nicht nur auf die Kilometerzahl schauen?"
+          richtig: "Weil Höhenmeter, Untergrund und Gegenwind Kraft und Zeit auf derselben Strecke stark verändern."
+          falsch:
+            - "Weil die Kilometerangaben auf Radrouten meistens nicht stimmen."
+            - "Weil nur die Höhenmeter zählen und die Kilometer keine Rolle spielen."
+            - "Weil du auf Strecken über 30 Kilometer immer eine Stunde Pause einplanen musst."
+          erklaerung: "40 Kilometer flach am Fluss sind ein Spaziergang. 40 Kilometer mit 900 Höhenmetern auf Schotter und Gegenwind fühlen sich ganz anders an. Das Höhenprofil verrät es dir vorher."
+
+      - id: rad-02
+        emoji: "🪑"
+        titel: "Die Sattelhöhe"
+        minuten: 3
+        lernziel: "Du stellst den Sattel so ein, dass Knie und Hüfte entspannt arbeiten."
+        text:
+          - "Ein zu niedriger Sattel belastet die Knie und kostet Kraft. Ein zu hoher bringt die Hüfte zum Schaukeln und macht Sitzbeschwerden."
+          - "So findest du die Höhe: Setz dich gerade aufs Rad und stell die Ferse aufs unterste Pedal. Das Bein sollte jetzt fast durchgestreckt sein. Mit dem Fußballen auf dem Pedal bleibt das Knie leicht gebeugt, und das passt."
+        tipp: "Ändere die Höhe in kleinen Schritten und fahr danach eine Runde. Kleine Änderung, große Wirkung."
+        quiz:
+          frage: "Warum lohnt es sich, die Sattelhöhe vor einer längeren Tour einzustellen?"
+          richtig: "Ein falscher Sattel überlastet die Knie oder lässt die Hüfte schaukeln und kostet Kraft."
+          falsch:
+            - "Damit du an der Ampel immer mit beiden Fußsohlen flach auf dem Boden stehst."
+            - "Weil ein hoher Sattel grundsätzlich schneller macht, egal wie er passt."
+            - "Damit das Rad besser durch Kurven lenkt."
+          erklaerung: "Faustregel: Ferse aufs unterste Pedal, Bein fast gestreckt. Beim Fahren mit dem Fußballen bleibt das Knie dann leicht gebeugt."
+
+      - id: rad-03
+        emoji: "🛞"
+        titel: "Luftdruck im Gelände"
+        minuten: 3
+        lernziel: "Du weißt, warum auf Wald- und Schotterwegen weniger Druck oft besser ist als der Höchstwert."
+        text:
+          - "Auf Waldwegen und Schotter ist ein etwas abgesenkter Druck meist besser als der Maximalwert auf dem Reifen. Der Reifen passt sich dem Untergrund an, hat mehr Grip und hoppelt weniger."
+          - "Ein steinharter Reifen springt über jeden Stein und bremst dich damit sogar aus. Zu wenig Druck ist aber auch nicht gut, dann droht ein Durchschlag bis auf die Felge. Unter den Mindestdruck auf dem Reifen gehst du nie."
+        tipp: "Auf dem Reifen steht ein Bereich. Probier auf deiner Hausstrecke aus, was sich gut anfühlt, ohne dass die Felge durchschlägt."
+        quiz:
+          frage: "Welcher Luftdruck ist auf Wald- und Schotterwegen meist sinnvoller als der aufgedruckte Maximaldruck?"
+          richtig: "Ein etwas abgesenkter Druck, das gibt mehr Komfort, Grip und Pannenschutz."
+          falsch:
+            - "Immer der Maximaldruck, denn hart ist gleich schnell."
+            - "Möglichst wenig Druck, so weich wie es geht, dann rollt es am besten."
+            - "Auf Schotter spielt der Druck keine Rolle, nur auf Asphalt."
+          erklaerung: "Auf unebenem Untergrund bremst ein steinharter Reifen, weil er an jedem Stein hochspringt. Etwas weniger Druck bringt Komfort, Traktion und Schutz vor Pannen."
+
+      - id: rad-04
+        emoji: "🌲"
+        titel: "Im Herbstwald wird es schnell dunkel"
+        minuten: 3
+        lernziel: "Du planst Touren im Herbst so, dass dich die Dunkelheit im Wald nicht überrascht."
+        text:
+          - "Unter dem Blätterdach wird es viel früher dunkel als auf freiem Feld. Das Laub schluckt einen großen Teil des Restlichts, und Wurzeln und Steine verschwinden im Halbdunkel."
+          - "Wer um fünf auf der Wiese noch gutes Licht hat, steht kurz darauf im Forst fast im Dunkeln. Im Herbst und Winter passiert das besonders früh."
+        check:
+          - "Fahrradlicht vorn und hinten, geladen"
+          - "Kleine Ersatz- oder Stirnlampe im Gepäck"
+          - "Zeit des Sonnenuntergangs vorher nachgeschaut"
+        tipp: "Wird die Zeit knapp, wähle den Rückweg über offene Strecken statt durch den dichten Forst."
+        quiz:
+          frage: "Warum wird es im Wald viel schneller dunkel als auf freiem Feld?"
+          richtig: "Das Blätterdach schluckt viel Restlicht, und Wurzeln und Steine sind kaum noch zu sehen."
+          falsch:
+            - "Im Wald ist die Luft kälter, und kalte Luft schluckt Licht."
+            - "Weil Waldwege meist nach Norden verlaufen."
+            - "Das ist nur ein Gefühl, gemessen ist es im Wald genauso hell wie draußen."
+          erklaerung: "Eine kleine, geladene Lampe im Gepäck rettet im Herbst so manche Heimfahrt."
+
+      - id: rad-05
+        emoji: "🍌"
+        titel: "Essen und trinken vor dem Hungerast"
+        minuten: 3
+        lernziel: "Du isst und trinkst auf der Tour regelmäßig, bevor der Körper es einfordert."
+        text:
+          - "Deine Energiespeicher sind begrenzt. Sind sie leer, bricht die Leistung ein, das nennt man Hungerast. Dann hilft ein Riegel nicht sofort, denn die Energie braucht eine Weile, bis sie im Körper ankommt."
+          - "Darum gilt: essen und trinken, bevor Hunger oder Durst kommen. Lieber regelmäßig kleine Häppchen als eine große Pause."
+        tipp: "Pack Sachen ein, die du während der Fahrt erreichst: Riegel in der Tasche, Trinkflasche am Rahmen."
+        quiz:
+          frage: "Warum solltest du regelmäßig essen und trinken, bevor Hungerast oder großer Durst kommen?"
+          richtig: "Die Energiespeicher sind begrenzt, und bei akutem Mangel kommt Nachschub nur langsam an."
+          falsch:
+            - "Weil Hunger und Durst erst nach der Tour ein Problem werden."
+            - "Weil Pausen grundsätzlich schlecht sind und Zeit kosten."
+            - "Weil man nur im Fahren Nahrung verwerten kann, nicht im Stehen."
+          erklaerung: "Ist der Hungerast erst da, sinkt die Leistung schlagartig, und ein Riegel wirkt erst nach einer Weile. Kleine Häppchen in regelmäßigen Abständen halten dich im grünen Bereich."
+
+  - id: rad-m2
+    emoji: "🚵"
+    titel: "Unterwegs miteinander"
+    szene: "Später Nachmittag. Mo hat allen freundlich Platz gemacht und mehr Lächeln eingesammelt als Kilometer."
+    lektionen:
+      - id: rad-06
+        emoji: "👋"
+        titel: "Begegnung mit Wanderern"
+        minuten: 3
+        lernziel: "Du begegnest Fußgängern auf schmalen Wegen rücksichtsvoll und ohne Streit."
+        text:
+          - "Auf schmalen Wegen gilt: Tempo runter, früh freundlich bemerkbar machen und den Fußgängern im Zweifel den Vortritt lassen. Ein „Hallo“ oder eine kurze Klingel reicht."
+          - "Wer rücksichtsvoll bremst, bekommt fast immer ein Lächeln statt erhobener Wanderstöcke. In NRW darfst du im Wald auf Straßen und festen Wegen fahren. Ausgewiesene Trails und Sperrungen beachtest du vor Ort."
+        hinweis: "Allgemeiner Hinweis nach dem Landesforstgesetz NRW. Im Zweifel gelten die Schilder vor Ort und das aktuelle Recht. Keine Rechtsberatung."
+        tipp: "Ein Lächeln kostet keine Watt."
+        quiz:
+          frage: "Du fährst auf einem schmalen Waldweg und siehst Wanderer vor dir. Was ist richtig?"
+          richtig: "Tempo drosseln, dich freundlich bemerkbar machen und im Zweifel den Vortritt lassen."
+          falsch:
+            - "Mit unverändertem Tempo vorbeifahren, denn Radfahrer haben auf Waldwegen Vorrang."
+            - "Laut klingeln und mit unverändertem Tempo links überholen, die machen schon Platz."
+            - "Dicht hinter den Wanderern bleiben, bis sie von selbst zur Seite gehen."
+          erklaerung: "Ein freundliches Hallo und angepasstes Tempo entspannen jede Begegnung im Wald sofort."
+
+      - id: rad-07
+        emoji: "↪️"
+        titel: "Die unübersichtliche Kurve"
+        minuten: 3
+        lernziel: "Du fährst in unübersichtlichen Kurven auf gemeinsamen Wegen so, dass du jederzeit reagieren kannst."
+        text:
+          - "Auf kombinierten Geh- und Radwegen kommt hinter jeder Kurve vielleicht jemand. Reduziere vor der Kurve das Tempo, halte dich rechts und sei bremsbereit."
+          - "Das klingt banal und verhindert trotzdem viele brenzlige Situationen, besonders an sonnigen Wochenenden auf beliebten Strecken."
+        tipp: "Zwei Finger an den Bremshebeln sind in Kurven ein guter Standard."
+        quiz:
+          frage: "Du näherst dich einer unübersichtlichen Kurve auf einem Geh- und Radweg. Was ist am besten?"
+          richtig: "Tempo reduzieren, rechts fahren und bremsbereit bleiben."
+          falsch:
+            - "In der Mitte fahren, um die Ideallinie zu halten."
+            - "Erst in der Kurve voll bremsen, wenn jemand auftaucht."
+            - "Zügig durchfahren, damit du möglichst kurz im Gefahrenbereich bist."
+          erklaerung: "Rechts und langsamer gibt dir Platz zum Reagieren. Wer erst in der Kurve bremst, hat zu wenig Weg und zu viel Schwung."
+
+      - id: rad-08
+        emoji: "🔵"
+        titel: "Wann gilt die Radwegpflicht?"
+        minuten: 4
+        lernziel: "Du erkennst, wann du einen Radweg benutzen musst und wann nicht."
+        text:
+          - "Du musst einen Radweg nur benutzen, wenn ein blaues, rundes Schild dort steht (Zeichen 237, 240 oder 241) und der Weg tatsächlich benutzbar ist. Ein Pedelec bis 25 km/h zählt dabei als Fahrrad."
+          - "Ohne so ein Schild darfst du auf der Fahrbahn fahren. Ist ein Radweg zum Beispiel blockiert, musst du ihn nicht benutzen."
+        hinweis: "Allgemeiner Hinweis zur Straßenverkehrs-Ordnung, keine Rechtsberatung."
+        tipp: "Das Zusatzzeichen „Radfahrer frei“ erlaubt dir das Fahren dort, verpflichtet dich aber nicht dazu."
+        quiz:
+          frage: "Wann musst du als Radfahrer einen Radweg neben der Straße benutzen?"
+          richtig: "Nur wenn ein blaues rundes Radwegschild (Zeichen 237, 240 oder 241) dort steht und der Weg benutzbar ist."
+          falsch:
+            - "Immer, sobald neben der Straße ein gepflasterter Streifen zu sehen ist."
+            - "Nie, Radfahrer dürfen grundsätzlich überall auf der Bundesstraße fahren."
+            - "Nur innerorts, außerorts darfst du immer auf der Fahrbahn fahren."
+          erklaerung: "Ohne blaues Schild gibt es keine Benutzungspflicht. „Radfahrer frei“ erlaubt dir einen Weg, zwingt dich aber nicht dazu."
+
+      - id: rad-09
+        emoji: "⛷️"
+        titel: "Steile Schotterabfahrt"
+        minuten: 3
+        lernziel: "Du bremst auf langen Abfahrten kontrolliert und ohne die Bremsen zu überhitzen."
+        text:
+          - "Bei einer langen Abfahrt auf Schotter bremst du kurz und dosiert mit beiden Bremsen. Das Gewicht gehört leicht nach hinten, die Arme bleiben locker."
+          - "Dauerbremsen lässt Bremsscheiben und Beläge heiß werden, die Bremskraft lässt nach (Fachwort: Fading). Lass die Bremsen deshalb zwischendurch immer wieder los."
+        tipp: "Schau dorthin, wo du hinwillst, nicht auf den Stein, den du meiden willst. Ein Helm gehört auf jeder Abfahrt dazu."
+        quiz:
+          frage: "Wie bremst du auf einer langen, steilen Schotterabfahrt am sichersten?"
+          richtig: "Kurz und dosiert mit beiden Bremsen, Gewicht leicht nach hinten, zwischendurch lösen."
+          falsch:
+            - "Dauerhaft die Hinterradbremse voll durchziehen."
+            - "Nur die Vorderradbremse nutzen, weil sie mehr Bremskraft hat."
+            - "Mit beiden Bremsen gleichmäßig durchgehend bremsen, damit das Tempo konstant bleibt."
+          erklaerung: "Dauerbremsen überhitzt die Bremsen. Intervallbremsen mit beiden Bremsen hält dich in Kontrolle und verhindert ein blockierendes Hinterrad oder einen Abflug über den Lenker."
+
+      - id: rad-10
+        emoji: "🧗"
+        titel: "Am Hang absteigen"
+        minuten: 3
+        lernziel: "Du steigst an Hängen auf der sicheren Seite ab."
+        text:
+          - "Wenn du auf einem schmalen Weg am Hang anhalten musst, steig zur Bergseite ab. Zur Talseite fehlt dir oft der Boden unter den Füßen."
+          - "Das klingt logisch und wird im Eifer des Gefechts trotzdem oft falsch gemacht. Wer kippt, soll nicht samt Rad den Hang hinabrutschen."
+        tipp: "Halte früh an, bevor es eng wird. Absteigen ist keine Niederlage."
+        quiz:
+          frage: "Du musst auf einem schmalen Trail an einem steilen Hang absteigen. Auf welche Seite?"
+          richtig: "Zur Bergseite, damit du nicht ins Leere trittst oder wegrutschst."
+          falsch:
+            - "Zur Talseite, weil du dort mehr Platz zum Ausweichen hast."
+            - "Das Rad vorher zur Talseite hin ablegen und dann in Ruhe absteigen."
+            - "Gar nicht absteigen und mit den Füßen am Boden weiterrollen."
+          erklaerung: "Zur Talseite fehlt oft der Boden unter den Füßen, und man kippt samt Rad den Hang hinab. Immer zur Bergseite."
+
+  - id: rad-m3
+    emoji: "🔧"
+    titel: "Technik und Notfall"
+    szene: "Abendrot. Mo hat Pannen überstanden, Gewitter umfahren und seine Kette geölt. Die Hütte ist in Sicht."
+    lektionen:
+      - id: rad-11
+        emoji: "🔋"
+        titel: "Akku fast leer"
+        minuten: 3
+        lernziel: "Du holst aus einem fast leeren E-Bike-Akku das Maximum heraus."
+        text:
+          - "Ein E-Bike-Motor arbeitet am sparsamsten, wenn du in einem leichten Gang mit hoher Trittfrequenz fährst und eine niedrige Unterstützungsstufe wählst."
+          - "Hohe Gänge, niedrige Trittfrequenz und der Turbo leeren den Akku am schnellsten. Auch Gegenwind, Steigungen und Kälte kosten Reichweite."
+        tipp: "Schalte vor dem Anstieg runter, nicht erst am Berg."
+        quiz:
+          frage: "Der Akku eines E-Bikes ist fast leer, vor dir liegt ein Anstieg. Was holt am meisten aus der Restladung?"
+          richtig: "Niedrige Unterstützungsstufe, leichter Gang und höhere Trittfrequenz."
+          falsch:
+            - "Den Turbo einschalten und so schnell wie möglich fahren."
+            - "Den Motor ausschalten und das schwere Rad im schwersten Gang hochwuchten."
+            - "Den Akku kurz aus- und wieder einsetzen, das lädt ihn etwas auf."
+          erklaerung: "Motoren arbeiten bei höherer Trittfrequenz und niedriger Stufe am effizientesten. Schwere Gänge und der Turbo fressen den Rest im Rekordtempo."
+
+      - id: rad-12
+        emoji: "💨"
+        titel: "Platten flicken"
+        minuten: 4
+        lernziel: "Du wechselst einen Schlauch und vermeidest den zweiten Platten direkt danach."
+        text:
+          - "Pfffft, der Hinterreifen ist platt. Bevor du den neuen Schlauch einlegst, tastest du den Mantel von innen vorsichtig ab, und außen auch."
+          - "Steckt der Übeltäter noch drin, Dorn, Scherbe oder Draht, durchsticht er sofort den frischen Schlauch. Dann stehst du gleich noch einmal da."
+        check:
+          - "Rad sicher abstellen, Rad ausbauen"
+          - "Mantel mit Reifenhebern abheben, Schlauch raus"
+          - "Mantel innen und außen abtasten"
+          - "Neuen Schlauch leicht aufpumpen und einlegen"
+          - "Mantel aufziehen, aufpumpen, Rad einbauen"
+        tipp: "Übe den Schlauchwechsel einmal zu Hause. Am Waldrand im Regen ist ein schlechter Zeitpunkt für die Premiere."
+        quiz:
+          frage: "Du hast den kaputten Schlauch ausgebaut. Was prüfst du als Erstes, bevor der neue Schlauch kommt?"
+          richtig: "Den Mantel von innen vorsichtig abtasten, ob noch ein Dorn, eine Scherbe oder ein Draht steckt."
+          falsch:
+            - "Ob die Bremsbeläge noch dick genug sind."
+            - "Ob die Speichen noch gleichmäßig gespannt sind."
+            - "Ob die Kette noch genug Öl hat."
+          erklaerung: "Wer den Mantel nicht abtastet, stanzt sich mit dem noch steckenden Dorn das nächste Loch in den neuen Schlauch."
+
+      - id: rad-13
+        emoji: "⛓️"
+        titel: "Kettenpflege"
+        minuten: 3
+        lernziel: "Du pflegst die Kette nach einer schmutzigen Tour so, dass sie lange hält."
+        text:
+          - "Nach einer staubigen oder matschigen Tour wischst du den groben Schmutz mit einem Lappen ab. Dann trägst du sparsam Kettenöl auf, lässt es kurz einwirken und wischst das überschüssige Öl wieder ab."
+          - "Öl außen auf der Kette zieht Staub und Sand an und wird zu einer Schleifpaste. Das Öl gehört in die Rollen der Kette. Außen bleibt sie sauber und trocken."
+        tipp: "Vom Hochdruckreiniger auf Kette und Lager lässt du die Finger. Der Strahl drückt Wasser und Dreck dorthin, wo sie nichts zu suchen haben."
+        quiz:
+          frage: "Wie pflegst du die Kette nach einer staubigen Tour am besten?"
+          richtig: "Groben Schmutz abwischen, sparsam ölen, kurz einwirken lassen und den Überschuss abwischen."
+          falsch:
+            - "Eine dicke Schicht neues Öl über den alten Dreck kippen, viel hilft viel."
+            - "Mit dem Hochdruckreiniger aus fünf Zentimetern direkt auf Kette und Tretlager halten."
+            - "Gar nicht pflegen, die Kette schmiert sich beim Fahren selbst."
+          erklaerung: "Überschüssiges Öl außen zieht Staub und Sand an wie ein Magnet. Sparsam ölen und abwischen hält die Kette sauber."
+
+      - id: rad-14
+        emoji: "🧰"
+        titel: "Das kleine Pannenset"
+        minuten: 3
+        lernziel: "Du weißt, was außer Schlauch und Pumpe in jedes Pannenset gehört."
+        text:
+          - "Neben Ersatzschlauch, Reifenhebern und Pumpe gehören drei kleine Dinge ins Set: ein passendes Multitool, ein Kettenschloss und ein paar Kabelbinder."
+          - "Damit bekommst du einen lockeren Vorbau, eine gerissene Kette oder ein klapperndes Schutzblech in wenigen Minuten tourtauglich. Flickzeug gehört dazu, falls es doch zwei Platten gibt."
+        check:
+          - "Flickzeug"
+          - "Ersatzschlauch"
+          - "Reifenheber"
+          - "Pumpe oder Kartusche"
+          - "Multitool"
+          - "Kettenschloss"
+          - "Kabelbinder"
+        tipp: "Prüfe das Set zweimal im Jahr. Ein Ersatzschlauch mit Loch hilft niemandem."
+        quiz:
+          frage: "Was gehört außer Ersatzschlauch, Reifenhebern und Pumpe noch ins kleine Pannenset?"
+          richtig: "Ein passendes Multitool, ein Kettenschloss und ein paar Kabelbinder."
+          falsch:
+            - "Ein Satz Ersatzspeichen samt Speichenschlüssel und ein Zentrierständer."
+            - "Ein Ersatz-Schaltwerk und ein zweites Kettenblatt."
+            - "Ein Kurbelabzieher und ein Innenlager-Werkzeug."
+          erklaerung: "Mit Multitool, Kettenschloss und zwei Kabelbindern lassen sich die häufigsten Probleme unterwegs lösen."
+
+      - id: rad-15
+        emoji: "⛈️"
+        titel: "Gewitter auf der Tour"
+        minuten: 4
+        lernziel: "Du weißt, wo du bei einem Gewitter Schutz suchst und wo nicht."
+        text:
+          - "Zieht auf einer Radtour ein Gewitter auf, meide Kuppen, freie Flächen und einzeln stehende hohe Bäume. Dort bist du der höchste Punkt."
+          - "Am sichersten bist du in einem festen Gebäude. Im Wald ist das Innere eines dichten, gleichmäßig hohen Bestands besser als der Waldrand oder ein Einzelbaum. Lass das Rad ein Stück entfernt liegen."
+          - "Vergehen zwischen Blitz und Donner nur wenige Sekunden, ist das Gewitter ganz nah. Dann nicht mehr überlegen, sondern Schutz suchen. Gibt es keinen, geh in die Hocke, Füße eng zusammen, Abstand zu Stämmen und zum Rad."
+        hinweis: "Allgemeine Sicherheitshinweise, kein Ersatz für Wetterwarnungen und Anweisungen der Rettungskräfte."
+        tipp: "Schau schon beim Losfahren auf die Gewitterwarnung und plane bei Gefahr einen Unterstand ein."
+        quiz:
+          frage: "Auf deiner Tour zieht ein heftiges Gewitter auf. Was ist richtig?"
+          richtig: "Kuppen, freie Flächen und hohe Einzelbäume meiden und Schutz in einem Gebäude oder im dichten, gleichmäßig hohen Wald suchen."
+          falsch:
+            - "Unter den höchsten einzelnen Baum stellen, da tropft es am wenigsten."
+            - "Das Rad als Blitzableiter neben dir aufstellen und daneben hocken."
+            - "So schnell wie möglich weiterfahren, du bist schneller als der Blitz."
+          erklaerung: "Im offenen Gelände oder unter Einzelbäumen bist du der höchste Punkt. Ein festes Gebäude ist ideal, im Wald bietet das Innere eines dichten, gleichmäßig hohen Bestands mehr Sicherheit als der Waldrand."
+
+urkunde:
+  - ab: 0
+    emoji: "🛴"
+    titel: "Stützrad-Kandidat"
+    spruch: "Das Rad steht noch im Schuppen, aber es hört dir zu. Das ist ein Anfang."
+  - ab: 4
+    emoji: "🚲"
+    titel: "Sonntagsfahrer"
+    spruch: "Du rollst sicher los und bremst für Wanderer. Gegenwind bleibt dein Gegner."
+  - ab: 8
+    emoji: "🚵"
+    titel: "Trail-Lehrling"
+    spruch: "Schotter, Wurzeln, Schlauchwechsel: Du weißt jetzt mehr als der Reifen."
+  - ab: 11
+    emoji: "⛓️"
+    titel: "Kettenflüsterer"
+    spruch: "Deine Kette schnurrt, dein Pannenset ist komplett. Mo nickt anerkennend."
+  - ab: 14
+    emoji: "🏆"
+    titel: "Meister auf zwei Rädern"
+    spruch: "Fehlerfrei oder fast. Mo vermutet Betrug, kann aber nichts beweisen."

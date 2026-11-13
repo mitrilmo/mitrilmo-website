@@ -1,0 +1,18 @@
+---
+// Mo-Szene für den Wissensbereich: Landschaft und Mo kommen aus dem Spiel „Mo’s Hike Quest“ (Zeichencode in src/scripts/mo-szene.js).
+// Die Palette folgt der Jahreszeit der Seite (html[data-season]). phase: 0 Morgen, 1 Mittag, 2 später Nachmittag, 3 Abend an der Hütte (Mo steht).
+// art: wandern (Mo mit Stöcken), rad (Mo schiebt sein Rad), entdecken (ein Fuchs läuft voraus).
+// statisch: nur ein Standbild (Hub). Läuft nur, solange die Szene sichtbar ist, und steht bei prefers-reduced-motion oder „Bewegung anhalten“.
+// Das Bild ist dekorativ (aria-hidden), der Satz darunter trägt die Aussage. Keine Anfrage, nichts wird gespeichert.
+const { art = 'wandern', phase = 0, text = '', statisch = false, class: cls = '' } = Astro.props;
+---
+<figure class={`szene ${cls}`}>
+  <canvas class="szene-canvas" width="1360" height="680" data-mo-szene data-art={art} data-phase={phase} data-statisch={statisch ? '' : undefined} aria-hidden="true"></canvas>
+  {text && <figcaption class="szene-text">{text}</figcaption>}
+</figure>
+
+<style>
+  .szene { margin: 0; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,.08); background: var(--color-slate-700, #243029); }
+  .szene-canvas { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; background: #bfe0c2; }
+  .szene-text { margin: 0; padding: .9rem 1.1rem 1rem; color: #d9d4cc; font-size: .95rem; line-height: 1.5; }
+</style>

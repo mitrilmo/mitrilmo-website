@@ -7,6 +7,7 @@ import { eventSchema } from './schemas/event.js';
 import { projectSchema } from './schemas/project.js';
 import { newsSchema } from './schemas/news.js';
 import { pageSchema } from './schemas/page.js';
+import { wissenSchema } from './schemas/wissen.js';
 
 // Eine Datei pro Inhalt, Dateiname = ID (Slug bzw. YouTube-ID). Fehlerhafte Einträge brechen den Build.
 // Bilder liegen als Originale unter src/assets/images/ und werden von Astro beim Bauen verkleinert (image()).
@@ -42,4 +43,10 @@ const pages = defineCollection({
   schema: pageSchema,
 });
 
-export const collections = { tours, videos, stories, events, projects, news, pages };
+// Wissensbereich: ein Thema pro YAML-Datei (Module, Lektionen, Quiz), Dateiname = Adresse der Seite /wissen/<name>.html
+const wissen = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/wissen' }),
+  schema: wissenSchema,
+});
+
+export const collections = { tours, videos, stories, events, projects, news, pages, wissen };
