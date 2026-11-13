@@ -1,0 +1,190 @@
+---
+// Ein Wissensthema (Radfahren, Wandern, Entdecken): Etappen mit Lektionen und Quiz, dazwischen eine Mo-Szene, am Ende eine Urkunde.
+// Ohne JavaScript steht alles nacheinander lesbar auf der Seite (Quizantworten klappbar). Mit JavaScript läuft es Schritt für Schritt,
+// ohne etwas zu speichern (kein localStorage, kein Cookie, keine Anfrage). Skript: src/scripts/wissen.js.
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import WissenSzene from '../../components/WissenSzene.astro';
+import { antwortenOrdnen, lektionenZahl, minutenZahl } from '../../lib/wissen.js';
+
+export async function getStaticPaths() {
+  const themen = await getCollection('wissen');
+  return themen.map((t) => ({ params: { thema: t.id }, props: { eintrag: t, alle: themen } }));
+}
+
+const { eintrag, alle } = Astro.props;
+const t = eintrag.data;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const gesamt = lektionenZahl(t);
+const buchstaben = ['A', 'B', 'C', 'D'];
+const andere = alle.filter((a) => a.id !== eintrag.id).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+let nr = -1; // laufende Nummer der Lektion im Thema
+---
+<Base title={`${t.titel}: Wissen und Quiz, mitrilmo`} description={t.beschreibung}>
+  <PageHero width="max-w-3xl" scenery={false}>
+    <p class="text-sm"><a href={`${base}/wissen.html`} class="text-stone-200 hover:text-white underline">← Wissen und Quiz</a></p>
+    <h1 class="mt-2 text-3xl font-black text-stone-50"><span aria-hidden="true">{t.emoji}</span> {t.titel}: Wissen und Quiz</h1>
+    <p class="mt-2 text-stone-200 max-w-2xl">{t.kurz}</p>
+  </PageHero>
+
+  <div class="max-w-3xl mx-auto px-4 pb-16" data-wissen data-gesamt={gesamt} data-stufen={JSON.stringify(t.urkunde)}>
+    <div class="leiste" data-leiste hidden>
+      <progress max={gesamt} value="0" aria-label="Fortschritt in den Lektionen"></progress>
+      <div class="leiste-zeile">
+        <p data-info aria-live="off"></p>
+        <button type="button" data-ruhe aria-pressed="false" class="ruhe-knopf">Bewegung anhalten</button>
+      </div>
+    </div>
+
+    <!-- Start -->
+    <section data-schritt="intro" class="pt-8" aria-labelledby="intro-titel">
+      <WissenSzene art={t.szene} phase={0} text={t.intro} />
+      <h2 id="intro-titel" tabindex="-1" data-fokus class="mt-8 text-2xl font-extrabold text-stone-50">Das erwartet dich</h2>
+      <p class="mt-3 text-stone-300">{gesamt} Lektionen in {t.module.length} Etappen, etwa {minutenZahl(t)} Minuten. Zu jeder Lektion gibt es eine Quizfrage. Am Ende wertet Mo deine Antworten aus und verleiht dir einen Titel.</p>
+      <ol class="mt-4 space-y-2 text-stone-200">
+        {t.module.map((m, i) => (
+          <li class="flex gap-3 items-baseline"><span aria-hidden="true">{m.emoji}</span><span><strong class="text-stone-50">Etappe {i + 1}: {m.titel}</strong> <span class="text-stone-400 text-sm">({m.lektionen.length} Lektionen)</span></span></li>
+        ))}
+      </ol>
+      <p class="mt-4 text-sm text-stone-400">Die Seite speichert nichts. Wer neu lädt, fängt neu an. Hinweise zu Recht, Sicherheit und Notfall sind allgemein gehalten und ersetzen weder Beratung noch einen Erste-Hilfe-Kurs.</p>
+      <button type="button" data-weiter class="weiter js-only">Los geht’s</button>
+    </section>
+
+    {t.module.map((m, mi) => (
+      <>
+        {m.lektionen.map((l, li) => {
+          nr += 1;
+          const { optionen, richtig } = antwortenOrdnen(l.quiz, nr);
+          return (
+            <article data-schritt="lektion" data-nr={nr} class="lektion" aria-labelledby={`${l.id}-t`}>
+              <p class="kicker">{m.emoji} Etappe {mi + 1}: {m.titel} · Lektion {nr + 1} von {gesamt}</p>
+              <h2 id={`${l.id}-t`} tabindex="-1" data-fokus class="mt-2 text-2xl font-extrabold text-stone-50"><span aria-hidden="true">{l.emoji}</span> {l.titel}</h2>
+              <p class="lernziel"><strong>Das kannst du danach:</strong> {l.lernziel}</p>
+              <div class="fliess">{l.text.map((p) => <p>{p}</p>)}</div>
+              {l.check && (
+                <ul class="check" aria-label="Checkliste">
+                  {l.check.map((c) => <li><label><input type="checkbox" /> <span>{c}</span></label></li>)}
+                </ul>
+              )}
+              {l.tipp && <aside class="tipp"><span aria-hidden="true">💡</span> <span><strong>Tipp:</strong> {l.tipp}</span></aside>}
+              {l.hinweis && <p class="hinweis">{l.hinweis}</p>}
+              <fieldset class="quiz" data-richtig={richtig} aria-labelledby={`${l.id}-f`}>
+                <legend><span aria-hidden="true">🎯</span> Quizfrage</legend>
+                <p class="frage" id={`${l.id}-f`}>{l.quiz.frage}</p>
+                <ol class="optionen">
+                  {optionen.map((o, i) => (
+                    <li><button type="button" class="opt" data-i={i}><span class="buchst" aria-hidden="true">{buchstaben[i]}</span><span>{o}</span></button></li>
+                  ))}
+                </ol>
+                <div role="status">
+                  <div class="rueck" hidden>
+                    <p class="stat" data-stat></p>
+                    <p>{l.quiz.erklaerung}</p>
+                  </div>
+                </div>
+                <details class="loesung">
+                  <summary>Lösung anzeigen</summary>
+                  <p><strong>Richtig ist {buchstaben[richtig]}:</strong> {l.quiz.richtig}</p>
+                  <p>{l.quiz.erklaerung}</p>
+                </details>
+              </fieldset>
+              <button type="button" data-weiter class="weiter" hidden>{li === m.lektionen.length - 1 ? 'Etappe geschafft, weiter' : 'Nächste Lektion'}</button>
+            </article>
+          );
+        })}
+        <section data-schritt="szene" class="pt-8" aria-label={`Mo nach Etappe ${mi + 1}`}>
+          <WissenSzene art={t.szene} phase={Math.min(mi + 1, 3)} text={m.szene} />
+          <p class="mt-6 text-sm text-stone-400">Etappe {mi + 1} von {t.module.length} geschafft: {m.titel}.</p>
+          <button type="button" data-weiter class="weiter js-only">{mi === t.module.length - 1 ? 'Zur Urkunde' : `Weiter zu Etappe ${mi + 2}: ${t.module[mi + 1].titel}`}</button>
+        </section>
+      </>
+    ))}
+
+    <!-- Urkunde -->
+    <section data-schritt="urkunde" class="pt-8" aria-labelledby="urkunde-titel">
+      <div class="urkunde">
+        <p class="u-kopf">Urkunde · {t.titel}</p>
+        <p class="u-emoji js-only" data-u-emoji aria-hidden="true">🏅</p>
+        <h2 id="urkunde-titel" tabindex="-1" data-fokus class="u-titel" data-u-titel>So wertet Mo</h2>
+        <p class="u-punkte js-only" data-u-punkte></p>
+        <p class="u-spruch js-only" data-u-spruch></p>
+        <ul class="nojs-only u-liste">
+          {t.urkunde.map((u) => <li>{u.emoji} <strong>{u.titel}</strong> ab {u.ab} richtigen Antworten</li>)}
+        </ul>
+        <p class="u-fuss">verliehen von Mo · mitrilmo.com</p>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3 items-center js-only">
+        <button type="button" data-nochmal class="weiter">Nochmal von vorn</button>
+        <a href={`${base}/wissen.html`} class="text-accent hover:underline">Zurück zu allen Themen</a>
+      </div>
+      {andere.length > 0 && (
+        <div class="mt-8">
+          <h3 class="font-bold text-stone-50">Nächstes Thema?</h3>
+          <ul class="mt-2 flex flex-wrap gap-3">
+            {andere.map((a) => <li><a href={`${base}/wissen/${a.id}.html`} class="inline-block rounded-full border border-accent px-4 py-1.5 text-sm font-semibold text-accent hover:bg-slate-700">{a.data.emoji} {a.data.titel}</a></li>)}
+          </ul>
+        </div>
+      )}
+    </section>
+  </div>
+</Base>
+
+<script>
+  import '../../scripts/mo-szene.js';
+  import '../../scripts/wissen.js';
+</script>
+
+<style>
+  :global([data-wissen]:not(.js)) .js-only { display: none; }
+  :global([data-wissen].js) .nojs-only { display: none; }
+  .leiste { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--color-slate-900) 94%, transparent); padding: .6rem 0 .5rem; border-bottom: 1px solid rgba(255,255,255,.06); backdrop-filter: blur(6px); }
+  .leiste progress { width: 100%; height: .5rem; accent-color: var(--season-accent); display: block; }
+  .leiste-zeile { display: flex; justify-content: space-between; align-items: center; gap: .75rem; margin-top: .3rem; }
+  .leiste p { margin: 0; font-size: .8rem; color: var(--color-stone-300); }
+  .ruhe-knopf { flex: none; font: inherit; font-size: .75rem; padding: .2rem .65rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: transparent; color: var(--color-stone-200); cursor: pointer; }
+  .ruhe-knopf:hover { border-color: var(--season-accent); }
+  :global([data-wissen].ruhe *) { animation: none !important; }
+  :global([data-wissen]:not(.js)) .opt { pointer-events: none; }
+  :global([data-wissen]:not(.js)) .optionen { gap: .4rem; }
+  :global(.opt[aria-disabled='true']) { cursor: default; }
+  :global(.opt[aria-disabled='true']:hover) { border-color: rgba(255,255,255,.14); }
+  .lektion { padding-top: 2rem; }
+  .lektion + .lektion, :global([data-wissen]:not(.js)) .lektion { border-top: 1px solid rgba(255,255,255,.06); margin-top: 2rem; }
+  .kicker { font-size: .8rem; color: var(--color-stone-400); }
+  .lernziel { margin-top: 1rem; padding: .7rem 1rem; border-left: 3px solid var(--season-accent); background: var(--color-slate-700); border-radius: 0 .6rem .6rem 0; color: var(--color-stone-200); }
+  .fliess p { margin-top: 1rem; line-height: 1.7; color: var(--color-stone-200); }
+  .check { margin-top: 1rem; display: grid; gap: .4rem; padding: .9rem 1rem; background: var(--color-slate-700); border-radius: .75rem; list-style: none; }
+  .check label { display: flex; gap: .6rem; align-items: flex-start; cursor: pointer; color: var(--color-stone-100); }
+  .check input { margin-top: .3rem; width: 1.1rem; height: 1.1rem; accent-color: var(--season-accent); flex: none; }
+  .tipp { margin-top: 1rem; display: flex; gap: .6rem; padding: .8rem 1rem; border-radius: .75rem; background: rgba(245, 158, 11, .12); border: 1px solid rgba(245, 158, 11, .35); color: var(--color-stone-100); }
+  .hinweis { margin-top: .9rem; font-size: .8rem; color: var(--color-stone-400); }
+  .quiz { margin-top: 1.5rem; padding: 1.1rem 1.1rem 1.2rem; border: 1px solid rgba(255,255,255,.12); border-radius: 1rem; background: var(--color-slate-800); min-inline-size: 0; }
+  .quiz legend { padding: 0 .5rem; font-weight: 800; color: var(--season-accent); }
+  .frage { font-weight: 700; font-size: 1.05rem; color: var(--color-stone-50); line-height: 1.5; }
+  .optionen { margin-top: .9rem; display: grid; gap: .6rem; list-style: none; padding: 0; }
+  .opt { display: flex; gap: .75rem; align-items: flex-start; width: 100%; text-align: left; padding: .75rem .9rem; border-radius: .75rem; border: 1px solid rgba(255,255,255,.14); background: var(--color-slate-700); color: var(--color-stone-100); font: inherit; line-height: 1.45; cursor: pointer; transition: border-color .15s, background .15s; }
+  .opt:hover:not(:disabled) { border-color: var(--season-accent); }
+  .opt:disabled { cursor: default; }
+  .buchst { flex: none; width: 1.7rem; height: 1.7rem; border-radius: 999px; display: grid; place-items: center; font-weight: 800; font-size: .85rem; background: rgba(255,255,255,.1); color: var(--color-stone-50); }
+  .opt.richtig { background: #1f4d22; border-color: #7bbf6a; color: #fff; }
+  .opt.richtig .buchst { background: #7bbf6a; color: #0d1510; }
+  .opt.falsch { background: #5c2519; border-color: #e58a7a; color: #fff; }
+  .opt.falsch .buchst { background: #e58a7a; color: #2a0f09; }
+  .rueck { margin-top: 1rem; padding: .8rem 1rem; border-radius: .75rem; background: var(--color-slate-700); color: var(--color-stone-100); line-height: 1.6; }
+  .stat { font-weight: 800; color: var(--season-accent); margin-bottom: .3rem; }
+  .loesung { margin-top: 1rem; color: var(--color-stone-200); }
+  .loesung summary { cursor: pointer; font-weight: 700; color: var(--season-accent); }
+  .loesung p { margin-top: .5rem; }
+  :global([data-wissen].js) .loesung { display: none; }
+  .weiter { margin-top: 1.5rem; padding: .7rem 1.4rem; border-radius: 999px; border: 0; font: inherit; font-weight: 800; background: var(--season-accent); color: #14100b; cursor: pointer; }
+  .weiter:hover { filter: brightness(1.08); }
+  .urkunde { text-align: center; padding: 2rem 1.25rem 1.5rem; border-radius: 1.25rem; border: 4px double var(--season-accent); background: linear-gradient(160deg, var(--color-slate-700), var(--color-slate-800)); }
+  .u-kopf { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--color-stone-300); }
+  .u-emoji { font-size: 3.5rem; line-height: 1.2; margin-top: .5rem; }
+  .u-titel { margin-top: .4rem; font-size: 1.9rem; font-weight: 900; color: var(--color-stone-50); }
+  .u-punkte { margin-top: .5rem; font-weight: 700; color: var(--season-accent); }
+  .u-spruch { margin: .75rem auto 0; max-width: 28rem; font-style: italic; color: var(--color-stone-200); line-height: 1.6; }
+  .u-liste { margin: 1rem auto 0; max-width: 30rem; text-align: left; list-style: none; padding: 0; display: grid; gap: .4rem; color: var(--color-stone-200); }
+  .u-fuss { margin-top: .75rem; font-size: .75rem; color: var(--color-stone-400); }
+</style>

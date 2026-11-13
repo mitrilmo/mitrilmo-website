@@ -1,0 +1,322 @@
+titel: "Entdecken"
+emoji: "🔭"
+reihenfolge: 3
+szene: entdecken
+kurz: "Mikroabenteuer, Spuren lesen, Pilze, Zecken und Regeln im Wald: 15 kurze Lektionen mit Quiz."
+beschreibung: "Entdeckungstouren im Bergischen Land: 15 kurze Lektionen mit Quiz zu Karte, Spuren, Tieren, Pilzen, Zecken, Feuerregeln und Rücksicht. Am Ende gibt es eine Urkunde von Mo."
+intro: "Morgens um neun. Mo steckt Lupe und Fernglas ein. Heute geht er nirgends hin, wo schon jemand war."
+
+module:
+  - id: ent-m1
+    emoji: "🔭"
+    titel: "Mit offenen Augen"
+    szene: "Mittag. Mo hat Pfade gefunden, die auf keiner Hauptstraße stehen, und die Uhrzeit mit der Sonne verglichen."
+    lektionen:
+      - id: ent-01
+        emoji: "🏕️"
+        titel: "Das Mikroabenteuer"
+        minuten: 3
+        lernziel: "Du weißt, was ein Mikroabenteuer ist, und kannst eins vor deiner Haustür planen."
+        text:
+          - "Ein Mikroabenteuer ist ein kleines, einfaches, günstiges Abenteuer direkt in deiner Region. Den Begriff hat der Brite Alastair Humphreys geprägt."
+          - "Ein Sonnenaufgang auf dem Hausberg, ein unbekannter Bachlauf, eine Feierabendrunde mit Brotzeit: Das Abenteuer beginnt oft zehn Minuten hinter der Haustür."
+        tipp: "Such dir einen Ort aus, an dem du noch nie warst, auch wenn er nur fünf Kilometer entfernt ist."
+        quiz:
+          frage: "Was macht ein Mikroabenteuer aus?"
+          richtig: "Ein kleines, einfaches, günstiges Abenteuer in der eigenen Region, das den Alltag durchpustet."
+          falsch:
+            - "Es dauert mindestens zwei Wochen und findet in einem fernen Land statt."
+            - "Es braucht eine Spezialausrüstung und einen Führer."
+            - "Es zählt nur, wenn du es anschließend im Netz teilst."
+          erklaerung: "Das Abenteuer beginnt meist direkt hinter der Haustür und braucht kaum Ausrüstung. Ein neuer Blick genügt."
+
+      - id: ent-02
+        emoji: "🗺️"
+        titel: "Ruhige Pfade finden"
+        minuten: 3
+        lernziel: "Du findest auf der Karte Wege, die abseits der Hauptrouten liegen."
+        text:
+          - "Willst du abseits der Hauptwege wandern, hilft ein Blick in die Karte. Gestrichelte Linien zeigen schmale Pfade. Auch Bachläufe, alte Bahntrassen und Höhenrücken führen oft zu ruhigen Ecken."
+          - "Achte außerdem auf Symbole für Aussichtstürme, Ruinen oder Quellen. Das sind kleine Schatzmarken. Betritt aber nur ausgewiesene Wege: Verbotsschilder, stillgelegte Trassen mit Sperrung und das Wegegebot im Naturschutzgebiet gelten auch dort."
+        tipp: "Auf Wanderkarten siehst du Pfade oft besser als auf reinen Straßenkarten."
+        quiz:
+          frage: "Du suchst in einer fremden Region ruhige, schöne Pfade. Was hilft auf der Karte?"
+          richtig: "Gestrichelte Pfade, Bachläufe, alte Bahntrassen, Höhenrücken und Symbole für Türme, Ruinen oder Quellen."
+          falsch:
+            - "Immer den dicksten gelben oder roten Linien folgen, die sind am besten ausgebaut."
+            - "Nur Straßen und breite Forstwege nutzen, schmale Pfade sind meist gesperrt."
+            - "Gebiete mit vielen Siedlungssymbolen wählen, dort gibt es am meisten zu sehen."
+          erklaerung: "Gestrichelte Linien sind die Schatzkarten der Entdecker. Dort warten schmale Pfade, Bachschluchten und stille Aussichtspunkte."
+
+      - id: ent-03
+        emoji: "🏛️"
+        titel: "Landwehr und Hohlweg"
+        minuten: 3
+        lernziel: "Du erkennst alte Gräben, Wälle und Hohlwege als Spuren der Geschichte."
+        text:
+          - "Siehst du im Wald parallele Gräben und Wälle, hast du vielleicht eine Landwehr gefunden. Das waren alte Grenz- und Schutzanlagen."
+          - "Tiefe Rinnen im Hang sind oft Hohlwege. Fuhrwerke nahmen über Jahrhunderte immer dieselbe Spur, und Regen spülte den lockeren Boden aus."
+        tipp: "Bleib auf den Wegen. Solche Spuren der Geschichte sind Bodendenkmäler: nichts ausgraben, keine Metallsonde."
+        quiz:
+          frage: "Du findest im Wald parallele Gräben und Wälle oder tiefe Rinnen im Hang. Was kann das sein?"
+          richtig: "Historische Kulturlandschaft: alte Grenz- und Schutzanlagen (Landwehren) oder jahrhundertealte Wege (Hohlwege)."
+          falsch:
+            - "Alte Bewässerungsgräben, die Förster heute noch anlegen."
+            - "Spuren eines Waldbrands, der Rinnen in den Boden gebrannt hat."
+            - "Natürliche Erosionsspuren, hinter denen nie ein Mensch gesteckt hat."
+          erklaerung: "Unsere Wälder sind voller Geschichtsbücher. Hohlwege entstanden, weil Fuhrwerke über Jahrhunderte dieselbe Spur nutzten und Regen den Boden ausspülte."
+
+      - id: ent-04
+        emoji: "⌚"
+        titel: "Süden mit der Armbanduhr"
+        minuten: 3
+        lernziel: "Du findest mit einer analogen Uhr und der Sonne grob die Südrichtung."
+        text:
+          - "Mit einer Armbanduhr mit Zeigern findest du auf der Nordhalbkugel grob Süden. Halte die Uhr waagerecht und richte den Stundenzeiger auf die Sonne."
+          - "Die Mitte zwischen Stundenzeiger und der 12 zeigt nach Süden. In der Sommerzeit nimmst du statt der 12 die 1. Das ist nur eine grobe Hilfe, ersetzt aber im Notfall keinen Kompass."
+        tipp: "Probier es einmal an einem bekannten Ort aus, bevor du dich darauf verlässt."
+        quiz:
+          frage: "Du hast keinen Kompass, aber eine Armbanduhr mit Zeigern und Sonne. Wie findest du grob Süden?"
+          richtig: "Den Stundenzeiger auf die Sonne richten, die Mitte zwischen Stundenzeiger und 12 Uhr (im Sommer 1 Uhr) zeigt nach Süden."
+          falsch:
+            - "Den Stundenzeiger auf die Sonne richten, die Mitte zwischen Zeiger und 12 Uhr zeigt nach Norden."
+            - "Den Minutenzeiger auf die Sonne richten, dann zeigt er nach Süden."
+            - "Die Uhr senkrecht halten und den Schatten des Zeigers lesen, er zeigt nach Süden."
+          erklaerung: "Die Sonne wandert in 24 Stunden einmal um dich, der Stundenzeiger zweimal. Darum halbiert man den Winkel."
+
+      - id: ent-05
+        emoji: "📦"
+        titel: "Geocaching"
+        minuten: 2
+        lernziel: "Du weißt, was Geocaching ist und was du dafür brauchst."
+        text:
+          - "Geocaching ist eine Schatzsuche mit GPS. Jemand versteckt einen Behälter mit Logbuch und veröffentlicht die Koordinaten und Hinweise. Du suchst ihn und trägst dich ein."
+          - "Du brauchst ein Smartphone oder GPS-Gerät und einen Stift. Danach legst du den Behälter genau so zurück, wie du ihn gefunden hast."
+        tipp: "Achte beim Suchen auf Tiere und Pflanzen und bleib auf den Wegen."
+        quiz:
+          frage: "Was ist ein Geocache?"
+          richtig: "Ein versteckter Behälter mit Logbuch, den du mit GPS-Koordinaten und Hinweisen aufspürst."
+          falsch:
+            - "Ein Messpunkt des Vermessungsamts, an dem man die Höhe abliest."
+            - "Eine Markierung am Wegrand, die Wanderwege kennzeichnet."
+            - "Ein Online-Rätsel, das du komplett am Computer löst, ohne rauszugehen."
+          erklaerung: "Geocaching macht aus bekannten Wegen kleine Detektivtouren und führt dich an Orte, an denen du sonst vorbeigelaufen wärst."
+
+  - id: ent-m2
+    emoji: "🦊"
+    titel: "Tiere, Pilze, Zecken"
+    szene: "Später Nachmittag. Mo hat Spuren gelesen, ein Rehkitz in Ruhe gelassen und einen Pilz stehen lassen. Gute Etappe."
+    lektionen:
+      - id: ent-06
+        emoji: "🐾"
+        titel: "Trittsiegel lesen"
+        minuten: 3
+        lernziel: "Du unterscheidest die Spur eines Fuchses von der eines Hundes."
+        text:
+          - "Am matschigen Bachufer siehst du Trittsiegel. Füchse und Wölfe „schnüren“: Sie setzen die Pfoten oft fast auf einer Linie hintereinander und sparen so Energie."
+          - "Hunde laufen meist unregelmäßiger, schnuppern hier und tanzen dort. Auch die Form hilft: Der Fuchsabdruck ist schmaler und ovaler, der Hundeabdruck rundlicher und breiter. Es bleibt eine Faustregel."
+        tipp: "Leg zum Größenvergleich deine Hand oder ein Taschentuch neben die Spur und mach ein Foto."
+        quiz:
+          frage: "Woran erkennst du, ob am Bach ein Hund oder ein Fuchs entlanggelaufen ist?"
+          richtig: "Füchse schnüren oft fast geradlinig, Hunde laufen meist unregelmäßiger und kreuz und quer."
+          falsch:
+            - "Hunde hinterlassen nie Krallenabdrücke, Füchse immer."
+            - "Der Hundeabdruck ist immer kleiner als der des Fuchses."
+            - "Ein Fuchsabdruck ist immer rund, ein Hundeabdruck immer oval."
+          erklaerung: "Wildtiere bewegen sich zielgerichtet auf einer Linie, man nennt das Schnüren. Haushunde tanzen neugierig von links nach rechts."
+
+      - id: ent-07
+        emoji: "🦌"
+        titel: "Wildtiere beobachten"
+        minuten: 3
+        lernziel: "Du erhöhst die Chance, Rehe, Hirsche oder Greifvögel zu sehen."
+        text:
+          - "Rehe, Hirsche und Greifvögel siehst du am besten in der Morgen- und Abenddämmerung. Dann sind sie aktiv, und es ist ruhig."
+          - "Geh langsam und mit dem Wind im Gesicht. Dann trägt der Wind deinen Geruch nicht zu den Tieren. Hunde gehören vor allem im Frühjahr, in der Brut- und Setzzeit, an die Leine."
+        tipp: "Bleib zehn Minuten still sitzen. Wer sitzt, wirkt weniger bedrohlich."
+        quiz:
+          frage: "Wann stehen deine Chancen, Wildtiere zu beobachten, am besten?"
+          richtig: "In der Morgen- und Abenddämmerung, möglichst mit dem Wind im Gesicht."
+          falsch:
+            - "Punkt zwölf Uhr mittags, wenn die Sonne am höchsten steht."
+            - "Bei Regen und Sturm, wenn die Tiere neugierig aus dem Versteck kommen."
+            - "Mit freilaufendem Hund, der die Tiere für dich aufspürt."
+          erklaerung: "Dämmerung plus Gegenwind ist die Geheimformel. Wenn der Wind zu dir weht, trägt er deinen Geruch nicht zu den Tieren."
+
+      - id: ent-08
+        emoji: "🌾"
+        titel: "Das einsame Rehkitz"
+        minuten: 3
+        lernziel: "Du lässt scheinbar verlassene Jungtiere in Ruhe."
+        text:
+          - "Im Frühjahr liegen Rehkitze oft allein im hohen Gras. Das ist normal: Die Mutter versteckt das Kitz und kommt nur zum Säugen vorbei. Ein einsames Kitz ist meist nicht verlassen."
+          - "Fass es nicht an, hebe es nicht hoch und bring es nicht weg. Das stresst und gefährdet das Kitz. Die Ricke bleibt in der Nähe und wartet, bis du weg bist. Halte Hunde fern und leine sie in der Brut- und Setzzeit an."
+          - "Nur bei einem verletzten Tier informierst du den Jagdpächter, den Förster oder die Wildtierhilfe."
+        tipp: "Ein Schritt zurück reicht. Foto aus der Ferne, Zoom statt Nähe."
+        quiz:
+          frage: "Du findest im Frühjahr ein scheinbar verlassenes Rehkitz im Gras. Was ist richtig?"
+          richtig: "Abstand halten, nicht anfassen und zügig weitergehen."
+          falsch:
+            - "Es streicheln, hochheben und ins nächste Tierheim bringen."
+            - "Einen Hund daran schnuppern lassen."
+            - "Es in eine Jacke wickeln und zu einem nahen Bauernhof bringen."
+          erklaerung: "Ein einsames Kitz ist der Normalfall. Die Mutter kommt zurück, sobald du weg bist."
+
+      - id: ent-09
+        emoji: "🍄"
+        titel: "Pilze sammeln"
+        minuten: 3
+        lernziel: "Du sammelst nur, was du sicher kennst."
+        text:
+          - "Sammle nur Pilze, die du zu hundert Prozent sicher kennst. Im Zweifel lass sie stehen oder frag eine Pilzberatung."
+          - "Der Schneckentrick, der Silberlöffel und eine App allein sind keine Sicherheit. Schnecken fressen auch giftige Pilze, und Apps verwechseln Doppelgänger."
+          - "Wird dir nach einer Pilzmahlzeit übel oder bekommst du Erbrechen oder Durchfall, ruf sofort den Giftnotruf oder die 112 an. Bewahre Pilzreste und Putzabfälle auf, sie helfen bei der Bestimmung."
+        hinweis: "Allgemeine Hinweise, kein Ersatz für ärztlichen Rat. In Schutzgebieten kann das Sammeln verboten sein, die Regeln stehen vor Ort."
+        tipp: "Bist du unsicher, mach ein Foto und lass den Pilz stehen."
+        quiz:
+          frage: "Welcher Grundsatz schützt dich zuverlässig vor einer Pilzvergiftung?"
+          richtig: "Nur sammeln, was du zu hundert Prozent sicher bestimmen kannst, im Zweifel stehen lassen."
+          falsch:
+            - "Pilze, an denen Schnecken geknabbert haben, sind auch für Menschen ungiftig."
+            - "Färbt sich ein Silberlöffel beim Kochen nicht schwarz, ist der Pilz essbar."
+            - "Pilz-Apps erkennen jeden Pilz zu hundert Prozent fehlerfrei."
+          erklaerung: "Der Schneckentrick und der Silberlöffel sind gefährlicher Unsinn. Schnecken vertragen sogar Knollenblätterpilze."
+
+      - id: ent-10
+        emoji: "🪲"
+        titel: "Zecke entfernen"
+        minuten: 3
+        lernziel: "Du entfernst eine Zecke schnell, ruhig und richtig."
+        text:
+          - "Hat sich eine Zecke festgesaugt, greifst du sie mit Zeckenkarte, Pinzette oder Zeckenzange möglichst dicht an der Haut und ziehst sie langsam und gerade heraus."
+          - "Quetsche sie nicht und träufle kein Öl oder Klebstoff darauf. Desinfiziere danach die Stelle und beobachte sie in den nächsten Wochen. Rötet sie sich oder bekommst du Fieber, geh zum Arzt."
+        hinweis: "Allgemeine Hinweise, kein Ersatz für ärztlichen Rat."
+        tipp: "Such dich nach der Tour ab, besonders Kniekehlen, Leisten, Achseln und Haaransatz."
+        quiz:
+          frage: "Eine Zecke hat sich festgesaugt. Wie entfernst du sie?"
+          richtig: "Mit Zeckenkarte, Pinzette oder Zange hautnah greifen und langsam gerade herausziehen."
+          falsch:
+            - "Dick Butter, Öl oder Nagellack daraufschmieren, damit sie freiwillig loslässt."
+            - "Mit dem Fingernagel abkratzen und den Kopf drin lassen."
+            - "Mit einem Feuerzeug vorsichtig anwärmen."
+          erklaerung: "Quetschen, Öl und Hitze stressen die Zecke. Ruhig, hautnah und gerade ziehen ist der sichere Weg."
+
+  - id: ent-m3
+    emoji: "🌿"
+    titel: "Rücksicht und Regeln"
+    szene: "Abendrot. Mo nimmt alles wieder mit, lässt das Feuer aus und hat 30 Minuten Trödelzeit übrig. Die Hütte ist in Sicht."
+    lektionen:
+      - id: ent-11
+        emoji: "🏚️"
+        titel: "Lost Places"
+        minuten: 4
+        lernziel: "Du näherst dich verlassenen Orten mit Respekt und Vorsicht."
+        text:
+          - "Verlassene Gebäude und Bunker reizen viele Entdecker. Ein Lost Place gehört aber meist jemandem. Hineingehen darfst du nur mit Erlaubnis, sonst kann es Hausfriedensbruch sein. Bei Schildern oder Absperrungen bleibst du draußen. Von außen ansehen und fotografieren geht meist, solange du kein Grundstück und keine Absperrung betrittst."
+          - "Dazu kommen echte Gefahren: morsche Böden, Einsturz, offene Schächte und Dunkelheit. Hilfe zu holen ist in Ruinen schwer. Störe keine Tiere, zum Beispiel Fledermäuse in Bunkern."
+        hinweis: "Allgemeine Hinweise, keine Rechtsberatung."
+        tipp: "Der Grundsatz heißt: nichts mitnehmen, nichts zerstören, nichts hinterlassen außer Fußspuren. Fotos reichen."
+        quiz:
+          frage: "Du stößt im Wald auf eine verfallene Ruine. Was ist der wichtigste Grundsatz?"
+          richtig: "Nichts mitnehmen, nichts zerstören, keine Absperrungen öffnen und auf Einsturzgefahr achten."
+          falsch:
+            - "Hineingehen, wenn es keiner sieht, und mit Taschenlampe alles erkunden."
+            - "Ruhig hineingehen, solange keine Tür abgeschlossen ist."
+            - "Alles mitnehmen, was noch halbwegs brauchbar aussieht."
+          erklaerung: "Respekt vor dem Ort und Eigenschutz stehen an erster Stelle. Einsturz und offene Schächte sind das größte Risiko."
+
+      - id: ent-12
+        emoji: "🦋"
+        titel: "Naturschutzgebiet und Wegegebot"
+        minuten: 3
+        lernziel: "Du bleibst im Naturschutzgebiet auf den Wegen und weißt, warum."
+        text:
+          - "In Naturschutzgebieten gilt in der Regel ein Wegegebot: Du bleibst auf den markierten Wegen. Das schützt seltene Pflanzen und Bodenbrüter."
+          - "Schon wenige Schritte abseits können Orchideen zertreten oder Brüter wie Kiebitz und Feldlerche so stören, dass sie ihr Gelege aufgeben. Fotografiere lieber mit Zoom."
+        hinweis: "Allgemeine Hinweise. Was genau gilt, steht auf den Schildern und in der Verordnung des jeweiligen Gebiets."
+        tipp: "Auf den Tafeln am Eingang steht, was dort gilt."
+        quiz:
+          frage: "Du siehst im Naturschutzgebiet ein Motiv 30 Meter abseits des Weges. Was gilt?"
+          richtig: "Auf den markierten Wegen bleiben, das Wegegebot schützt Pflanzen und Bodenbrüter."
+          falsch:
+            - "Kurz querfeldein ist okay, solange niemand zuschaut."
+            - "Mit Hund an der Leine darfst du den Weg verlassen."
+            - "Wegegebote gelten nur für Radfahrer, Wanderer dürfen überall hin."
+          erklaerung: "Zoomobjektiv statt querfeldein. Schon wenige Schritte abseits können seltene Pflanzen und Gelege zerstören."
+
+      - id: ent-13
+        emoji: "🧺"
+        titel: "Den Rastplatz verlassen"
+        minuten: 2
+        lernziel: "Du hinterlässt keinen Rastplatz, der nach dir aussieht."
+        text:
+          - "Nimm alles wieder mit, was du mitgebracht hast: Verpackung, Taschentücher und auch Bioabfälle wie Bananen- und Orangenschalen."
+          - "Schalen können lange liegen bleiben, oft Monate bis Jahre, und Papiertaschentücher auch. „Leave no trace“ heißt: Nichts bleibt zurück."
+        tipp: "Eine kleine Tüte im Rucksack macht das Mitnehmen leicht."
+        quiz:
+          frage: "Wie verlässt du einen schönen Rastplatz in der Natur?"
+          richtig: "Alles wieder mitnehmen, auch Bioabfälle wie Schalen und Taschentücher."
+          falsch:
+            - "Bananenschalen ins Gebüsch werfen, Bio verrottet in zwei Tagen."
+            - "Leere Dosen unter einem Stein verstecken, damit sie niemand sieht."
+            - "Taschentücher vergraben, die verrotten schnell."
+          erklaerung: "Eine Bananenschale kann lange liegen bleiben."
+
+      - id: ent-14
+        emoji: "🔥"
+        titel: "Offenes Feuer"
+        minuten: 3
+        lernziel: "Du weißt, wo in NRW Feuer verboten ist."
+        text:
+          - "In NRW ist es verboten, im Wald oder weniger als 100 Meter vom Waldrand entfernt ein Feuer anzuzünden oder zu unterhalten. Ausgenommen sind genehmigte und gekennzeichnete Anlagen."
+          - "Ein Funke genügt für einen Waldbrand, besonders bei Trockenheit. Wer warmen Kaffee will, nimmt die Thermoskanne von zu Hause mit. Sie schmeckt genauso."
+        hinweis: "Allgemeiner Hinweis nach dem Landesforstgesetz NRW, im Zweifel gilt die aktuelle Rechtslage und die Beschilderung vor Ort. Keine Rechtsberatung."
+        tipp: "Das gilt auch fürs Grillen. Rauchen im Wald ist zu bestimmten Zeiten ebenfalls verboten, im Zweifel lässt du es."
+        quiz:
+          frage: "Wo ist in NRW offenes Feuer grundsätzlich verboten?"
+          richtig: "Im Wald und näher als 100 Meter am Waldrand, außer in genehmigten, gekennzeichneten Anlagen."
+          falsch:
+            - "Nur im Sommer, in der kühlen Jahreszeit darfst du überall Feuer machen."
+            - "Nur in Naturschutzgebieten, im normalen Wald ist es erlaubt."
+            - "Überall erlaubt, wenn du Wasser zum Löschen bereithältst."
+          erklaerung: "Schon ein kleiner Funkenflug oder heißer Waldboden kann einen Schwelbrand auslösen. Die Thermoskanne von zu Hause erspart dir Ärger."
+
+      - id: ent-15
+        emoji: "🌈"
+        titel: "Neugier und Zeitpuffer"
+        minuten: 3
+        lernziel: "Du planst Entdeckungstouren mit Luft für das Unerwartete."
+        text:
+          - "Das Geheimnis einer guten Entdeckungstour ist kein perfekter Zeitplan, sondern Neugier und ein Puffer."
+          - "Plane eine halbe Stunde Trödelzeit ein. Dann kannst du spontan in einen Seitenweg abbiegen, eine Kapelle ansehen oder auf der Bank plaudern. Die besten Momente stehen selten im Tourenplan."
+        tipp: "Der Puffer sollte so groß sein, dass der Rückweg trotzdem bei Tageslicht klappt."
+        quiz:
+          frage: "Was ist das wichtigste Geheimnis einer gelungenen Entdeckungstour, zu Fuß oder auf zwei Rädern?"
+          richtig: "Neugier und Zeitpuffer, um spontan abzubiegen, wenn dahinter etwas Spannendes lockt."
+          falsch:
+            - "Ein minutengenauer Zeitplan ohne Spielraum."
+            - "Möglichst viele Sehenswürdigkeiten an einem Tag abhaken."
+            - "Nur loszugehen, wenn der Wetterbericht hundert Prozent Sonne verspricht."
+          erklaerung: "Ein unerwarteter Blick über das Tal, eine versteckte Waldkapelle oder ein Plausch auf der Bank: Wer eine halbe Stunde Trödelpuffer einplant, erlebt mehr."
+
+urkunde:
+  - ab: 0
+    emoji: "🪟"
+    titel: "Fensterbank-Forscher"
+    spruch: "Du hast viel gesehen, vor allem den Garten. Immerhin: Die Aussicht stimmt."
+  - ab: 4
+    emoji: "🌱"
+    titel: "Seitenweg-Schnupperer"
+    spruch: "Du biegst ab und zu ab. Mo sieht, dass du es versuchst."
+  - ab: 8
+    emoji: "🔍"
+    titel: "Spurenleser in Ausbildung"
+    spruch: "Fuchs oder Hund, Pilz oder Pech: Du schaust schon genauer hin."
+  - ab: 11
+    emoji: "🦉"
+    titel: "Waldflüsterer"
+    spruch: "Die Rehe kennen dich noch nicht, aber sie vermuten Gutes."
+  - ab: 14
+    emoji: "🏆"
+    titel: "Mikroabenteuer-Meister"
+    spruch: "Du siehst, was andere übersehen, und lässt es dort, wo es hingehört."

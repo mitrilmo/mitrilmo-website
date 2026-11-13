@@ -1,0 +1,336 @@
+titel: "Wandern"
+emoji: "🥾"
+reihenfolge: 2
+szene: wandern
+kurz: "Gehzeit rechnen, Schuhe schnüren, Mutterkühe umgehen und die 112: 15 kurze Lektionen mit Quiz."
+beschreibung: "Wandern im Bergischen Land: 15 kurze Lektionen mit Quiz zu Planung, Ausrüstung, Orientierung, Blasen, Weidetieren und Notfall. Am Ende gibt es eine Urkunde von Mo."
+intro: "Morgens um acht. Mo schnürt die Schuhe, setzt den Hut auf und prüft, ob die Stöcke gleich lang sind."
+
+module:
+  - id: wan-m1
+    emoji: "🧭"
+    titel: "Planung und Orientierung"
+    szene: "Mittag. Mo kennt jetzt seine Gehzeit, seine Höhenlinien und sein Rückmelde-Versprechen."
+    lektionen:
+      - id: wan-01
+        emoji: "🗻"
+        titel: "Höhenlinien lesen"
+        minuten: 3
+        lernziel: "Du erkennst auf der Karte, wo es steil wird."
+        text:
+          - "Höhenlinien verbinden Punkte gleicher Höhe. Liegen sie eng beieinander, ist das Gelände steil. Liegen sie weit auseinander, ist es flach."
+          - "Wer vor der Tour darauf achtet, weiß, wo der Aufstieg kommt, und kann Kraft und Pausen einteilen."
+        tipp: "Der Höhenunterschied von Linie zu Linie steht in der Kartenlegende."
+        quiz:
+          frage: "Auf der Karte liegen die Höhenlinien auf zwei Kilometern sehr dicht beieinander. Was erwartet dich?"
+          richtig: "Ein sehr steiler Anstieg oder Abstieg, bei dem die Waden laut Hallo sagen."
+          falsch:
+            - "Einen langen, schattigen Waldabschnitt."
+            - "Eine Stelle mit besonders vielen Wegkreuzungen."
+            - "Ein langer, fast ebener Abschnitt, nur der Boden wird etwas matschig."
+          erklaerung: "Je enger die Höhenlinien beieinanderliegen, desto steiler ist das Gelände. Weit auseinanderliegende Linien bedeuten entspanntes Schlendern."
+
+      - id: wan-02
+        emoji: "⏱️"
+        titel: "Gehzeit abschätzen"
+        minuten: 4
+        lernziel: "Du rechnest die reine Gehzeit einer Tour mit der Faustformel nach DIN 33466 aus."
+        text:
+          - "Die Faustformel (DIN 33466, wie sie auch Alpenvereine nutzen) geht von etwa 4 Kilometern pro Stunde aus. Dazu kommen 300 Höhenmeter Aufstieg oder 500 Höhenmeter Abstieg pro Stunde."
+          - "So rechnest du: Zeit für die Strecke und Zeit für die Höhenmeter getrennt ausrechnen. Dann nimmst du den größeren Wert und addierst die Hälfte des kleineren. Pausen kommen extra."
+          - "Beispiel: 10 Kilometer sind 2,5 Stunden. 600 Höhenmeter Aufstieg sind 2 Stunden. Der größere Wert ist 2,5 Stunden, dazu kommt die Hälfte von 2 Stunden. Zusammen sind das 3,5 Stunden."
+        tipp: "Mit Kindern oder wenig Erfahrung planst du lieber großzügiger."
+        quiz:
+          frage: "Eine Tour hat 8 Kilometer und 900 Höhenmeter Aufstieg. Wie lang ist die reine Gehzeit nach der Faustformel?"
+          richtig: "Etwa 4 Stunden."
+          falsch:
+            - "Etwa 5 Stunden."
+            - "Etwa 3 Stunden."
+            - "Etwa 3,5 Stunden."
+          erklaerung: "8 Kilometer sind 2 Stunden, 900 Höhenmeter Aufstieg sind 3 Stunden. Der größere Wert (3 Stunden) plus die Hälfte des kleineren (1 Stunde) ergibt 4 Stunden. Einfach zusammenzählen (5 Stunden) wäre zu viel. Pausen kommen dazu."
+
+      - id: wan-03
+        emoji: "☁️"
+        titel: "Quellwolken erkennen"
+        minuten: 3
+        lernziel: "Du erkennst Gewitterwolken früh genug, um den Rückweg einzuleiten."
+        text:
+          - "Türmen sich am Nachmittag hohe, weiße Quellwolken auf, die unten dunkel werden, brodelt es in der Atmosphäre. Im Sommer kann daraus schnell ein Gewitter werden."
+          - "Dann ist es Zeit, den Abstieg einzuleiten und offene, exponierte Stellen zu verlassen. Meide Kuppen und einzeln stehende Bäume und such Schutz in einem Gebäude. Gibt es keins, bleibt als Notlösung die Hocke mit eng zusammengestellten Füßen und Abstand zu Bäumen und Stöcken (mehr dazu in der Radfahren-Lektion zum Gewitter). Lieber früh umkehren als nass und in Gefahr ankommen."
+        hinweis: "Allgemeine Sicherheitshinweise, kein Ersatz für Wetterwarnungen."
+        tipp: "Schau schon morgens auf die Gewitterwarnung und leg lange Touren in die frühen Stunden."
+        quiz:
+          frage: "Du siehst am Nachmittag hohe, turmartige Quellwolken. Was bedeutet das?"
+          richtig: "Gewittergefahr: Zeit, den Abstieg einzuleiten und exponierte Stellen zu verlassen."
+          falsch:
+            - "Das Wetter bleibt stabil, es sind harmlose Schönwetterwolken."
+            - "Es kommt Nebel auf, der sich bis zum Abend wieder verzieht."
+            - "Es regnet bald leicht und gleichmäßig, aber ohne Gefahr."
+          erklaerung: "Wachsen die Wolken schnell nach oben und dunkeln unten ab, kann sich ein Wärmegewitter bilden."
+
+      - id: wan-04
+        emoji: "📵"
+        titel: "Navigation ohne Netz"
+        minuten: 3
+        lernziel: "Du bist unterwegs auch ohne Mobilfunk und mit wenig Akku orientierungsfähig."
+        text:
+          - "Im Tal oder tief im Wald fehlt oft das Netz. GPS funktioniert trotzdem, denn es braucht keinen Mobilfunk. Lade Karten und Route vorher offline herunter."
+          - "Im Flugmodus hält der Akku deutlich länger. Teste vorher zu Hause, ob dein Gerät im Flugmodus seine Position findet. Eine Powerbank im Rucksack ist die Lebensversicherung für den Tag."
+        tipp: "Merke dir feste Punkte wie Brücke, Kreuzung oder Bach. So merkst du früh, wenn du vom Weg abkommst."
+        quiz:
+          frage: "Dein Smartphone hat im Waldtal kein Netz und wenig Akku. Wie beugst du vor?"
+          richtig: "Offline-Karten vorher laden, Flugmodus nutzen und eine Powerbank einpacken."
+          falsch:
+            - "Die Helligkeit auf 100 Prozent stellen, damit die Karte im Schatten besser lesbar ist."
+            - "Alle fünf Minuten nach Netz suchen, bis wieder ein Balken erscheint."
+            - "Dich auf den Empfang an Aussichtspunkten verlassen und ohne Karte losgehen."
+          erklaerung: "GPS braucht kein Mobilfunknetz. Offline-Karten, Flugmodus und Powerbank tragen dich durch den Tag. Das Moos an der Nordseite ist übrigens kein verlässlicher Wegweiser."
+
+      - id: wan-05
+        emoji: "📣"
+        titel: "Jemandem Bescheid geben"
+        minuten: 2
+        lernziel: "Du sagst vor einer Tour, wo du bist und wann du dich meldest."
+        text:
+          - "Sag vor der Tour jemandem, wo du unterwegs bist. Dazu gehören Route, Startpunkt, Ziel und die Uhrzeit, bis wann du dich spätestens zurückmeldest."
+          - "Passiert dir etwas und du hast keinen Empfang, wissen Angehörige oder Rettungskräfte besser, wo sie suchen müssen, und nicht im falschen Tal."
+        check:
+          - "Route und Startpunkt"
+          - "Ziel"
+          - "Späteste Rückmeldung"
+        tipp: "Melde dich zurück, auch wenn alles gut gegangen ist. Sonst sucht jemand umsonst."
+        quiz:
+          frage: "Was darf bei der Info an andere vor einer anspruchsvollen Tour nicht fehlen?"
+          richtig: "Route, Start, Ziel und wann du dich spätestens zurückmeldest."
+          falsch:
+            - "Die Marke und Größe deiner Wanderschuhe."
+            - "Die Telefonnummern aller Bekannten, die du unterwegs anrufen könntest."
+            - "Das Wetter der letzten Woche."
+          erklaerung: "Falls du keinen Empfang hast, wissen Angehörige oder Rettungskräfte besser, wo sie suchen müssen."
+
+  - id: wan-m2
+    emoji: "🎒"
+    titel: "Ausrüstung"
+    szene: "Später Nachmittag. Mo ist in Zwiebelschichten gekleidet, fest geschnürt und perfekt gepackt. Jetzt kann es losgehen."
+    lektionen:
+      - id: wan-06
+        emoji: "🧅"
+        titel: "Das Zwiebelprinzip"
+        minuten: 3
+        lernziel: "Du kleidest dich in Schichten, die du dem Wetter anpassen kannst."
+        text:
+          - "Mehrere dünne Schichten sind besser als eine dicke. Du ziehst an und aus, je nachdem, wie warm oder kalt dir wird."
+          - "Baumwolle saugt sich mit Schweiß voll und kühlt dich in der ersten Pause aus. Funktionsfasern oder Merinowolle halten dein Körperklima stabil."
+        check:
+          - "Unten: Funktionsshirt oder Merino"
+          - "Mitte: leichte Fleece- oder Wollschicht"
+          - "Außen: Regen- und Windjacke"
+        tipp: "Zieh eine Schicht aus, bevor dir warm wird, und eine an, bevor du frierst."
+        quiz:
+          frage: "Was besagt das Zwiebelprinzip bei der Wanderkleidung?"
+          richtig: "Mehrere dünne, atmungsaktive Schichten, die du je nach Wetter und Anstrengung an- und ausziehst."
+          falsch:
+            - "Du ziehst die Schichten in beliebiger Reihenfolge an, Hauptsache viele."
+            - "Eine einzige dicke Daunenjacke für alle vier Jahreszeiten."
+            - "Baumwolle direkt auf der Haut, weil sie Feuchtigkeit gut aufnimmt."
+          erklaerung: "Baumwolle kühlt dich bei der ersten Pause eiskalt aus. Mehrere dünne Schichten aus Funktionsfasern oder Wolle halten dein Körperklima stabil."
+
+      - id: wan-07
+        emoji: "👟"
+        titel: "Schuhe richtig schnüren"
+        minuten: 3
+        lernziel: "Du schnürst Wanderschuhe so, dass Zehen und Fersen auch bergab Ruhe geben."
+        text:
+          - "Vor einem langen Abstieg schnürst du den Schuh im Vorfuß und am Spann gut fest. Dann rutscht der Fuß nicht nach vorn und die Zehen stoßen nicht an die Schuhspitze."
+          - "Blaue Zehennägel nach der Tour kommen oft von einem zu lockeren Sitz, manchmal auch von zu kurzen Schuhen. Ein fester Sitz am Spann verhindert das Rutschen, vorn sollte etwa eine Daumenbreite Platz bleiben."
+        tipp: "Schnür vor langen Abstiegen kurz nach. Schuhe und Socken geben im Lauf des Tages nach."
+        quiz:
+          frage: "Wie schnürst du Wanderschuhe vor einem langen, steilen Abstieg?"
+          richtig: "Im Vorfuß und am Spann gut festziehen, damit der Fuß nicht nach vorn rutscht."
+          falsch:
+            - "Komplett lockern, damit die Zehen genug Platz zum Ausweichen haben."
+            - "Nur im Knöchelbereich festziehen und den Vorfuß locker lassen."
+            - "Möglichst fest ziehen, bis du die Zehen kaum noch spürst."
+          erklaerung: "Ein Fuß, der im lockeren Schuh bei jedem Schritt nach vorn rutscht, stößt an die Spitze. Fester Sitz am Spann verhindert das."
+
+      - id: wan-08
+        emoji: "🦯"
+        titel: "Wanderstöcke"
+        minuten: 3
+        lernziel: "Du setzt Wanderstöcke ein, wo sie wirklich helfen."
+        text:
+          - "Stöcke entlasten Knie und Sprunggelenke beim Bergabgehen und geben dir mehr Halt auf unebenem Boden."
+          - "Die Länge muss stimmen. Im Flachen bildet dein Ellenbogen etwa einen rechten Winkel. Bergab stellst du sie etwas länger, bergauf etwas kürzer."
+        tipp: "Probier sie vor der ersten großen Tour aus, damit du den Rhythmus kennst."
+        quiz:
+          frage: "Wozu dienen Wanderstöcke wirklich, außer professionell auszusehen?"
+          richtig: "Sie entlasten Knie und Gelenke bergab und verbessern das Gleichgewicht."
+          falsch:
+            - "Sie machen vor allem bergauf schneller, bergab bringen sie nichts."
+            - "Sie sind nur etwas für ältere Wanderer, junge Leute brauchen sie nie."
+            - "Sie ersetzen den Hüftgurt vollständig und tragen das Rucksackgewicht."
+          erklaerung: "Richtig eingesetzt nehmen Stöcke spürbar Last von den Knien, vor allem bergab. Voraussetzung ist die passende Länge."
+
+      - id: wan-09
+        emoji: "🎒"
+        titel: "Rucksack packen"
+        minuten: 3
+        lernziel: "Du packst den Rucksack so, dass er sich leicht und stabil trägt."
+        text:
+          - "Schweres kommt nah an den Rücken, etwa auf Schulterhöhe. Leichtes und Sperriges wie Wechselkleidung wandert nach unten. Dann zieht dich der Rucksack nicht nach hinten."
+          - "Schließe außerdem den Hüftgurt. Er nimmt einen großen Teil der Last von den Schultern."
+        tipp: "Packe Dinge, die du oft brauchst, etwa die Regenjacke, nach oben oder in die Seitentaschen."
+        quiz:
+          frage: "Wie packst du den Rucksack, damit er sich leicht und stabil trägt?"
+          richtig: "Schweres nah am Rücken in Schulterhöhe, Leichtes und Sperriges nach unten, Hüftgurt zu."
+          falsch:
+            - "Alle schweren Sachen ganz nach unten und weit weg vom Rücken."
+            - "Alles locker packen und den Hüftgurt offen lassen, damit der Rucksack atmen kann."
+            - "Das Schwere ganz oben und weit weg vom Rücken, damit es nicht drückt."
+          erklaerung: "Je näher das Gewicht am Körperschwerpunkt liegt, desto weniger Kraft brauchst du zum Ausbalancieren. Der Hüftgurt entlastet die Schultern."
+
+      - id: wan-10
+        emoji: "🩹"
+        titel: "Das Erste-Hilfe-Set"
+        minuten: 3
+        lernziel: "Du packst ein kleines Erste-Hilfe-Set für Tagestouren."
+        text:
+          - "Für Tagestouren reicht ein kleines Set, das in jeden Rucksack passt. Es deckt von der Schürfwunde über den umgeknickten Knöchel bis zur Wartezeit in der Kälte das Wichtigste ab."
+          - "Prüfe ab und zu die Ablaufdaten und ergänze, was du verbraucht hast."
+        check:
+          - "Pflaster und Blasenpflaster"
+          - "Sterile Wundkompressen"
+          - "Elastische Binde"
+          - "Rettungsdecke"
+          - "Desinfektionsmittel"
+          - "Pinzette oder Zeckenkarte"
+        hinweis: "Allgemeine Hinweise, kein Ersatz für einen Erste-Hilfe-Kurs."
+        tipp: "Ein aufgefrischter Erste-Hilfe-Kurs hilft mehr als jedes Set."
+        quiz:
+          frage: "Was gehört in ein kompaktes Erste-Hilfe-Set für Tagestouren?"
+          richtig: "Pflaster, Blasenpflaster, Wundkompressen, elastische Binde, Rettungsdecke, Desinfektionsmittel und Pinzette oder Zeckenkarte."
+          falsch:
+            - "Ein komplettes Set mit Schienen, Beatmungsmaske und Infusionen."
+            - "Nur Pflaster und Traubenzucker, mehr braucht es auf Tagestouren nie."
+            - "Ein Verbandkasten nach Autonorm, mindestens zwei Kilo schwer."
+          erklaerung: "Das Set wiegt wenig, nimmt kaum Platz weg und hilft bei den typischen Wehwehchen unterwegs."
+
+  - id: wan-m3
+    emoji: "⛑️"
+    titel: "Unterwegs und Notfall"
+    szene: "Abendrot. Mo hat Blasen verhindert, Kühen Platz gemacht und die 112 im Kopf. Die Hütte ist in Sicht."
+    lektionen:
+      - id: wan-11
+        emoji: "📉"
+        titel: "Bergab ohne Umknicken"
+        minuten: 3
+        lernziel: "Du gehst bergab so, dass Knie und Knöchel heil bleiben."
+        text:
+          - "Viele Stolper- und Umknickunfälle passieren auf dem Rückweg bergab, wenn Kraft und Konzentration nachlassen. Die Schritte werden zu groß, und das Gewicht fällt auf die Ferse."
+          - "Mach kleinere Schritte, geh leicht in die Knie und halte den Körperschwerpunkt über den Füßen. Das schont auch die Kniegelenke."
+        tipp: "Lieber unterwegs eine Trinkpause mehr als ein Schritt zu viel bergab."
+        quiz:
+          frage: "Warum passieren viele Stolperunfälle bergab und nicht im anstrengenden Aufstieg?"
+          richtig: "Kraft und Konzentration lassen nach, die Schritte werden zu groß und das Gewicht fällt unkontrolliert auf die Ferse."
+          falsch:
+            - "Weil der Boden bergab immer rutschiger ist als bergauf."
+            - "Weil die Schuhe bergab automatisch weniger Halt haben."
+            - "Weil man bergab mehr auf die Aussicht achtet als auf den Weg."
+          erklaerung: "Kleine Schritte, leicht in die Knie und der Schwerpunkt über den Füßen helfen bergab am meisten."
+
+      - id: wan-12
+        emoji: "🔥"
+        titel: "Blasen vorbeugen"
+        minuten: 3
+        lernziel: "Du reagierst auf den ersten Hotspot am Fuß, bevor daraus eine Blase wird."
+        text:
+          - "Spürst du ein Reiben an der Ferse, noch ohne Schmerz, aber warm, ist das ein „Hotspot“. Jetzt ist der richtige Moment."
+          - "Halte an, zieh Schuh und Socke aus, trockne die Stelle und klebe ein Blasenpflaster oder Tape darauf. So verhinderst du die Blase in den meisten Fällen."
+        tipp: "Feuchte Socken reiben mehr. Ein Ersatzpaar im Rucksack ist Gold wert."
+        quiz:
+          frage: "Du spürst während der Tour ein leichtes Reiben an der Ferse. Was ist jetzt richtig?"
+          richtig: "Sofort anhalten, die Stelle trocknen und ein Blasenpflaster oder Tape aufkleben."
+          falsch:
+            - "Tapfer ignorieren, ein echter Wanderer hält das bis zum Parkplatz aus."
+            - "Schneller laufen, damit die Reibungszeit kürzer wird."
+            - "Den Schuh mit Wasser aus der Trinkflasche kühlen."
+          erklaerung: "Ist die Blase erst da, ist der Spaß vorbei. Wer beim ersten Hotspot abklebt, spart sich viel."
+
+      - id: wan-13
+        emoji: "🐄"
+        titel: "Mutterkühe auf der Weide"
+        minuten: 3
+        lernziel: "Du gehst an Mutterkuhherden ruhig und sicher vorbei."
+        text:
+          - "Auf Weiden begegnest du manchmal Mutterkuhherden mit Kälbern. Mutterkühe beschützen ihre Kälber und reagieren auf Hunde oft aggressiv."
+          - "Bleib ruhig, halte Abstand und umgehe die Herde nach Möglichkeit in weitem Bogen. Steht sie auf dem Weg, kehr um oder such eine andere Route. Starre die Tiere nicht an, streichle sie nicht und renne nicht."
+          - "Nimm deinen Hund vorher kurz an die Leine. Greift eine Kuh an, lass ihn los, damit er flüchten kann, und zieh dich selbst ruhig zurück."
+        hinweis: "Allgemeine Hinweise. Auf manchen Weiden stehen Schilder mit eigenen Regeln."
+        tipp: "Geh nicht zwischen Mutter und Kalb hindurch."
+        quiz:
+          frage: "Du begegnest einer Mutterkuhherde mit Kälbern. Wie verhältst du dich?"
+          richtig: "Abstand halten, die Herde umgehen, ruhig bleiben und die Tiere nicht anstarren oder streicheln."
+          falsch:
+            - "Ruhig mitten durch die Herde gehen, Kühe sind Fluchttiere und weichen aus."
+            - "Laut klatschen und mit den Stöcken wedeln, um die Kühe zu vertreiben."
+            - "Den Hund frei laufen lassen, damit er die Herde auf Abstand hält."
+          erklaerung: "Mutterkühe haben einen starken Beschützerinstinkt. Ruhe und Abstand lösen die Situation meist souverän."
+
+      - id: wan-14
+        emoji: "✨"
+        titel: "Die Rettungsdecke"
+        minuten: 2
+        lernziel: "Du weißt, wofür die Rettungsdecke gut ist."
+        text:
+          - "Die goldene und silberne Rettungsdecke wiegt fast nichts und kann viel. Mit der silbernen Seite zum Körper hält sie dich warm, weil sie deine Körperwärme zurückwirft."
+          - "Bei Sonne schützt sie, wenn die silberne Seite nach außen zeigt. Ihr Glitzern und Knistern hilft außerdem, wenn Rettungskräfte dich suchen. Sie ersetzt aber keine Regenjacke. Leg sie locker um den Körper, bei Verletzten auch unter sie, denn Bodenkälte zieht stark."
+        tipp: "Pack sie so ein, dass du sie ohne Ausräumen erreichst."
+        quiz:
+          frage: "Warum ist die Rettungsdecke in deinem Rucksack ein Multitalent?"
+          richtig: "Sie schützt vor Auskühlung, kann bei Sonne als Schutz dienen und macht durch Reflexion auf dich aufmerksam."
+          falsch:
+            - "Sie ist vor allem als Sitzunterlage gedacht und wärmt kaum."
+            - "Sie ersetzt bei Regen die Jacke vollständig und ist wasserdichter als jeder Rucksack."
+            - "Sie lässt sich als Verband für Brüche und Blutungen verwenden und ersetzt den Verbandkasten."
+          erklaerung: "Faustregel: Silber zum Körper hält warm, Silber nach außen schützt vor Sonne. Das Glitzern fällt Rettungskräften auf."
+
+      - id: wan-15
+        emoji: "🆘"
+        titel: "Notruf 112 ohne eigenes Netz"
+        minuten: 3
+        lernziel: "Du weißt, wie du Hilfe holst, auch wenn dein Anbieter kein Netz hat."
+        text:
+          - "In ganz Europa erreichst du Rettungsdienst und Feuerwehr unter 112. Nenne den Ort, was passiert ist und wie viele Personen betroffen sind."
+          - "Hast du kein Netz deines Anbieters, kann sich das Handy für den Notruf in ein anderes verfügbares Netz einbuchen. Nur wenn wirklich kein Funkmast in Reichweite ist, geht meist nichts. Dann wechsle den Standort, etwa auf eine Anhöhe, und versuche es erneut."
+        hinweis: "Allgemeine Hinweise, kein Ersatz für eine Einweisung in Erste Hilfe."
+        tipp: "Bleib am Telefon, bis die Leitstelle sagt, dass du auflegen darfst."
+        quiz:
+          frage: "Du brauchst Hilfe, dein eigener Anbieter hat dort aber kein Netz. Was funktioniert oft trotzdem?"
+          richtig: "Die 112 wählen: Das Handy nutzt für den Notruf jedes verfügbare Netz."
+          falsch:
+            - "Eine SMS an die 110 schicken, die liest die Leitstelle sofort."
+            - "Auf der Stelle warten, bis wieder Netz da ist, ohne einen Notruf zu versuchen."
+            - "Nur die 110 wählen, die Polizei hat ein eigenes Funknetz."
+          erklaerung: "Für die 112 bucht sich das Handy in jedes erreichbare Netz ein. Nur wenn gar kein Funkmast in Reichweite ist, hilft ein Standortwechsel."
+
+urkunde:
+  - ab: 0
+    emoji: "🛋️"
+    titel: "Sofa-Wanderer"
+    spruch: "Du hast den Weg zur Haustür gefunden. Die Haustür hat es dir hoch angerechnet."
+  - ab: 4
+    emoji: "🚶"
+    titel: "Spaziergänger"
+    spruch: "Du kommst voran, wenn auch mit Pausen. Mo nennt das Charakter."
+  - ab: 8
+    emoji: "🧭"
+    titel: "Pfadfinder in Ausbildung"
+    spruch: "Karte, Schuhe, Rucksack: Du hast die Grundlagen. Es fehlt nur noch ein Berg."
+  - ab: 11
+    emoji: "🥾"
+    titel: "Weggefährte"
+    spruch: "Mo würde dich mitnehmen. Er würde nichts sagen, aber nicken."
+  - ab: 14
+    emoji: "🏆"
+    titel: "Wander-Profi"
+    spruch: "Fehlerfrei oder fast. Mo vermutet Betrug und fragt nach deinem Quellenverzeichnis."

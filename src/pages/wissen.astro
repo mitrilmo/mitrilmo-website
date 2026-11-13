@@ -1,0 +1,59 @@
+---
+// Hub „Wissen“: Themenkarten mit Lektionen und Quiz (Radfahren, Wandern, Entdecken). Inhalte: src/content/wissen/*.yaml.
+// Kein Konto, nichts wird gespeichert (kein Cookie, kein localStorage), Datenschutztext bleibt unverändert.
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import WissenSzene from '../components/WissenSzene.astro';
+import { lektionenZahl, minutenZahl } from '../lib/wissen.js';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const themen = (await getCollection('wissen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const bald = [{ titel: 'Spaziergehen', emoji: '🚶', text: 'Kurze Runden, Bänke, Brotzeit und Gelassenheit. Kommt bald.' }];
+---
+<Base title="Wissen und Quiz, mitrilmo" description="Kleine Lektionen mit Quiz zu Radfahren, Wandern und Entdecken im Bergischen Land. Mo begleitet dich, am Ende gibt es eine Urkunde. Ohne Anmeldung, nichts wird gespeichert.">
+  <PageHero width="max-w-4xl">
+    <h1 class="text-3xl font-black text-stone-50">Wissen und Quiz</h1>
+    <p class="mt-2 text-stone-200 max-w-2xl">Kleine Lektionen mit Quizfrage. Mo ist von früh bis abends unterwegs, du lernst nebenbei, was draußen zählt, und am Ende gibt es eine Urkunde mit Titel.</p>
+  </PageHero>
+
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {themen.map((t) => (
+        <li>
+          <a href={`${base}/wissen/${t.id}.html`} class="group h-full bg-slate-700 rounded-2xl border border-white/5 p-5 flex flex-col hover:border-accent/50 transition-colors">
+            <WissenSzene art={t.data.szene} phase={0} statisch />
+            <h2 class="mt-4 text-xl font-bold text-stone-50 group-hover:text-accent"><span aria-hidden="true">{t.data.emoji}</span> {t.data.titel}</h2>
+            <p class="mt-2 text-sm text-stone-300 flex-1">{t.data.kurz}</p>
+            <p class="mt-4 text-xs text-stone-400">{lektionenZahl(t.data)} Lektionen · etwa {minutenZahl(t.data)} Minuten · {t.data.module.length} Etappen</p>
+            <span class="mt-3 inline-block text-sm font-semibold text-accent">Loslegen →</span>
+          </a>
+        </li>
+      ))}
+      {bald.map((b) => (
+        <li>
+          <div class="h-full bg-slate-700/60 rounded-2xl border border-dashed border-white/10 p-5 flex flex-col">
+            <div class="aspect-[2/1] rounded-2xl border border-dashed border-white/10 grid place-items-center text-6xl" aria-hidden="true">{b.emoji}</div>
+            <h2 class="mt-4 text-xl font-bold text-stone-300">{b.titel}</h2>
+            <p class="mt-2 text-sm text-stone-400 flex-1">{b.text}</p>
+            <p class="mt-4 text-xs text-stone-400">Bald</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <section class="mt-12 text-sm text-stone-300 max-w-2xl" aria-labelledby="so">
+      <h2 id="so" class="text-lg font-bold text-stone-50">So funktioniert es</h2>
+      <ul class="mt-3 list-disc pl-6 space-y-1.5">
+        <li>Pro Lektion lesen, kurz abhaken und eine Quizfrage beantworten.</li>
+        <li>Nach jeder Etappe läuft Mo ein Stück weiter, vom Morgen bis zur Hütte am Abend.</li>
+        <li>Am Ende bekommst du eine Wertung. Sie ist humorvoll gemeint und ersetzt keinen Erste-Hilfe-Kurs.</li>
+        <li>Es gibt kein Konto und keine Anmeldung. Die Seite merkt sich nichts, wer neu lädt, fängt neu an.</li>
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<script>
+  import '../scripts/mo-szene.js';
+</script>

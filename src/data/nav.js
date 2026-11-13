@@ -7,6 +7,7 @@ export const nav = [
   { label: 'Entdecken', href: 'entdecken.html', live: true },
   { label: 'Touren', href: 'touren.html', live: true, tab: true },
   { label: 'Videos', href: 'videos.html', live: true },
+  { label: 'Wissen', href: 'wissen.html', live: true },
   { label: 'Geschichten', href: 'geschichten.html', live: true, tab: true },
   { label: 'Termine', href: 'termine.html', live: true, tab: true, header: false },
   { label: 'Neuigkeiten', href: 'neuigkeiten.html', live: true, tab: true, header: false },
