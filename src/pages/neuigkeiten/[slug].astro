@@ -73,6 +73,6 @@ const og = await getImage({ src: data.cover, width: 1200, height: 630, fit: 'cov
 
     {data.tags.length > 0 && <p class="mt-8 text-xs text-stone-400">{data.tags.map((t) => `#${t}`).join(' ')}</p>}
 
-    <SelbstBezahlt class="mt-10" />
+    {data.hinweis && <SelbstBezahlt class="mt-10" />}
   </article>
 </Base>

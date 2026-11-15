@@ -18,3 +18,7 @@ test('Hinweis: steht auf der Neuigkeiten-Seite und unter jedem Beitrag', () => {
     assert.match(s, /<SelbstBezahlt /, p);
   }
 });
+test('Hinweis: Spiel- und Quiz-Beitrag zeigen ihn nicht (hinweis: false), die Seite schaltet ihn pro Beitrag', () => {
+  assert.match(read('src/pages/neuigkeiten/[slug].astro'), /data\.hinweis && <SelbstBezahlt /);
+  for (const p of ['src/content/news/2026-11-09-mos-hike-quest.md', 'src/content/news/2026-11-13-wissen-und-quiz.md']) assert.match(read(p), /^hinweis: false$/m, p);
+});

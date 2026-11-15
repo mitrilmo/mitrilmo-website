@@ -3,6 +3,7 @@ title: "Wissen und Quiz: Radfahren, Wandern und Entdecken mit Mo"
 date: 2026-11-13
 description: "Neu auf der Website: kleine Lektionen mit Quiz zu Radfahren, Wandern und Entdeckungstouren. Ohne Anmeldung, mit Mo und am Ende einer Urkunde."
 cover: ../../assets/images/news/2026-11-13-wissen-und-quiz.jpg
+hinweis: false
 coverAlt: "Mo steht mit Wanderstöcken und Rucksack vor seiner Hütte, ein Fuchs läuft vorbei, ein Adler kreist. Darunter der Titel Wissen und Quiz."
 tags:
   - Wissen

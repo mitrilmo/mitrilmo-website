@@ -32,5 +32,6 @@ export const newsSchema = ({ reference, image }) => {
       sections: z.array(section).default([]),
       momentwerkId: z.string().min(1).optional(), // erneuter Import überschreibt denselben Beitrag
       draft: z.boolean().default(false),
+      hinweis: z.boolean().default(true), // false: kein Hinweis „selbst bezahlt“ (nur für Beiträge ohne Besuch, Essen oder Eintritt, z. B. Spiel oder Quiz)
     });
 };

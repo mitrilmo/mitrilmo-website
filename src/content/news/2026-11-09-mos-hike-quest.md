@@ -3,6 +3,7 @@ title: "Mo’s Hike Quest: ein kleines Wanderspiel zum Mitspielen"
 date: 2026-11-09
 description: "Mo’s Hike Quest läuft im Browser: Mo wandert durch sechs Etappen zur Hütte, springt über Baumstämme, duckt sich vor dem Adler und hebt verlorene Brotdosen auf."
 cover: ../../assets/images/news/2026-11-09-mos-hike-quest.jpg
+hinweis: false
 coverAlt: "Mo steht vor seiner Hütte und sagt: Guten Morgen, ich bin Mo. Daneben der Titel Mo’s Hike Quest und das mitrilmo-Logo."
 tags:
   - Spiel
