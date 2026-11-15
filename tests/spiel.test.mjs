@@ -60,3 +60,31 @@ test('Spiel: Vorschaubild für Messenger (1200 × 630, ohne Metadaten) ist einge
   assert.match(seite, /property="og:image:alt"/);
   assert.match(seite, /property="og:image:width"/);
 });
+test('Spiel: Bonus-Level Höhle und Gebirgsgrat (Hindernisse mit Texten, Boden verschiebbar, Etappen unverändert)', () => {
+  const typen = ['stalag', 'stalag2', 'pfuetze', 'stalak', 'bat', 'gap', 'boulder', 'steinmann', 'dohle', 'felsnase'];
+  for (const t of typen) {
+    assert.ok(js.includes('HIT.' + t + '='), 'HIT ' + t);
+    assert.ok(js.includes('DODGE.' + t + '='), 'DODGE ' + t);
+    assert.ok(js.includes(',' + t + ':') || js.includes('{' + t + ':'), 'Maße ' + t);
+  }
+  assert.match(js, /var W=680,H=340,GY=252,FY=286,LOOP=1350,GY0=252,FY0=286,gOff=0;/);
+  assert.match(js, /STAGE=bn\?BSTAGE:3200;NST=bn\?2:6/);
+  assert.match(js, /var SEA=\['Frühling','Sommer','Herbst','Winter','Nacht','Sommer'\]/);
+  assert.match(js, /\(g\.bonus\?192:150\+g\.stage\*14\)/, 'Tempo im Bonus wie Etappe 4');
+  assert.match(js, /if\(cur!=='Nacht'&&cur!=='Höhle'\)return;/);
+});
+test('Spiel: Bonus-Level haben eigene Fundstücke und Warnschilder', () => {
+  for (const k of ['kristall', 'helm', 'batterie', 'schoki', 'brille']) {
+    assert.ok(js.includes(' ' + k + ':['), 'FUNDTXT ' + k);
+    assert.ok(js.includes(k + ":'"), 'NAMEN ' + k);
+    assert.ok(js.includes("k==='" + k + "'"), 'Zeichnung ' + k);
+  }
+  for (const s of ['Steinschlag', 'Absturzgefahr', 'Vorsicht, Kopf!', 'Windböen']) assert.ok(js.includes("'" + s + "'"), s);
+  assert.ok(js.includes('function fgKnorr'), 'Knorrige Bäume im Vordergrund des Grats');
+  assert.ok(js.includes('function hangBat'), 'Fledermäuse an der Höhlendecke');
+});
+test('Spiel: Texte der neuen Hindernisse ohne Gedankenstriche', () => {
+  const block = js.slice(js.indexOf('var BSTAGE='), js.indexOf('function pick('));
+  assert.ok(block.length > 2000);
+  assert.doesNotMatch(block, /[–—]/);
+});
