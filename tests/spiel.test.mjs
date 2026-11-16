@@ -83,6 +83,26 @@ test('Spiel: Bonus-Level haben eigene Fundstücke und Warnschilder', () => {
   assert.ok(js.includes('function fgKnorr'), 'Knorrige Bäume im Vordergrund des Grats');
   assert.ok(js.includes('function hangBat'), 'Fledermäuse an der Höhlendecke');
 });
+test('Spiel: Bonus Moor und Küste (Hindernisse mit Texten und Maßen, Funde, Szenen, g.bonus 0/1/2)', () => {
+  for (const t of ['hedge', 'crow', 'seal', 'gull']) {
+    assert.ok(js.includes('HIT.' + t + '='), 'HIT ' + t);
+    assert.ok(js.includes('DODGE.' + t + '='), 'DODGE ' + t);
+    assert.ok(js.includes(t + ':'), 'Maße ' + t);
+    assert.match(js, new RegExp('BON=\\{[^}]*' + t + ':1'), 'BON ' + t);
+  }
+  assert.match(js, /LUFT=\{[^}]*crow:1,gull:1\}/, 'Krähe und Möwe zum Ducken');
+  assert.match(js, /hedge:\.3/, 'Igel läuft wie der Fuchs an');
+  for (const k of ['stiefel', 'korb', 'muschel', 'karte']) {
+    assert.ok(js.includes(' ' + k + ':['), 'FUNDTXT ' + k);
+    assert.ok(js.includes(k + ":'"), 'NAMEN ' + k);
+    assert.ok(js.includes("k==='" + k + "'"), 'Zeichnung ' + k);
+  }
+  for (const f of ['function drawMoor', 'function drawCoast', 'function moorFront', 'function coastFront', 'function hedgehog', 'function robbe', 'function bude', 'function deadTrees', 'function giantTree']) assert.ok(js.includes(f), f);
+  assert.match(js, /function start\(bn\)\{g\.bonus=bn\|\|0;/, 'g.bonus ist 0, 1 oder 2');
+  assert.match(js, /BSEA2=\['Moor','Küste'\]/);
+  assert.match(js, /'Bonus '\+\(g\.stage\+1\+\(g\.bonus===2\?2:0\)\)\+'\/4'/, 'HUD Bonus 3/4 und 4/4');
+  assert.match(js, /var GZ=\[/, 'Böen hängen an Streckenabschnitten');
+});
 test('Spiel: Texte der neuen Hindernisse ohne Gedankenstriche', () => {
   const block = js.slice(js.indexOf('var BSTAGE='), js.indexOf('function pick('));
   assert.ok(block.length > 2000);
