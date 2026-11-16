@@ -831,14 +831,7 @@ function grad(y0,y1,c0,c1){var q=x.createLinearGradient(0,y0,0,y1);q.addColorSto
 function poly(pts,c){x.fillStyle=c;x.beginPath();x.moveTo(pts[0],pts[1]);for(var i=2;i<pts.length;i+=2)x.lineTo(pts[i],pts[i+1]);x.closePath();x.fill()}
 function ellc(cx,cy,rx,ry,c){x.fillStyle=c;x.beginPath();x.ellipse(cx,cy,rx,ry,0,0,6.3);x.fill()}
 /* Böen an der Küste hängen an Streckenabschnitten (nicht an der Zeit), damit die Abstände der Hindernisse fair bleiben */
-var GZ=[2000,4300],GWARN=154,GLEN=480,KN={};
-function gustCalc(r){
- var w=0,a=0;if(g.bonus!==2)return{w:0,a:0};
- for(var i=0;i<GZ.length;i++){var z=STAGE+GZ[i];
-  if(r>=z-GWARN&&r<z)w=Math.max(w,(r-(z-GWARN))/GWARN);
-  else if(r>=z&&r<z+GLEN)a=Math.max(a,Math.min(1,(r-z)/60,(z+GLEN-r)/90))}
- return{w:w,a:a}}
-function inGust(bx){for(var i=0;i<GZ.length;i++){var z=STAGE+GZ[i];if(bx>z-GWARN-260&&bx<z+GLEN+360)return true}return false}
+var KN={};
 function moorObst(t,px,o){
  var tt=NOW/1000;
  if(t==='hedge'){hedgehog(px,FY+1,tt);return}
@@ -880,14 +873,14 @@ function moorFront(ts){
  for(var fg=0;fg<4;fg++){var fx0=md(fg*230-m*1.25-tt*14,W+420)-210;var fgr=x.createRadialGradient(fx0,FY+2,5,fx0,FY+2,170);fgr.addColorStop(0,'rgba(226,232,240,.30)');fgr.addColorStop(1,'rgba(226,232,240,0)');x.fillStyle=fgr;x.save();x.translate(0,FY+2);x.scale(1,.2);x.translate(0,-(FY+2));x.beginPath();x.arc(fx0,FY+2,170,0,6.3);x.fill();x.restore()}
  var fo2=m*1.3;for(var fr=0;fr<12;fr++){var frx=md(fr*70+R(fr+80)*30-fo2,900)-30;if(frx<-20||frx>W+20)continue;x.strokeStyle='#26331f';x.lineWidth=1.6;for(var bb=-2;bb<=2;bb++){x.beginPath();x.moveTo(frx,H);x.quadraticCurveTo(frx+bb*3,H-26,frx+bb*6,H-38-R(fr+bb+4)*10);x.stroke()}}}
 function drawCoast(ts){
- var tt=ts/1000,gf=g.gust||0,cs=D,run=g.run,ty=240,dy=FY-241,c,wv,k,q,b;
+ var tt=ts/1000,gf=0,cs=D,run=g.run,ty=240,dy=FY-241,c,wv,k,q,b;
  x.fillStyle=grad(0,160+dy,'#2c3747','#64748B');x.fillRect(0,0,W,H);
  for(c=0;c<9;c++){var cx=md(c*110+R(c)*40-tt*(16+gf*28)-cs*.06,W+260)-100,cy=24+R(c+7)*70;ellc(cx,cy,80+R(c+2)*40,18+R(c+3)*10,'rgba(37,48,64,.62)');ellc(cx+30,cy+10,60,14,'rgba(51,65,85,.7)')}
  x.save();x.translate(0,dy);
- seaBig(tt,gf,cs);
  poly([0,134,60,140,140,137,214,150,214,160,0,160],'#2a3340');
  var lx=100,ly=138;poly([lx-6,ly,lx-3.5,ly-44,lx+3.5,ly-44,lx+6,ly],'#e9e4da');x.fillStyle='#b53a30';x.fillRect(lx-5,ly-30,10,7);x.fillRect(lx-4,ly-15,8,6);x.fillStyle='#2b2f38';x.fillRect(lx-5,ly-50,10,6);poly([lx-6,ly-50,lx,ly-58,lx+6,ly-50],'#7a2a24');
  var th=tt*1.5,cb=Math.cos(th),bl=Math.abs(cb)*240,dir=cb>0?1:-1,bg=x.createLinearGradient(lx,0,lx+dir*bl,0);bg.addColorStop(0,'rgba(255,240,170,.55)');bg.addColorStop(1,'rgba(255,240,170,0)');x.fillStyle=bg;x.beginPath();x.moveTo(lx,ly-47);x.lineTo(lx+dir*bl,ly-47-bl*.06-3);x.lineTo(lx+dir*bl,ly-47+bl*.06+3);x.closePath();x.fill();ellc(lx,ly-47,2.6,2.6,'#fff6c0');
+ seaBig(tt,gf,cs);
  for(wv=0;wv<7;wv++){var wxp=wv*110-md(tt*30,110),ph=tt*1.3+wv*.9,sp=(Math.sin(ph)+1)/2;x.fillStyle='rgba(30,58,95,.9)';x.beginPath();x.ellipse(wxp+55,312,70,16+sp*6,0,0,6.3);x.fill();x.fillStyle='rgba(241,245,249,'+(.55+sp*.3)+')';x.beginPath();x.ellipse(wxp+55,305-sp*5,52,5+sp*3,0,0,6.3);x.fill();
   if(sp>.8){for(var gp=0;gp<6;gp++){var gu=(sp-.8)*5,gx=wxp+30+gp*10+gu*(-14),gy2=300-gu*(26+gp*3);ellc(gx,gy2,2.4,2.4,'rgba(241,245,249,'+(.8-gu*.5)+')')}}}
  x.fillStyle=grad(300,H+dy+10,'rgba(30,58,95,0)','#1E3A5F');x.fillRect(0,300,W,H-300+60);
@@ -903,16 +896,23 @@ function drawCoast(ts){
  var bX=TOTAL+300-run;if(bX<W+300)bude(bX,ty+2);
  x.restore()}
 function coastFront(ts){
- var tt=ts/1000,gf=g.gust||0,cs=D,i;
- /* Blätter in der Böe */
- if(gf>.05&&g.mode==='play'){for(i=0;i<14;i++){var u=((tt*(.8+R(i)*.5)+R(i+4))%1),lx2=W+30-u*(W+90),ly2=FY-34-R(i+2)*100+Math.sin(u*9+i)*8;x.save();x.globalAlpha=Math.min(1,gf*1.4);x.translate(lx2,ly2);x.rotate(u*8+i);ellc(0,0,3.4,1.8,i%3?'#9a7a2e':'#5a7a32');x.restore()}}
+ var tt=ts/1000,gf=0,cs=D,i;
  /* schräger Regen */
  var rf=1-cl((g.run-(TOTAL-420))/160,0,.8);
  x.strokeStyle='rgba(226,232,240,'+((.35+gf*.15)*rf)+')';x.lineWidth=1;x.beginPath();
  for(i=0;i<70;i++){var l=.6+R(i+3)*.8,px=md(R(i)*(W+80)-ts*.16*l-cs*.9,W+60)-30,py=md(R(i+50)*H+ts*.42*l,H+40)-20,dx=-lp(7,14,gf)*l,dy2=lp(10,13,gf)*l;x.moveTo(px,py);x.lineTo(px+dx,py+dy2)}
  x.stroke();
- if(gf>0){x.fillStyle='rgba(15,23,32,'+(.14*gf)+')';x.fillRect(0,0,W,H);windLines(ts)}
- if(g.mode==='play'&&(g.gustW>0||g.gustA>0)){var lbl=g.gustA>0?'Sturmböe':'Böe kündigt sich an';x.font='bold 11px system-ui,sans-serif';x.fillStyle='rgba(234,179,8,.95)';x.fillText('Wind: '+lbl,12,62)}}
+ var mfg=(g.mode==='title'||g.mode==='intro')?0:Math.min(1,g.run/150),FLG=2300,fq=md(820-cs*1.7,FLG)-220;
+ if(mfg>0&&fq>-130&&fq<W+60)fahneFg(fq,(.12+.88*cl((Math.abs(fq-150)-50)/170,0,1))*mfg,tt)}
+/* Fahne im Vordergrund, weht nach links (Wind kommt von rechts) */
+function fahneFg(px,a,tt){
+ x.save();x.globalAlpha=a;
+ x.fillStyle='#2b2f38';x.fillRect(px-2.5,68,5,H);ellc(px,66,4.2,4.2,'#c9a24a');
+ var top=78,len=88,hh=46,N=14;
+ function kante(u,f){return[px-2.5-u*len,top+hh*f*(1-u*.9)+Math.sin(tt*5.5-u*6+px*.02+f)*(2+u*9)+u*3]}
+ function band(f0,f1,c){x.beginPath();var i,p;for(i=0;i<=N;i++){p=kante(i/N,f0);if(i===0)x.moveTo(p[0],p[1]);else x.lineTo(p[0],p[1])}for(i=N;i>=0;i--){p=kante(i/N,f1);x.lineTo(p[0],p[1])}x.closePath();x.fillStyle=c;x.fill()}
+ band(0,1,'#c0392b');band(.36,.64,'#f4f4f0');band(0,.08,'rgba(0,0,0,.12)');band(.92,1,'rgba(0,0,0,.18)');
+ x.restore()}
 
 function signB(px,gy,l1,l2,col,txt){
  x.fillStyle='#4a3524';x.fillRect(px-2,gy-44,4,44);
@@ -1327,7 +1327,6 @@ var SFX={
  fail:function(t){[392,349,311,262].forEach(function(f,i){tone(t+i*.22,f,f*.97,.4,'sawtooth',.14)})},
  seil:function(t){tone(t,92,104,9.5,'sine',.07);hush(t,9.5,.05,260)},
  klack:function(t){tone(t,210,95,.07,'square',.1);hush(t,.05,.1,1800,'highpass')},
- wind:function(t){hush(t,2.6,.2,650,'bandpass');tone(t,300,520,1.6,'sine',.03)},
  welle:function(t){hush(t,1.5,.06,520)},
  krah:function(t){tone(t,520,360,.14,'sawtooth',.12);tone(t+.2,500,340,.14,'sawtooth',.1)},
  moewe:function(t){tone(t,1500,1000,.22,'sine',.12);tone(t+.3,1400,950,.2,'sine',.1)},
@@ -1444,7 +1443,7 @@ function genObs(){var a=[],bx=800,low=['log','mush','rock'];
   bx+=extra+(340+Math.random()*240)*(1+st*.06)}
  return a}
 function genObsBonus(bn){var a=[],bx=800,cave=['stalag','stalag','stalag2','pfuetze','stalak','stalak','bat'],ridge=['gap','gap','boulder','steinmann','dohle','eagle','felsnase'],moor=['hedge','hedge','crow','crow','gap','gap'],kueste=['seal','seal','gull','gull','gull'];
- while(bx<TOTAL-(bn===2?800:600)){var rs=bx%STAGE;if(bx>=STAGE&&rs<900)bx+=900-rs;var pool=bn===2?(bx<STAGE?moor:kueste):bx<STAGE?cave:ridge,t=pool[Math.floor(Math.random()*pool.length)];if(t==='seal'&&inGust(bx))t='gull';
+ while(bx<TOTAL-(bn===2?800:600)){var rs=bx%STAGE;if(bx>=STAGE&&rs<900)bx+=900-rs;var pool=bn===2?(bx<STAGE?moor:kueste):bx<STAGE?cave:ridge,t=pool[Math.floor(Math.random()*pool.length)];
   a.push({t:t,bx:APP[t]?bx+OFF[t]:bx,done:false,hit:false});
   bx+=(360+Math.random()*240)*1.25}
  return a}
@@ -1452,9 +1451,9 @@ function ox(o){var k=APP[o.t];return k?o.bx-g.run-k*Math.max(0,g.run-(o.bx-W-60)
 function banner(s){if(s>0)sfx('stage');g.ban=3.2;say((g.bonus===2?BLINE2:g.bonus?BLINE:SLINE)[s],6.5)}
 function start(bn){g.bonus=bn||0;STAGE=bn?BSTAGE:3200;NST=bn?2:6;TOTAL=STAGE*NST;gOff=0;FY=FY0;GY=GY0;mm.sit=0;g.hint=9;g.log=[];g.q=null;mm.hold=false;mm.dk=0;mm.duckT=0;mm.duckKey=false;mm.duckPtr=false;mm.y=0;mm.vy=0;mm.air=false;mm.sq=0;mm.hurt=0;mm.buf=0;
  g.mode='play';g.run=0;g.wuerde=3;g.hits=0;g.dodged=0;g.stage=0;g.inv=0;g.slow=0;g.shake=0;g.won=false;g.obs=bn?genObsBonus(bn):genObs();g.items=genItems(g.obs,bn);g.sch=[];
- if(bn)(bn===2?GZ.map(function(z){return[STAGE+z-420,'wind']}):[[1500,'stein'],[3000,'kopf'],[4400,'stein'],[STAGE+1500,'absturz'],[STAGE+3000,'wind'],[STAGE+4500,'stein']]).forEach(function(s){var w=s[0],ok=false;for(var n=0;n<14&&!ok;n++){ok=true;g.obs.forEach(function(o){if(Math.abs((o.bx-(OFF[o.t]||0))-w)<110)ok=false});g.items.forEach(function(it){if(Math.abs(it.bx-w)<80)ok=false});if(!ok)w+=(bn===2?-40:40)}g.sch.push({wx:w,k:s[1]})});
+ if(bn===1)([[1500,'stein'],[3000,'kopf'],[4400,'stein'],[STAGE+1500,'absturz'],[STAGE+3000,'wind'],[STAGE+4500,'stein']]).forEach(function(s){var w=s[0],ok=false;for(var n=0;n<14&&!ok;n++){ok=true;g.obs.forEach(function(o){if(Math.abs((o.bx-(OFF[o.t]||0))-w)<110)ok=false});g.items.forEach(function(it){if(Math.abs(it.bx-w)<80)ok=false});if(!ok)w+=(bn===2?-40:40)}g.sch.push({wx:w,k:s[1]})});
  if(!bn){if(g.obs.length)g.obs[0].lab='Springen!';for(var li=0;li<g.obs.length;li++)if(g.obs[li].t==='eagle'){g.obs[li].lab='Ducken!';break}}g.funde=0;g.fundMax=0;g.fx=[];g.bump=0;g.lastGold=-9999;g.chat=9;
- g.gust=0;g.gustW=0;g.gustA=0;g.bite=-1;g.gwarn=0;g.amb=0;KN={};g.tr=0;g.pend=bn===2?'Moor':bn?'Höhle':SEA[0];sfx('start');banner(0)}
+ g.bite=-1;g.amb=0;KN={};g.tr=0;g.pend=bn===2?'Moor':bn?'Höhle':SEA[0];sfx('start');banner(0)}
 var INTRO=[
  'Guten Morgen. Ich bin Mo.',
  'Mein Ziel ist die Hütte da hinten, zwei Kilometer weiter. Zu Fuß, versteht sich.',
@@ -1630,9 +1629,9 @@ window.addEventListener('keyup',function(e){if(e.code==='ArrowDown'||e.code==='K
 window.addEventListener('blur',function(){if(g.mode==='play')setPause(true)});
 document.addEventListener('visibilitychange',function(){if(document.hidden&&g.mode==='play')setPause(true)});
 function update(dt){
- var gt=(g.bonus&&cur==='Grat')?-40:0;var gc=gustCalc(g.run);g.gustW=gc.w;g.gustA=gc.a;g.gust=Math.max(gc.w*.35,gc.a);if(g.mode!=='play'){g.gustW=0;g.gustA=0;g.gust=0}
- if(g.mode==='play'){if(gc.w>0&&!g.gwarn){g.gwarn=1;sfx('wind')}if(gc.w===0&&gc.a===0)g.gwarn=0;if(g.bonus===2&&cur==='Küste'){g.amb-=dt;if(g.amb<=0){g.amb=3.4+Math.random()*1.6;sfx('welle')}}}gOff+=(gt-gOff)*Math.min(1,dt*2.5);if(Math.abs(gOff-gt)<.05)gOff=gt;FY=FY0+gOff;GY=GY0+gOff;
- var target=g.mode==='play'?(g.bonus?192:150+g.stage*14)*(g.slow>0?.5:1)*(1-.2*(g.gustA||0))*(g.run>TOTAL-360?Math.max(.28,(TOTAL-g.run)/360):1):0;
+ var gt=(g.bonus&&cur==='Grat')?-40:0;
+ if(g.mode==='play'){if(g.bonus===2&&cur==='Küste'){g.amb-=dt;if(g.amb<=0){g.amb=3.4+Math.random()*1.6;sfx('welle')}}}gOff+=(gt-gOff)*Math.min(1,dt*2.5);if(Math.abs(gOff-gt)<.05)gOff=gt;FY=FY0+gOff;GY=GY0+gOff;
+ var target=g.mode==='play'?(g.bonus?192:150+g.stage*14)*(g.slow>0?.5:1)*(g.run>TOTAL-360?Math.max(.28,(TOTAL-g.run)/360):1):0;
  g.gs+=(target-g.gs)*Math.min(1,dt*(g.mode==='over'?2.5:5));
  if(g.gs<1)g.gs=0;
  D+=g.gs*dt;
