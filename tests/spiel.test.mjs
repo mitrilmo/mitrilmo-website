@@ -101,7 +101,8 @@ test('Spiel: Bonus Moor und Küste (Hindernisse mit Texten und Maßen, Funde, Sz
   assert.match(js, /function start\(bn\)\{g\.bonus=bn\|\|0;/, 'g.bonus ist 0, 1 oder 2');
   assert.match(js, /BSEA2=\['Moor','Küste'\]/);
   assert.match(js, /'Bonus '\+\(g\.stage\+1\+\(g\.bonus===2\?2:0\)\)\+'\/4'/, 'HUD Bonus 3/4 und 4/4');
-  assert.match(js, /var GZ=\[/, 'Böen hängen an Streckenabschnitten');
+  assert.ok(js.includes('function fahneFg'), 'Fahne im Vordergrund der Küste');
+  assert.ok(!js.includes('gustCalc'), 'keine hektischen Böen mehr');
 });
 test('Spiel: Texte der neuen Hindernisse ohne Gedankenstriche', () => {
   const block = js.slice(js.indexOf('var BSTAGE='), js.indexOf('function pick('));
