@@ -12,7 +12,7 @@ export const eventSchema = z
     time: z.string().optional(), // z. B. "10:15 Uhr" oder "16–20 Uhr"
     location: z.string().optional(),
     price: z.string().optional(), // z. B. "Eintritt frei"
-    url: httpsUrl.optional(), // Pflicht bei scope region
+    url: httpsUrl.optional(), // ohne Link wird der Titel nicht verlinkt (z. B. Plakat ohne Webadresse)
     category: z.enum(['wandern', 'outdoor', 'rad', 'food', 'markt', 'sonstiges']).default('sonstiges'),
     description: z.string().optional(),
     note: z.string().optional(), // z. B. "Termin vor Besuch selbst gegenchecken"
@@ -20,8 +20,5 @@ export const eventSchema = z
   .superRefine((e, ctx) => {
     if (e.startDate && e.startDate > e.endDate) {
       ctx.addIssue({ code: 'custom', path: ['endDate'], message: 'endDate liegt vor startDate' });
-    }
-    if (e.scope === 'region' && !e.url) {
-      ctx.addIssue({ code: 'custom', path: ['url'], message: 'Ein Event der Region braucht einen Link zum Veranstalter' });
     }
   });
