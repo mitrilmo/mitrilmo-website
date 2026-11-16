@@ -7,9 +7,9 @@ links:
   - label: "Zur Veranstaltung"
     href: https://my.raceresult.com/375951/info
 progress:
-  current: 548
+  current: 578
   goal: 600
   unit: km
-  updatedAt: 2026-10-25
-  source: "Von Björn von Hand gepflegt, Stand laut Changelog vom 25.10.2026"
+  updatedAt: 2026-11-16
+  source: "Von Björn von Hand gepflegt, Stand vom 16.11.2026"
 ---

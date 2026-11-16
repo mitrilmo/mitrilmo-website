@@ -12,13 +12,13 @@ const first = days[0]?.data.date;
 const last = days.at(-1)?.data.date;
 const videos = days.filter((d) => d.data.video).length;
 ---
-<Base title="Weltumrundung 2017, mitrilmo" description="Lange bevor es mitrilmo gab: Björn und Ursel umrunden 2017 in 23 Tagen die Welt. Dubai, Kuala Lumpur, Singapur, Sydney, Fidschi und Los Angeles, Tag für Tag.">
+<Base title="Weltumrundung, mitrilmo" description="Lange bevor es mitrilmo gab: Björn und Ursel umrunden in 23 Tagen die Welt. Dubai, Kuala Lumpur, Singapur, Sydney, Fidschi und Los Angeles, Tag für Tag.">
   <PageHero>
     <p class="inline-flex items-center gap-2 bg-slate-900/50 border border-accent/40 px-3 py-1 rounded-full text-accent text-xs font-semibold uppercase tracking-widest">
-      <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>Weltumrundung 2017
+      <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>Weltumrundung
     </p>
     <h1 class="mt-3 text-3xl font-black text-stone-50">23 Tage, einmal um den Globus</h1>
-    <p class="mt-2 text-stone-200 max-w-2xl">Lange bevor es mitrilmo gab: Björn und Ursel umrunden 2017 in 23 Tagen die Welt. Dubai, Kuala Lumpur, Singapur, Sydney, Fidschi und Los Angeles. Das Reisetagebuch, Tag für Tag.</p>
+    <p class="mt-2 text-stone-200 max-w-2xl">Lange bevor es mitrilmo gab: Björn und Ursel umrunden in 23 Tagen die Welt. Dubai, Kuala Lumpur, Singapur, Sydney, Fidschi und Los Angeles. Das Reisetagebuch, Tag für Tag.</p>
     {first && last && <p class="mt-2 text-sm text-stone-300">{days.length} Berichte, {dateDe(first)} bis {dateDe(last)}</p>}
     {videos > 0 && <p class="mt-2 text-sm text-stone-300">Zu einigen Tagen gibt es einen kleinen animierten KI-Clip. Die Clips sind auf YouTube nicht gelistet und nur über die Links hier erreichbar.</p>}
   </PageHero>

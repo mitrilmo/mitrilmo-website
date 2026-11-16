@@ -16,7 +16,7 @@ const tiles = [
   { href: 'geschichten.html', title: 'Geschichten', text: 'Längere Berichte und Randnotizen.', meta: `${standalone} Berichte` },
   { href: 'neuigkeiten.html', title: 'Neuigkeiten', text: 'Kurze Beiträge von unterwegs.', meta: `${published(news).length} Beiträge` },
   { href: 'termine.html', title: 'Termine', text: 'Was in der Region los ist und was ich vorhabe.', meta: `${upcoming(events).length} anstehend` },
-  { href: 'weltreise.html', title: 'Weltumrundung 2017', text: 'Das Reisetagebuch von damals, Tag für Tag.', meta: `${stories.filter((s) => s.data.series === 'weltreise').length} Berichte` },
+  { href: 'weltreise.html', title: 'Weltumrundung', text: 'Das Reisetagebuch von damals, Tag für Tag.', meta: `${stories.filter((s) => s.data.series === 'weltreise').length} Berichte` },
   { href: 'projekte.html', title: 'Projekte', text: 'Pfadwerk, Wander-Challenge und Mammutmärsche.', meta: `${projects.filter((p) => !p.data.draft).length} Projekte` },
 ];
 ---

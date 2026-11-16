@@ -16,10 +16,10 @@ const groups = [
   { id: 'archiv', title: 'Archiv', text: 'Ältere Berichte.' },
 ].map((g) => ({ ...g, items: standalone.filter((s) => s.data.category === g.id) })).filter((g) => g.items.length > 0);
 ---
-<Base title="Geschichten, mitrilmo" description="Wanderberichte, Randnotizen und das Reisetagebuch der Weltumrundung 2017.">
+<Base title="Geschichten, mitrilmo" description="Wanderberichte, Randnotizen und das Reisetagebuch der Weltumrundung.">
   <PageHero width="max-w-5xl">
     <h1 class="text-3xl font-black text-stone-50">Geschichten</h1>
-    <p class="mt-2 text-stone-200 max-w-2xl">Die längeren Berichte zu den Touren, ein paar Randnotizen und das Reisetagebuch von 2017. Kurzes von unterwegs steht unter Neuigkeiten.</p>
+    <p class="mt-2 text-stone-200 max-w-2xl">Die längeren Berichte zu den Touren, ein paar Randnotizen und das Reisetagebuch der Weltumrundung. Kurzes von unterwegs steht unter Neuigkeiten.</p>
   </PageHero>
 
   <div class="max-w-5xl mx-auto px-4 py-10 space-y-14">
@@ -50,7 +50,7 @@ const groups = [
 
     {weltreise > 0 && (
       <section aria-labelledby="g-reise">
-        <h2 id="g-reise" class="text-2xl font-extrabold text-stone-50">Weltumrundung 2017</h2>
+        <h2 id="g-reise" class="text-2xl font-extrabold text-stone-50">Weltumrundung</h2>
         <a href={`${root}/weltreise.html`} class="mt-4 block rounded-2xl bg-slate-700 border border-white/5 hover:border-accent/50 transition-colors p-5">
           <p class="font-bold text-stone-50">23 Tage, einmal um den Globus</p>
           <p class="mt-1 text-sm text-stone-300">Das Reisetagebuch von Björn und Ursel, {weltreise} Berichte, Tag für Tag.</p>
