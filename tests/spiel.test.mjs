@@ -100,9 +100,33 @@ test('Spiel: Bonus Moor und Küste (Hindernisse mit Texten und Maßen, Funde, Sz
   for (const f of ['function drawMoor', 'function drawCoast', 'function moorFront', 'function coastFront', 'function hedgehog', 'function robbe', 'function bude', 'function deadTrees', 'function giantTree']) assert.ok(js.includes(f), f);
   assert.match(js, /function start\(bn\)\{g\.bonus=bn\|\|0;/, 'g.bonus ist 0, 1 oder 2');
   assert.match(js, /BSEA2=\['Moor','Küste'\]/);
-  assert.match(js, /'Bonus '\+\(g\.stage\+1\+\(g\.bonus===2\?2:0\)\)\+'\/4'/, 'HUD Bonus 3/4 und 4/4');
+  assert.match(js, /'Bonus '\+bnum\(\)\+'\/6'/, 'HUD Bonus x/6');
+  assert.match(js, /function bnum\(\)\{return g\.stage\+1\+\(g\.bonus-1\)\*2\}/, 'Bonus-Nummer 1 bis 6');
   assert.ok(js.includes('function fahneFg'), 'Fahne im Vordergrund der Küste');
   assert.ok(!js.includes('gustCalc'), 'keine hektischen Böen mehr');
+});
+test('Spiel: Bonus Altstadt und Friedhof (Hindernisse mit Texten und Maßen, Pfand, Szenen, g.bonus 3)', () => {
+  for (const t of ['kack', 'tonne', 'rad', 'tauben', 'wagen', 'grab', 'kreuz', 'kerzeo', 'katze', 'geist']) {
+    assert.ok(js.includes('HIT.' + t + '='), 'HIT ' + t);
+    assert.ok(js.includes('DODGE.' + t + '='), 'DODGE ' + t);
+    assert.ok(js.includes('HW.' + t + '='), 'Breite ' + t);
+    assert.ok(js.includes('HH.' + t + '='), 'Höhe ' + t);
+    assert.match(js, new RegExp('BON3=\\{[^}]*' + t + ':1'), 'BON3 ' + t);
+  }
+  assert.ok(js.includes('LUFT.tauben=1;LUFT.geist=1;'), 'Tauben und Geist zum Ducken');
+  assert.ok(!js.includes('astDraw') && !js.includes('HIT.ast'), 'kein toter Ast als Hindernis');
+  assert.match(js, /'geist','bat','bat']/, 'Fledermäuse auf dem Friedhof');
+  assert.match(js, /BSEA3=\['Altstadt','Friedhof'\]/);
+  for (const k of ['flasche', 'pet', 'droeppel', 'waffel', 'kerze', 'laterne', 'kuerbis']) {
+    assert.ok(js.includes(' ' + k + ':['), 'FUNDTXT ' + k);
+    assert.ok(js.includes(k + ":'"), 'NAMEN ' + k);
+    assert.ok(js.includes("k==='" + k + "'"), 'Zeichnung ' + k);
+  }
+  for (const f of ['function drawTown', 'function drawGrave', 'function townChurch', 'function townMemorial', 'function townFountain', 'function pfandStation', 'function pfandPass', 'function pfandUI', 'function graveGate', 'function ghostDraw', 'function catDraw', 'function chapel', 'function kackDraw', 'function townCafe', 'function cafeTable', 'function droeppelDraw', 'function waffelDraw', 'function rainTown', 'function catLeg']) assert.ok(js.includes(f), f);
+  assert.match(js, /if\(g\.bonus===3\)\{if\(!g\.pfandDone&&PFX-g\.run<190\)pfandPass\(\)/, 'Pfandbon am Automaten');
+  assert.match(js, /if\(bn===3&&bx>MEMX-230&&bx<MEMX\+300\)bx=MEMX\+300;/, 'ruhige Zone vor dem Ehrenmal');
+  assert.match(js, /if\(g\.bonus===2\)start\(3\)/, 'nach der Fischbude geht es weiter in die Altstadt');
+  assert.ok(!/fetch\(|XMLHttpRequest|localStorage|sessionStorage/.test(js), 'nichts nachladen, nichts speichern');
 });
 test('Spiel: Texte der neuen Hindernisse ohne Gedankenstriche', () => {
   const block = js.slice(js.indexOf('var BSTAGE='), js.indexOf('function pick('));
