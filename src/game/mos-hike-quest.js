@@ -1828,7 +1828,7 @@ function grabObs(px,gy){
 function kreuzObs(px,gy){
  shadow(px,18);x.save();x.translate(px,gy);x.rotate(.07);x.translate(-px,-gy);
  x.fillStyle='#6b708a';x.fillRect(px-5,gy-46,10,46);x.fillRect(px-17,gy-36,34,9);x.fillStyle='#4a4f66';x.fillRect(px+1.5,gy-46,3.5,46);x.fillRect(px+1.5,gy-36,15.5,9);x.fillStyle='#8a90ac';x.fillRect(px-5,gy-46,2,46);
- x.fillStyle='#4a7a4a';ellc(px-6,gy-1,5,2.4,'#4a7a4a');eyes(px,gy-32,.8,0);x.restore()}
+ x.fillStyle='#4a7a4a';ellc(px-6,gy-1,5,2.4,'#4a7a4a');x.restore()}
 function kerzeObs(px,gy,tt){shadow(px,18);redCandle(px-12,gy,tt,0,.95);redCandle(px+13,gy,tt,1.6,.8);redCandle(px+1,gy+1,tt,3.1,1.3);eyes(px+1,gy-12,.85,0)}
 function chapel(X,gy,ts){
  var tt=ts/1000;x.save();x.translate(X,gy);x.scale(1.45,1.45);x.translate(-X,-gy);
