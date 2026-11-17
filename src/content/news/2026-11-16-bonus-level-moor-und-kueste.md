@@ -1,7 +1,7 @@
 ---
-title: "Mo’s Hike Quest: vier Bonus-Level und eine Fischbude"
+title: "Mo’s Hike Quest: sechs Bonus-Level, eine Fischbude und ein Friedhof"
 date: 2026-11-16
-description: "Wer in Mo’s Hike Quest die Hütte erreicht, kann weiterwandern: durch die Höhle, über den Gebirgsgrat, mit der Seilbahn ins Moor und an die Küste zur Fischbude."
+description: "Wer in Mo’s Hike Quest die Hütte erreicht, kann weiterwandern: durch die Höhle, über den Gebirgsgrat, ins Moor, an die Küste zur Fischbude, durch eine bergische Altstadt und bis zum nächtlichen Friedhof."
 cover: ../../assets/images/news/2026-11-16-bonus-level-moor-und-kueste.jpg
 hinweis: false
 coverAlt: "Mo steht vor einer Fischbude mit Krabbenschild und isst ein Fischbrötchen. Im Hintergrund Meer, Regenwolken und ein Leuchtturm."
@@ -26,7 +26,11 @@ Unten wartet das Moor. Nebel, Holzstege mit Lücken, Pilze, die größer sind al
 
 Das letzte Stück führt an die Küste. Es regnet, die Kutter fahren weit draußen, Möwen kommen tief herunter, und auf dem Weg liegt eine Robbe, die zuerst da war. Am Ende steht eine Fischbude mit einem Krabbenschild, das deutlich größer ist als Mo. Was er dort bestellt, verrate ich nicht. Nur so viel: Er braucht beide Hände.
 
-Für Moor und Küste gibt es wieder drei frische Hüte, also drei Leben, und ein eigenes Zeugnis. Dazu kommen neue Geräusche, etwa Möwen, Krähen und Wellen. Den Ton kann man wie immer abschalten.
+Nach der Fischbude geht es weiter, wieder mit der Taste B. Zuerst kommt eine bergische Altstadt mit Schieferhäusern, grünen Schlagläden, Kirche und Dorfplatz. Es regnet noch, dann klart es auf. Am Weg liegen Pfandflaschen, die Mo am Automaten gegen Geld tauscht, und über die Hundehaufen springt man besser. Im Café gibt es Waffeln mit Sahne und Kirschen, und die Dröppelminna aus der bergischen Kaffeetafel steht auch irgendwo. Das Ehrenmal ist nur Kulisse, dort ist es ruhig.
+
+Am Abend folgt der alte Friedhof. Grabsteine, große Steinkreuze, rote Kerzen, Fledermäuse, schwarze Katzen und Geister. Wer sich traut, kommt bis zum Tor.
+
+Für Moor, Küste, Altstadt und Friedhof gibt es wieder drei frische Hüte, also drei Leben, und ein eigenes Zeugnis. Dazu kommen neue Geräusche, etwa Möwen, Krähen und Wellen. Den Ton kann man wie immer abschalten.
 
 Am Handy hat es sich gut gespielt, am besten quer. Das Spiel lädt weiterhin nichts nach und speichert nichts. Gebaut habe ich es gemeinsam mit einer KI.
 
