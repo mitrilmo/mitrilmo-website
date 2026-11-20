@@ -2768,11 +2768,68 @@ function kotten(cx,ts){
  else if(pu<.1){var s2=pu/.1;x.fillStyle='rgba(255,170,50,'+(.5*(1-s2))+')';x.beginPath();x.arc(hx+3,by-30,6+s2*6,0,6.3);x.fill()}
  /* Rauch aus dem Schornstein */
  for(i=0;i<3;i++){var s=((t*.22+i/3)%1);x.fillStyle='rgba(235,235,240,'+(.55*(1-s))+')';x.beginPath();x.arc(cx+40+s*22,by-160-s*50,5+s*10,0,6.3);x.fill()}}
+/* Doppeldecker mit Werbebanner "mitrilmo", fliegt nach rechts, Banner weht hinten nach links. x = Zeichenkontext */
+function biplane(px,py,t){
+ var i,k,N=26,BL=136,bx0=-70;
+ x.save();x.translate(px,py);x.rotate(Math.sin(t*1.3)*.035);
+ /* Zugseil und Banner */
+ var wy=function(s){return 3+Math.sin(t*5.2-s*.42)*2.6*(.25+s/N*.9)+s*.08};
+ x.strokeStyle='#5a4a3a';x.lineWidth=1;x.beginPath();x.moveTo(-46,3);x.lineTo(bx0,wy(0)-12);x.moveTo(-46,3);x.lineTo(bx0,wy(0)+12);x.stroke();
+ x.beginPath();x.moveTo(bx0,wy(0)-14);
+ for(i=0;i<=N;i++){x.lineTo(bx0-i*BL/N,wy(i)-14)}
+ x.lineTo(bx0-BL-9,wy(N));
+ for(i=N;i>=0;i--){x.lineTo(bx0-i*BL/N,wy(i)+14)}
+ x.closePath();x.fillStyle='#fbf3e0';x.fill();x.strokeStyle='#b2321f';x.lineWidth=1.6;x.stroke();
+ x.strokeStyle='rgba(178,50,31,.5)';x.lineWidth=.8;x.beginPath();x.moveTo(bx0,wy(0)-10);for(i=0;i<=N;i++)x.lineTo(bx0-i*BL/N,wy(i)-10);x.moveTo(bx0,wy(0)+10);for(i=0;i<=N;i++)x.lineTo(bx0-i*BL/N,wy(i)+10);x.stroke();
+ var tx='mitrilmo';x.font='bold 17px Georgia,serif';x.textAlign='center';x.textBaseline='middle';
+ var ws=[],tw=0;for(k=0;k<tx.length;k++){ws[k]=x.measureText(tx[k]).width+1.2;tw+=ws[k]}
+ var cx0=bx0-BL/2-tw/2,cum=0;
+ for(k=0;k<tx.length;k++){var xs=cx0+cum+ws[k]/2,s=(bx0-xs)*N/BL,sl=(wy(s+.5)-wy(s-.5))/(BL/N);cum+=ws[k];
+  x.save();x.translate(xs,wy(s)+1);x.rotate(-Math.atan(sl));x.fillStyle='#2f6a2a';x.fillText(tx[k],0,0);x.restore()}
+ x.textAlign='left';x.textBaseline='alphabetic';
+ /* Abgaswölkchen */
+ for(i=0;i<4;i++){var u=((t*.9+i/4)%1);x.fillStyle='rgba(235,235,240,'+(.5*(1-u))+')';x.beginPath();x.arc(30-u*8,8+u*3,2+u*3,0,6.3);x.fill()}
+ /* Fahrwerk */
+ x.strokeStyle='#3a2f28';x.lineWidth=1.8;x.beginPath();x.moveTo(8,8);x.lineTo(13,18);x.moveTo(-2,8);x.lineTo(2,18);x.moveTo(1,18.5);x.lineTo(15,18.5);x.stroke();
+ [[13,18],[3,18]].forEach(function(w){x.fillStyle='#1c1c22';x.beginPath();x.arc(w[0],w[1],4.4,0,6.3);x.fill();x.fillStyle='#9aa0aa';x.beginPath();x.arc(w[0],w[1],1.8,0,6.3);x.fill()});
+ /* Leitwerk */
+ x.fillStyle='#b2321f';x.beginPath();x.moveTo(-34,-6);x.lineTo(-47,-23);x.lineTo(-40,-24);x.lineTo(-27,-8);x.closePath();x.fill();
+ x.fillStyle='#e8dcc0';x.beginPath();x.ellipse(-40,-1,11,2.6,-.08,0,6.3);x.fill();x.strokeStyle='#b2321f';x.lineWidth=1;x.stroke();
+ /* Rumpf */
+ x.beginPath();x.moveTo(-42,-1);x.lineTo(-35,-9);x.quadraticCurveTo(-8,-14,12,-13);x.quadraticCurveTo(25,-12,27,-3);x.quadraticCurveTo(26,6,17,9);x.quadraticCurveTo(-8,11,-42,2);x.closePath();
+ x.fillStyle='#c0392b';x.fill();x.strokeStyle='#7a1f14';x.lineWidth=1.2;x.stroke();
+ x.fillStyle='#f4ead0';x.beginPath();x.moveTo(-36,-3);x.lineTo(20,-4);x.lineTo(22,1);x.lineTo(-37,0);x.closePath();x.fill();
+ x.fillStyle='rgba(255,255,255,.28)';x.beginPath();x.ellipse(-6,-10,22,1.6,0,0,6.3);x.fill();
+ /* untere Tragfläche (vor dem Rumpf) */
+ x.fillStyle='#e8dcc0';x.beginPath();x.moveTo(-24,5);x.lineTo(22,5);x.lineTo(31,9.5);x.lineTo(-15,9.5);x.closePath();x.fill();x.strokeStyle='#b2321f';x.lineWidth=1.2;x.stroke();
+ x.fillStyle='#b2321f';x.beginPath();x.moveTo(22,5);x.lineTo(31,9.5);x.lineTo(28,9.5);x.lineTo(19.5,5);x.closePath();x.fill();x.fillRect(-24,5,3,4.5);
+ /* Motorhaube, Propeller */
+ x.fillStyle='#8a8f98';x.beginPath();x.ellipse(26,-2,6.5,9,0,0,6.3);x.fill();x.strokeStyle='#5a5f68';x.lineWidth=1;x.stroke();
+ x.strokeStyle='rgba(255,255,255,.4)';x.lineWidth=1;x.beginPath();x.arc(26,-2,6,3.8,5);x.stroke();
+ var pa=t*38;x.fillStyle='rgba(70,60,50,.28)';x.beginPath();x.ellipse(33,-2,2.6,14,0,0,6.3);x.fill();
+ x.strokeStyle='#3a2f28';x.lineWidth=2.2;x.beginPath();x.moveTo(33,-2-Math.cos(pa)*13);x.lineTo(33,-2+Math.cos(pa)*13);x.stroke();
+ x.fillStyle='#d9b34a';x.beginPath();x.arc(33,-2,2.2,0,6.3);x.fill();
+ /* Pilot: Fliegerkappe, Brille, Schal */
+ x.fillStyle='#2a1a14';x.beginPath();x.ellipse(-6,-12,8,3.4,0,0,6.3);x.fill();
+ var sc2=Math.sin(t*9)*2;x.fillStyle='#e0a92a';x.beginPath();x.moveTo(-10,-14);x.quadraticCurveTo(-24,-15+sc2,-34,-12+sc2*1.5);x.quadraticCurveTo(-24,-11+sc2,-10,-11);x.closePath();x.fill();
+ x.save();x.translate(0,3);x.fillStyle='#f0c8a0';x.beginPath();x.arc(-5,-18,5.2,0,6.3);x.fill();
+ x.fillStyle='#6b4a2a';x.beginPath();x.arc(-5,-19.5,5.4,3.14,6.28);x.fill();x.fillRect(-10.4,-19.5,3,5);
+ x.fillStyle='#2a2a30';x.fillRect(-9,-19,10,2.4);x.fillStyle='#9fd0e8';x.beginPath();x.arc(-2.6,-17.8,2.1,0,6.3);x.fill();x.strokeStyle='#2a2a30';x.lineWidth=.9;x.stroke();
+ x.fillStyle='#7a4a28';x.beginPath();x.ellipse(0,-15,2.6,1.2,.2,0,6.3);x.fill();x.restore();
+ /* Streben und Spanndrähte */
+ x.strokeStyle='#5a3a22';x.lineWidth=1.8;x.beginPath();x.moveTo(-14,-24);x.lineTo(-14,6);x.moveTo(16,-24);x.lineTo(16,6);x.moveTo(-4,-23);x.lineTo(2,-12);x.moveTo(8,-23);x.lineTo(5,-12);x.stroke();
+ x.strokeStyle='rgba(40,30,24,.7)';x.lineWidth=.7;x.beginPath();x.moveTo(-14,-24);x.lineTo(16,6);x.moveTo(16,-24);x.lineTo(-14,6);x.stroke();
+ /* obere Tragfläche */
+ x.fillStyle='#f4ead0';x.beginPath();x.moveTo(-32,-28);x.lineTo(26,-28);x.lineTo(36,-22.5);x.lineTo(-22,-22.5);x.closePath();x.fill();x.strokeStyle='#b2321f';x.lineWidth=1.3;x.stroke();
+ x.fillStyle='#b2321f';x.beginPath();x.moveTo(26,-28);x.lineTo(36,-22.5);x.lineTo(32.5,-22.5);x.lineTo(22.5,-28);x.closePath();x.fill();x.fillRect(-32,-28,3,5.5);
+ x.strokeStyle='rgba(120,90,60,.35)';x.lineWidth=.7;x.beginPath();for(i=0;i<6;i++){x.moveTo(-26+i*9,-27.5);x.lineTo(-17+i*9,-23)}x.stroke();
+ x.restore()}
 function drawKotten(ts){
  var P=S['Kotten'],o=D;
  aSky(P);
  x.fillStyle='rgba(255,255,255,.16)';x.beginPath();x.arc(520,76,44,0,6.3);x.fill();x.fillStyle=P.sun;x.beginPath();x.arc(520,76,28,0,6.3);x.fill();
  cloud(md(130-o*.05,W+200)-100,56,1.1,.85);cloud(md(380-o*.035,W+200)-100,92,.8,.8);cloud(md(580-o*.06,W+200)-100,44,.9,.85);
+ var pt=ts/1000,ppx=-270+((pt*42)%1300);if(ppx<W+80){x.save();x.translate(ppx,122+Math.sin(pt*.9)*5);x.scale(1.1,1.1);biplane(0,0,pt);x.restore()}
  hills(o*.05,170,20,2,0,8,5,1.3,P.hill[0],'rgba(255,255,255,.3)');
  layer(P,o*.15,234,38,52,true,3);
  hills(o*.1,214,14,3,2,6,7,.4,P.hill[1],'rgba(255,255,255,.25)');
