@@ -133,3 +133,33 @@ test('Spiel: Texte der neuen Hindernisse ohne Gedankenstriche', () => {
   assert.ok(block.length > 2000);
   assert.doesNotMatch(block, /[–—]/);
 });
+
+test('Spiel: Gebiet A Hammerwerke und Bahntrassen (vier Szenen, Hindernisse mit Texten und Maßen, Funde, Karte, g.bonus 4)', () => {
+  const ob = ['biber', 'fass', 'kranhaken', 'dampf', 'lore', 'kiste', 'uhu', 'signal', 'schwellen', 'ratte', 'efeu', 'draht', 'schlacke', 'kohle', 'hammer', 'funken'];
+  for (const t of ob) {
+    assert.ok(js.includes('HIT.' + t + '='), 'HIT ' + t);
+    assert.ok(js.includes('DODGE.' + t + '='), 'DODGE ' + t);
+    assert.ok(js.includes('HW.' + t + '='), 'Breite ' + t);
+    assert.ok(js.includes('HH.' + t + '='), 'Höhe ' + t);
+    assert.match(js, new RegExp('AOB=\{[^}]*' + t + ':1'), 'AOB ' + t);
+    assert.ok(js.includes("t==='" + t + "'"), 'Zeichnung ' + t);
+  }
+  for (const t of ['uhu', 'funken']) assert.match(js, new RegExp('LUFT\.' + t + '=1'), 'Ducken (Luft) ' + t);
+  for (const t of ['kranhaken', 'dampf', 'signal', 'efeu', 'draht', 'hammer']) assert.match(js, new RegExp('HANG\.' + t + '=1'), 'Ducken (hängend) ' + t);
+  assert.match(js, /ASEA=\['Kotten','Viadukt','Tunnel','Schmiede'\]/);
+  for (const f of ['function drawKotten', 'function drawViadukt', 'function drawTunnel', 'function drawSchmiede', 'function areaObst', 'function drawItem4', 'function openMap', 'function drawMap', 'function mapTap', 'function mapKey']) assert.ok(js.includes(f), f);
+  for (const k of ['zahnrad', 'schluessel', 'ticket', 'nagel', 'quarz', 'pfeife', 'hufeisen', 'muenze', 'lampe', 'goldhammer']) {
+    assert.ok(js.includes('FUNDTXT.' + k + '='), 'FUNDTXT ' + k);
+    assert.ok(js.includes('NAMEN.' + k + '='), 'NAMEN ' + k);
+    assert.ok(js.includes("k==='" + k + "'"), 'Zeichnung ' + k);
+  }
+  assert.match(js, /ABONK=\['waffel','droeppel','lampe','goldhammer'\]/, 'je Szene ein Bonus-Fund');
+  assert.match(js, /if\(bn===4\)\{STAGE=ASTAGE;NST=4;TOTAL=STAGE\*NST\}/, 'vier Szenen zu je 4.800 Pixel');
+  assert.match(js, /g\.won&&g\.bonus>=3&&g\.tOver>wonT\(\)\)\{e\.preventDefault\(\);openMap\(\)/, 'nach dem Friedhof und nach Gebiet A öffnet B die Karte');
+  assert.match(js, /if\(g\.mode==='map'\)\{mapTap\(lx,ly\);return\}/, 'Tippen auf der Karte');
+  assert.ok(js.includes("t:'Gebiet B',s:'kommt bald'"), 'Gebiet B ist noch gesperrt');
+  const block = js.slice(js.indexOf('var ASTAGE='), js.indexOf('function aLm('));
+  assert.ok(block.length > 3000);
+  assert.doesNotMatch(block, /[–—]/, 'Texte ohne Gedankenstriche');
+  assert.ok(!/fetch\(|XMLHttpRequest|localStorage|sessionStorage/.test(js), 'nichts nachladen, nichts speichern');
+});
