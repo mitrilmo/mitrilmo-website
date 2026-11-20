@@ -812,7 +812,7 @@ function drawRidge(ts){
    else if(kd===1){x.strokeStyle='#3f7a38';x.lineWidth=1.3;x.beginPath();x.moveTo(q,top+1);x.lineTo(q,top-9*s);x.stroke();x.fillStyle='#1d4ed8';x.beginPath();x.ellipse(q,top-11*s,2.6*s,4*s,0,0,6.3);x.fill();x.fillStyle='#60a5fa';x.beginPath();x.ellipse(q-.8,top-12*s,.9,1.8*s,0,0,6.3);x.fill()}
    else if(kd===2){x.strokeStyle='#6b8f5e';x.lineWidth=1.2;x.beginPath();x.moveTo(q,top+1);x.lineTo(q,top-7*s);x.stroke();x.fillStyle='#F8FAFC';for(var a=0;a<6;a++){x.beginPath();x.ellipse(q+Math.cos(a*1.047)*3*s,top-8*s+Math.sin(a*1.047)*3*s,2.2*s,1.1*s,a*1.047,0,6.3);x.fill()}x.fillStyle='#f2c230';x.beginPath();x.arc(q,top-8*s,1.3,0,6.3);x.fill()}
    else{x.fillStyle='#7a5430';x.fillRect(q-1.5,top-22,3,23);x.fillStyle='#c9a26a';x.beginPath();x.moveTo(q-11,top-21);x.lineTo(q+8,top-21);x.lineTo(q+13,top-16);x.lineTo(q+8,top-11);x.lineTo(q-11,top-11);x.closePath();x.fill()}})}
- bonusSign(STAGE+420,'Gipfelgrat 2.150 m');bonusSign(STAGE+700,'Volmarstein');(g.sch||[]).forEach(function(s){if(s.wx>=STAGE)warnSign(s.wx,s.k)});
+ bonusSign(STAGE+420,'Gipfelgrat 2.150 m');bonusSign(zSignX('volm',STAGE+1500),'Volmarstein');(g.sch||[]).forEach(function(s){if(s.wx>=STAGE)warnSign(s.wx,s.k)});
  var cx=270+(TOTAL-g.run);
  if(cx<W+120){x.fillStyle=GK[0];x.beginPath();x.moveTo(cx-56,top+8);x.lineTo(cx-30,top-14);x.lineTo(cx-8,top-22);x.lineTo(cx+18,top-16);x.lineTo(cx+48,top+8);x.closePath();x.fill();
   x.fillStyle=GK[1];x.beginPath();x.moveTo(cx-30,top-14);x.lineTo(cx-8,top-22);x.lineTo(cx+2,top-14);x.lineTo(cx-18,top-8);x.closePath();x.fill();
@@ -866,7 +866,8 @@ function drawMoor(ts){
   x.globalAlpha=1}
  x.fillStyle='rgba(0,0,0,.25)';x.fillRect(0,ty+8,W,3);
  for(q=i0;q<i0+16;q+=4){if(q<0)continue;var qx=q*50-run+20,okp=true;for(j=0;j<gaps.length;j++)if(qx+5>gaps[j][0]&&qx<gaps[j][1])okp=false;if(okp){x.fillStyle='#3d2b1c';x.fillRect(qx,ty+2,5,26)}}
- x.restore();var sgx=420-run;if(sgx>-60&&sgx<W+60)signB(sgx,ty,'Hohes Venn','Bohlensteg','#8a6a40','#f6ecd2');
+ x.restore();var sgx=zSignX('wz',1500)-run;if(sgx>-60&&sgx<W+60)signB(sgx,ty,'Wupperzonas','Bohlensteg','#8a6a40','#f6ecd2');
+ sgx=zSignX('wup',2500)-run;if(sgx>-60&&sgx<W+60)signB(sgx,ty,'Über die','Wupper','#8a6a40','#f6ecd2');
  x.restore()}
 function moorFront(ts){
  var m=D,tt=ts/1000,mfg=(g.mode==='title'||g.mode==='intro')?0:Math.min(1,g.run/150);
@@ -1415,6 +1416,7 @@ var DODGE={
 var CHAT=['Noch 2 km bis zur Hütte. Das steht hier seit 2011.','Dieser Weg ist ausgeschildert. Das ist alles, was ich dazu sage.','Ich stehe hier und zeige. Mehr kann ich nicht, mehr will ich nicht.','Links ist die Aussicht. Rechts ist auch die Aussicht. Geradeaus ist Mo.','Ein Wegweiser hat keine Meinung. Er hat Pfeile.'];
 var FAILS=['Würde aufgebraucht. Mo setzt sich hin. Der Wegweiser bleibt stehen, wie immer.','Das war kein Sturz, das war ein Rastplatz mit Verspätung.','Mo gibt auf. Der Wegweiser nennt es: Pause für immer.'];
 var WINS=['Hütte erreicht. Der Wegweiser hat es immer gewusst.','Angekommen. Der Wegweiser tut so, als wäre er nicht stolz.'];
+var RANG={'1':'Bergischer Ehrenwanderer','2':'Gipfelfreund','3':'Wegesrand-Profi','4':'Bachbett-Balancierer','5':'Pfützenpionier','6':'Stolpersteinsammler'};
 var REMARK={'1':'Fehlerfrei. Der Wegweiser vermutet Betrug.','2':'Ein Ausrutscher. Menschlich. Vermerkt.','3':'Angekommen. Wie, ist nicht Gegenstand des Zeugnisses.','4':'Knapp nicht angekommen. Das nennt man Charakter.','5':'Der Weg war da. Mo auch. Das reicht nicht ganz.','6':'Nächstes Mal bitte in die andere Richtung.'};
 var HW={log:26,mush:17,rock:22,fox:20,wolf:26,bear:32,eagle:24,stalag:14,stalag2:26,pfuetze:32,stalak:18,bat:40,gap:30,boulder:25,steinmann:18,dohle:16,felsnase:32,hedge:20,crow:16,seal:36,gull:18},HH={log:33,mush:30,rock:36,fox:28,wolf:38,bear:38,eagle:30,stalag:36,stalag2:44,pfuetze:12,stalak:30,bat:30,gap:30,boulder:44,steinmann:40,dohle:30,felsnase:30,hedge:26,crow:30,seal:30,gull:30};
 var APP={fox:.45,wolf:.3,eagle:.55,bat:.35,dohle:.55,hedge:.3,crow:.55,gull:.55},OFF={fox:183,wolf:136,eagle:209,bat:153,dohle:209,hedge:136,crow:209,gull:209};
@@ -1442,7 +1444,7 @@ DODGE.steinmann=['Über das Steinmännchen. Wer es gebaut hat, ist dankbar.','St
 DODGE.dohle=['Geduckt. Das Brot ist sicher, wenn auch nur imaginär.','Die Dohle schimpft. Mo duckt sich, die Dohle schimpft weiter.'];
 DODGE.felsnase=['Unter der Felsnase durch. Sie ragt weiter, ohne es zu merken.','Geduckt, Mütze behalten. Gut gelaufen.'];
 var BSEA2=['Moor','Küste'],BNAME2=['Das Moor','Die Küste'],BLINE2=[
- 'Bonus 3: Das Moor. Das Schild sagt Hohes Venn, der Wegweiser sagt: Nebel, Bohlen, Igel.',
+ 'Bonus 3: Das Moor. Das Schild sagt Wupperzonas, der Wegweiser sagt: Nebel, Bohlen, Igel.',
  'Bonus 4: Die Steilküste. Sturmwarnung, Möwen und eine Robbe, die zuerst da war.'];
 var BWINS2=['Fischbude erreicht. Das Ziel war also ein Brötchen. Der Wegweiser hat es nicht kommen sehen.','Angekommen. Mo isst, der Wegweiser schaut zu und hat keinen Mund.'];
 HIT.hedge=['Der Igel hatte Vorfahrt. Er hat es nicht einmal erwähnt.','Igel eins, Würde null. Die Stacheln waren nur der Anfang.','Mo ist auf den Igel getreten. Der Igel hat es ihm nicht übel genommen, nur Mo.'];
@@ -1795,6 +1797,7 @@ function taube(px,py,s,fl){
  x.fillStyle='#8c93a2';x.beginPath();x.ellipse(0,0,10,5.5,0,0,6.3);x.fill();
  poly([9,-1,19,2,9,3],'#6b7280');ellc(-10,-2,4.4,4.4,'#5f7f9f');
  poly([-14,-2.5,-19,-1.5,-14,-.5],'#e0a44a');ellc(-11.2,-3,1.3,1.3,'#fff');ellc(-11.5,-3,.6,.6,'#111');
+ x.fillStyle='#7d8493';x.beginPath();x.moveTo(-4,-1);x.quadraticCurveTo(-6,-9+fl*7,4,-9+fl*9);x.quadraticCurveTo(4,-3,2,1);x.closePath();x.fill();
  x.fillStyle='#a4abb8';x.beginPath();x.moveTo(-2,-2);x.quadraticCurveTo(2,-12-fl*8,12,-11-fl*10);x.quadraticCurveTo(8,-3,4,1);x.closePath();x.fill();
  x.restore()}
 function kackDraw(px,gy,tt){
@@ -1860,8 +1863,9 @@ function bonus3Obst(t,px,o){
  var ph0=o?o.bx:px;
  if(t==='geist'){ghostDraw(px+Math.sin(tt*1.6+ph0/50)*5,FY-(116+5*Math.sin(NOW/450+ph0/60)),1.15,.85,tt,ph0/40);return}
  if(t==='tauben'){
-  var by=FY-(106+4*Math.sin(NOW/380+ph0/55));x.fillStyle='rgba(0,0,0,.16)';x.beginPath();x.ellipse(px,FY+2,30,4,0,0,6.3);x.fill();
-  [[0,0,1.35],[-30,-10,1.1],[26,-14,1.2],[-12,12,1],[36,10,1.05]].forEach(function(b,i){var fl=Math.sin(NOW/80+i*1.9+ph0/9);taube(px+b[0]+Math.sin(NOW/400+i*2)*3,by+b[1]+Math.cos(NOW/350+i)*3,b[2]*1.1,fl)})}}
+  /* Schwarm fliegt nach links (Schnabel zeigt links) schneller als der Boden: vor Mo (X=150) kein Versatz, davor und danach gleitet er mit */
+  var fo=(px-150)*.45,fx=px+fo,by=FY-(106+4*Math.sin(NOW/380+ph0/55));x.fillStyle='rgba(0,0,0,.16)';x.beginPath();x.ellipse(fx,FY+2,30,4,0,0,6.3);x.fill();
+  [[0,0,1.35],[-30,-10,1.1],[26,-14,1.2],[-12,12,1],[36,10,1.05]].forEach(function(b,i){var ph=NOW/90+i*1.9+ph0/9,fl=Math.sin(ph);taube(fx+b[0]+Math.sin(NOW/400+i*2)*3,by+b[1]+Math.cos(NOW/350+i)*3-fl*2.2,b[2]*1.1,fl)})}}
 function bonusFrontGrave(ts){
  var tt=ts/1000,m=D,mfg=(g.mode==='title'||g.mode==='intro')?0:Math.min(1,g.run/150);
  /* große Steinkreuze im Vordergrund ziehen vorbei */
@@ -2326,13 +2330,14 @@ function zeugnis(ts){
  x.fillStyle='#fbf3e0';x.beginPath();x.roundRect(cx-cw/2,cy,cw,ch,6);x.fill();
  x.strokeStyle='#b8925a';x.lineWidth=2;x.beginPath();x.roundRect(cx-cw/2+7,cy+7,cw-14,ch-14,4);x.stroke();
  x.textAlign='center';
- x.fillStyle='#3a2918';x.font='bold 26px Georgia,serif';x.fillText(g.bonus?'Bonus-Zeugnis':'Zeugnis',cx,cy+40);
+ x.fillStyle='#3a2918';x.font='bold 26px Georgia,serif';x.fillText(g.bonus?['Höhlenschein','Gratschein','Moorbrief','Küstenbrief','Altstadtbrief','Friedhofsschein'][bnum()-1]||'Bonus-Zeugnis':'Wanderbrief',cx,cy+40);
  x.font='12px system-ui,sans-serif';x.fillStyle='#7a5a38';x.fillText(g.bonus===3?(g.won?'Mo hat die Friedhofskapelle erreicht.':'Mo hat die Friedhofskapelle nicht erreicht.'):g.bonus===2?(g.won?'Mo hat die Fischbude erreicht.':'Mo hat die Fischbude nicht erreicht.'):g.bonus?(g.won?'Mo hat den Gipfelgrat erreicht.':'Mo hat den Gipfelgrat nicht erreicht.'):(g.won?'Mo hat die Hütte erreicht.':'Mo hat die Hütte nicht erreicht.'),cx,cy+58,cw-30);
  var bm=Math.round(TOTAL/PXM),rows=g.bonus?[['Strecke',Math.min(bm,Math.round(g.run/PXM))+' von '+bm+' m'],g.bonus===3?['Pfand',eur(g.pfandCash)]:['Bonus-Level',bnum()+' von 6'],['Hindernisse umgangen',String(g.dodged)],['Stürze',String(g.hits)],['Funde',g.funde+' von '+g.fundMax]]:[['Strecke',Math.min(2000,Math.round(g.run/PXM))+' von 2000 m'],['Etappe',(g.stage+1)+' von 6'],['Hindernisse umgangen',String(g.dodged)],['Stürze',String(g.hits)],['Funde',g.funde+' von '+g.fundMax]];
  x.font='12px system-ui,sans-serif';
- rows.forEach(function(r,i){var yy=cy+84+i*19;x.fillStyle='#6b4a2a';x.textAlign='left';x.fillText(r[0],cx-109,yy);x.textAlign='right';x.fillStyle='#3a2918';x.fillText(r[1],cx+109,yy);
+ rows.forEach(function(r,i){var yy=cy+82+i*17;x.fillStyle='#6b4a2a';x.textAlign='left';x.fillText(r[0],cx-109,yy);x.textAlign='right';x.fillStyle='#3a2918';x.fillText(r[1],cx+109,yy);
   x.fillStyle='rgba(0,0,0,.08)';x.fillRect(cx-109,yy+5,218,1)});
- x.textAlign='center';x.fillStyle='#a0481a';x.font='bold 19px Georgia,serif';x.fillText('Note: '+gr[0]+' ('+gr[1]+')',cx,cy+190);
+ x.textAlign='center';x.fillStyle='#6b4a2a';x.font='italic bold 13px Georgia,serif';x.fillText(RANG[gr[0]],cx,cy+172);
+ x.fillStyle='#a0481a';x.font='bold 19px Georgia,serif';x.fillText('Note: '+gr[0]+' ('+gr[1]+')',cx,cy+190);
  x.font='italic 12px system-ui,sans-serif';x.fillStyle='#4b3320';
  var rl=wrap('Wegweiser: '+REMARK[gr[0]],cw-50),rh=rl.length>2?12:14,ry0=rl.length>2?205:208;
  rl.forEach(function(l,i){x.fillText(l,cx,cy+ry0+i*rh)});
@@ -2469,6 +2474,7 @@ function zSignX(key,min){
  for(var n=0;n<300;n++){ok=true;
   for(k=0;k<g.obs.length;k++){b=g.obs[k].bx-(OFF[g.obs[k].t]||0);if(Math.abs(b-xx)<170){ok=false;break}}
   for(k=0;ok&&g.items&&k<g.items.length;k++){if(Math.abs(g.items[k].bx-xx)<90)ok=false}
+  for(k=0;ok&&g.sch&&k<g.sch.length;k++){if(Math.abs(g.sch[k].wx-xx)<130)ok=false}
   if(ok)break;xx+=30}
  zSg.m[key]=xx;return xx}
 function strikeSign(wx,text){
@@ -2669,7 +2675,7 @@ function frame(ts0){
  x.fillStyle='rgba(255,255,255,.22)';x.fillRect(0,GY,W,2);
  fence(P,D);
  deco(P,D,GY+8,GY+24,30,1);
- signpost(P,g.run);if(!g.bonus&&cur==='Frühling')landSign(1300,'Schloss Burg');
+ signpost(P,g.run);if(!g.bonus&&cur==='Frühling')landSign(1300,'Schloss Burg');if(!g.bonus&&cur==='Sommer'&&Math.floor(g.run/STAGE)===1)landSign(zSignX('muen',STAGE+1000),'Müngsten');
  x.fillStyle=P.path;x.beginPath();x.moveTo(0,FY-8);
  for(var q=0;q<=W;q+=10)x.lineTo(q,FY-8+Math.sin((q+D)/70)*2);
  x.lineTo(W,FY+16);for(var q2=W;q2>=0;q2-=10)x.lineTo(q2,FY+16+Math.sin((q2+D)/90)*2);x.closePath();x.fill();
