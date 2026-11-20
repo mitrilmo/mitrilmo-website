@@ -29,7 +29,7 @@ test('Spiel: Testhaken window.__game nur mit ?dev in der Adresse', () => {
 test('Spiel: Marke ist im Skript (eingebettetes Logo, Copyright)', () => {
   assert.match(js, /LOGO\.src='data:image\/jpeg;base64,\/9j\//);
   assert.match(js, /© 2026 mitrilmo/);
-  assert.ok(js.length < 400_000, 'Spielskript sollte unter 400 KB bleiben');
+  assert.ok(js.length < 520_000, 'Spielskript sollte unter 520 KB bleiben');
 });
 test('Spiel: Seite hat Umami, Impressum und Datenschutz, eine h1, einen main und keinen iFrame', () => {
   assert.equal((seite.match(/mobrain\./g) || []).length, 1);
@@ -154,11 +154,38 @@ test('Spiel: Gebiet A Hammerwerke und Bahntrassen (vier Szenen, Hindernisse mit 
     assert.ok(js.includes("k==='" + k + "'"), 'Zeichnung ' + k);
   }
   assert.match(js, /ABONK=\['waffel','droeppel','lampe','goldhammer'\]/, 'je Szene ein Bonus-Fund');
-  assert.match(js, /if\(bn===4\)\{STAGE=ASTAGE;NST=4;TOTAL=STAGE\*NST\}/, 'vier Szenen zu je 4.800 Pixel');
+  assert.match(js, /if\(bn>=4\)\{STAGE=ASTAGE;NST=4;TOTAL=STAGE\*NST\}/, 'vier Szenen zu je 4.800 Pixel');
   assert.match(js, /g\.won&&g\.bonus>=3&&g\.tOver>wonT\(\)\)\{e\.preventDefault\(\);openMap\(\)/, 'nach dem Friedhof und nach Gebiet A öffnet B die Karte');
   assert.match(js, /if\(g\.mode==='map'\)\{mapTap\(lx,ly\);return\}/, 'Tippen auf der Karte');
-  assert.ok(js.includes("t:'Gebiet B',s:'kommt bald'"), 'Gebiet B ist noch gesperrt');
+  assert.ok(js.includes("t:'Gebiet B',s:'Talsperre, 4 Szenen'"), 'Gebiet B ist auf der Karte wählbar');
   const block = js.slice(js.indexOf('var ASTAGE='), js.indexOf('function aLm('));
+  assert.ok(block.length > 3000);
+  assert.doesNotMatch(block, /[–—]/, 'Texte ohne Gedankenstriche');
+  assert.ok(!/fetch\(|XMLHttpRequest|localStorage|sessionStorage/.test(js), 'nichts nachladen, nichts speichern');
+});
+
+test('Spiel: Gebiet B Talsperre und Steinbruch (vier Szenen, Tiere mit Texten und Maßen, Funde, Karte, g.bonus 5)', () => {
+  const ob = ['frosch', 'frischling', 'waschbaer', 'salamander', 'natter', 'reiher', 'libelle', 'kormoran', 'haeher', 'falke', 'kalk', 'mauerstein', 'fontaene'];
+  for (const t of ob) {
+    assert.ok(js.includes('HIT.' + t + '='), 'HIT ' + t);
+    assert.ok(js.includes('DODGE.' + t + '='), 'DODGE ' + t);
+    assert.ok(js.includes('HW.' + t + '='), 'Breite ' + t);
+    assert.ok(js.includes('HH.' + t + '='), 'Höhe ' + t);
+    assert.match(js, new RegExp('GOB=\\{[^}]*' + t + ':1'), 'GOB ' + t);
+    assert.ok(js.includes("t==='" + t + "'"), 'Zeichnung ' + t);
+  }
+  for (const t of ['reiher', 'libelle', 'kormoran', 'haeher', 'falke']) assert.match(js, new RegExp('LUFT\\.' + t + '=1'), 'Ducken (Luft) ' + t);
+  assert.match(js, /HANG\.fontaene=1/, 'Fontäne zum Ducken');
+  assert.match(js, /GBSEA=\['Ufer','Staumauer','Sandstein','Hardenstein'\]/);
+  for (const f of ['function drawUfer', 'function drawStaumauer', 'function drawSandstein', 'function drawHardenstein', 'function gbObst', 'function drawItem5', 'function gbElefant', 'function windrad', 'function segler']) assert.ok(js.includes(f), f);
+  for (const k of ['eichel', 'zapfen', 'thermo', 'stempel', 'kompass', 'stulle', 'ammonit', 'bergkristall', 'pfifferling', 'burgkey', 'kelch', 'wappen']) {
+    assert.ok(js.includes('FUNDTXT.' + k + '='), 'FUNDTXT ' + k);
+    if (k !== 'thermo') assert.ok(js.includes('NAMEN.' + k + '='), 'NAMEN ' + k);
+  }
+  for (const k of ['eichel', 'zapfen', 'stempel', 'kompass', 'stulle', 'ammonit', 'bergkristall', 'pfifferling', 'burgkey', 'kelch', 'wappen']) assert.ok(js.includes("k==='" + k + "'"), 'Zeichnung Fund ' + k);
+  for (const s of ['Heilenbecke Talsperre', 'Wuppertalsperre', 'Steinbruch Imberg', 'Ruine Hardenstein']) assert.ok(js.includes("'" + s + "'"), 'Schild ' + s);
+  assert.match(js, /GBBONK=\[\['thermo'\],\['stulle'\],\[\],\['kelch','wappen'\]\]/, 'Bonus-Funde je Szene');
+  const block = js.slice(js.indexOf('var GBSEA='), js.indexOf('function gbObst('));
   assert.ok(block.length > 3000);
   assert.doesNotMatch(block, /[–—]/, 'Texte ohne Gedankenstriche');
   assert.ok(!/fetch\(|XMLHttpRequest|localStorage|sessionStorage/.test(js), 'nichts nachladen, nichts speichern');
