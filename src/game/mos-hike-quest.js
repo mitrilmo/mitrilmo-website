@@ -2104,7 +2104,7 @@ function jump(){
  if(!mm.air)jumpNow();else mm.buf=.14}
 cv.addEventListener('pointerdown',function(e){e.preventDefault();var rc=cv.getBoundingClientRect(),lx=(e.clientX-rc.left)/rc.width*W,ly=(e.clientY-rc.top)/rc.height*H;if(g.paused){if(lx>W-34&&ly>H-40){muted=!muted;if(!muted)sfx('ok')}else setPause(false);return}
 if(g.mode==='map'){mapTap(lx,ly);return}if(g.mode==='play'&&lx>W-58&&lx<=W-34&&ly>H-40){setPause(true);return}
-if(g.mode==='intro'&&lx>W-104&&ly<38){endIntro();return}if(g.mode==='film'){if(lx>W-34&&ly>H-40){muted=!muted;if(!muted)sfx('ok')}else if(lx>W-104&&ly<38)endFilm();return}if(lx>W-34&&ly>H-40){muted=!muted;if(!muted)sfx('ok');return}if(g.mode==='over'&&g.tOver>(g.won?wonT():1.6)&&lx>215&&lx<445&&ly>280&&ly<306&&((g.won&&!g.bonus)||g.bonus)){if(g.bonus>=3&&g.won){openMap();return}if(g.bonus===1&&g.won)startFilm();else if(g.bonus===2&&g.won)start(3);else start(g.bonus?0:1);return}if(g.mode==='play'&&ly>H*.66){mm.duckPtr=true;mm.duckT=.45;return}mm.hold=true;jump()});
+if(g.mode==='intro'&&lx>W-104&&ly<38){endIntro();return}if(g.mode==='film'){if(lx>W-34&&ly>H-40){muted=!muted;if(!muted)sfx('ok')}else if(lx>W-104&&ly<38)endFilm();return}if(lx>W-34&&ly>H-40){muted=!muted;if(!muted)sfx('ok');return}if(g.mode==='over'&&zSplit()){if(lx<=215||lx>=445||ly<244||(ly>276&&ly<288)||ly>318)return;if(ly>=288){jump();return}}if(g.mode==='over'&&g.tOver>(g.won?wonT():1.6)&&lx>215&&lx<445&&ly>(zSplit()?244:280)&&ly<(zSplit()?276:306)&&((g.won&&!g.bonus)||g.bonus)){if(g.bonus>=3&&g.won){openMap();return}if(g.bonus===1&&g.won)startFilm();else if(g.bonus===2&&g.won)start(3);else start(g.bonus?0:1);return}if(g.mode==='play'&&ly>H*.66){mm.duckPtr=true;mm.duckT=.45;return}mm.hold=true;jump()});
 function duckOff(){mm.duckPtr=false;mm.hold=false}
 cv.addEventListener('pointerup',duckOff);cv.addEventListener('pointercancel',duckOff);cv.addEventListener('pointerleave',duckOff);
 window.addEventListener('keydown',function(e){
@@ -2251,7 +2251,7 @@ function drawParts(P,ts,o){
 }
 var bubK='',bubL=[],bubW=0;
 function bubble(){
- if(msgT<=0)return;var a=Math.min(1,msgT);x.globalAlpha=a;
+ if(msgT<=0||g.clean||zSplit())return;var a=Math.min(1,msgT);x.globalAlpha=a;
  x.font='13px system-ui,sans-serif';x.textAlign='left';var t='Wegweiser: '+msg,mxw=W-32-(g.mode==='intro'?Math.round(90*FB)+8:0),ls,bk=t+'|'+mxw+'|'+g.mode+'|'+FB;if(bubK!==bk){bubK=bk;ls=wrap(t,mxw-34);if(ls.length>1&&g.mode==='play'){mxw=Math.min(mxw,446);ls=wrap(t,mxw-34)}bubL=ls;bubW=Math.min(mxw,Math.max.apply(null,ls.map(function(s){return x.measureText(s).width}))+34)}ls=bubL;var w=bubW;
  var bh=Math.round(30*(1+(FB-1)*.8))+(ls.length-1)*Math.round(17*FB);x.fillStyle='rgba(0,0,0,.18)';x.beginPath();x.roundRect(18,17,w,bh,8);x.fill();
  x.fillStyle='#fbf3e0';x.beginPath();x.roundRect(16,14,w,bh,8);x.fill();
@@ -2333,11 +2333,12 @@ function protokoll(a,cx,cw,cy,ch){
  if(!sel.length){wrap('Nichts notiert. Auch das ist eine Aussage.',mw).forEach(function(l,i){x.fillText(l,px+16,yy+i*13)})}
  sel.forEach(function(t){var ls=wrap(t,mw);if(yy+ls.length*13>cy+ch-14)return;x.fillStyle='#a0481a';x.fillText('·',px+13,yy);x.fillStyle='#4b3320';ls.forEach(function(l,i){x.fillText(l,px+22,yy+i*13)});yy+=ls.length*13+7});
  x.textAlign='left';x.globalAlpha=1;FQ=FB}
+function zSplit(){return TOUCH&&g.mode==='over'&&((g.won&&!g.bonus)||g.bonus)}
 function zeugnis(ts){
  if(g.mode!=='over')return;
  var a=Math.min(1,Math.max(0,(g.tOver-(g.won?wonT()-.6:.7))*2));if(a<=0)return;
  x.globalAlpha=a;
- var cx=330,cw=250,ch=276,cy=48+(1-a)*14,gr=grade();
+ var cx=330,cw=250,sp=zSplit(),ch=sp?316:276,cy=(sp?10:48)+(1-a)*14,gr=grade();
  fbDicht();x.fillStyle='rgba(0,0,0,.25)';x.beginPath();x.roundRect(cx-cw/2+4,cy+5,cw,ch,6);x.fill();
  x.fillStyle='#fbf3e0';x.beginPath();x.roundRect(cx-cw/2,cy,cw,ch,6);x.fill();
  x.strokeStyle='#b8925a';x.lineWidth=2;x.beginPath();x.roundRect(cx-cw/2+7,cy+7,cw-14,ch-14,4);x.stroke();
@@ -2354,9 +2355,10 @@ function zeugnis(ts){
  var rl=wrap('Wegweiser: '+REMARK[gr[0]],cw-50),rh=rl.length>2?12:14,ry0=rl.length>2?205:208;
  rl.forEach(function(l,i){x.fillText(l,cx,cy+ry0+i*rh)});
  if(g.tOver>(g.won?wonT():.9)){
-  if(((g.won&&!g.bonus)||g.bonus)&&g.tOver>(g.won?wonT():1.6)){x.fillStyle='rgba(160,72,26,.12)';x.beginPath();x.roundRect(cx-104,cy+234,208,22,11);x.fill();x.font='bold 12px system-ui,sans-serif';x.fillStyle='#a0481a';
-   x.fillText((g.bonus>=3&&g.won)?(TOUCH?'Hier tippen: Karte':'B: Karte'):g.bonus===1&&g.won?(TOUCH?'Hier tippen: Seilbahn ins Moor':'B: Seilbahn ins Moor'):g.bonus===2&&g.won?(TOUCH?'Hier tippen: Altstadt & Friedhof':'B: Altstadt & Friedhof'):g.bonus?(TOUCH?'Hier tippen: Quest von vorn':'N: Quest von vorn'):(TOUCH?'Hier tippen: Bonus Höhle & Grat':'B: Bonus Höhle & Gebirgsgrat'),cx,cy+249,cw-30)}
-  if(Math.floor(ts/600)%2){x.font='bold 12px system-ui,sans-serif';x.fillStyle='#4a8c3f';x.fillText(g.bonus===1&&g.won&&!TOUCH?'Leertaste: nochmal · N: Quest von vorn':g.bonus?'Leertaste oder Tippen: Bonus nochmal':'Leertaste oder Tippen: nochmal',cx,cy+ch-12,cw-30)}}
+  if(((g.won&&!g.bonus)||g.bonus)&&g.tOver>(g.won?wonT():1.6)){x.fillStyle='rgba(160,72,26,.12)';x.beginPath();x.roundRect(cx-104,cy+(sp?236:234),208,sp?28:22,sp?14:11);x.fill();x.font='bold 12px system-ui,sans-serif';x.fillStyle='#a0481a';
+   x.fillText((g.bonus>=3&&g.won)?(TOUCH?'Hier tippen: Karte':'B: Karte'):g.bonus===1&&g.won?(TOUCH?'Hier tippen: Seilbahn ins Moor':'B: Seilbahn ins Moor'):g.bonus===2&&g.won?(TOUCH?'Hier tippen: Altstadt & Friedhof':'B: Altstadt & Friedhof'):g.bonus?(TOUCH?'Hier tippen: Quest von vorn':'N: Quest von vorn'):(TOUCH?'Hier tippen: Bonus Höhle & Grat':'B: Bonus Höhle & Gebirgsgrat'),cx,cy+(sp?254:249),cw-30)}
+  if(sp){x.fillStyle='rgba(74,140,63,.16)';x.beginPath();x.roundRect(cx-104,cy+278,208,28,14);x.fill();x.font='bold 12px system-ui,sans-serif';x.fillStyle='#3d7433';x.fillText(g.bonus?'Hier tippen: Bonus nochmal':'Hier tippen: nochmal',cx,cy+296,cw-30)}
+  else if(Math.floor(ts/600)%2){x.font='bold 12px system-ui,sans-serif';x.fillStyle='#4a8c3f';x.fillText(g.bonus===1&&g.won&&!TOUCH?'Leertaste: nochmal · N: Quest von vorn':g.bonus?'Leertaste oder Tippen: Bonus nochmal':'Leertaste oder Tippen: nochmal',cx,cy+ch-12,cw-30)}}
  protokoll(a,cx,cw,cy,ch);
  x.textAlign='left';x.globalAlpha=1;FQ=FB}
 function fade(){
@@ -3983,8 +3985,8 @@ function frame(ts0){
  }
  x.restore();
  fade();
- if(g.mode!=='title'&&g.mode!=='intro'){hud();drawFx(ts);pfandUI(ts)}
- banner2();introUI(ts);titel(ts);zeugnis(ts);wasserzeichen();pauseUI();muteIcon();pauseIcon();
+ if(!g.clean&&g.mode!=='title'&&g.mode!=='intro'){hud();drawFx(ts);pfandUI(ts)}
+ if(!g.clean){banner2();introUI(ts);titel(ts);zeugnis(ts)}wasserzeichen();if(!g.clean){pauseUI();muteIcon();pauseIcon()}
  if(msgT>0)msgT-=dt;if(g.mode!=='title'||true)bubble();
  requestAnimationFrame(frame)}
 requestAnimationFrame(frame);
