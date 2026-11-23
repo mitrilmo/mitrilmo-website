@@ -15,8 +15,8 @@ const seite = readFileSync(new URL('src/pages/wissen/[thema].astro', root), 'utf
 
 const alleTexte = (obj) => JSON.stringify(obj);
 
-test('Wissen: drei Themen mit je 15 Lektionen in 3 Etappen', () => {
-  assert.deepEqual(Object.keys(themen).sort(), ['entdecken', 'radfahren', 'wandern']);
+test('Wissen: vier Themen mit je 15 Lektionen in 3 Etappen', () => {
+  assert.deepEqual(Object.keys(themen).sort(), ['entdecken', 'radfahren', 'spazieren', 'wandern']);
   for (const [name, t] of Object.entries(themen)) {
     assert.equal(lektionenZahl(t), 15, name);
     assert.equal(t.module.length, 3, name);
