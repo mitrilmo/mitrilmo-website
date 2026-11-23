@@ -9,7 +9,6 @@ difficulty: leicht
 image: ../../assets/images/tours/landesgartenschau-neuss.jpg
 imageAlt: "Mo mit Strohhut neben der bunten Blumenfigur der Landesgartenschau Neuss"
 video: C0qlK4FIMvI
-strollerOk: ja
 parking:
   name: "Parkplatz Ost"
   cost: "7 € pro Tag"

@@ -46,7 +46,7 @@ export const tourSchema = ({ reference, image }) =>
       parking: parking.optional(),
       familyFriendly: triState,
       dogFriendly: triState,
-      strollerOk: triState,
+      accessible: triState, // barrierearm (Kinderwagen, Rollstuhl, Rollator)
       openingHours: z.string().optional(),
       prices: z.string().optional(),
       refreshments: z.array(z.string()).default([]),

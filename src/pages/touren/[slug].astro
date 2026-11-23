@@ -50,7 +50,7 @@ const facts = [
   gpx?.descent != null && ['Abstieg', `${gpx.descent} m`],
 ].filter(Boolean);
 
-const yesNo = [['Familienfreundlich', d.familyFriendly], ['Hunde erlaubt', d.dogFriendly], ['Kinderwagen möglich', d.strollerOk]]
+const yesNo = [['Familienfreundlich', d.familyFriendly], ['Hunde erlaubt', d.dogFriendly], ['Barrierearm', d.accessible]]
   .filter(([, v]) => v !== 'unbekannt');
 
 const practical = [
