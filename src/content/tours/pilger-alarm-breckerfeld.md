@@ -18,7 +18,7 @@ video: GY_mduwHqV4
 parking:
   name: Breckerfeld-Delle
   cost: kostenfrei
-strollerOk: nein
+accessible: nein
 mapsUrl: https://maps.google.com/?q=Breckerfeld+Delle
 refreshments:
   - "Café am Mühlenhof"

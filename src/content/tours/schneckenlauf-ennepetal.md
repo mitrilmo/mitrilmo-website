@@ -19,7 +19,7 @@ coordinates:
 video: poFIYRmw_aw
 parking:
   name: Wanderparkplatz Ennepetal-Rüggeberg
-strollerOk: nein
+accessible: nein
 mapsUrl: https://maps.google.com/?q=Wanderparkplatz+Ennepetal-R%C3%BCggeberg
 rating:
   scenery: 4
