@@ -1,0 +1,333 @@
+titel: "Spazierengehen"
+emoji: "🚶"
+reihenfolge: 4
+szene: wandern
+kurz: "Tempo rausnehmen, Waldbaden, links gehen, Hunde und Reflektoren: 15 kurze Lektionen mit Quiz für den Weg vor der Haustür."
+beschreibung: "Spazierengehen im Bergischen Land: 15 kurze Lektionen mit Quiz zu Gelassenheit, Waldbaden, Wetter, Schuhen, Sichtbarkeit, Hunden und Rücksicht. Am Ende gibt es eine Urkunde von Mo."
+intro: "Nachmittags um drei. Mo hat keine Karte dabei und keine Uhr am Handgelenk. Heute zählt nur, was am Wegesrand liegt."
+
+module:
+  - id: spa-m1
+    emoji: "☕"
+    titel: "Genuss und Gelassenheit"
+    szene: "Später Nachmittag. Mo hat das Handy in die Tasche gesteckt und sitzt zum ersten Mal seit Langem einfach auf einer Bank."
+    lektionen:
+      - id: spa-01
+        emoji: "🐌"
+        titel: "Spaziergang ist keine Wanderung"
+        minuten: 3
+        lernziel: "Du kennst den Unterschied zwischen Spazierengehen und Wandern."
+        text:
+          - "Bei einer Wanderung gibt es meist ein Ziel, eine Strecke und eine Gehzeit. Beim Spazierengehen ist das anders. Hier geht es ums Schlendern, ums Abschalten und darum, die Umgebung wahrzunehmen."
+          - "Eine feste Dauer oder Länge gibt es nicht. Ein Spaziergang kann zehn Minuten dauern oder zwei Stunden. Er ist gelungen, wenn du danach den Kopf freier hast als vorher."
+        tipp: "Lass die Sportuhr ruhig zu Hause. Wer nicht mitzählt, geht oft entspannter."
+        quiz:
+          frage: "Was ist der wichtigste Unterschied zwischen einer strammen Wanderung und einem Genuss-Spaziergang?"
+          richtig: "Beim Spaziergang zählt nicht die Kilometerzahl, sondern das entspannte Schlendern und Wahrnehmen."
+          falsch:
+            - "Ein Spaziergang darf gesetzlich nicht länger als 22 Minuten dauern."
+            - "Spaziergänge sind nur auf frisch geteerten Parkwegen erlaubt."
+            - "Man muss dabei einen Regenschirm als Gehstock mitführen."
+          erklaerung: "Beim Spazierengehen ist der Weg das Ziel. Es geht um frische Luft, einen freien Kopf und darum, ohne Leistungsdruck zu bummeln."
+
+      - id: spa-02
+        emoji: "📵"
+        titel: "Tempo raus, Handy weg"
+        minuten: 3
+        lernziel: "Du weißt, was einen Spaziergang erst richtig entspannt."
+        text:
+          - "Die wichtigste Regel für einen gelungenen Spaziergang ist einfach: Nimm das Tempo raus und lass das Handy in der Tasche. Stell es auf lautlos, damit dich nichts herausreißt."
+          - "Dann bleibt Platz für die kleinen Dinge am Wegesrand: ein Vogel im Gebüsch, das Licht zwischen den Bäumen, der Geruch nach nassem Laub. Wer neugierig bleibt, entdeckt auch auf bekannten Wegen etwas Neues."
+        tipp: "Fotos darfst du trotzdem machen. Danach geht das Handy wieder weg."
+        quiz:
+          frage: "Was ist die wichtigste Goldene Regel für einen gelungenen Spaziergang?"
+          richtig: "Handy auf lautlos, Tempo rausnehmen und neugierig bleiben für die kleinen Dinge am Wegesrand."
+          falsch:
+            - "Mindestens 15.000 Schritte schaffen, sonst war der Tag umsonst."
+            - "Nie ohne Kompass, Seil und Stirnlampe in den Stadtpark gehen."
+            - "Möglichst schnell wieder zu Hause sein, damit die Couch nicht kalt wird."
+          erklaerung: "Sobald das Tempo sinkt und das Handy in der Tasche bleibt, wird der Kopf frei. Schrittzahlen und Ausrüstungslisten sind für einen Spaziergang nicht nötig."
+
+      - id: spa-03
+        emoji: "🫖"
+        titel: "Der Feierabendrunde ein Highlight geben"
+        minuten: 3
+        lernziel: "Du machst aus einem normalen Spaziergang mit wenig Aufwand etwas Besonderes."
+        text:
+          - "Auch die Runde nach Feierabend kann ein kleines Erlebnis werden. Es braucht dafür kaum etwas: einmal links abbiegen statt rechts, eine Seitenstraße ausprobieren oder zehn Minuten auf einer Bank mit Aussicht sitzen."
+          - "Eine Thermoskanne mit Tee oder Kaffee macht aus der Pause einen kleinen Ausflug. Wichtig ist nur, dass du dich nicht unter Druck setzt."
+        check:
+          - "Thermoskanne mit Tee oder Kaffee"
+          - "Eine neue Abzweigung ausprobieren"
+          - "Zehn Minuten auf einer Bank sitzen"
+        tipp: "Such dir eine Bank mit Aussicht und merk sie dir für den nächsten Tag."
+        quiz:
+          frage: "Wie wird ein ganz normaler Feierabend-Spaziergang ohne großen Aufwand zum kleinen Highlight?"
+          richtig: "Mit Tee oder Kaffee in der Thermoskanne, einer neuen Seitenstraße und zehn Minuten auf einer Bank mit Aussicht."
+          falsch:
+            - "Mit der exakt gleichen Runde wie seit zehn Jahren, den Blick dabei aufs Smartphone."
+            - "Mit der Stoppuhr, damit man sich ärgern kann, wenn man langsamer war als gestern."
+            - "Mit einer 20-seitigen Packliste, die vor dem Losgehen komplett abgehakt wird."
+          erklaerung: "Schon ein kleiner Perspektivwechsel reicht. Einmal anders abbiegen und kurz sitzen bleiben, und der Feierabend fühlt sich an wie ein Mini-Urlaub."
+
+      - id: spa-04
+        emoji: "📷"
+        titel: "Fotospaziergang"
+        minuten: 3
+        lernziel: "Du siehst deine eigene Umgebung mit neuen Augen."
+        text:
+          - "Bei einem Fotospaziergang gehst du eine bekannte Runde ganz bewusst langsam. Du schaust nach oben, achtest auf Licht und Schatten, auf Details und auf ungewohnte Blickwinkel."
+          - "Dafür brauchst du keine teure Kamera. Das Handy reicht. Es geht nicht um das perfekte Bild, sondern darum, genauer hinzusehen. Wer so geht, entdeckt Baumrinden, Spiegelungen in Pfützen und Hausfassaden, an denen er vorher hundertmal vorbeigelaufen ist."
+        tipp: "Such dir pro Runde ein Thema, zum Beispiel Blätter, Türen oder Schatten."
+        quiz:
+          frage: "Was macht einen Fotospaziergang zur guten Idee gegen Betriebsblindheit im eigenen Wohnort?"
+          richtig: "Man geht eine bekannte Runde langsam und achtet auf Licht, Schatten, Details und neue Perspektiven."
+          falsch:
+            - "Man braucht dafür eine Profikamera, sonst zählt es nicht."
+            - "Man fotografiert nur Straßenschilder und Mülleimer."
+            - "Man muss im Laufschritt knipsen und darf nicht stehen bleiben."
+          erklaerung: "Wer mit dem Blick eines Fotografen geht, sieht Dinge, die sonst im Alltag untergehen. Dafür reicht auch das Handy."
+
+      - id: spa-05
+        emoji: "🌧️"
+        titel: "Spazieren bei Schmuddelwetter"
+        minuten: 3
+        lernziel: "Du weißt, warum sich ein Spaziergang auch bei grauem Wetter lohnen kann."
+        text:
+          - "Nieselregen und graue Herbsttage sind nicht jedermanns Sache. Trotzdem haben sie ihren Reiz. Es sind weniger Leute unterwegs, die Wege gehören dir fast allein, und das Prasseln der Tropfen dämpft den Alltagslärm."
+          - "Nach Regen riecht die Luft nach feuchter Erde. Dafür gibt es sogar ein Wort: Petrichor. Mit einer guten Regenjacke und wasserfesten Schuhen steht dem Ausflug nichts im Weg."
+        tipp: "Wenn du zurückkommst: nasse Schuhe ausstopfen und trocknen lassen, nicht auf die Heizung stellen."
+        quiz:
+          frage: "Warum ist ein Spaziergang bei Nieselregen oft erholsamer, als man auf dem Sofa denkt?"
+          richtig: "Es ist ruhiger auf den Wegen, die Tropfen dämpfen den Lärm, und die Luft riecht nach feuchter Erde."
+          falsch:
+            - "Regenwasser steigert nachweislich den IQ um zehn Punkte."
+            - "Nasse Schuhe trainieren die Fußmuskulatur doppelt so stark."
+            - "Bei Regen schalten alle Ampeln automatisch auf Grün."
+          erklaerung: "Mit guter Regenjacke gehört dir der Park fast allein, und der Geruch nach nasser Erde heißt Petrichor. Ob Regen schlau macht, ist allerdings nicht belegt."
+
+  - id: spa-m2
+    emoji: "🌲"
+    titel: "Körper und Kopf"
+    szene: "Mittags im Wald. Mo atmet tief durch, hat nichts zu lösen und trotzdem gerade eine gute Idee gehabt."
+    lektionen:
+      - id: spa-06
+        emoji: "🍰"
+        titel: "Der Verdauungsspaziergang"
+        minuten: 3
+        lernziel: "Du weißt, warum ein kurzer Gang nach dem Essen guttun kann."
+        text:
+          - "Nach einem üppigen Essen auf dem Sofa zu liegen, ist verlockend. Ein gemütlicher Spaziergang tut dem Körper aber meist besser. Lockere Bewegung regt die Durchblutung an, und der Blutzucker steigt nach dem Essen oft langsamer an."
+          - "Schon zehn bis fünfzehn Minuten in ruhigem Tempo können reichen. Es muss nichts Sportliches sein. Viele fühlen sich danach weniger schwer und müde."
+        hinweis: "Allgemeine Hinweise, keine medizinische Beratung. Bei Diabetes oder Beschwerden sprich mit deiner Ärztin oder deinem Arzt."
+        tipp: "Geh gemütlich, nicht zügig. Zu schnelles Gehen direkt nach einer großen Mahlzeit kann auf den Magen schlagen."
+        quiz:
+          frage: "Warum gilt der klassische Verdauungsspaziergang nach einem üppigen Essen als gute Idee?"
+          richtig: "Lockere Bewegung regt die Durchblutung an, lässt den Blutzucker meist langsamer ansteigen und vertreibt das Suppenkoma."
+          falsch:
+            - "Die Schwerkraft zieht das Essen beim Gehen schneller nach unten."
+            - "Man bekommt an der frischen Luft sofort wieder Platz für das nächste Stück Kuchen."
+            - "Es ist ein Ammenmärchen, nach dem Essen hilft nur Sofaliegen."
+          erklaerung: "Ein ruhiger Gang von zehn bis fünfzehn Minuten bringt den Kreislauf sanft in Schwung, ohne den Magen zu überfordern."
+
+      - id: spa-07
+        emoji: "🌳"
+        titel: "Waldbaden"
+        minuten: 3
+        lernziel: "Du weißt, was hinter dem Trend Shinrin-Yoku steckt."
+        text:
+          - "Shinrin-Yoku ist japanisch und heißt übersetzt Waldbaden. Gemeint ist kein Schwimmen, sondern ein bewusstes, langsames Eintauchen in die Waldatmosphäre mit allen Sinnen. Du gehst nicht irgendwohin, du bist einfach da."
+          - "Bäume geben Duftstoffe ab, die Terpene heißen. Studien, vor allem aus Japan, berichten, dass ein ruhiger Aufenthalt im Wald Stress und Blutdruck senken kann. Wie stark das wirkt, ist noch nicht abschließend geklärt. Dass es vielen guttut, merkst du selbst."
+        tipp: "Bleib ab und zu stehen, schließ kurz die Augen und hör einfach zu."
+        quiz:
+          frage: "Was steckt hinter dem japanischen Trend Shinrin-Yoku, dem Waldbaden?"
+          richtig: "Das bewusste, langsame Eintauchen in die Waldatmosphäre mit allen Sinnen."
+          falsch:
+            - "Mit Badehose und Quietscheente in einen Waldsee springen."
+            - "Im Wald nur unter Nadelbäumen duschen, wenn es regnet."
+            - "Bäume umarmen, bis man alle Laubarten auswendig aufsagen kann."
+          erklaerung: "Beim Waldbaden geht es ums Wahrnehmen: Gerüche, Geräusche, Licht. Studien deuten darauf hin, dass das Stress abbauen kann."
+
+      - id: spa-08
+        emoji: "💡"
+        titel: "Gehen und Denken"
+        minuten: 3
+        lernziel: "Du nutzt einen Spaziergang, um den Kopf freizubekommen."
+        text:
+          - "Viele berühmte Denker waren eifrige Spaziergänger. Dahinter steckt mehr als eine Gewohnheit. Eine bekannte Studie der Stanford University ließ Menschen Ideen sammeln, einmal im Sitzen und einmal beim Gehen. Die meisten waren beim Gehen einfallsreicher."
+          - "Das galt vor allem für offene Aufgaben, bei denen es viele Lösungen gibt. Für Aufgaben mit nur einer richtigen Antwort half das Gehen nicht. Wenn du also eine Idee suchst, hilft ein Spaziergang. Wenn du rechnen musst, setz dich lieber hin."
+        tipp: "Nimm ein Problem mit auf die Runde, ohne es lösen zu müssen. Oft kommt die Idee von selbst."
+        quiz:
+          frage: "Warum hilft Spazierengehen dabei, kreativ zu sein oder ein kniffliges Problem anzugehen?"
+          richtig: "Die gleichmäßige Bewegung erleichtert es, frei zu denken und neue Verbindungen zu finden."
+          falsch:
+            - "Sauerstoff geht an der frischen Luft direkt durch die Schädeldecke."
+            - "Man hat beim Gehen keine Ausreden mehr, die Steuererklärung zu machen."
+            - "Es funktioniert nur, wenn man rückwärts läuft."
+          erklaerung: "In der Stanford-Studie waren die meisten Teilnehmenden beim Gehen bei offenen Ideenaufgaben besser als im Sitzen. Bei Aufgaben mit einer festen Lösung half es nicht."
+
+      - id: spa-09
+        emoji: "☀️"
+        titel: "Spazieren bei Hitze"
+        minuten: 3
+        lernziel: "Du planst Spaziergänge im Sommer so, dass sie angenehm bleiben."
+        text:
+          - "An heißen Tagen sind frühe Morgenstunden und der späte Abend die beste Zeit. Am heißesten ist es meist am Nachmittag, etwa zwischen 14 und 17 Uhr, vor allem auf freien Flächen und Asphalt."
+          - "Tagsüber gehst du lieber unter dichten Laubbäumen oder am Bach entlang. Unter einem Blätterdach und am Wasser ist es oft spürbar kühler als in der aufgeheizten Innenstadt. Dazu gehören eine Kappe und eine kleine Flasche Wasser."
+        check:
+          - "Kappe oder Hut"
+          - "Wasserflasche"
+          - "Sonnencreme"
+          - "Früh am Morgen oder spät am Abend gehen"
+        tipp: "Trink schon vor dem Durst, nicht erst, wenn der Mund trocken ist."
+        quiz:
+          frage: "Du gehst an einem heißen Sommertag spazieren. Wann und wo ist es draußen am angenehmsten?"
+          richtig: "Früh morgens oder spät abends, und tagsüber unter Laubbäumen oder am Wasser."
+          falsch:
+            - "Punkt 14 Uhr auf einer freien Asphaltfläche ohne Schatten."
+            - "In einer schwarzen Winterjacke, um den Körper abzuhärten."
+            - "Direkt neben einer vielbefahrenen Autobahn, weil der Fahrtwind der Lkw kühlt."
+          erklaerung: "Schatten und Wasser kühlen spürbar. Die Nachmittagshitze auf offenen Flächen ist dagegen am anstrengendsten."
+
+      - id: spa-10
+        emoji: "👟"
+        titel: "Die richtigen Schuhe"
+        minuten: 3
+        lernziel: "Du wählst Schuhe, mit denen auch ein langer Spaziergang Spaß macht."
+        text:
+          - "Für einen normalen Spaziergang brauchst du keine alpinen Bergstiefel. Wichtig sind bequeme, eingelaufene Schuhe mit flexibler, griffiger Sohle, die zum Untergrund passen."
+          - "Auf Asphalt und Parkwegen reichen leichte Schuhe. Auf matschigen Waldwegen und nassem Laub ist ein Profil wichtig, damit du nicht ausrutschst. Neue, steife Schuhe nimmst du lieber nicht gleich für zwei Stunden mit."
+        tipp: "Neue Schuhe vorher ein paar Tage im Alltag tragen, bevor es auf die lange Runde geht."
+        quiz:
+          frage: "Welche Schuhwahl macht selbst einen spontanen Zwei-Stunden-Spaziergang zum Vergnügen?"
+          richtig: "Bequeme, eingelaufene Schuhe mit flexibler, griffiger Sohle, passend zum Untergrund."
+          falsch:
+            - "Nagelneue, steife Lederschuhe direkt aus dem Karton."
+            - "Flip-Flops, damit die Zehen bei jedem Wetter frische Luft bekommen."
+            - "Schwere Steigeisen-Bergstiefel für den Stadtpark."
+          erklaerung: "Eingelaufene Schuhe mit gutem Profil verhindern müde Füße, Blasen und Rutschpartien auf nassem Laub."
+
+  - id: spa-m3
+    emoji: "🦺"
+    titel: "Sicher und rücksichtsvoll"
+    szene: "Abendlicht. Mo trägt ein Reflektorband, grüßt jeden, der ihm begegnet, und hat die Hundeleine im Blick."
+    lektionen:
+      - id: spa-11
+        emoji: "↩️"
+        titel: "Links gehen auf der Landstraße"
+        minuten: 3
+        lernziel: "Du weißt, auf welcher Seite du ohne Gehweg gehst."
+        text:
+          - "Gibt es einen Gehweg, benutzt du ihn. Fehlt er, darfst du auf der Fahrbahn gehen. Außerhalb von Ortschaften gilt dann nach der Straßenverkehrs-Ordnung (§ 25 StVO): Du gehst am linken Fahrbahnrand, wenn das zumutbar ist."
+          - "Der Grund ist einfach. Entgegenkommende Autos siehst du früh und kannst im Zweifel rechtzeitig an den Rand treten. Läufst du rechts, kommt das Auto von hinten, und du siehst es nicht."
+        hinweis: "Allgemeiner Hinweis zur Straßenverkehrs-Ordnung, keine Rechtsberatung."
+        tipp: "In Gruppen hintereinander gehen, nicht nebeneinander."
+        quiz:
+          frage: "Du gehst auf einer Landstraße ohne Gehweg spazieren. Auf welcher Seite gehst du?"
+          richtig: "Links, entgegen der Fahrtrichtung, damit du den Gegenverkehr früh siehst."
+          falsch:
+            - "Rechts, damit dich Autos von hinten überraschen können."
+            - "Genau auf der Mittellinie, dort ist die Aussicht am besten."
+            - "Immer auf der Seite, auf der die Sonne scheint."
+          erklaerung: "Außerorts gilt ohne Gehweg: links gehen. So siehst du entgegenkommende Fahrzeuge und kannst rechtzeitig ausweichen."
+
+      - id: spa-12
+        emoji: "🔦"
+        titel: "Gesehen werden im Dunkeln"
+        minuten: 3
+        lernziel: "Du weißt, wie sehr Reflektoren die Sichtbarkeit verbessern."
+        text:
+          - "In der Dämmerung und im Winter wirst du von Autofahrern später gesehen, als du denkst. Nach Angaben der Polizei sind dunkel gekleidete Menschen im Abblendlicht erst aus etwa 25 Metern zu erkennen, hell gekleidete aus etwa 40 Metern, mit Reflektoren aus bis zu 140 Metern."
+          - "Zur Einordnung: Bei 50 km/h legt ein Auto in einer Sekunde rund 14 Meter zurück. Zwischen Erkennen und Anhalten bleibt wenig Zeit. Ein Reflektorband oder eine Warnweste verschafft Fahrern wertvolle Sekunden."
+        check:
+          - "Reflektorband an Jacke oder Tasche"
+          - "Helle Kleidung"
+          - "Kleine Lampe oder Stirnlampe"
+        hinweis: "Die Entfernungen sind Richtwerte und hängen von Licht, Wetter und Kleidung ab."
+        tipp: "Reflektorbänder gibt es günstig. Eins an Jacke oder Rucksack kostet kaum etwas."
+        quiz:
+          frage: "Wie groß ist der Unterschied in der Sichtbarkeit zwischen dunkler Kleidung und Reflektoren in der Dämmerung?"
+          richtig: "Dunkle Kleidung wird oft erst aus etwa 25 Metern erkannt, Reflektoren schon aus bis zu 140 Metern."
+          falsch:
+            - "Keiner, moderne Scheinwerfer erkennen Schwarz so gut wie Neonfarben."
+            - "Dunkle Kleidung leuchtet im Scheinwerferlicht automatisch weiß auf."
+            - "Reflektoren funktionieren nur bei Vollmond."
+          erklaerung: "Reflektoren werfen das Scheinwerferlicht zurück und sind deshalb deutlich früher zu sehen. Bei 50 km/h fährt ein Auto pro Sekunde etwa 14 Meter."
+
+      - id: spa-13
+        emoji: "🐕"
+        titel: "Freilaufender Hund kommt auf dich zu"
+        minuten: 3
+        lernziel: "Du bleibst ruhig, wenn dir ein Hund ohne Leine entgegenkommt."
+        text:
+          - "Wenn ein Hund ohne Leine auf dich zuläuft, ist Ruhe das Wichtigste. Bleib stehen oder geh gelassen weiter, lass die Hände locker am Körper und starre den Hund nicht an. Sprich die Besitzerin oder den Besitzer an."
+          - "Wegrennen weckt bei vielen Hunden den Jagdinstinkt. Anstarren oder Drüberbeugen empfinden sie als Bedrohung. Dreh dich seitlich weg, das nimmt oft die Spannung aus der Begegnung."
+        tipp: "Streichle fremde Hunde nur, wenn die Besitzer es erlauben."
+        quiz:
+          frage: "Auf einem Feldweg läuft ein Hund ohne Leine auf dich zu. Wie verhältst du dich am besten?"
+          richtig: "Ruhig stehen bleiben oder gelassen weitergehen, den Hund nicht anstarren und den Besitzer ansprechen."
+          falsch:
+            - "Wegrennen und laut mit den Armen fuchteln, um ihn abzuschrecken."
+            - "Dich sofort über den Hund beugen und ihn fest am Kopf tätscheln."
+            - "Dem Hund dein Brötchen vor die Pfoten werfen."
+          erklaerung: "Rennen löst bei vielen Hunden Jagdverhalten aus, Anstarren wirkt bedrohlich. Ruhe und eine seitliche Körperhaltung entspannen die Lage."
+
+      - id: spa-14
+        emoji: "🐣"
+        titel: "Brut- und Setzzeit"
+        minuten: 3
+        lernziel: "Du verstehst, warum im Frühjahr Hunde an die Leine sollen."
+        text:
+          - "Im Frühjahr und Frühsommer ziehen viele Wildtiere ihren Nachwuchs groß. Bodenbrütende Vögel liegen im Gras, Hasen und Rehkitze sind gut getarnt und bleiben oft allein am Wegesrand zurück. Das nennt man Brut- und Setzzeit."
+          - "Freilaufende Hunde stören diese Tiere leicht. Alte Vögel verlassen ihr Gelege, Jungtiere werden aufgescheucht. Deshalb gibt es in dieser Zeit vielerorts die Bitte oder Pflicht, Hunde anzuleinen."
+          - "Wie genau die Regeln lauten, unterscheidet sich je nach Bundesland, Gemeinde und Gebiet. Achte auf Schilder vor Ort."
+        hinweis: "Allgemeine Hinweise. Verbindlich sind die Regeln und Schilder vor Ort."
+        tipp: "Bleib auf den Wegen. Gerade im Frühjahr sind Wiesen und Waldränder Kinderstube."
+        quiz:
+          frage: "Im Frühjahr steht auf vielen Spazierwegen ein Schild mit der Bitte, Hunde anzuleinen. Was ist der Hauptgrund?"
+          richtig: "Brut- und Setzzeit: Bodenbrüter und Jungtiere werden von freilaufenden Hunden leicht aufgeschreckt."
+          falsch:
+            - "Damit die Hunde nicht den Rasenmäher-Roboter jagen."
+            - "Weil Hunde im Mai grundsätzlich nicht schwimmen dürfen."
+            - "Damit die Leinenhersteller im Frühjahr mehr Umsatz machen."
+          erklaerung: "Der Nachwuchs vieler Wildtiere liegt gut getarnt im hohen Gras oder am Wegesrand. Ein angeleinter Hund stört ihn weniger."
+
+      - id: spa-15
+        emoji: "👋"
+        titel: "Spaziergangs-Knigge"
+        minuten: 3
+        lernziel: "Du weißt, wie man draußen aufeinander Rücksicht nimmt."
+        text:
+          - "Auf Wegen, die man teilt, hilft ein bisschen Höflichkeit. Ein freundliches Nicken oder ein „Hallo“ gehört auf ruhigen Wegen dazu. Das macht aus Fremden kurz nette Nachbarn."
+          - "Auf schmalen Pfaden machst du kurz Platz, wenn jemand schneller unterwegs ist oder entgegenkommt. Nebeneinander gehen ist in Ordnung, solange du nicht den ganzen Weg versperrst. Musik hörst du am besten mit Kopfhörern, so stört sie niemanden."
+        tipp: "Bei Radfahrern und Läufern hilft ein kurzer Blick nach hinten und ein Schritt zur Seite."
+        quiz:
+          frage: "Was gehört zum entspannten Spaziergangs-Knigge auf geteilten Wegen?"
+          richtig: "Auf ruhigen Wegen freundlich grüßen und auf schmalen Pfaden kurz Platz machen."
+          falsch:
+            - "Zu viert nebeneinander gehen und bei Gegenverkehr keinen Millimeter weichen."
+            - "Musik über den Handy-Lautsprecher voll aufdrehen, damit alle etwas davon haben."
+            - "Mit dem Regenschirm die Blumen am Wegesrand abschlagen."
+          erklaerung: "Grüßen und Platz machen kostet nichts und macht den Weg für alle angenehmer."
+
+urkunde:
+  - ab: 0
+    emoji: "🛋️"
+    titel: "Sofa-Spaziergänger"
+    spruch: "Du hast den Weg zur Haustür gefunden. Mo findet, das ist ein Anfang."
+  - ab: 4
+    emoji: "🪑"
+    titel: "Bankplatz-Anwärter"
+    spruch: "Du kennst die ersten Regeln. Die Bank mit Aussicht wartet noch auf dich."
+  - ab: 8
+    emoji: "🍂"
+    titel: "Wegesrand-Beobachter"
+    spruch: "Du siehst, was andere übersehen. Mo hat dir einen Platz an der Thermoskanne freigehalten."
+  - ab: 11
+    emoji: "☕"
+    titel: "Feierabend-Genießer"
+    spruch: "Tempo raus, Handy weg, Tee dabei. Mo nickt anerkennend."
+  - ab: 14
+    emoji: "🏆"
+    titel: "Spaziergang-Profi"
+    spruch: "Fehlerfrei oder fast. Mo vermutet, dass du heimlich viel unterwegs bist."
