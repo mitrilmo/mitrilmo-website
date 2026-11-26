@@ -65,7 +65,7 @@ Pfadwerk wurde in mehreren Runden ausgiebig im echten Einsatz getestet. Jede Run
 
 ### Datenspeicherung — Lokal und sicher
 
-Die Touren und alle zugehörigen Daten werden in einer lokalen Datenbank direkt auf dem Gerät gespeichert. Man braucht kein Nutzerkonto, keine Cloud, kein Internet. Die Daten gehören ausschließlich dem Nutzer — und bleiben auf dem Gerät. Die einzige Ausnahme ist die optionale KI-Berichtsfunktion (Premium): Dabei gehen die Tourdaten und Logbuchtexte — ohne Fotos — zur Berichtserstellung an Google, mehr dazu in der [Datenschutzerklärung](index.html#datenschutz).
+Die Touren und alle zugehörigen Daten werden in einer lokalen Datenbank direkt auf dem Gerät gespeichert. Man braucht kein Nutzerkonto und keinen Server, und ich bekomme die Daten nicht zu sehen. Zwei Dinge sollte man wissen: Ist die Sicherung von Android eingeschaltet, kann Android App-Daten zusätzlich im eigenen Google-Konto ablegen. Und bei der optionalen KI-Berichtsfunktion gehen Tourdaten (immer mit dem, was bei Start- und Zielort eingetragen ist) und Logbuchtexte, je nach Einstellung auch die Koordinaten der Einträge, aber keine Fotos, an Google. Mehr dazu in der [Datenschutzerklärung](index.html#datenschutz).
 
 ## 3. Technische Architektur — Für Neugierige
 
@@ -174,7 +174,7 @@ Pfadwerk erstellt aus den erfassten Daten automatisch Berichte in drei Varianten
 
 ### 5.3 Datensicherung
 
-Weil alle Daten nur auf dem Gerät liegen, gibt es eine Datensicherung. Sie wird von Hand angestoßen — ein automatisches Backup oder eine Cloud gibt es nicht.
+Verlassen sollte man sich auf die eigene Datensicherung von Pfadwerk. Sie wird von Hand angestoßen. Android kann je nach Geräteeinstellung zusätzlich sichern, aber nur bis 25 MB je App in der Cloud, und das reicht bei vielen Fotos nicht.
 
 In den Einstellungen lassen sich alle Touren und Logbucheinträge als Datei sichern. Die Fotos werden getrennt gesichert, auf Wunsch monatsweise, damit die Dateien handlich bleiben. Sie enthalten kein Logo und sind so, wie sie in der App gespeichert sind — für alle Nutzer, auch ohne Premium.
 

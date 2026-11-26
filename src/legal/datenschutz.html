@@ -42,29 +42,43 @@
           <h3 class="text-white font-semibold mb-2">5. Die App Pfadwerk</h3>
           <p>Neben dieser Website bieten wir die Android-App <strong>Pfadwerk</strong> zum Dokumentieren von Wanderungen und Spaziergängen an. Mehr dazu auf der <a href="pfadwerk.html" class="text-green-400 hover:underline">Pfadwerk-Seite</a>. Für diese App gelten ergänzend die folgenden Hinweise.</p>
 
-          <p class="text-stone-400 font-medium mt-3 mb-1">5.1 Lokale Speicherung</p>
-          <p>Pfadwerk speichert alle von dir erfassten Daten — Touren, Fotos, Notizen, Einstellungen — ausschließlich lokal auf deinem Gerät (in einer lokalen Gerätedatenbank). Es findet keine automatische Übertragung an uns oder an einen Server statt. Du kannst deine Daten jederzeit innerhalb der App exportieren oder löschen.</p>
+          <p class="text-stone-400 font-medium mt-3 mb-1">5.1 Lokale Speicherung und Android-Sicherung</p>
+          <p>Pfadwerk speichert die von dir erfassten Daten (Touren, Fotos, Notizen, Einstellungen) auf deinem Gerät. Es gibt kein Nutzerkonto und keinen Server von uns, wir erhalten diese Daten nicht. Du kannst sie in der App exportieren oder löschen. Was du selbst exportierst oder teilst und an wen, entscheidest du und verantwortest du.</p>
+          <p class="mt-2">Ist auf deinem Gerät die Sicherung von Android eingeschaltet, kann Android die Daten der App zusätzlich in deinem Google-Konto sichern oder beim Gerätewechsel übertragen. Darauf haben wir keinen Zugriff. Die Sicherung verwaltest du in den Android-Einstellungen (je nach Gerät unter „Google“ → „Sicherung“). Die Cloud-Sicherung ist auf 25 MB je App begrenzt, bei vielen Fotos wird dort nichts gesichert. Verlass dich deshalb auf die Datensicherung in der App.</p>
 
           <p class="text-stone-400 font-medium mt-3 mb-1">5.2 Standortdaten (GPS)</p>
-          <p>Pfadwerk erfasst deinen Standort, um deine Wanderroute aufzuzeichnen — auch dann, wenn die App im Hintergrund läuft oder der Bildschirm gesperrt ist, damit die Route lückenlos erfasst wird. Diese Standortdaten werden ausschließlich lokal auf deinem Gerät gespeichert und niemals an uns oder Dritte übertragen. Du kannst die Standortberechtigung jederzeit über die Android-Systemeinstellungen (Einstellungen → Apps → Pfadwerk → Berechtigungen) widerrufen.</p>
+          <p>Pfadwerk erfasst deinen Standort, um deine Route aufzuzeichnen, auch dann, wenn die App im Hintergrund läuft oder der Bildschirm gesperrt ist. Außerdem werden Logbucheinträge mit den Koordinaten des Ortes versehen. Die Standortdaten werden auf deinem Gerät gespeichert, wir erhalten sie nicht.</p>
+          <p class="mt-2">Dein Gerät verlassen Standortangaben nur in diesen Fällen: durch die Android-Sicherung (5.1), beim KI-Bericht (5.4) und wenn du selbst etwas exportierst oder teilst, zum Beispiel eine GPX-Datei, einen Bericht oder ein Bild mit Ortsnamen. Wurde eine Strecke aus einer GPX-Datei übernommen, können Start- und Zielort als Koordinaten eingetragen sein.</p>
+          <p class="mt-2">Du kannst die Standortberechtigung jederzeit in den Android-Einstellungen widerrufen (Einstellungen → Apps → Pfadwerk → Berechtigungen).</p>
 
-          <p class="text-stone-400 font-medium mt-3 mb-1">5.3 Kamera und Fotos</p>
-          <p>Mit deiner Erlaubnis kann Pfadwerk auf deine Kamera und deine Fotos zugreifen, damit du Bilder zu deinen Touren hinzufügen kannst. Diese Fotos werden ebenfalls nur lokal gespeichert und nicht automatisch übertragen.</p>
+          <p class="text-stone-400 font-medium mt-3 mb-1">5.3 Kamera, Fotos und Ton</p>
+          <p>Mit deiner Erlaubnis greift Pfadwerk auf Kamera und Fotos zu, damit du Bilder zu deinen Touren hinzufügen kannst. Die Fotos werden auf deinem Gerät gespeichert und nicht automatisch übertragen (zur Android-Sicherung siehe 5.1).</p>
+          <p class="mt-2">Ab Version 4.13: Clips und Sharepics entstehen auf deinem Gerät. Eine Audiodatei für den Clip wählst du selbst aus. Merkst du sie als Standardmusik, legt Pfadwerk eine Kopie in der App an, die du dort entfernen kannst und die nicht Teil der Android-Sicherung ist. Pfadwerk nimmt keinen Ton auf.</p>
 
-          <p class="text-stone-400 font-medium mt-3 mb-1">5.4 KI-Tourenberichte (Google Gemini API)</p>
-          <p>Pfadwerk bietet als optionale Premium-Zusatzfunktion die Erstellung eines KI-gestützten Tourenberichts an. Wenn du diese Funktion aktiv nutzt, werden die von dir eingegebenen Tourdaten (z.B. Notizen, Streckenangaben) an die Google Gemini API (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) übermittelt, um daraus einen Textbericht zu generieren. Diese Übertragung erfolgt ausschließlich dann, wenn du die Funktion aktiv auslöst (Art. 6 Abs. 1 lit. a DSGVO — Einwilligung durch aktive Nutzung). Nutzt du diese Funktion nicht, werden keine Daten an Google übermittelt.</p>
-          <p class="mt-2">Deinen API-Key speicherst du dabei ausschließlich lokal auf deinem Gerät, verschlüsselt im Android Keystore — er wird niemals an uns übertragen.</p>
-          <p class="mt-2">Für die Verarbeitung durch Google gilt die Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-green-400 hover:underline">policies.google.com/privacy</a>.</p>
+          <p class="text-stone-400 font-medium mt-3 mb-1">5.4 KI-Tourenberichte mit Google Gemini</p>
+          <p>Der KI-Bericht ist eine freiwillige Zusatzfunktion. Dafür trägst du deinen eigenen API-Key ein. Erst wenn du die Erstellung auslöst, sendet die App Daten der gewählten Tour an die Google Gemini API (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland):</p>
+          <ul class="mt-2 space-y-1.5 pl-4 list-disc list-outside">
+            <li>Tourname, Datum, Tourart, deine Einträge bei Start- und Zielort</li>
+            <li>Strecke, Dauer, Schwierigkeit, Gelände, Verpflegung, Ausrüstung, Anreise, Wetter</li>
+            <li>deine Logbucheinträge (Text, Kategorie, Uhrzeit, Angabe, ob es ein Foto gibt)</li>
+            <li>den Autoren- oder Gruppennamen, falls eingetragen</li>
+            <li>die Koordinaten und Höhen der Logbucheinträge sowie die Höhenmeter der Tour (Auf- und Abstieg), wenn der Haken für die GPS-Koordinaten gesetzt ist (voreingestellt). Er heißt je nach Version „GPS-Koordinaten im Berichtstext anzeigen“ oder „GPS-Koordinaten in den Bericht aufnehmen (beim KI-Bericht: Versand an Google)“. Ohne Haken werden diese Angaben nicht gesendet.</li>
+          </ul>
+          <p class="mt-2">Deine Einträge bei Start- und Zielort gehen immer mit, so wie sie in den Feldern stehen, auch ohne Haken und auch dann, wenn es Koordinaten sind. Fotos und die aufgezeichnete Route werden nicht gesendet.</p>
+          <p class="mt-2">Rechtsgrundlage ist deine Einwilligung durch das aktive Auslösen (Art. 6 Abs. 1 lit. a DSGVO). Für die Verarbeitung durch Google gelten dessen Bedingungen zur Gemini API und die Datenschutzerklärung unter <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-green-400 hover:underline">policies.google.com/privacy</a>.</p>
+          <p class="mt-2">Deinen API-Key speichert Pfadwerk verschlüsselt auf deinem Gerät. Er wird bei jeder Anfrage an Google gesendet, aber nie an uns.</p>
 
           <p class="text-stone-400 font-medium mt-3 mb-1">5.5 Keine Werbung, kein Tracking</p>
-          <p>Pfadwerk enthält keine Werbe-SDKs, keine Analyse- oder Tracking-Software und sendet keine Nutzungsstatistiken an uns oder Dritte.</p>
+          <p>Pfadwerk enthält keine Werbe-SDKs und keine Analyse- oder Tracking-Software und sendet keine Nutzungsstatistiken an uns.</p>
+          <p class="mt-2">Exportierte HTML-Berichte laden beim Öffnen mit Internetverbindung Schriften von Google; dabei erhält Google die IP-Adresse der Person, die den Bericht öffnet.</p>
 
           <p class="text-stone-400 font-medium mt-3 mb-1">5.6 Benötigte Berechtigungen (Übersicht)</p>
           <ul class="mt-2 space-y-1.5 pl-4 list-disc list-outside">
-            <li><strong>Standort (auch Hintergrund):</strong> Aufzeichnung der Wanderroute</li>
+            <li><strong>Standort (auch im Hintergrund):</strong> Aufzeichnung der Route, Verortung der Einträge</li>
             <li><strong>Kamera / Fotos:</strong> Fotos zu Touren hinzufügen</li>
-            <li><strong>Internet:</strong> nur für die optionale KI-Berichtsfunktion (Gemini API)</li>
-            <li><strong>Benachrichtigungen:</strong> Hinweise während laufender Tour-Aufzeichnung</li>
+            <li><strong>Internet:</strong> nur für den optionalen KI-Bericht (Gemini API)</li>
+            <li><strong>Benachrichtigungen:</strong> Hinweise während der Tour-Aufzeichnung</li>
+            <li><strong>Technische Hilfsrechte:</strong> Vibration, Wachhalten während der Aufzeichnung, Netzstatus, Wiederherstellen geplanter Benachrichtigungen nach einem Neustart</li>
           </ul>
         </section>
 
