@@ -201,7 +201,7 @@ Eingeben in der App unter **Einstellungen → Premium → Freischalt-Code**. Der
 ![Premium Einstellungen](../../assets/images/pfadwerk/Abb13.jpg)
 *Abb. 14: Premium Features in den Einstellungen.*
 
-- KI-Wanderbericht mit Gemini (eigener kostenloser Schlüssel, braucht Internet)
+- KI-Wanderbericht mit Gemini (ab 18, eigener API-Key mit Abrechnungskonto bei Google, braucht Internet)
 - HTML-Blogbeitrag und PDF-Export
 - Monats-Recap: alle Touren eines Monats in einem Bericht
 - Titelbild für jede Tour frei wählbar
@@ -215,12 +215,23 @@ Ohne Code nutzbar sind unter anderem Statistik-Dashboard, Jahresziele, Datensich
 
 ### KI-Reisebericht
 
-Die bemerkenswerteste Premium-Funktion: Pfadwerk kann aus den erfassten Daten mit Hilfe von Gemini einen vollständigen, lesbaren Wanderbericht generieren. Kein Copy-Paste, kein Nachbearbeiten — einfach tippen und lesen. Ab Version 4.13.3 ist jeder so erzeugte Text als KI-erstellt gekennzeichnet, auch beim Kopieren und Exportieren. Dafür braucht es einen eigenen, kostenlosen Google-Schlüssel (Google AI Studio) und eine Internetverbindung. Die Tourdaten und Logbuchtexte gehen dabei — ohne Fotos — an Google, mehr dazu in der [Datenschutzerklärung](index.html#datenschutz).
+Die bemerkenswerteste Premium-Funktion: Pfadwerk kann aus den erfassten Daten mit Hilfe von Gemini einen vollständigen, lesbaren Wanderbericht generieren. Kein Copy-Paste, kein Nachbearbeiten — einfach tippen und lesen. Ab Version 4.13.3 ist jeder so erzeugte Text als KI-erstellt gekennzeichnet, auch beim Kopieren und Exportieren. Dafür braucht es einen eigenen API-Schlüssel aus Google AI Studio und eine Internetverbindung. Laut Googles Bedingungen ist für Nutzer im Europäischen Wirtschaftsraum, in der Schweiz und in Großbritannien ein Google-Cloud-Projekt mit aktivem Abrechnungskonto erforderlich. Dabei können Kosten entstehen. Mehr dazu in den Fragen unten. Die Tourdaten und Logbuchtexte gehen dabei — ohne Fotos — an Google, mehr dazu in der [Datenschutzerklärung](index.html#datenschutz).
 
 Der KI-Bericht landet direkt im HTML-Export und kann sofort auf einer Website veröffentlicht werden.
 
 ![KI Wanderbericht](../../assets/images/pfadwerk/Abb14.jpg)
 *Abb. 15: Ein von Gemini erstellter Reisebericht.*
+
+### Fragen zum KI-Bericht
+
+**Kostet der KI-Bericht etwas?**
+Pfadwerk verlangt dafür nichts. Den API-Schlüssel vergibt Google. Laut Googles Bedingungen ist für Nutzer im Europäischen Wirtschaftsraum, in der Schweiz und in Großbritannien ein Google-Cloud-Projekt mit aktivem Abrechnungskonto erforderlich. Dabei können Kosten entstehen.
+
+**Für wen ist die Gemini API gedacht?**
+Google richtet sie an Entwickler und berufliche Zwecke, nicht an Verbraucher, und verlangt ein Mindestalter von 18 Jahren. Lies die [Bedingungen](https://ai.google.dev/gemini-api/terms), bevor du einen Schlüssel anlegst. Du schließt sie selbst mit Google ab.
+
+**Geht es auch ohne Schlüssel?**
+Ja. Die Berichte im Modus "Template" entstehen ohne KI und ohne Internet. Im KI-Modus ohne Schlüssel erstellt Pfadwerk außerdem eine Textvorlage mit deinen Tourdaten, die du selbst in einen KI-Dienst deiner Wahl einfügen kannst. Dann gelten dessen Bedingungen.
 
 ## 7. Komfort-Funktionen
 
