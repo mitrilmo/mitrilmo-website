@@ -12,7 +12,7 @@ import { createHash } from 'node:crypto';
 // und im CHANGELOG vermerken.
 const PINNED = {
   impressum: 'bcec1433bb0375f9d2ad56c48e7742fff61de7d38c6bbe64fe91176d744e8db2',
-  datenschutz: 'fd4358b14306fb8232515116ca1e025b1c450d8c0b630ce3adae5f251183024c',
+  datenschutz: '6479ecf67e8734c7f381ae6efd8ee811531317a1732254b3d01e6d57f7202736',
 };
 const norm = (h) => h.replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim();
 const sha = (s) => createHash('sha256').update(s).digest('hex');

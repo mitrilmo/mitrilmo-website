@@ -3,7 +3,7 @@ title: Pfadwerk
 description: Pfadwerk ist eine Android-App zum Dokumentieren von Wanderungen, Spaziergängen und Radtouren. Touren, Logbuch, GPS, Wetter, Fotos, Statistik und Berichte – die Daten bleiben standardmäßig auf dem Gerät.
 badge: 📱 App-Projekt
 subtitle: Draußen sein. Aufschreiben. Nicht vergessen.
-status: "Stand: September 2026"
+status: "Stand: November 2026"
 ---
 *Eine App. Ein Projekt. Eine kleine Liebesgeschichte mit der Natur. · Björn alias Mo, Vater von mitrilmo · 2026*
 
@@ -11,7 +11,7 @@ status: "Stand: September 2026"
 
 ## 1. Der Grundgedanke
 
-Es beginnt, wie so viele gute Ideen, mit einem kleinen Ärgernis: Man kommt von einer wunderschönen Wanderung zurück, möchte kurz festhalten, wo man war, wie das Wetter war, welche Ausrüstung gefehlt hat — und stellt fest, dass die vorhandenen Apps entweder zu viel wollen (Strava zählt Kalorien, als ob das je jemanden interessiert), zu wenig können (Notizen-Apps kennen keine Touren) oder einfach nicht so funktionieren, wie man selbst denkt.
+Es beginnt, wie so viele gute Ideen, mit einem kleinen Ärgernis: Man kommt von einer wunderschönen Wanderung zurück, möchte kurz festhalten, wo man war, wie das Wetter war, welche Ausrüstung gefehlt hat — und stellt fest, dass die vorhandenen Apps entweder zu viel wollen (Fitness-Apps zählen Kalorien, als ob das je jemanden interessiert), zu wenig können (Notizen-Apps kennen keine Touren) oder einfach nicht so funktionieren, wie man selbst denkt.
 
 Pfadwerk ist die Antwort darauf. Eine App, die genau das macht, was ein Wandertagebuch machen würde — nur eben digital, immer dabei und ohne dass man am nächsten Morgen die eigene Handschrift entziffern muss.
 
@@ -22,7 +22,8 @@ Der Name ist Programm: "Pfad" für die Wege, die man geht. "Werk" für das Handw
 Pfadwerk ist kein Fitness-Tracker. Es interessiert sich nicht dafür, wie viele Kalorien man beim Aufstieg verbrannt hat. Es gibt keine sozialen Feeds, keine Ranglisten. Stattdessen:
 
 - Touren dokumentieren — Wanderungen, Spaziergänge und Radtouren
-- Touren vorab planen und am Tourtag mit einem Tipp starten
+- Touren vorab planen, mit Packliste und Strecke, und am Tourtag mit einem Tipp starten
+- Aus den Tourfotos ein kurzes Hochformat-Video erstellen (Premium)
 - GPS-Spur aufzeichnen, ohne dass der Akku sofort kapituliert
 - Unterwegs Logbuch-Einträge schreiben, Fotos schießen, Koordinaten speichern
 - Wetter festhalten — weil man das in drei Jahren vergessen hat
@@ -40,13 +41,13 @@ Und das alles funktioniert offline, ohne Cloud-Konto, ohne monatliche Gebühren.
 ## 2. Wie es entstand — Eine ehrliche Geschichte
 
 ![Pfadwerk Anleitung Einstieg](../../assets/images/pfadwerk/Abb2.jpg)
-*Abb. 2: Pfadwerks vier Hauptbereiche.*
+*Abb. 2: Der erste Einstieg in der Anleitung.*
 
 Pfadwerk ist ein Ein-Personen-Projekt, entstanden in Zusammenarbeit mit einer KI. Das klingt zunächst weniger romantisch als "ich habe das in einer Garage alleine gebaut" — ist aber die ehrlichste Beschreibung dessen, was hier passiert ist.
 
 Die App wurde in mehreren Entwicklungs-Blöcken aufgebaut und anschließend in mehreren Feldtests auf echten Wanderungen erprobt. Die dabei gefundenen Fehler wurden akribisch protokolliert und behoben — was erklärt, warum die App in Version 4.9.53 angekommen ist, bevor sie am 22.07.2026 im Store erschien.
 
-Seitdem geht es weiter: Eigene Touren, Rückmeldungen und neue Ideen führen zu Korrekturen und neuen Funktionen. Aktuell ist die App bei Version 4.9.80.
+Seitdem geht es weiter: Eigene Touren, Rückmeldungen und neue Ideen führen zu Korrekturen und neuen Funktionen. Aktuell ist die App bei Version 4.13.3.
 
 ### Die Entwicklungs-Blöcke
 
@@ -61,7 +62,7 @@ Die App entstand in klar strukturierten Phasen:
 Pfadwerk wurde in mehreren Runden ausgiebig im echten Einsatz getestet. Jede Runde brachte neue Erkenntnisse — und neue Commits.
 
 ![Pfadwerk Die 3 Bereiche](../../assets/images/pfadwerk/Abb3.jpg)
-*Abb. 3: Die untere Navigationsleiste.*
+*Abb. 3: Die drei Bereiche der App.*
 
 ### Datenspeicherung — Lokal und sicher
 
@@ -83,7 +84,7 @@ Das Ergebnis: Eine App, die sich nativ anfühlt, schnell ist und keinen Server b
 - **Plattform:** Android (nativ)
 - **Datenspeicherung:** Lokal, KI optional online
 - **GPS:** Hintergrund-Tracking
-- **Version:** v4.9.80
+- **Version:** v4.13.3
 
 ## 4. Die Funktionen im Detail
 
@@ -138,9 +139,12 @@ Fotos lassen sich direkt aus der App heraus schießen oder aus der Galerie impor
 ![Foto mit Pfadwerk-Wasserzeichen](../../assets/images/pfadwerk/Abb10.jpg)
 *Abb. 10: Das Pfadwerk-Logo als Wasserzeichen auf Fotos.*
 
+![Foto mit Notiz teilen](../../assets/images/pfadwerk/Abb16.jpg)
+*Abb. 11: „Mit Notiz teilen“ mit Vorschau.*
+
 ### 4.8 Touren vorab planen
 
-Eine Route ist schon im Kopf oder in einer anderen App geplant? Dann lässt sich die Tour vorab erfassen — mit Name, Start und Ziel, Datum, Anreise, Ausrüstung und Tipps, ganz ohne GPS-Start. Die Übersicht zeigt alle geplanten Touren, sie lassen sich bearbeiten oder löschen. Am Tourtag genügt ein Tipp auf „Starten“: Die Angaben sind übernommen, und die GPS-Aufzeichnung beginnt.
+Eine Route ist schon im Kopf oder in einer anderen App geplant? Dann lässt sich die Tour vorab erfassen — mit Name, Start und Ziel, Datum, Anreise, Ausrüstung und Tipps, ganz ohne GPS-Start. Die Übersicht zeigt alle geplanten Touren, sie lassen sich bearbeiten oder löschen. Dazu kommen eine Packliste je Tourart zum Abhaken und die Eckdaten der Strecke, von Hand eingetragen oder aus einer GPX-Datei gelesen. Am Tourtag genügt ein Tipp auf „Starten“: Die Angaben sind übernommen, und die GPS-Aufzeichnung beginnt.
 
 ### 4.9 Statistik und Jahresziele
 
@@ -151,7 +155,7 @@ Das Statistik-Dashboard zeigt Gesamtkilometer, Anzahl der Touren, die häufigste
 Am Ende einer Tour, wenn man wieder zuhause ist und die Wanderschuhe in der Ecke stehen, fängt der zweite Teil von Pfadwerk an: die Dokumentation.
 
 ![Berichte Tab](../../assets/images/pfadwerk/Abb11.jpg)
-*Abb. 11: Berichte Tab (Template / KI).*
+*Abb. 12: Berichte Tab (Template / KI).*
 
 ### 5.1 Automatisch generierte Berichte
 
@@ -159,26 +163,32 @@ Pfadwerk erstellt aus den erfassten Daten automatisch Berichte in drei Varianten
 
 - **Langer Bericht:** Vollständige Dokumentation aller Daten
 - **Kurzer Bericht:** Kompakter Überblick, ideal zum Teilen
-- **Social-Media-Post:** Fertig formuliert für Instagram & Co.
+- **Social-Media-Post:** Fertig formuliert für soziale Netzwerke
 
 ### 5.2 Exporte
 
 - **HTML-Export (Premium):** Vollständiger Blog-Beitrag als HTML-Datei — mit Fotos, GPS-Daten und formatiertem Text
-- **GPX-Export:** GPS-Spur im Standardformat für Navi-Apps und Komoot
+- **GPX-Export:** GPS-Spur im Standardformat für Navi- und Routenplanungs-Apps
 - **TXT-Export:** Alle Daten als einfache Textdatei
 - **PDF-Export (Premium):** Fertig formatierter Bericht zum Ausdrucken oder Weitergeben — mit den Fotos neben dem Text in zwei Spalten
-- **Sharepic (Premium):** Bild mit Routen-Silhouette und den wichtigsten Zahlen einer Tour, zum Teilen
+- **Sharepic (Premium):** Bild mit Routen-Silhouette, Start- und Zielort und den wichtigsten Zahlen einer Tour, in 4:5 oder im Hochformat 9:16
+- **Clip (Premium):** Hochformat-Video aus den Fotos einer abgeschlossenen Tour, siehe unten
+- **Für Website (Premium):** eine Tour mit Daten, Strecke und Titelbild als ZIP-Datei
 
-![Export Dialog](../../assets/images/pfadwerk/Abb12.jpg)
-*Abb. 12: GPX-, HTML- und TXT-Export.*
+![Dialog „Tour exportieren & teilen“](../../assets/images/pfadwerk/Abb12.jpg)
+*Abb. 13: Tour exportieren und teilen.*
 
-### 5.3 Datensicherung
+### 5.3 Clip aus Tourfotos
+
+Aus den Fotos einer abgeschlossenen Tour entsteht auf dem Gerät ein Video im Hochformat, 15 bis 45 Sekunden lang: Startkarte mit Tourname, die ausgewählten Fotos, bei aufgezeichneter Strecke das Sharepic und eine Endkarte. Als Ton wählst du eine eigene Audiodatei, etwa Musik oder einen Kommentar, den du vorher aufgenommen hast, oder du lässt den Clip stumm. Ein Lieblingsstück kannst du als Standardmusik merken; dann richtet sich die Länge nach den Fotos, und die Musik wird ausgeblendet. Verwende nur Audio, das du teilen darfst. Der Clip ist als Rohmaterial für einen Videoeditor gedacht.
+
+### 5.4 Datensicherung
 
 Verlassen sollte man sich auf die eigene Datensicherung von Pfadwerk. Sie wird von Hand angestoßen. Android kann je nach Geräteeinstellung zusätzlich sichern, aber nur bis 25 MB je App in der Cloud, und das reicht bei vielen Fotos nicht.
 
 In den Einstellungen lassen sich alle Touren und Logbucheinträge als Datei sichern. Die Fotos werden getrennt gesichert, auf Wunsch monatsweise, damit die Dateien handlich bleiben. Sie enthalten kein Logo und sind so, wie sie in der App gespeichert sind — für alle Nutzer, auch ohne Premium.
 
-Beim Zurückspielen ergänzt Pfadwerk vorhandene Touren, statt sie zu überschreiben oder doppelt anzulegen; die Fotos werden danach aus der Fotosicherung wiederhergestellt. Geplante Touren und Einstellungen sind nicht Teil der Sicherung.
+Beim Zurückspielen ergänzt Pfadwerk vorhandene Touren, statt sie zu überschreiben oder doppelt anzulegen; die Fotos werden danach aus der Fotosicherung wiederhergestellt. Ab Version 4.13 gehören geplante Touren mit zur Sicherung, Einstellungen und Vorlagen nicht.
 
 ## 6. Premium-Funktionen
 
@@ -189,26 +199,28 @@ Pfadwerk ist kostenlos, und die Premium-Funktionen sind für alle offen: Der Fre
 Eingeben in der App unter **Einstellungen → Premium → Freischalt-Code**. Der Code gilt für den laufenden Monat (mit ein paar Tagen Kulanz), danach sperrt die App die Premium-Funktionen wieder — dann den neuen Code eingeben, der am Monatsersten hier steht. Groß- und Kleinschreibung sowie Bindestriche sind egal.
 
 ![Premium Einstellungen](../../assets/images/pfadwerk/Abb13.jpg)
-*Abb. 13: Premium Features in den Einstellungen.*
+*Abb. 14: Premium Features in den Einstellungen.*
 
 - KI-Wanderbericht mit Gemini (eigener kostenloser Schlüssel, braucht Internet)
 - HTML-Blogbeitrag und PDF-Export
 - Monats-Recap: alle Touren eines Monats in einem Bericht
 - Titelbild für jede Tour frei wählbar
 - Fotos einer Tour als ZIP exportieren
-- Sharepic zu jeder Tour mit Routen-Silhouette
+- Sharepic zu jeder Tour mit Routen-Silhouette, auch im Hochformat
+- Clip aus den Tourfotos mit eigener Musik oder eigenem Sprachkommentar
+- Export „Für Website“ als ZIP-Datei
 - Wasserzeichen beim Teilen von Fotos abschaltbar
 
 Ohne Code nutzbar sind unter anderem Statistik-Dashboard, Jahresziele, Datensicherung und „Mit Notiz teilen“.
 
 ### KI-Reisebericht
 
-Die bemerkenswerteste Premium-Funktion: Pfadwerk kann aus den erfassten Daten mit Hilfe von Gemini einen vollständigen, lesbaren Wanderbericht generieren. Kein Copy-Paste, kein Nachbearbeiten — einfach tippen und lesen. Dafür braucht es einen eigenen, kostenlosen Google-Schlüssel (Google AI Studio) und eine Internetverbindung. Die Tourdaten und Logbuchtexte gehen dabei — ohne Fotos — an Google, mehr dazu in der [Datenschutzerklärung](index.html#datenschutz).
+Die bemerkenswerteste Premium-Funktion: Pfadwerk kann aus den erfassten Daten mit Hilfe von Gemini einen vollständigen, lesbaren Wanderbericht generieren. Kein Copy-Paste, kein Nachbearbeiten — einfach tippen und lesen. Ab Version 4.13.3 ist jeder so erzeugte Text als KI-erstellt gekennzeichnet, auch beim Kopieren und Exportieren. Dafür braucht es einen eigenen, kostenlosen Google-Schlüssel (Google AI Studio) und eine Internetverbindung. Die Tourdaten und Logbuchtexte gehen dabei — ohne Fotos — an Google, mehr dazu in der [Datenschutzerklärung](index.html#datenschutz).
 
 Der KI-Bericht landet direkt im HTML-Export und kann sofort auf einer Website veröffentlicht werden.
 
 ![KI Wanderbericht](../../assets/images/pfadwerk/Abb14.jpg)
-*Abb. 14: Ein von Gemini erstellter Reisebericht.*
+*Abb. 15: Ein von Gemini erstellter Reisebericht.*
 
 ## 7. Komfort-Funktionen
 
@@ -220,12 +232,15 @@ Für alle, die eine etwas größere Schrift bevorzugen: Pfadwerk bietet einen Ea
 
 Eine eingebaute Hilfe-Sektion erklärt die wichtigsten Funktionen mit kurzen, praxisnahen Tipps. Direkt in der App, ohne externe Links.
 
+![Tipps und Tricks](../../assets/images/pfadwerk/Abb15.jpg)
+*Abb. 16: Tipps & Tricks in der App.*
+
 ### 7.3 Pfadwerk weiterempfehlen
 
 In den Einstellungen zeigt ein QR-Code den Store-Eintrag der App — praktisch, um Pfadwerk unterwegs direkt jemandem zu zeigen.
 
-![Tipps und Tricks](../../assets/images/pfadwerk/Abb15.jpg)
-*Abb. 15: Tipps & Tricks in der App.*
+![QR-Code zum Weiterempfehlen](../../assets/images/pfadwerk/Abb17.jpg)
+*Abb. 17: Der QR-Code führt zum Store-Eintrag.*
 
 ## 8. Ausblick
 
@@ -241,7 +256,7 @@ Parallel dazu reifen bereits weitere Ideen in der "Werk"-Familie. Vielleicht wir
 
 **Aktueller Stand**
 
-- **Version:** v4.9.80 — laufend weiterentwickelt, mehrfach feldgetestet
+- **Version:** v4.13.3 — laufend weiterentwickelt, mehrfach feldgetestet
 - **Status:** Seit 22.07.2026 im Google Play Store
 - **Entstanden:** Als Ein-Personen-Projekt mit KI-Unterstützung
 - **Plattform:** Android (kein iOS)
